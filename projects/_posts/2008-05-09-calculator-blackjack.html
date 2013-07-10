@@ -1,0 +1,153 @@
+---
+description: My very first non-trivial program!
+h1: Calculator Blackjack
+layout: default
+pagetitle: Calculator Blackjack
+secret: true
+---
+Here's the very first non-trivial program I ever wrote.
+<pre>
+::
+:ClrDraw
+:PlotsOff
+:FnOff
+:AxesOff
+:ClrHome
+:Disp "BLACKJACK 1.0","By Art Chaidarun
+:Pause "5/9/08
+:ClrHome
+:ClrDraw
+:Input "PLAYER'S NAME?  ",Str1
+:Menu("PICK A LEVEL","EASY",31,"EASIER",32,"PATHETIC",33
+:Lbl 31
+:13&rarr;V
+:Goto 7
+:Lbl 32
+:12&rarr;V
+:Goto 7
+:Lbl 33
+:11&rarr;V
+:Goto 7
+:Lbl 7
+:(2V-16)&lt;sup&gt;2&lt;/sup&gt;&rarr;M
+:ClrHome
+:Disp "MONEY:
+:Pause M
+:Lbl 8
+:ClrHome
+:DelVar ADelVar RDelVar TDelVar GWhile G&lt;V
+:G+randInt(2,10&rarr;G
+:End
+:Input "BET:",B
+:abs(int(B)&rarr;B
+:If B&gt;M
+:Then
+:M&rarr;B:Disp "TOO HIGH, BET:":Pause B
+:End
+:DelVar DClrHome
+:Lbl 4
+:R+1&rarr;R:Menu(Str1,"HIT",1,"STAND",2,"DOUBLE DOWN",3,"EXIT",0
+:Lbl 1
+:randInt(1,13&rarr;C
+:If C=1
+:Then
+:A+1&rarr;A
+:Pause "               A"
+:End
+:If C=11
+:Then
+:Pause "               J"
+:End
+:If C=12
+:Then
+:Pause "               Q"
+:End
+:If C=13
+:Then
+:Pause "               K"
+:End
+:If C&le;10 and C&ne;1
+:Then
+:Pause C
+:End
+:If C&gt;10
+:Then
+:10&rarr;C
+:End
+:If C=1
+:Then
+:11&rarr;C
+:End
+:C+T&rarr;T
+:If D=1
+:Then
+:Disp "YOUR NEW BET IS:":Pause B:Goto 2
+:End
+:If T&lt;21
+:Then
+:Goto 4
+:End
+:If T&gt;21 and A&gt;0
+:Then
+:A-1&rarr;A
+:T-10&rarr;T
+:Text(28,6,"THE ACE'S VALUE  IS NOW 1."
+:Pause
+:ClrDraw
+:Goto 4
+:Else
+:Goto 2
+:End
+:Lbl 3
+:1&rarr;D:2*B&rarr;B:Goto 1
+:Lbl 2
+:Disp "YOU GOT":If A&ne;0 and T&gt;21:Then:Disp T-10:Else:Disp T:End
+:Disp "CALC GOT":Pause G
+:If (T&lt;21 and (T&gt;G xor G&gt;21)) xor (T=21 and G&ne;21 and R&gt;2
+:Then
+:M+B&rarr;M:Pause "YOU WIN. TOTAL:"
+:End
+:If T=21 and G&ne;21 and R=2
+:Then
+:M+3B/2&rarr;M:Pause "BLACKJACK! TOTAL"
+:End
+:If T&le;21 and T=G
+:Then
+:Pause "PUSH. TOTAL:"
+:End
+:If T&gt;21 and A=0
+:Then
+:M-B&rarr;M:Pause "BUST. TOTAL:"
+:End
+:If T&lt;G and G&le;21
+:Then
+:M-B&rarr;M:Pause "YOU LOSE. TOTAL:"
+:End
+:Pause M
+:0&rarr;A
+:Lbl 9
+:If M&le;0
+:Then
+:Text(29,13,"BANKRUPT. GAME OVER."
+:Pause
+:Menu("NEW GAME?","SAME PLAYER",7,"NEW PLAYER",15,"EXIT",0
+:End
+:Menu("KEEP PLAYING?","YES",8,"NO",0,"HIGH SCORE",10
+:Lbl 15
+:prgmBLKJKB1
+:Lbl 10
+:ClrHome
+:Disp Str0
+:Pause &theta;
+:ClrHome
+:Goto 9
+:Lbl 0
+:ClrHome
+:If M&gt;&theta;
+:Then
+:Disp "NEW HIGH SCORE!":M&rarr;&theta;:Str1&rarr;Str0:Pause &theta;
+:End
+:ClrHome:ClrDraw:AxesOn
+:FnOn
+:"
+</pre>

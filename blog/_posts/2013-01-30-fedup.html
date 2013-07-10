@@ -1,0 +1,29 @@
+---
+h1: Cleaning Up After FedUp
+layout: post
+pagetitle: Cleaning Up After FedUp
+tags: ["linux"]
+---
+<p>Last night I tried upgrading from Fedora 17 to Fedora 18 using the official <a href="https://fedoraproject.org/wiki/FedUp#How_Can_I_Upgrade_My_System_with_FedUp.3F">FedUp</a> tool.</p>
+<p>The process took a couple hours and seemed to be going as planned until the final reboot step. After logging in, I was greeted by several issues that were admittedly somewhat trivial to solve but an annoyance nonetheless. Here are the quick and dirty fixes I used.</p>
+
+<h2>XFCE died!</h2>
+<ul><li>Probably the most alarming problem of the bunch. Window controls were missing, menus wouldn't open, and clicks would pass straight through overlapping windows. To add insult to injury, all of the Settings Manager settings <em>except</em> those related to window management could be accessed.</li><li>The file libxfce4util.so got replaced by a newer version with a different filename, so XFCE doesn't know where to find it anymore. (If you've used Windows before, you can think of SO files as the Linux version of DLLs.) Although I'm fairly sure there are more future-proof ways around this, symlinking to the new version easily did the trick: <code>ln -s /usr/lib64/libxfce4util.so /usr/lib64/libxfce4util.so.4</code></li><li>If you couldn't get this far with XFCE's window manager down, try opening a terminal and running <code>sudo xfwm4</code>. (I was fortunately able to do this because I had mapped a keyboard shortcut to open terminal windows beforehand.) That should bring back functionality long enough to implement the more permanent solution above.</li><li>Your libxfce4util.so file may not be in /usr/lib64. In that case, run <code>cd /; locate libxfce4util.so</code> to find it.</li></ul>
+
+<h2>Fedora immediately suspends again after waking!</h2>
+<ul><li><a href="http://permalink.gmane.org/gmane.linux.redhat.fedora.general/423527">This</a> worked for me (after rebooting).</li></ul>
+
+<h2>Google Chrome won't open!</h2>
+<ul><li>As with libxfce4util.so, the file libudev.so got updated with a new filename. I ran: <code>ln -s /usr/lib64/libudev.so.1 /usr/lib64/libudev.so.0</code></li><li>Funnily enough, I was still able to open Chromium before applying this fix.</li></ul>
+
+<h2>Cut/copy/paste lags in Sublime Text!</h2>
+<ul><li>I'm not sure if this is a Sublime-only problem, but it has recently been very widely reported among 64-bit XFCE users. Solved by removing the clipman taskbar applet.</li></ul>
+
+<h2>Apache died!</h2>
+<ul><li><a href="http://www.yodi.sg/fix-httpd-apache-wont-start-problem-in-fedora-18/">This</a> worked for me.</li></ul>
+
+<h2>VMware Workstation can't find kernel headers!</h2>
+<ul><li><a href="https://ask.fedoraproject.org/question/3485/vmware-player-f18-kernel-headers?answer=4993#answer-container-4993">This</a> worked for me. I used the more general version: <code>sudo cp /usr/include/linux/version.h /lib/modules/$(uname -r)/build/include/linux</code></li></ul>
+
+<h2>My taskbar doesn't horizontally stretch anymore!</h2>
+<ul><li>This is controlled by an option that's "set-and-forget" in the literal sense. Separator items' properties include an Expand checkbox option that I had forgotten about, but which FedUp decided to unset for some reason.</li></ul>

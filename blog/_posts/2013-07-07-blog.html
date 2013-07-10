@@ -1,0 +1,48 @@
+---
+description: A technical blog of my solutions to ridiculously niche software woes.
+layout: default
+pagetitle: Blog
+---
+<h2>Most Recent</h2>
+<table>
+  <tbody>
+{% for post in site.posts %}
+  {% if post.layout == "post" %}
+    <tr><td>{{ post.date | date: "%b %d, %Y" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
+  {% endif %}
+{% endfor %}
+  </tbody>
+</table>
+
+<h2>Tags</h2>
+<p>
+{% for tag in site.tags %}
+  <span class="tag">{{ tag | first }}</span>
+{% endfor %}
+</p>
+
+{% for tag in site.tags %}
+  {% capture posts %}{{ tag | first }}{% endcapture %}
+<div data-tag="{{ tag | first }}" style="display: none">
+  <table>
+    <tbody>
+    {% for post in tag[1] %}
+      <tr><td>{{ post.date | date: "%b %d, %Y" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endfor %}
+
+<script type="text/javascript">
+var lastTag = "";
+$(".tag").hover(function() {
+  if (this.innerHTML != lastTag) {
+    $(".tag").removeClass("activetag");
+    $("div[data-tag='" + lastTag + "']").slideUp("fast");
+  }
+  lastTag = this.innerHTML;
+  $(this).addClass("activetag");
+  $("div[data-tag='" + this.innerHTML + "']").slideDown("fast");
+});
+</script>

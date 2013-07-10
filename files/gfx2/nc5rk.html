@@ -1,0 +1,305 @@
+---
+---
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment 2 Writeup</title>
+  <style type="text/css">
+  body {
+    font-family: "Times New Roman", Times, serif;
+    margin: 0 auto 15px;
+    width: 960px;
+  }
+  table {
+    border-spacing: 0;
+    border-collapse: collapse;
+  }
+  td {
+    padding: 5px 0 0 10px;
+    vertical-align: top;
+  }
+  td:first-child {
+    background: #ddd;
+    font-weight: bold;
+    min-width: 115px;
+  }
+  img {
+    border: 1px solid #000;
+    margin: 3px;
+  }
+  .green td:nth-child(2), .green span { /* (No affiliation with the Fed) */
+    color: #080;
+    font-weight: bold;
+  }
+  .yellow td:nth-child(2), .yellow span {
+    color: #b90;
+    font-weight: bold;
+  }
+  .red td:nth-child(2), .red span {
+    color: #a00;
+    font-weight: bold;
+  }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td colspan="2">Nachapon (Art) Chaidarun</td>
+    </tr>
+    <tr>
+      <td>Computing ID</td>
+      <td colspan="2">nc5rk</td>
+    </tr>
+    <tr>
+      <td>Assignment</td>
+      <td colspan="2">CS 4810 Assignment 2, due October 31, 2012</td>
+    </tr>
+    <tr>
+      <td>Environment</td>
+      <td colspan="2">g++, Sublime Text, Fedora 17 (64-bit)</td>
+    </tr>
+    <tr>
+      <td>Commands</td>
+      <td colspan="2">make; ./results.sh; python monticello.py</td>
+    </tr>
+    <tr>
+      <td>Late days used</td>
+      <td colspan="2">5</td>
+    </tr>
+    <tr>
+      <td>Features</td>
+      <td colspan="2">Green features are fully implemented; yellow features are partially implemented; red features are unimplemented. Due to the slowness of jittered supersampling, it was implemented only as a proof-of-concept and turned off for the generation of all other image examples shown below.<br><img src="nc5rk_HTML/test.bmp" alt="test.bmp"><br>test.ray, 4.29 seconds</td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayScene::GetRay</span>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayGroup::intersect</span><br>First version: Local transformation and bounding volume information ignored
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RaySphere::intersect</span><br>First version: Texture coordinates ignored
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayTriangle::intersect</span><br>First version: Texture coordinates ignored
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayScene::GetColor</span><br>First version: Only ambient and emissive properties calculated
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayPointLight::getDiffuse, RaySpotLight::getDiffuse, RayDirectionalLight::getDiffuse</span>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayPointLight::getSpecular, RaySpotLight::getSpecular, RayDirectionalLight::getSpecular</span>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayPointLight::isInShadow, RaySpotLight::isInShadow, RayDirectionalLight::isInShadow</span>
+      </td>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayScene::GetColor</span><br>Second version: Diffuse and specular contributions from light sources added
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayGroup::intersect</span><br>Second version: Local transformations taken into account
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayScene::GetColor</span><br>Second version: Reflected color contributions added<br><img src="nc5rk_HTML/dog.bmp" alt="dog.bmp"><br>dog.ray, 26.30 seconds<br><img src="nc5rk_HTML/bunny.bmp" alt="bunny.bmp"><br>bunny.ray, 31.10 seconds
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayScene::GetColor</span><br>Third version: Refracted color contributions added, but refraction indices ignored
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayPointLight::transparency, RaySpotLight::transparency, RayDirectionalLight::transparency</span>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayScene::GetColor</span><br>Fourth version: Refraction indices taken into account
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(3)</td>
+      <td>
+        <span>RayShape::setBoundingBox, RayGroup::setBoundingBox, BoundingBox3D::intersect, RayGroup::intersect</span>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayGroup::intersect</span><br>Fourth version: Bounding boxes ordered and tested before shapes intersected
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>RayTriangle::intersect</span><br>Second version: Texture coordinates taken into account
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RaySphere::intersect</span><br>Second version: Texture coordinates taken into account
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>Jittered supersampling</span><br><img src="nc5rk_HTML/jitter.bmp" alt="jitter.bmp"><br>test.ray, 29.58 seconds, 8 jittered rays per pixel (note smooth edges)
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>Generate .ray with spheres, triangles, all three types of light sources, and primitive with transparent material</span><br>The scene below contains a pure red directional light, a pure blue point light, and a pure green spotlight. All other intermediate color values are derived from the combination of these three light sources.<br><img src="nc5rk_HTML/lights.bmp" alt="lights.bmp"><br>lights.ray, 38.03 seconds
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>Soft shadows</span>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayBox::intersect</span><br>Example: Walls of <a href="nc5rk_HTML/nc5rk.art.1.gif">nc5rk.art.1.gif</a>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayCylinder::intersect</span><br>Example: Columns of <a href="nc5rk_HTML/nc5rk.art.1.gif">nc5rk.art.1.gif</a>
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>RayCone::intersect</span>
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>Perlin noise</span>
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>Bump mapping</span>
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>SIGGRAPH paper procedure</span>
+      </td>
+    </tr>
+    <tr class="red">
+      <td>&nbsp;</td>
+      <td>(2)</td>
+      <td>
+        <span>Octree or BSP</span>
+      </td>
+    </tr>
+    <tr class="yellow" id="bug">
+      <td>&nbsp;</td>
+      <td>(?)</td>
+      <td>
+        <span>Impress us with something we hadn't considered...</span>
+        <p>I think I've found a problem with line 773 of the provided geometry.cpp, which deals with matrix-ray multiplication. Take the sphere from the provided test.ray for example. Translation along the y-axis by 2.5 units is specified; the inverse transpose of the sphere's transformation matrix then has a bottom row of [0, -2.5, 0, 1]. Line 773 inexplicably calculates the fourth homogeneous coordinate t by simply summing these bottom-row entries. This means that t will be positive or negative depending on whether the translation amount is less than or greater than 1, which has serious implications: any RayGroup transformed with this matrix will have correct normals on one half of an arbitrary plane and <a href="nc5rk_HTML/black.png">backwards normals</a> on the other side!</p>
+        <p>I initially discovered this effect when I tried decreasing the translation amount specified in test.ray. Half of the resultant ellipsoid appeared correct while the other half was pitch black, due to reversed normals (whose directions I manually checked with generous amounts of std::cout). I've confirmed this behavior with a classmate, Raymond Tang, who was able to <a href="nc5rk_HTML/tang.png">reproduce the anomaly</a> with his ray tracer. My workaround was to disregard the t value by altering line 774 to return q instead of q/t.</p>
+      </td>
+    </tr>
+    <tr class="green">
+      <td>Other points</td>
+      <td>(1)</td>
+      <td>
+        <span>Submitting one or more images for the art contests</span><br><img src="nc5rk_HTML/nc5rk.art.1.gif" alt="nc5rk.art.1.gif"><br>I wrote the script monticello.py to generate a 50-frame sequence with varying camera locations and directions. I used the Beier-Neeley morph feature of Assignment 1 to morph the rendered scene into the nickel and photo images. The entire animation contains 100 distinct frames, each separated by 40 milliseconds.
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(1)</td>
+      <td>
+        <span>Submitting one or more .ray files for the art contests</span><br>See <a href="javascript:alert('Link removed.')">monticello.ray</a>, which was used to create the final three-quarter portrait frame of <a href="nc5rk_HTML/nc5rk.art.1.gif">nc5rk.art.1.gif</a>.
+      </td>
+    </tr>
+    <tr class="green">
+      <td>&nbsp;</td>
+      <td>(?)</td>
+      <td>
+        <span>Trace hundreds of thousands of triangles in few minutes with recursion depth 5</span><br>The provided buddha.ray file contains 318416 triangles and was traced in 113.64 seconds with recursion depth 5:<br><img src="nc5rk_HTML/buddha.bmp" alt="buddha.bmp">
+      </td>
+    </tr>
+    <tr>
+      <td>And finally...</td>
+      <td colspan="2"><a href="nc5rk_HTML/dropbox.png">For your viewing pleasure</a></td>
+    </tr>
+  </table>
+</body>
+</html>

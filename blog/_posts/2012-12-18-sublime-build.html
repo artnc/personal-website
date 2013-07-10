@@ -1,0 +1,23 @@
+---
+description: Custom build systems for LaTeX and SASS.
+h1: Sublime Text 2 Build Systems
+layout: post
+pagetitle: Sublime Text Build Systems
+---
+<p>Pretty much what it says on the tin. Open <a href="http://www.sublimetext.com/2">Sublime</a> and go to Tools > Build Systems > New Build System, paste in the code, and save under whatever name you want. You'll then be able to save and compile these special filetypes by just hitting F7. I'm using Linux, so you may need to replace a few of the Bash commands with their Batch equivalents if you're on Windows.</p>
+
+<h2>LaTeX</h2>
+<p>This compiles LaTeX source, creates/updates a PDF with the same filename, and deletes the intermediate files. Requires LaTeX and pdflatex to be installed already.</p>
+<pre>{
+  "cmd": ["pdflatex --file-line-error-style '$file_name'; rm -f '$file_base_name.log' '$file_base_name.aux' '$file_base_name.out'"],
+  "selector": "text.tex.latex",
+  "shell": true
+}</pre>
+
+<h2>SASS</h2>
+<p>Requires Ruby, SASS, Sublime Text <a href="http://wbond.net/sublime_packages/package_control">Package Control</a>, and Nathan Henderson's <a href="https://github.com/nathos/sass-textmate-bundle">SASS plugin</a>... although you probably have all those already if you've been using Sublime for SASS.</p>
+<pre>{
+  "cmd": ["sass --style compressed '$file_name' '$file_base_name.css'"],
+  "selector": "source.sass",
+  "shell": true
+}</pre>

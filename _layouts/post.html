@@ -1,0 +1,5 @@
+---
+layout: default
+---
+{{ content }}
+<p class="post-info">{{ page.tags | join: ', ' }}{% if page.tags != empty %} | {% endif %}{{ page.date | date: "%b %d, %Y" }}</p>

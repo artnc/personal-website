@@ -1,0 +1,51 @@
+---
+description: Bio, resume, and contact info.
+layout: default
+pagetitle: About
+---
+<h2>Bio</h2>
+<img src="/img/about.png" class="right" alt="Photo from high school graduation">
+<p>I'm a 19-year-old Echols Scholar at the University of Virginia, double majoring in computer science and mathematics with plans to graduate in December 2013. In my free time I play piano, do web development for fun and profit, and march sousaphone in the UVa band.</p>
+<p>So far I've lived in eight cities spanning four American states and three countries, making "Where are you from?" particularly difficult to answer. My current home address is in Hanover, New Hampshire.</p>
+<h2>Resume</h2>
+<p>Here's my <a id="resumelink" target="_blank" href="/files/ArtChaidarun-WebResume.pdf">public resume</a> as a PDF. My paper resume has address/phone/email information; this version doesn't.</p>
+<h2>Contact</h2>
+{% comment %}<p>Feel free to shoot me a message at <code>lastname@virginia.edu</code></p>{% endcomment %}
+<p>Shoot me a message <span id="message">via <a href="#">email</a></span>.</p>
+<script type="text/javascript">
+(function() {
+  function locate(access) {
+    $.getJSON("http://smart-ip.net/geoip-json?callback=?",
+      function(geo){
+        $.post('/php/form-handler.php', {case: 'locate', geo: JSON.stringify(geo), type: access});
+      }
+    );
+  }
+  var shown = false;
+  function showEmail() {
+    if (!shown) {
+      shown = true;
+      $("#message").append(". Please wait..");
+      $.post('/php/form-handler.php', {case: 'email', key: 1779550967},
+        function(data) {
+          $("#message").html(data);
+        }
+      );
+    }
+  }
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+    showEmail();
+  } else {
+    $("#message a[href='#']").click(function(e){
+      e.preventDefault();
+      showEmail();
+    });
+    $(document).mousemove(function(e){
+      showEmail();
+    });
+  }
+  $("#resumelink").click(function(e){
+    locate('resume');
+  });
+}());
+</script>

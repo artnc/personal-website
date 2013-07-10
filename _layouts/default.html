@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  {% if page.description != null %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <meta name="author" content="Art Chaidarun">
+  <title>{% if page.pagetitle != null %}{{ page.pagetitle }} | {% endif %}Art Chaidarun</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  {% if page.headcss != null %}{{ page.headcss }}{% endif %}
+  <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+  <script type="text/javascript" src={% if page.url == "/index.html" %}"/js/jquery.tipsy.js"{% else %}"/js/lightbox.js"{% endif %}></script>
+  {% if page.headjs != null %}{{ page.headjs }}{% endif %}
+  {% include ga.html %}
+</head>
+<body id="top">
+<div id="topline"></div>
+<div id="wrap" class="centered">
+  <div id="header">
+    <a id="icosahedron" href="/"><img src="/img/icogreen.png" alt="Art Chaidarun"></a>
+    <a id="logo" href="/"><strong>Art</strong>Chaidarun</a>
+    <div class="right">
+      <ul>
+        <li{% if page.categories contains "projects" %} class="active"{% endif %}><a href="/projects">Projects</a></li>
+        <li{% if page.categories contains "blog" %} class="active"{% endif %}><a href="/blog">Blog</a></li>
+        <li{% if page.categories contains "about" %} class="active"{% endif %}><a href="/about">About</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="content">
+    {% if page.h1 != null %}<h1>{{ page.h1 }}</h1>{% endif %}
+    {{ content }}
+  </div>
+  <div id="footer">
+    <p>&copy; 2013 Art Chaidarun |<a href="https://www.facebook.com/artnc" title="facebook">f</a><a href="http://www.linkedin.com/in/artnc/" title="linkedin">in</a><a href="https://plus.google.com/117410706532450381491?rel=author" title="plus">+</a><a href="https://github.com/artnc" title="github">g</a><a href="javascript:alert('nc5rk')" title="id">UVa</a></p>
+  </div>
+</div>
+<script type="text/javascript">
+var direction = 360;
+var rotation;
+$("#icosahedron img").on('mouseenter', function(){
+  direction = -direction;
+  this.style.textIndent = "0px";
+  $(this).animate({textIndent: direction}, {
+    step: function(now, fx){
+      rotation = "rotate(" + now + "deg)";
+      $(this).css("transform", rotation).css("-ms-transform", rotation).css("-webkit-transform", rotation).css("-o-transform", rotation).css("-moz-transform", rotation);
+    },
+    duration: 400
+  }, "linear");
+});
+
+$("a[href*='http']:not([href^='/'])").attr("target", "_blank");
+</script>
+{% include piwik.html %}
+</body>
+</html>

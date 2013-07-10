@@ -1,0 +1,199 @@
+---
+description: Online calculator for definite and indefinite multiple integrals using Cartesian, polar, cylindrical, or spherical coordinates.
+h1: Multiple Integral Calculator
+layout: default
+pagetitle: Multiple Integral Calculator
+---
+<p>This is a human-friendly interface for the integration feature of Wolfram Alpha.</p>
+<ul>
+  <li>Limits of integration must be either all filled (for definite integrals) or all blank (for indefinite integrals).</li>
+  <!-- <li>You may rearrange and/or rename the differentials. Just make sure they're separated by spaces.</li> -->
+  <!-- <li>For non-Cartesian coordinate systems, copy and paste Greek letters from the "Differentials" field as necessary.</li> -->
+  <li>You may use <code>(theta)</code>, <code>(rho)</code>, and <code>(phi)</code> to specify Greek letters anywhere <em>except</em> in the Differentials field.</li>
+  <li>Other functions and constants you can use: <code>pi</code> <code>e</code> <code>infinity</code> <code title="square root">sqrt(x)</code> <code title="natural logarithm">log(x)</code> <code>sin(x)</code> <code>cos(x)</code> <code>tan(x)</code></li>
+  <li><strong>Updated on April 22, 2013:</strong> Decreased error rate and allowed Greek letters to specified using <code>(rho)</code>, etc.</li>
+  {% comment %}<li id="sphericaldisclaimer">Because Alpha cannot parse &Phi;, all occurrences of &Phi; will automatically be replaced with f before submitting to Alpha.</li>{% endcomment %}
+</ul>
+<hr>
+<div id="integralcalc">
+  <p>
+    Calculate a <select id="order">
+      <option value="1">Single</option>
+      <option value="2" selected="selected">Double</option>
+      <option value="3">Triple</option>
+      <option value="4">Quadruple</option>
+    </select> integral using <select id="coords">
+      <option value="1">Cartesian</option>
+      <option value="2">Polar</option>
+      <option value="3">Cylindrical</option>
+      <option value="4">Spherical</option>
+    </select> coordinates.
+    <input type="button" id="jacobian" value="Insert the Jacobian">
+  </p>
+  <table class="borderless">
+    <tr>
+      <td rowspan="3" style="font-size:6em;font-family:Times New Roman;">(</td>
+      <td>&nbsp;</td>
+      <td rowspan="3" style="font-size:6em;font-family:Times New Roman;">)</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td id="integrand">Function:<br><input type="text" size="30" autofocus></td>
+      <td id="differentials">Differentials:<br><input type="text" style="width:6em;" value="dz dy dx"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+  </table>
+  <hr>
+  {% comment %}<input type="submit" id="integrate" value="Calculate Integral">{% endcomment %}
+  <a href="#" id="integrate" style="border-bottom:0"><button>Submit</button></a>
+</div>
+
+<script type="text/javascript">
+var order = 0;
+var coords = 0;
+var query = "";
+var jacobian = "";
+
+function settings()
+{
+  var tmp = 1 * $("#order").val();
+  if (order != tmp)
+  {
+    // Update to new integral order
+    order = tmp;
+    switch (order)
+    {
+      case 1:
+        $("#coords option[value=2]").show();
+        $("#coords option[value=3], #coords option[value=4]").hide();
+        break;
+      case 2:
+        $("#coords option[value=2]").show();
+        $("#coords option[value=3], #coords option[value=4]").hide();
+        break;
+      case 3:
+        $("#coords option[value=2]").hide();
+        $("#coords option[value=3], #coords option[value=4]").show();
+        break;
+      default:
+        $("#coords option[value!=1]").hide();
+        break;
+    }
+    $("#coords").val("1");
+    coords = 0;
+    $(".removable").remove();
+    for (i = 0; i < order; ++i)
+    {
+      $("#integralcalc tr:eq(0)").prepend('<td class="removable"><input type="text" style="width:3em"></td>');
+      $("#integralcalc tr:eq(1)").prepend('<td class="removable" style="font-size:8em;font-family:Impact,Georgia,Times New Roman;border:0px">&int;</td>');
+      $("#integralcalc tr:eq(2)").prepend('<td class="removable"><input type="text" style="width:3em"></td>');
+    }
+  }
+
+  tmp = 1 * $("#coords").val();
+  if (coords != tmp)
+  {
+    // Update to new coordinate system
+    $("#integralcalc table input[type=text]").val("");
+    coords = tmp;
+    // $("#sphericaldisclaimer").hide();
+    switch (coords)
+    {
+    case 1:
+      for (i = 0; i < order; ++i)
+      {
+        $("#differentials input").val("d" + ["x", "y", "z", "t"][i] + " " + $("#differentials input").val());
+      }
+      $("#differentials input").val($.trim($("#differentials input").val()));
+      $("#jacobian").hide();
+      break;
+    case 2:
+      if (order == 1)
+      {
+        $("#differentials input").val("dθ");
+      }
+      else
+      {
+        jacobian = "r";
+        $("#jacobian").show();
+        $("#differentials input").val("dr dθ");
+      }
+      break;
+    case 3:
+      $("#differentials input").val("dz dr dθ");
+      jacobian = "r";
+      $("#jacobian").show();
+      break;
+    default:
+      // $("#sphericaldisclaimer").fadeIn();
+      $("#differentials input").val("dρ dθ dϕ");
+      jacobian = "(ρ^2)sin(ϕ)";
+      $("#jacobian").show();
+      break;
+    }
+  }
+  // Update Alpha textfield
+}
+
+function update()
+{
+  // Start building query string using integrand and differentials
+  query = $.trim($("#integrand input").val()) + " " + $("#differentials input").val();
+  if ($.trim($("#integralcalc tr:eq(0) td:eq(0) input").val()).length > 0)
+  {
+    var differentials = $.trim($("#differentials input").val()).replace(/ /g, "").replace(/d/g, "");
+    for (i = 0; i < differentials.length; ++i)
+    {
+      // Add bounds
+      query += " from " + differentials[differentials.length - 1 - i] + "=" + $("#integralcalc tr:eq(2) td:eq(" + i + ") input").val() + " to " + $("#integralcalc tr:eq(0) td:eq(" + i + ") input").val();
+    }
+  }
+  // Remove whitespace padding from operators
+  query = query.replace(/ *\+ */g, "+").replace(/ *\* */g, "*").replace(/ *\- */g, "-").replace(/ *\/ */g, "/").replace(/ *\^ */g, "^");
+  // Percent-encode plus symbol and Greek letters
+  query = query.replace(/\+/g, "%2B").replace(/θ/g, "(theta)").replace(/ρ/g, "(rho)").replace(/ϕ/g, "(phi)");
+  // Strip parentheses from Greek letters when they denote integration bounds
+  query = query.replace(/\(theta\)=/g, "theta=").replace(/\(rho\)=/g, "rho=").replace(/\(phi\)=/g, "phi=");
+  $("#integrate").attr("href", "https://www.wolframalpha.com/input/?i=integrate " + query);
+}
+
+// function submit()
+// {
+//   update();
+//   window.open(query.replace(/\+/g, "%2B").replace(/θ/g, "\\[Theta]").replace(/ρ/g, "\\[Rho]").replace(/ϕ/g, "f"), "_newtab");
+// }
+
+// Initialization
+
+settings();
+update();
+$("#integrand input").focus();
+
+// Event bindings
+
+$("#integralcalc select").change(function ()
+{
+  settings();
+});
+
+$("#integralcalc input[type=text]").live("change keyup", function (e)
+{
+  update();
+  if (e.keyCode == 13) {
+    $("#integrate").click();
+  }
+});
+
+// $("#integrate").live("click", function ()
+// {
+//   submit();
+// });
+
+$("#jacobian").click(function ()
+{
+  $("#integrand input").val($("#integrand input").val() + jacobian);
+});
+</script>

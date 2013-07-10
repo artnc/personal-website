@@ -1,0 +1,123 @@
+---
+layout: blank
+pagetitle: Thai Night RPS
+secret: true
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Thai Night RPS</title>
+  <style>
+    body {
+      background: #000;
+      color: #000;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1em;
+    }
+
+    #wrap {
+      margin: auto;
+    }
+
+    td {
+      text-align: center;
+    }
+  </style>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <script type="text/javascript">
+    var rounds = new Array();
+    var shown = false;
+
+    function scale() {
+      var width = $(window).width();
+      var height = $(window).height();
+      $("body").css("font-size", height * 1.5 + "%");
+      $("body").css("margin-top",  + "px");
+      $("#wrap").css("width", $("#wrap table").width() + "px");
+      $("#wrap").css("margin-top", 0.5 * (height - $("#wrap table").height()) + "px");
+    }
+
+    function hideScores() {
+      $("body").css("color", "#000");
+      shown = false;
+    }
+
+    function updateScores() {
+      $("body").css("color", "#fff");
+      shown = true;
+      var score1 = 0;
+      var score2 = 0;
+      for (var i = 0; i < rounds.length; ++i) {
+        switch(rounds[i]) {
+          case 1:
+            score1 += 1;
+            break;
+          case 2:
+            score2 += 1;
+            break;
+          default:
+            break;
+        }
+      }
+      $("#p1").text(score1);
+      $("#p2").text(score2);
+    }
+
+    $(window).resize(function(){
+      scale();
+    });
+
+    $(document).keydown(function(e){
+      switch(e.which) {
+        case 8: // Backspace
+          rounds.pop();
+          updateScores();
+          return false;
+          break;
+        case 38: // Up arrow
+        case 40: // Down arrow
+          if (shown) {
+            hideScores();
+          } else {
+            updateScores();
+          }
+          return false;
+          break;
+        case 37: // Left arrow
+          rounds.push(1);
+          updateScores();
+          return false;
+          break;
+        case 39: // Right arrow
+          rounds.push(2);
+          updateScores();
+          return false;
+          break;
+        default:
+          break;
+      }
+    });
+
+    $(document).ready(function(){
+      scale();
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <table>
+      <tr>
+        <td>Art</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td>Ko</td>
+      </tr>
+      <tr>
+        <td id="p1">0</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td id="p2">0</td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

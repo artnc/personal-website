@@ -1,0 +1,34 @@
+# 404 page
+
+ErrorDocument 404 /404
+
+# Legacy URLs
+
+Redirect 301 /notes/cavalier-on-android /cavalier-on-android
+Redirect 301 /notes/sublime-build /sublime-build
+Redirect 301 /notes/openni-k4w /openni-k4w
+Redirect 301 /notes/fedup /fedup
+Redirect 301 /notes/linuxsampler /linuxsampler
+Redirect 301 /notes /blog
+
+# Short URL for resume
+
+Redirect 301 /resume /files/ArtChaidarun-WebResume.pdf
+
+# http://andrewho.co.uk/weblog/clean-urls-on-jekyll-apache
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^[^\.]+\.chaidarun\.com$ [NC]
+RewriteRule ^(.*)$ http://chaidarun.com/$1 [R=301,L]
+
+RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301]
+Options -Indexes
+DirectorySlash Off
+
+RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ /.+\.html\ HTTP
+RewriteRule ^(.+)\.html$ http://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^.+$ %{REQUEST_FILENAME}.html [L]
