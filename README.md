@@ -44,9 +44,6 @@ chaidarun.com
 
 ### publishing
 
-1. _png.sh
-1. sass build
-1. jekyll build
-1. _minify.sh
-1. ftp
+1. _run.sh
 1. git
+1. ftp
