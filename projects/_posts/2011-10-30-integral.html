@@ -179,7 +179,7 @@ $("#integralcalc select").change(function ()
   settings();
 });
 
-$("#integralcalc input[type=text]").live("change keyup", function (e)
+$("#integralcalc input[type=text]").on("change keyup", function (e)
 {
   update();
   if (e.keyCode == 13) {
@@ -187,7 +187,7 @@ $("#integralcalc input[type=text]").live("change keyup", function (e)
   }
 });
 
-// $("#integrate").live("click", function ()
+// $("#integrate").on("click", function ()
 // {
 //   submit();
 // });
