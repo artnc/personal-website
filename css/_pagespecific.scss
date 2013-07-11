@@ -1,0 +1,77 @@
+.index-html {
+  #wrap {
+    width: $index-width;
+  }
+
+  #content {
+    border-radius: $index-width / 2;
+    height: $index-width;
+    padding: 0px;
+    width: $index-width;
+  }
+
+  #footer{
+    margin-top: 20px;
+  }
+
+  svg {
+    font-family: Arial;
+    font-weight: bold;
+    margin-left: 11px;
+    margin-top: 16px;
+    position: absolute;
+  }
+
+  line {
+    stroke: #666;
+    stroke-opacity: .6;
+    stroke-width: 1px;
+  }
+
+  circle {
+    stroke: $gray;
+    stroke-width: 1.5px;
+    -webkit-touch-callout: none;
+    @include vendor-prefix(user-select, none);
+
+    &:hover {
+      stroke: $darker-gray;
+    }
+  }
+
+  .group0 {
+    fill: $bright-green;
+  }
+
+  .group1 {
+    fill: $dark-green;
+  }
+
+  .group2 {
+    fill: $light-green;
+  }
+
+  .group3 {
+    fill: $light-green;
+  }
+
+  .group4 {
+    fill: $dark-green;
+  }
+
+  .group5 {
+    fill: $light-green;
+  }
+}
+
+.projects-html {
+  .entry {
+    min-height: 130px;
+  }
+}
+
+.graphics-html {
+  a img{
+    height: 190px;
+  }
+}

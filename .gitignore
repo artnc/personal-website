@@ -1,6 +1,7 @@
-_site/
-_minify/
-php/
-css/.sass-cache/
 .sass-cache/
+_minify/
+_site/
+css/.sass-cache/
+php/
+_notes.md
 google862536422eafb531.html

@@ -13,19 +13,17 @@
   {% if page.headjs != null %}{{ page.headjs }}{% endif %}
   {% include ga.html %}
 </head>
-<body id="top">
+<body id="top" class="{{ page.title | downcase | remove: ".html" }}-html">
 <div id="topline"></div>
 <div id="wrap" class="centered">
   <div id="header">
-    <a id="icosahedron" href="/"><img src="/img/icogreen.png" alt="Art Chaidarun"></a>
+    <a href="/"><img src="/img/icogreen.png" alt="Art Chaidarun"></a>
     <a id="logo" href="/"><strong>Art</strong>Chaidarun</a>
-    <div class="right">
-      <ul>
-        <li{% if page.categories contains "projects" %} class="active"{% endif %}><a href="/projects">Projects</a></li>
-        <li{% if page.categories contains "blog" %} class="active"{% endif %}><a href="/blog">Blog</a></li>
-        <li{% if page.categories contains "about" %} class="active"{% endif %}><a href="/about">About</a></li>
-      </ul>
-    </div>
+    <ul>
+      <li><a{% if page.categories contains "projects" %} class="active"{% endif %} href="/projects">Projects</a></li>
+      <li><a{% if page.categories contains "blog" %} class="active"{% endif %} href="/blog">Blog</a></li>
+      <li><a{% if page.categories contains "about" %} class="active"{% endif %} href="/about">About</a></li>
+    </ul>
   </div>
   <div id="content">
     {% if page.h1 != null %}<h1>{{ page.h1 }}</h1>{% endif %}
@@ -38,7 +36,7 @@
 <script type="text/javascript">
 var direction = 360;
 var rotation;
-$("#icosahedron img").on('mouseenter', function(){
+$("#header img").on('mouseenter', function(){
   direction = -direction;
   this.style.textIndent = "0px";
   $(this).animate({textIndent: direction}, {

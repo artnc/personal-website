@@ -1,11 +1,26 @@
 ---
-description: My very first non-trivial program!
+description: My very first non-trivial program.
 h1: Calculator Blackjack
 layout: default
 pagetitle: Calculator Blackjack
-secret: true
 ---
-Here's the very first non-trivial program I ever wrote.
+<p>Here's the first program I ever wrote. It features a simple GUI, betting over multiple rounds, high score with player name, basic input validation, automatic ace lowering, and three turn actions (hit, stand, double down).</p>
+
+<p>Programming on a graphing calculator is funny business; it's like writing assembly by hand in a language that has nowhere near the performance of real assembly. Some fun facts about TI-BASIC:</p>
+
+<ul>
+  <li>Floating-point variable names are taken from the English alphabet. Who needs more than 26 anyway? In addition, ten string variables are available.</li>
+  <li>Source code is non-ASCII with no indentation or braces.</li>
+  <li>Everything is global scope. Not only throughout the program, but also across the whole calculator.</li>
+  <li>Trailing quotes, parentheses, and brackets are optional.</li>
+  <li>You can zero variables using <code>DelVar</code>. The colon, which normally separates statements, is optional after <code>DelVar</code>. Since <code>DelVar</code> takes up two bytes, <code>DelVar A</code> requires one less byte than <code>0&rarr;A:</code>.</li>
+  <li>Procedural only. The closest thing to a subroutine involves setting a flag variable and having the program call itself.</li>
+  <li>Sleep/wait is achieved with an empty <code>For</code> loop.</li>
+  <li><code>Goto</code>.</li>
+</ul>
+
+<p>On the upside, math support is excellent.</p>
+
 <pre>
 ::
 :ClrDraw
@@ -29,7 +44,7 @@ Here's the very first non-trivial program I ever wrote.
 :11&rarr;V
 :Goto 7
 :Lbl 7
-:(2V-16)&lt;sup&gt;2&lt;/sup&gt;&rarr;M
+:(2V-16)<sup>2</sup>&rarr;M
 :ClrHome
 :Disp "MONEY:
 :Pause M
@@ -91,7 +106,7 @@ Here's the very first non-trivial program I ever wrote.
 :Then
 :A-1&rarr;A
 :T-10&rarr;T
-:Text(28,6,"THE ACE'S VALUE  IS NOW 1."
+:Text(28,6,"THE ACE'S VALUE IS NOW 1."
 :Pause
 :ClrDraw
 :Goto 4

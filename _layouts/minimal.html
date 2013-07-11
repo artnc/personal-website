@@ -10,7 +10,7 @@
   {% if page.headjs != null %}{{ page.headjs }}{% endif %}
   {% include ga.html %}
 </head>
-<body>
+<body id="top" class="{{ page.title | downcase | remove: ".html" }}-html">
   {{ content }}
   {% include piwik.html %}
 </body>
