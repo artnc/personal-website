@@ -35,12 +35,11 @@ chaidarun.com
 
 ### workflow tools
 
-- _documentation.txt  = summary of my changes to default jekyll install
 - _minify/            = htmlcompressor, closure binaries
-- _minify.sh          = minify all html and css inside _site
 - _notes.md           = scratchpad for commit changes, todos, etc
-- _png.sh             = pngcrush all uncrushed pngs
 - _pngcrushed.txt     = list of all crushed pngs
+- _run.sh             = build jekyll/sass, minify all _site html/css/js/png
+- README.md           = summary of my changes to default jekyll install
 
 ### publishing
 
