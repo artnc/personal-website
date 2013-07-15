@@ -292,7 +292,139 @@ layout: default
 </svg>
 <script>
 (function(){
-  var nodes = $("circle");
+  var
+    order = [
+      114, // Resume
+      4,   // JavaScript
+      69,  // LinkedIn
+      68,  // University Tutor
+      43,  // Echols Scholar
+      113, // Research
+      87,  // Raytracing, Morphing, and OpenGL
+      100, // AP Scholar with Distinction
+      36,  // GitHub
+      74,  // AIME
+      101, // Heat Transfer Simulation
+      28,  // Tuba (Sousaphone)
+      1,   // University of Virginia '13
+      10,  // jQuery
+      6,   // Java
+      20,  // Walla Walla, WA
+      40,  // Cavalier Marching Band
+      79,  // Twitter Bootstrap
+      104, // Real Analysis
+      92,  // Projects
+      78,  // Math League
+      54,  // Linear Algebra
+      67,  // Fedora Linux
+      42,  // Mathematics Major
+      5,   // CSS3
+      34,  // French
+      96,  // Boy Scouts
+      126, // chaidarun.com
+      91,  // Personal Projects
+      13,  // PhoneGap
+      8,   // Python
+      56,  // Probability
+      73,  // AMC
+      33,  // Duolingo
+      109, // AJAX
+      12,  // Android
+      80,  // Neuron Visualization
+      30,  // Facebook
+      32,  // Fitocracy
+      84,  // Ticketmelon
+      77,  // MathCounts
+      22,  // Hanover, NH
+      59,  // Theory of Computation
+      93,  // Work
+      98,  // SASS
+      75,  // UKMT
+      116, // AP Calculus BC
+      58,  // Computer Architecture
+      121, // AP Chemistry
+      86,  // KenKen Generator &amp;amp; Solver
+      52,  // Multivariate Calculus
+      3,   // HTML5
+      108, // Madison, WI
+      82,  // Epic Systems
+      27,  // Clarinet
+      51,  // Computer Graphics
+      85,  // Financial Market Simulation
+      57,  // Statistics
+      102, // Stochastic Processes
+      47,  // Algorithms
+      76,  // Math is Cool
+      21,  // Charlottesville, VA
+      63,  // Track &amp;amp; Field
+      127, // Sublime Text
+      124, // AP English Literature
+      122, // AP Physics B
+      19,  // Worcester, MA
+      64,  // Knowledge Bowl
+      35,  // Spanish
+      9,   // LaTeX
+      65,  // Math Contests
+      45,  // Mobile
+      49,  // Defense Against the Dark Arts
+      26,  // Piano
+      16,  // Coding
+      103, // Derivative Securities
+      107, // Multiple Integral Calculator
+      118, // AP Macroeconomics
+      31,  // Sporcle
+      110, // CavNav Bus Tracking App
+      50,  // Artificial Intelligence
+      95,  // Git
+      119, // AP Biology
+      125, // Symbolic Logic
+      94,  // Digital Logic Design
+      25,  // Music
+      55,  // Abstract Algebra
+      18,  // Boston, MA
+      61,  // C/C++
+      53,  // Ordinary Diff Eq
+      90,  // LaTeX Homework Template
+      14,  // AutoHotkey
+      62,  // Concert Band
+      2,   // Web
+      88,  // QWERTY to Dvorak Converter
+      99,  // Thai Student Organization
+      48,  // Parallel Computing
+      105, // Software Development Methods
+      23,  // Birmingham, UK
+      106, // Program &amp;amp; Data Representation
+      123, // AP Computer Science
+      128, // Jekyll
+      97,  // Washington State Champion
+      120, // AP Statistics
+      46,  // Discrete Mathematics
+      24,  // Bangkok, Thailand
+      81,  // Class Projects
+      41,  // Computer Science Major
+      66,  // MODX
+      117, // AP Microeconomics
+      38,  // PHP
+      7,   // Windows
+      89,  // ST2 File Locking Plugin
+      60,  // MySQL
+      83,  // Norfolk County Rifle Range
+      15,  // TI-BASIC
+      11   // Handlebars
+    ],
+    curIndex = order.length - 1,
+    curString = "",
+    nodes = $("circle");
+
+  var carousel = function() {
+    $(nodes[order[curIndex]]).tipsy("hide");
+    ++curIndex;
+    if (curIndex == order.length) {
+      curIndex = 0;
+    }
+    $(nodes[order[curIndex]]).tipsy("show");
+    curString = $(nodes[order[curIndex]])[0].firstChild.textContent;
+  }
 
   nodes.tipsy({
     trigger: 'manual',
@@ -305,38 +437,27 @@ layout: default
       return this.firstChild.textContent;
     }
   }).hover(function() {
-    $(this).tipsy("show");
-    switch (this.firstChild.textContent) {
-      case "Hello!":
-        this.setAttribute("style", "fill:url(#hello)");
+    if (curString != this.firstChild.textContent) {
+      $(this).tipsy("show");
+      switch (this.firstChild.textContent) {
+        case "Hello!":
+          this.setAttribute("style", "fill:url(#hello)");
+      }
     }
   }, function() {
-    $(this).tipsy("hide");
-    switch (this.firstChild.textContent) {
-      case "Hello!":
-        this.setAttribute("style", "");
+    if (curString != this.firstChild.textContent) {
+      $(this).tipsy("hide");
+      switch (this.firstChild.textContent) {
+        case "Hello!":
+          this.setAttribute("style", "");
+      }
     }
   });
-
-  var order = [];
-  for (var i = 0; i < 100; ++i) {
-    order.push(Math.floor(100 * Math.random()));
-  }
-  var curIndex = 0;
-
-  var carousel = function() {
-    $(nodes[order[curIndex]]).tipsy("hide");
-    ++curIndex;
-    if (curIndex == order.length) {
-      curIndex = 0;
-    }
-    $(nodes[order[curIndex]]).tipsy("show");
-  }
 
   $(document).ready(function(){
     setTimeout(function() {
       carousel();
-      setInterval(carousel, 2000);
+      setInterval(carousel, 1750);
     }, 750);
   });
 }());
