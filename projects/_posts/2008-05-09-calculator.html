@@ -17,11 +17,11 @@ pagetitle: Calculator Blackjack and Simon
 <p>Programming on a graphing calculator is funny business; it's like writing assembly by hand in a language that has nowhere near the performance of real assembly. Some fun facts about TI-BASIC:</p>
 
 <ul>
-  <li>Source code is very non-ASCII and has no indentation or braces. All keywords are single tokens that must be selected from menus.</li>
+  <li>Source code is very non-ASCII and has no indentation or braces. All keywords and math functions are single tokens that must be selected from menus.</li>
   <li>Numeric variable names can be any English letter or &theta;. Who needs more than 27 anyway? Additionally, ten string variables are available.</li>
   <li>Everything is global scope. Not only throughout the program, but also across the whole calculator.</li>
   <li>Trailing quotes, parentheses, and brackets are optional.</li>
-  <li>You can zero variables using <code>DelVar</code>. The colon, which normally separates statements, is optional after <code>DelVar</code>. Since <code>DelVar</code> takes up two bytes, <code>DelVar A</code> requires one less byte than <code>0&rarr;A:</code>.</li>
+  {% comment %}<li>You can zero variables using <code>DelVar</code>. The colon, which normally separates statements, is optional after <code>DelVar</code>. Since <code>DelVar</code> takes up two bytes, <code>DelVar A</code> requires one less byte than <code>0&rarr;A:</code>.</li>{% endcomment %}
   <li>Procedural only. The closest thing to a subroutine involves setting a flag variable and having the program call itself.</li>
   <li>Sleep/wait is achieved with an empty <code>For</code> loop. Note that this isn't used during Simon's loading screen; the GIF above actually portrays the maximum drawing speed.</li>
   <li><code>Goto</code>.</li>
@@ -219,8 +219,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 :Ans<sup>2</sup>&rarr;H
 :Text(57,3,"High Score:
 :Text(57,41,H
-:
-:
 :While Ans&ne;105
 :Repeat Ans
 :getKey
@@ -228,8 +226,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 :End
 :If Ans=45:Goto 0
 :End
-:
-:
 :Lbl G
 :ClrDraw
 :ZDecimal
@@ -276,9 +272,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 :Then
 :For(T,1,<span style="font-size: 0.7em">E</span>2
 :End
-:
-:
-:
 :For(L,1,<span style="font-size: 0.7em">E</span>3
 :1500/(L+4&rarr;D
 :For(&theta;,0,int(log(L
@@ -326,8 +319,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 :End
 :End
 :End
-:
-:
 :Lbl L
 :For(&theta;,4.4,4.4,.2
 :4.4-abs(&theta;

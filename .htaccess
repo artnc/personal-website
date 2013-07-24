@@ -14,6 +14,7 @@ Redirect 301 /notes /blog
 
 # Short URL for resume
 
+Redirect 301 /assets/ArtChaidarun-WebResume.pdf /files/ArtChaidarun-WebResume.pdf
 Redirect 301 /resume /files/ArtChaidarun-WebResume.pdf
 
 # http://andrewho.co.uk/weblog/clean-urls-on-jekyll-apache
