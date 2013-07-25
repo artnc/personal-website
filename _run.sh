@@ -24,6 +24,3 @@ rm -f ./_site/css/main.scss
 # Compress HTML/CSS/JS
 echo "Running htmlcompressor..."
 java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-quotes --remove-intertag-spaces --js-compressor closure --compress-js --compress-css --closure-opt-level simple --mask \*.html -o ./_site/ ./_site/
-
-# Zip _site
-zip -9 -r ./_site.zip ./_site
