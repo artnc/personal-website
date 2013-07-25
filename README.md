@@ -1,7 +1,13 @@
 chaidarun.com
 =============
 
-### custom page variables
+### license
+
+all rights reserved, except where otherwise noted
+
+### documentation
+
+custom page variables
 
 - description         = content for meta description
 - headcss             = extra css for head
@@ -10,19 +16,19 @@ chaidarun.com
 - pagetitle           = what should go inside title tags
 - secret              = true iff page should be published but not sitemapped
 
-### includes
+includes
 
 - ga                  = google analytics js
 - piwik               = piwik js
 
-### layouts
+layouts
 
 - blank               = nothing but {{ content }}
 - default             = page without timestamp/tags
 - minimal             = complete head, empty body
 - post                = page with timestamp/tags
 
-### sass partials
+sass partials
 
 - allpages            = applies to all pages
 - lightbox            = for lightbox.js
@@ -33,9 +39,9 @@ chaidarun.com
 - variables           = sass variables, mixins
 - webfonts            = fonts
 
-### workflow tools
+workflow tools
 
-- _minify/            = htmlcompressor, closure binaries
+- _minify/            = htmlcompressor/closure/yui binaries
 - _notes.md           = scratchpad for commit changes, todos, etc
 - _pngcrushed.txt     = list of all crushed pngs
 - _run.sh             = build jekyll/sass, minify all _site html/css/js/png

@@ -1,5 +1,5 @@
 # Crush all uncrushed PNGs
-for png in `find . -name "*.png"`
+for png in `find files css img -name "*.png"`
 do
   if grep -Fxq "$png" ./_pngcrushed.txt; then
     echo "already crushed $png"
