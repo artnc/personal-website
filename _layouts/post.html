@@ -2,4 +2,4 @@
 layout: default
 ---
 {{ content }}
-<p class="post-info">{{ page.tags | join: ', ' }}{% if page.tags != empty %} | {% endif %}{{ page.date | date: "%b %d, %Y" }}</p>
+<p class="post-info">{% if page.tags != empty %}{{ page.tags | join: ', ' }} | {% endif %}{{ page.date | date: "%b %d, %Y" }}</p>

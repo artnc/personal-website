@@ -2,6 +2,7 @@
 _minify/
 _site/
 css/.sass-cache/
+css/main.css
 php/
 _notes.md
 google862536422eafb531.html

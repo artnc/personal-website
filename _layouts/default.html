@@ -13,7 +13,7 @@
   {% if page.headjs != null %}{{ page.headjs }}{% endif %}
   {% include ga.html %}
 </head>
-<body id="top" class="{{ page.title | downcase | remove: ".html" }}-html">
+<body id="top" class="{{ page.title | downcase | remove: ".html" | replace:' ','-' }}-html">
 <div id="topline"></div>
 <div id="wrap" class="centered">
   <div id="header">

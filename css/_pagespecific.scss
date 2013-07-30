@@ -64,6 +64,8 @@
   }
 }
 
+// Projects
+
 .projects-html {
   .entry {
     min-height: 130px;
@@ -71,7 +73,21 @@
 }
 
 .graphics-html {
-  #content a img{
+  #content a img {
     height: 190px;
+  }
+}
+
+// Blog
+
+.cavalier-on-android-html {
+  #content a img {
+    max-height: 400px;
+  }
+}
+
+.linuxsampler-html {
+  #content a img {
+    max-width: 300px;
   }
 }
