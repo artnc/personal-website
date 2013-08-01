@@ -29,9 +29,9 @@ pagetitle: Calculator Blackjack and Simon
 
 <p>On the upside, math support is excellent.</p>
 
-<p>Below are the source and binary files for both programs. You can transfer the binaries to a calculator using link software like TI-Connect or TiLP, or you can just load them into an emulator like TilEm or Wabbitemu. Or I guess you could type the source into your calc if you're feeling masochistic. Let's say they're released under the <a id="licenselink" href="#">MIT license</a>.</p>
+<p>Below are the source and binary files for both programs. You can transfer the binaries to a calculator using link software like TI-Connect or TiLP, or you can just load them into an emulator like TilEm or Wabbitemu. Or I guess you could type the source into your calc if you're feeling masochistic. Let's say they're released under the <a id="calculator-licenselink" href="#">MIT license</a>.</p>
 
-<div id="license" class="hidden">
+<div id="calculator-license" class="hidden">
   <pre>
 Copyright (C) 2008 Art Chaidarun
 
@@ -352,12 +352,12 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <script type="text/javascript">
   var shown = false;
-  $("#licenselink").on("click", function(e) {
+  $("#calculator-licenselink").on("click", function(e) {
     e.preventDefault();
     if (shown) {
-      $("#license").slideUp();
+      $("#calculator-license").slideUp();
     } else {
-      $("#license").slideDown();
+      $("#calculator-license").slideDown();
     }
     shown = !shown;
   });

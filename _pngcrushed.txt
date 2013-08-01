@@ -33,3 +33,4 @@ img/raytracer-3.png
 img/surface-tracking.png
 img/sublime-file-locking.png
 img/hello.png
+img/duolingo.png
