@@ -21,6 +21,7 @@ pagetitle: About
       }
     );
   }
+
   var shown = false;
   function showEmail() {
     if (!shown) {
@@ -33,17 +34,16 @@ pagetitle: About
       );
     }
   }
-  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
+
+  $(document).mousemove(function(e){
     showEmail();
-  } else {
-    $("#message a[href='#']").click(function(e){
-      e.preventDefault();
-      showEmail();
-    });
-    $(document).mousemove(function(e){
-      showEmail();
-    });
-  }
+  });
+
+  $("#message a[href='#']").click(function(e){
+    e.preventDefault();
+    showEmail();
+  });
+
   $("#resumelink").click(function(e){
     locate('resume');
   });

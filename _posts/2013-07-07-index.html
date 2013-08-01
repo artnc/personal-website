@@ -437,12 +437,19 @@ layout: default
       return this.firstChild.textContent;
     }
   }).hover(function() {
-    if (curString != this.firstChild.textContent) {
+    var thisString = this.firstChild.textContent;
+    if (curString != thisString) {
       $(this).tipsy("show");
-      switch (this.firstChild.textContent) {
+      switch (thisString) {
         case "Hello!":
           this.setAttribute("style", "fill:url(#hello)");
       }
+
+      $.getJSON("http://smart-ip.net/geoip-json?callback=?",
+        function(geo){
+          $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': 'node ' + thisString});
+        }
+      );
     }
   }, function() {
     if (curString != this.firstChild.textContent) {
