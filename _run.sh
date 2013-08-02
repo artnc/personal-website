@@ -24,4 +24,4 @@ echo "Running htmlcompressor..."
 java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-intertag-spaces --remove-quotes --js-compressor closure --compress-js --compress-css --closure-opt-level simple --mask \*.html -o ./_site/ ./_site/
 
 # Compress XML
-java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-intertag-spaces --mask \*.xml -o ./_site/ ./_site/
+java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-intertag-spaces --type xml --mask \*.xml -o ./_site/ ./_site/
