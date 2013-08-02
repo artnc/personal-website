@@ -1,10 +1,8 @@
 # Crush all uncrushed PNGs
 for png in `find files css img -name "*.png"`
 do
-  if grep -Fxq "$png" ./_pngcrushed.txt; then
-    echo "already crushed $png"
-  else
-    echo "crushing        $png"
+  if ! grep -Fxq "$png" ./_pngcrushed.txt; then
+    echo "crushing $png"
     pngcrush "$png" _tmp.png &>/dev/null
     mv -f _tmp.png "$png"
     echo "$png" >> ./_pngcrushed.txt
@@ -21,6 +19,9 @@ jekyll build
 rm -f ./_site/README.md
 rm -f ./_site/css/main.scss
 
-# Compress HTML/CSS/JS
+# Compress HTML and inline CSS/JS
 echo "Running htmlcompressor..."
-java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-intertag-spaces --js-compressor closure --compress-js --compress-css --closure-opt-level simple --mask \*.html\;\*.xml -o ./_site/ ./_site/
+java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-intertag-spaces --remove-quotes --js-compressor closure --compress-js --compress-css --closure-opt-level simple --mask \*.html -o ./_site/ ./_site/
+
+# Compress XML
+java -jar _minify/htmlcompressor-1.5.3.jar --recursive --remove-intertag-spaces --mask \*.xml -o ./_site/ ./_site/
