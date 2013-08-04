@@ -44,7 +44,7 @@ pagetitle: Multiple Integral Calculator
     </tr>
   </table>
   <hr>
-  <a href="#" id="integrate" style="border-bottom:0"><button>Submit</button></a>
+  <button id="integrate">Submit</button>
 </div>
 
 <script type="text/javascript">
@@ -177,7 +177,7 @@ pagetitle: Multiple Integral Calculator
       .replace(/ *\/ */g, "/")
       .replace(/ *\^ */g, "^")
       .replace(/\+/g, "%2B"); // Percent-encode plus symbol
-    $("#integrate").attr("href", "https://www.wolframalpha.com/input/?i=integrate%20" + query);
+    query = "https://www.wolframalpha.com/input/?i=integrate%20" + query;
   }
 
   // Initialization
@@ -197,13 +197,18 @@ pagetitle: Multiple Integral Calculator
   {
     update();
     if (e.keyCode == 13) {
-      window.open($("#integrate").attr("href"), "_blank");
+      window.open(query, "_blank");
     }
   });
 
   $("#jacobian").click(function ()
   {
     $("#integrand input").val($("#integrand input").val() + jacobian);
+  });
+
+  $("#integrate").click(function ()
+  {
+    window.open(query, "_blank");
   });
 }());
 </script>
