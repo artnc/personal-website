@@ -153,7 +153,7 @@ pagetitle: Multiple Integral Calculator
   function update()
   {
     // Start building query string using integrand and differentials
-    query = "(" + $("#integrand input").val().trim() + ") "
+    query = $("#integrand input").val().trim() + " "
       + $("#differentials input").val();
     if ($("#integralcalc tr:eq(0) td:eq(0) input").val().trim().length > 0)
     {
