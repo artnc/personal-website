@@ -9,7 +9,7 @@ pagetitle: Online FizzBuzz Test
 <p>Since JavaScript doesn't have a native <code>print()</code> function, I've provided my own. For example: if you want to print the number 2, then you can use <code>print(2)</code>. Both numbers and strings are accepted as parameters to this function. Don't worry about whitespace in your program's output; my grading function ignores it.</p>
 <h2>Your code goes here:</h2>
 <textarea rows="14" cols="50" style="width:100%" placeholder="print('Hello World!');" autofocus></textarea>
-<p><button>Submit for grading!</button></p>
+<p><button disabled="disabled">Submit for grading!</button><a href="#" class="right">I give up. Show me a solution!</a></p>
 <div class="hidden">
   <h2>Result:</h2>
   <p></p>
@@ -24,7 +24,8 @@ pagetitle: Online FizzBuzz Test
     failNum: -1,
     output: "",
     result: "",
-    solution: []
+    solution: [],
+    solutionShown: 0
   }
 
   // Append to output string
@@ -38,6 +39,12 @@ pagetitle: Online FizzBuzz Test
     grader.solution.push((i % 3 ? "" : "fizz") + (i % 5 ? "" : "buzz") || i + "");
   }
 
+  // Disable submit button if code input is empty
+  $("#content textarea").on("keydown keyup focus", function() {
+    $("#content button").prop("disabled", this.value.length < 1);
+  });
+
+  // Run and verify
   $("#content button").click(function() {
     var
       index,
@@ -106,6 +113,18 @@ pagetitle: Online FizzBuzz Test
     }
     $(".hidden p").html(message);
     $(".hidden").slideDown("fast");
+  });
+
+  $("#content a[href=#]").click(function(e) {
+    e.preventDefault();
+    if (grader.solutionShown === 0) {
+      $("#content textarea").val('for (var i = 1; i <= 100; ++i) {\n  if (i % 15 === 0) {\n    print("FizzBuzz");\n  } else if (i % 3 === 0) {\n    print("Fizz");\n  } else if (i % 5 === 0) {\n    print("Buzz");\n  } else {\n    print(i);\n  }\n}');
+      grader.solutionShown = 1;
+      $(this).text("Meh. Show me a shorter solution!");
+    } else {
+      $("#content textarea").val('for (var i = 1; i < 101; ++i) print((i % 3 ? "" : "Fizz") + (i % 5 ? "" : "Buzz") || i);');
+      $(this).remove();
+    }
   });
 }());
 </script>
