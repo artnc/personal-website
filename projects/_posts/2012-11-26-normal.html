@@ -42,7 +42,7 @@ pagetitle: Normal Distribution Calculator
       var mu = unround(eval($("#mu").val()));
       var sigma = unround(eval($("#sigma").val()));
       var variance = unround(eval($("#variance").val()));
-      switch ($(param).attr("id")) {
+      switch ($(param).prop("id")) {
         case "sigma":
           variance = unround(sigma * sigma);
           $("#variance").val(variance);

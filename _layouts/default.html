@@ -48,7 +48,7 @@ $("#header img").on('mouseenter', function(){
   }, "linear");
 });
 
-$("a[href*='http']:not([href^='/'])").attr("target", "_blank");
+$("a[href*='http']:not([href^='/'])").prop("target", "_blank");
 </script>
 {% include piwik.html %}
 </body>
