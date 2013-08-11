@@ -28,7 +28,6 @@ java -jar _minify/htmlcompressor-1.5.3.jar \
   --js-compressor closure \
   --mask \*.html \
   --output ./_site/ ./_site/ \
-  --preserve-ssi \
   --recursive \
   --remove-intertag-spaces \
   --remove-quotes \
