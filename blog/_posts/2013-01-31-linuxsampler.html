@@ -4,8 +4,8 @@ layout: post
 pagetitle: Connecting a MIDI Keyboard to LinuxSampler
 tags: ["linux", "music"]
 ---
-<p>A couple years ago I went shopping for a MIDI keyboard based on price and key weighting, with no consideration given to audio quality. I figured that'd be lousy anyway, and on Windows I had used an acoustic modeling program called Pianoteq that did a decent enough job of replacing the stock samples*.</p>
-<p>Unable to find a similar modeler for Linux, I decided to go with <a href="http://www.linuxsampler.org/about.html">LinuxSampler</a>. Unfortunately, none of the installation guides I could find online worked for me. The process of getting the LinuxSampler engine, either of the two available frontends, JACK, and my keyboard to work together slowly degenerated into semi-randomly guessing different permutations of steps to take. Eventually I hit upon the magic formula for each of the two official frontends, JSampler (preferred) and QSampler.</p>
+<p>A couple years ago I went shopping for a MIDI keyboard based on price and key weighting, with no consideration given to audio quality. I figured that'd be lousy anyway, and on Windows I had used an acoustic modeling program called Pianoteq that did a decent enough job of replacing the stock samples.</p>
+<p>Unable to find a similar modeler for Linux*, I decided to go with <a href="http://www.linuxsampler.org/about.html">LinuxSampler</a>. Unfortunately, none of the installation guides I could find online worked for me. The process of getting the LinuxSampler engine, either of the two available frontends, JACK, and my keyboard to work together slowly degenerated into semi-randomly guessing different permutations of steps to take. Eventually I hit upon the magic formula for each of the two official frontends, JSampler (preferred) and QSampler.</p>
 <p>Here I assume you have the LinuxSampler engine with all the required libraries installed already, and that all you need now is to get JSampler and/or QSampler to detect your MIDI controller. Amazingly, these methods still work as of July 8, 2013.</p>
 
 <h2>JSampler</h2>
