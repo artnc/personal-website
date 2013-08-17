@@ -9,7 +9,7 @@ do
   fi
 done
 
-# Build SASS
+# Build Sass
 sass --style compressed ./css/main.scss ./css/main.css
 
 # Build Jekyll
