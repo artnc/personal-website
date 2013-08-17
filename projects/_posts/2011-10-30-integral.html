@@ -180,6 +180,17 @@ pagetitle: Multiple Integral Calculator
     query = "https://www.wolframalpha.com/input/?i=integrate%20" + query;
   }
 
+  // Open Alpha tab
+  function submit()
+  {
+    $.getJSON("http://smart-ip.net/geoip-json?callback=?",
+      function(geo){
+        $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': 'integrate ' + query});
+      }
+    );
+    window.open(query, "_blank");
+  }
+
   // Initialization
 
   settings();
@@ -197,7 +208,7 @@ pagetitle: Multiple Integral Calculator
   {
     update();
     if (e.keyCode == 13) {
-      window.open(query, "_blank");
+      submit();
     }
   });
 
@@ -208,7 +219,7 @@ pagetitle: Multiple Integral Calculator
 
   $("#integrate").click(function ()
   {
-    window.open(query, "_blank");
+    submit();
   });
 }());
 </script>
