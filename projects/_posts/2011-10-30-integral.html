@@ -183,6 +183,16 @@ pagetitle: Multiple Integral Calculator
   // Open Alpha tab
   function submit()
   {
+    if (query.split("(").length !== query.split(")").length)
+    {
+      alert("Your parentheses aren't matched!");
+      return;
+    }
+    if (query.split("[").length !== query.split("]").length)
+    {
+      alert("Your brackets aren't matched!");
+      return;
+    }
     $.getJSON("http://smart-ip.net/geoip-json?callback=?",
       function(geo){
         $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': 'integrate ' + query});
