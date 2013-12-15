@@ -38,6 +38,19 @@ $html-font-size: 80%;
   -o-#{$name}: $argument;
 }
 
+// Grayscale
+
+@mixin grayscale-on() {
+  filter: url(filters.svg#grayscale); /* FF 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Chrome, Safari 6+, Opera 15+ */
+}
+
+@mixin grayscale-off() {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
 // Top-down linear background gradient
 // http://www.impressivewebs.com/css3-linear-gradient-syntax/
 
