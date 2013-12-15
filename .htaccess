@@ -10,6 +10,7 @@ Redirect 301 /home /
 Redirect 301 /code /projects
 Redirect 301 /assets/ArtChaidarun-WebResume.pdf /files/ArtChaidarun-WebResume.pdf
 Redirect 301 /raytracer /graphics
+Redirect 301 /kenken /projects
 Redirect 301 /notes/cavalier-on-android /cavalier-on-android
 Redirect 301 /notes/sublime-build /sublime-build
 Redirect 301 /notes/openni-k4w /openni-k4w
