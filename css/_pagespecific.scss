@@ -68,7 +68,15 @@
 
 .projects-html {
   .entry {
-    min-height: 130px;
+    min-height: 125px;
+
+    img {
+      margin: 0 20px 0 10px;
+    }
+
+    p {
+      margin: 10px 0 0 0 !important;
+    }
   }
 }
 

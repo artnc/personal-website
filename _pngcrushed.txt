@@ -38,3 +38,10 @@ css/rss.png
 img/pentris.png
 img/old-website.png
 img/midimeter.png
+img/duolingo-lesson.png
+img/cifer.png
+img/tuba.png
+img/epic.png
+img/calculator-simon.png
+img/graphics.png
+img/kenken-corner.png
