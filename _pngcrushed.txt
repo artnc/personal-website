@@ -28,7 +28,6 @@ img/close.png
 img/ncrr.png
 img/raytracer-4.png
 img/prev.png
-img/about.png
 img/raytracer-3.png
 img/surface-tracking.png
 img/sublime-file-locking.png
@@ -45,3 +44,4 @@ img/epic.png
 img/calculator-simon.png
 img/graphics.png
 img/kenken-corner.png
+img/about.png
