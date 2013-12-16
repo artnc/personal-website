@@ -1,10 +1,13 @@
 ---
 description: Hello! I'm currently a computer science/math double major at the University of Virginia who plans to graduate in December 2013.
-layout: home
+layout: default
 secret: true
 ---
+<!--<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>-->
+<script type="text/javascript" src="/js/jquery.tipsy.js"></script>
 <script type="text/javascript" src="/js/d3.v3.min.js"></script>
 <script>
+  $("body")[0].className = "index-html";
   var w = 550,
       h = 550;
 
@@ -21,8 +24,8 @@ secret: true
     .append("defs")
       .append("pattern")
       .attr("id", "hello")
-      .attr("x", "0")
-      .attr("y", "0")
+      .attr("x", "53")
+      .attr("y", "3")
       .attr("patternUnits", "userSpaceOnUse")
       .attr("height", "80")
       .attr("width", "80")
@@ -46,7 +49,7 @@ secret: true
       {"n":"Python","g":2,"r":7},
       {"n":"LaTeX","g":2,"r":7},
       {"n":"jQuery","g":2,"r":7},
-      {"n":"D3","g":2,"r":7},
+      {"n":"Backbone","g":2,"r":7},
       {"n":"Android","g":2,"r":7},
       {"n":"PhoneGap","g":2,"r":7},
       {"n":"AutoHotkey","g":2,"r":7},
@@ -122,7 +125,7 @@ secret: true
       {"n":"Ticketmelon","g":4,"r":7},
       {"n":"Financial Market Simulation","g":4,"r":7,"u":"/ferg"},
       {"n":"KenKen Generator &amp; Solver","g":4,"r":7,"u":"/kenken"},
-      {"n":"Raytracer","g":4,"r":7,"u":"/raytracer"},
+      {"n":"Raytracing, Morphing, and OpenGL","g":4,"r":7,"u":"/raytracer"},
       {"n":"QWERTY to Dvorak Converter","g":4,"r":7,"u":"/dvorak"},
       {"n":"ST2 File Locking Plugin","g":4,"r":7,"u":"http://chaidarun.com/sublime-file-locking"},
       {"n":"LaTeX Homework Template","g":4,"r":7,"u":"http://chaidarun.com/boilerplate-latex"},
@@ -136,7 +139,7 @@ secret: true
       {"n":"Sass","g":2,"r":7,"u":"http://sass-lang.com/"},
       {"n":"Thai Student Organization","g":3,"r":7,"u":"http://pages.shanti.virginia.edu/tso_uva/past-events/"},
       {"n":"AP Scholar with Distinction","g":1,"r":7,"u":"https://apstudent.collegeboard.org/exploreap/the-rewards/scholar-awards"},
-      {"n":"Heat Transfer Simulation","g":4,"r":7},
+      {"n":"Pittsburgh, PA","g":1,"r":7},
       {"n":"Stochastic Processes","g":3,"r":7},
       {"n":"Derivative Securities","g":3,"r":7},
       {"n":"Real Analysis","g":3,"r":7},
@@ -145,9 +148,9 @@ secret: true
       {"n":"Multiple Integral Calculator","g":4,"r":7,"u":"/integral"},
       {"n":"Madison, WI","g":1,"r":7},
       {"n":"AJAX","g":2,"r":7},
-      {"n":"CavNav Bus Tracking App","g":4,"r":7},
+      {"n":"Calculator Blackjack &amp; Simon","g":4,"r":7},
       {"n":"Pentris","g":4,"r":7},
-      {"n":"MIDImeter","g":4,"r":7},
+      {"n":"Midimeter","g":4,"r":7},
       {"n":"Research","g":4,"r":7},
       {"n":"Resume","g":5,"r":17,"u":"/resume"},
       {"n":"Advanced Placement Credits","g":3,"r":7},
@@ -163,7 +166,14 @@ secret: true
       {"n":"Symbolic Logic","g":3,"r":7},
       {"n":"chaidarun.com","g":4,"r":7,"u":"/colophon"},
       {"n":"Sublime Text","g":2,"r":7,"u":"http://www.sublimetext.com/"},
-      {"n":"Jekyll","g":2,"r":7}
+      {"n":"Jekyll","g":2,"r":7},
+      {"n":"Flask","g":2,"r":7},
+      {"n":"PostgreSQL","g":2,"r":7},
+      {"n":"Heroku","g":2,"r":7},
+      {"n":"SoundCloud","g":1,"r":7},
+      {"n":"CIFEr Hedge Fund Competition","g":4,"r":7},
+      {"n":"Intermediate Honors","g":3,"r":7},
+      {"n":"Head TA","g":3,"r":7}
     ],
     "links":[
       {"source":2,"target":3},
@@ -254,6 +264,8 @@ secret: true
       {"source":20,"target":65},
       {"source":68,"target":52},
       {"source":68,"target":53},
+      {"source":68,"target":55},
+      {"source":68,"target":56},
       {"source":16,"target":67},
       {"source":4,"target":109},
       {"source":38,"target":109},
@@ -301,7 +313,7 @@ secret: true
       {"source":5,"target":98},
       {"source":1,"target":99},
       {"source":24,"target":100},
-      {"source":81,"target":101},
+      {"source":17,"target":101},
       {"source":114,"target":69},
       {"source":1,"target":115},
       {"source":115,"target":116},
@@ -317,7 +329,15 @@ secret: true
       {"source":41,"target":125},
       {"source":91,"target":126},
       {"source":16,"target":127},
-      {"source":44,"target":128}
+      {"source":44,"target":128},
+      {"source":2,"target":129},
+      {"source":8,"target":129},
+      {"source":2,"target":130},
+      {"source":2,"target":131},
+      {"source":29,"target":132},
+      {"source":113,"target":133},
+      {"source":1,"target":134},
+      {"source":105,"target":135}
     ]
   };
 
