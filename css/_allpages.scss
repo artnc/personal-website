@@ -149,8 +149,14 @@ iframe { // YouTube
     margin: 1em 0;
   }
 
-  td {
-    padding: 5px;
+  th {
+    font-style: normal;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  th, td {
+    padding: 5px 12px;
   }
 
   button, input {
@@ -232,7 +238,7 @@ iframe { // YouTube
   padding: 5px 12px;
 }
 .post-info {
-  background: #141414;
+  background: $dark-gray;
   border-radius: 10px;
   margin: 2.5em 0 0;
   padding: 5px 12px;
