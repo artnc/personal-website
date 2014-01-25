@@ -332,11 +332,6 @@ layout: default
           this.setAttribute("style", "fill:url(#hello)");
       }
     }
-    $.getJSON("http://smart-ip.net/geoip-json?callback=?",
-      function(geo){
-        $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': 'nodehover ' + thisString});
-      }
-    );
   }, function() {
     if (curString != this.firstChild.textContent) {
       $(this).tipsy("hide");
