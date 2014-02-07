@@ -37,11 +37,11 @@ ADP1      S3    *disabled
 LID0      S3    *enabled
 </pre>
 
-<p>Running <code>su -c "echo XHC1 > /proc/acpi/wakeup"</code> for XHC1 and similar for LID0 toggles their states to "disabled". Note that you <strong>cannot</strong> just open <code>/proc/acpi/wakeup</code>, edit the statuses, and save.</p>
+<p>Running <code>su -c "echo XHC1 > /proc/acpi/wakeup"</code> for XHC1 and similar for LID0 toggles their states to "disabled". Note that you <em>cannot</em> just open <code>/proc/acpi/wakeup</code> in a text editor, edit the statuses, and save.</p>
 
 <h2>Stuck at Fedora logo after resume</h2>
 
-<p>Occasionally when I wake up my computer, I'm stuck with the same splash screen that appears during boot. <a href="https://ask.fedoraproject.org/en/question/38246/fedora-logo-displayed-after-suspendresume/">This question</a> gives a pretty accurate description of the problem.</p>
+<p>Occasionally when I woke up my computer, I got stuck with the same splash screen that appears during boot. <a href="https://ask.fedoraproject.org/en/question/38246/fedora-logo-displayed-after-suspendresume/">This question</a> gives a pretty accurate description of the problem.</p>
 
 <p>Plymouth is the splash screen program. A simple <code>sudo yum remove plymouth*</code> followed by <code>sudo dracut -f</code> worked for me.</p>
 
