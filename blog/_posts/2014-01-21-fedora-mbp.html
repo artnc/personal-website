@@ -14,6 +14,10 @@ tags: ["linux"]
 
 <p>You can alternatively install kmod-wl instead of akmod-wl if you want. The difference is that kmod drivers are tied to kernel versions, while akmod drivers are recompiled as necessary on boot. Since I'm (probably irrationally) wary of compiling stuff locally, I go the kmod route. The downside is that kmod drivers are typically released a few days after the corresponding kernel version. If you use kmod-wl, just remember to select the second-newest kernel version from the GRUB boot menu until the appropriate kmod-wl update is available.</p>
 
+<h2>CPU idles at 100 &deg;C</h2>
+
+<p>Running <code>su -c "echo -n 1 > /sys/devices/system/cpu/intel_pstate/no_turbo"</code> nuked my CPU's ability to boil water. Now its temperature rarely goes above 70 &deg;C.</p>
+
 <h2>System resumes immediately after suspend</h2>
 
 <p>A once-common scenario: I close the lid, the Apple logo goes dark, and ten seconds later it lights up again. Some rogue device is triggering the wakeup signal.</p>
