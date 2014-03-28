@@ -3,6 +3,7 @@ h1: Fedora 20 on the MacBook Pro
 layout: post
 pagetitle: Fedora 20 on the MacBook Pro
 tags: ["linux"]
+comments: true
 ---
 <p>I recently came into ownership of a late-2013 MacBook Pro with Retina display. About an hour every morning of my first week with this laptop was spent extinguishing Linux fires that had somehow sprung up overnight. This post is a summary of the progress I've made on these issues in roughly decreasing order of importance. Not everything works as well as I'd like yet, so watch this space for updates.</p>
 
@@ -50,6 +51,17 @@ LID0      S3    *enabled
 <p>Plymouth is the splash screen program. A simple <code>sudo yum remove plymouth*</code> followed by <code>sudo dracut -f</code> worked for me.</p>
 
 <p>If that doesn't do the trick for you, it's still possible to get to the desktop without rebooting. Switch to a TTY via Ctrl+Alt+F2, log in, run <code>sudo pkill X</code>, and switch back via Ctrl+Alt+F1. Note that by default, MBP function keys are swapped with media keys; you may actually need to press Ctrl+Alt+Fn+F2 and Ctrl+Alt+Fn+F1. This method is hardly better than rebooting though, since it wipes out all of your previously open windows.</p>
+
+<h2>"FPDMA QUEUED" errors</h2>
+
+<p>Annoying messages like these would often appear repeatedly during boot, making the process take minutes instead of seconds:</p>
+
+<pre>
+ata1.00: failed command: WRITE FPDMA QUEUED
+ata1.00: failed command: READ FPDMA QUEUED
+</pre>
+
+<p>These went away after I added <code>echo 1 > /sys/block/sda/device/queue_depth</code> to a startup script.</p>
 
 <h2>Function keys and media keys are switched</h2>
 
