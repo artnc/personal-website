@@ -351,15 +351,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 <script type="text/javascript">
 (function() {
-  var shown = false;
   $("#calculator-licenselink").on("click", function(e) {
-    e.preventDefault();
-    if (shown) {
-      $("#calculator-license").slideUp();
-    } else {
-      $("#calculator-license").slideDown();
-    }
-    shown = !shown;
+    $("#calculator-license").slideToggle();
+    return false;
   });
-}());
+})();
 </script>

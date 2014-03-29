@@ -308,12 +308,10 @@ layout: default
 <circle class="group3" r="7" cx="364.78" cy="490.81"><desc>Head TA</desc></circle>
 </svg>
 <script>
-(function(){
-  var
-    curString = "",
-    nodes = $("circle");
+(function() {
+  var curString = "";
 
-  nodes.tipsy({
+  $("circle").tipsy({
     trigger: 'manual',
     gravity: 's',
     fade: true,
@@ -325,22 +323,20 @@ layout: default
     }
   }).hover(function() {
     var thisString = this.firstChild.textContent;
-    if (curString != thisString) {
+    if (curString !== thisString) {
       $(this).tipsy("show");
-      switch (thisString) {
-        case "Hello!":
-          this.setAttribute("style", "fill:url(#hello)");
+      if (thisString === "Hello!") {
+        this.setAttribute("style", "fill:url(#hello)");
       }
     }
   }, function() {
-    if (curString != this.firstChild.textContent) {
+    if (curString !== this.firstChild.textContent) {
       $(this).tipsy("hide");
-      switch (this.firstChild.textContent) {
-        case "Hello!":
-          this.setAttribute("style", "");
+      if (this.firstChild.textContent === "Hello!") {
+        this.setAttribute("style", "");
       }
     }
   });
 
-}());
+})();
 </script>

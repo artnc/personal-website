@@ -10,13 +10,17 @@ pagetitle: About
 <h2>Resume</h2>
 <p>Here's my <a id="resumelink" target="_blank" href="/files/ArtChaidarun-WebResume.pdf">public resume</a> as a PDF, with some sensitive contact info redacted. I'm also on <a href="http://www.linkedin.com/in/artnc">LinkedIn</a>.</p>
 <h2>Contact</h2>
-<p>Shoot me a message <span id="message">via <a href="#">email</a></span>.</p>
+<p>Shoot me a message <span id="message">via <a href="#">email</a>.</span></p>
 <script type="text/javascript">
 (function() {
   function locate(access) {
     $.getJSON("http://smart-ip.net/geoip-json?callback=?",
-      function(geo){
-        $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': access});
+      function(geo) {
+        $.post('/php/form-handler.php', {
+          'case': 'locate',
+          'geo': JSON.stringify(geo),
+          'type': access
+        });
       }
     );
   }
@@ -25,26 +29,27 @@ pagetitle: About
   function showEmail() {
     if (!shown) {
       shown = true;
-      $("#message").append(". Please wait..");
-      $.post('/php/form-handler.php', {'case': 'email', 'key': 1779550967},
-        function(data) {
-          $("#message").html(data);
-        }
-      );
+      $("#message").append(" Please wait...");
+      $.post('/php/form-handler.php', {
+        'case': 'email',
+        'key': 1779550967
+      }).done(function(data) {
+        $("#message").html(data);
+      });
     }
   }
 
-  $(document).mousemove(function(e){
+  $(document).one("mousemove", function(e) {
     showEmail();
   });
 
-  $("#message a[href='#']").click(function(e){
+  $("#message a[href='#']").one("click", function(e) {
     e.preventDefault();
     showEmail();
   });
 
-  $("#resumelink").click(function(e){
+  $("#resumelink").on("click", function(e){
     locate('resume');
   });
-}());
+})();
 </script>
