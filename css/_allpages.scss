@@ -9,7 +9,7 @@ html {
 
 body {
   background: $dark-gray url('/css/stripe.png') fixed;
-  color: $off-white;
+  color: $dark-white;
   font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
   @include font-size(1);
   min-height: 100%;
@@ -37,6 +37,10 @@ h1 {
   margin: .67em 0 1em;
   text-align: center;
   text-shadow: 3px 2px #101010;
+}
+
+h1, h2, h3 {
+  color: $off-white;
 }
 
 code, pre {
@@ -124,7 +128,7 @@ iframe { // YouTube
   }
 
   .active {
-    border-bottom: 2px solid $bright-green;
+    border-bottom: 2px solid $bright-green !important;
   }
 }
 
@@ -134,7 +138,7 @@ iframe { // YouTube
   padding: 25px 45px 30px;
 
   p {
-    margin: 1.5em 0;
+    margin: 1.75em 0;
   }
 
   img {
