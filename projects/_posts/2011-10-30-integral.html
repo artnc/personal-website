@@ -4,6 +4,8 @@ h1: Multiple Integral Calculator
 layout: default
 pagetitle: Multiple Integral Calculator
 ---
+<blockquote><em><strong style="color:#f66">May 2014 update:</strong> I've been informed that using Wolfram Alpha through alternate interfaces is disallowed, so I've disabled this calculator. Sorry! (You can still play around with the interface if you're super bored.)</em></blockquote>
+
 <p>This is a human-friendly interface for the integration feature of Wolfram Alpha.</p>
 <ul>
   <li>Limits of integration must be either all filled (for definite integrals) or all blank (for indefinite).</li>
@@ -43,8 +45,10 @@ pagetitle: Multiple Integral Calculator
       <td>&nbsp;</td>
     </tr>
   </table>
+  <!--
   <hr>
   <button id="integrate">Submit</button>
+  -->
 </div>
 
 <script type="text/javascript">
@@ -183,22 +187,22 @@ pagetitle: Multiple Integral Calculator
   // Open Alpha tab
   function submit()
   {
-    if (query.split("(").length !== query.split(")").length)
-    {
-      alert("Your parentheses aren't matched!");
-      return;
-    }
-    if (query.split("[").length !== query.split("]").length)
-    {
-      alert("Your brackets aren't matched!");
-      return;
-    }
-    $.getJSON("http://smart-ip.net/geoip-json?callback=?",
-      function(geo){
-        $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': 'integrate ' + query});
-      }
-    );
-    window.open(query, "_blank");
+    // if (query.split("(").length !== query.split(")").length)
+    // {
+    //   alert("Your parentheses aren't matched!");
+    //   return;
+    // }
+    // if (query.split("[").length !== query.split("]").length)
+    // {
+    //   alert("Your brackets aren't matched!");
+    //   return;
+    // }
+    // $.getJSON("http://smart-ip.net/geoip-json?callback=?",
+    //   function(geo){
+    //     $.post('/php/form-handler.php', {'case': 'locate', 'geo': JSON.stringify(geo), 'type': 'integrate ' + query});
+    //   }
+    // );
+    // window.open(query, "_blank");
   }
 
   // Initialization

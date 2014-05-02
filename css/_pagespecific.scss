@@ -90,6 +90,18 @@
   }
 }
 
+.integral-html {
+  #content {
+    h1 {
+      text-decoration: line-through;
+    }
+
+    td {
+      padding: 5px 2px !important;
+    }
+  }
+}
+
 .graphics-html {
   #content a img {
     height: 190px;
