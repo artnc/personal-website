@@ -15,9 +15,17 @@ pagetitle: Sublime Text Build Systems
 }</pre>
 
 <h2>Sass</h2>
-<p>Requires Ruby, Sass, Sublime Text <a href="http://wbond.net/sublime_packages/package_control">Package Control</a>, and Nathan Henderson's <a href="https://github.com/nathos/sass-textmate-bundle">Sass plugin</a>... although you probably have all those already if you've been using Sublime for Sass.</p>
+<p>Requires Sass and Nathan Henderson's <a href="https://github.com/nathos/sass-textmate-bundle">Sass plugin</a>.</p>
 <pre>{
   "cmd": ["sass --style compressed '$file_name' '$file_base_name.css'"],
   "selector": "source.sass",
+  "shell": true
+}</pre>
+
+<h2>LilyPond</h2>
+<p>Requires LilyPond and Yannis Rammos's <a href="https://github.com/yrammos/SubLilyPond">LilyPond plugin</a>.</p>
+<pre>{
+  "cmd": ["lilypond '$file_base_name.ly'"],
+  "selector": "source.lilypond",
   "shell": true
 }</pre>
