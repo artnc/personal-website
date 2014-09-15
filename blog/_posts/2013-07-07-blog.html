@@ -6,7 +6,7 @@ pagetitle: Blog
 <table>
   <tbody>
 {% for post in site.posts %}
-  {% if post.layout == "post" %}
+  {% if post.layout == "post" and post.secret != true %}
     <tr><td>{{ post.date | date: "%b %d, %Y" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
   {% endif %}
 {% endfor %}
