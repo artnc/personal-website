@@ -27,14 +27,14 @@ Redirect 301 /resume /files/ArtChaidarun-WebResume.pdf
 RewriteEngine On
 
 RewriteCond %{HTTP_HOST} ^[^\.]+\.chaidarun\.com$ [NC]
-RewriteRule ^(.*)$ http://chaidarun.com/$1 [R=301,L]
+RewriteRule ^(.*)$ https://chaidarun.com/$1 [R=301,L]
 
-RewriteRule ^(.+)/$ http://%{HTTP_HOST}/$1 [R=301]
+RewriteRule ^(.+)/$ https://%{HTTP_HOST}/$1 [R=301]
 Options -Indexes
 DirectorySlash Off
 
 RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ /.+\.html\ HTTP
-RewriteRule ^(.+)\.html$ http://%{HTTP_HOST}/$1 [R=301,L]
+RewriteRule ^(.+)\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.html -f
