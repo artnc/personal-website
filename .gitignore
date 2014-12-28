@@ -5,4 +5,5 @@ css/.sass-cache/
 css/main.css
 files/ArtChaidarun-WebResume.pdf
 php/
+*.sublime-workspace
 _notes.md
