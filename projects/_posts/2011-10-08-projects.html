@@ -4,10 +4,10 @@ pagetitle: Projects
 ---
 <div class="project-table">
   <div class="project-cell">
-    <div class="project-desc" data-tech="AWS,Backbone.js,Chrome,CSS,DynamoDB,Eclipse,Git,HTML,LESS,Java,JavaScript,jQuery,Linux,Pyramid,Python,Redis,Shell">
+    <div class="project-desc" data-tech="AWS,Backbone.js,CSS,DynamoDB,Eclipse,Git,HTML,LESS,Java,JavaScript,jQuery,Linux,Pyramid,Python,Redis,Shell">
       <h2>Duolingo Test Center</h2>
       <span class="project-timeline">Senior Software Engineer<br />January 2014 - Present</span>
-      <p><a href="https://www.duolingo.com/">Duolingo</a> is a free alternative to Rosetta Stone. Available on web, iOS, Android, and even Windows Phone, it was named 2013 App of the Year by Apple. Its game mechanics are pretty addicting - I signed up on a whim and ended up <a href="/duolingo">completing</a> five language courses.</p>
+      <p><a href="https://www.duolingo.com/">Duolingo</a> is a free alternative to Rosetta Stone. Available on web and mobile, it was named 2013 App of the Year by Apple. Its game mechanics are pretty addicting - I signed up on a whim and ended up <a href="/duolingo">completing</a> five language courses.</p>
       <p><a href="https://testcenter.duolingo.com/">Test Center</a> is an ambitious attempt to replace overpriced language certification exams like the TOEFL and IELTS with Duolingo's own remotely proctored $20 exam.</p>
       <p>I wrote much of Test Center's Python backend and the entirety of its JavaScript frontend.</p>
     </div>
@@ -15,7 +15,7 @@ pagetitle: Projects
       <h2>Duolingo for Windows Phone</h2>
       <span class="project-timeline">Senior Software Engineer<br />August 2014 - Present</span>
       <p>I took on the task of single-handedly writing Duolingo's <a href="https://www.windowsphone.com/s?appid=2d89520e-d360-4b5b-ba5a-5a15064aa935">WP app</a> as a sidequest - er, side project while working on Test Center.</p>
-      <p>As of December 2014, the app has a 4.7 star rating based on over 4000 store reviews. Who knew there were so many Windows Phones out there?</p>
+      <p>As of December 2014, the app has a 4.7 star rating based on over 5000 store reviews. Who knew there were so many Windows Phones out there?</p>
     </div>
     <div class="project-desc" data-tech="AngularJS,CSS,HTML,Flask,Git,JavaScript,Linux,PostgreSQL,Python,Redis,Sass,Socket.io">
       <h2>Unreleased Multiplayer Game</h2>
@@ -57,7 +57,7 @@ pagetitle: Projects
       <div><a href="https://github.com/artnc/boilerplate-latex">LaTeX Homework Template</a></div>
       <div><a href="https://github.com/artnc/dotfiles/blob/master/zsh/.zshrc">Zsh Settings (.zshrc)</a></div>
     </div>
-    <div class="project-desc" data-tech="CSS,Git,HTML,JavaScript,jQuery,Linux,MySQL,PHP,Sass">
+    <div class="project-desc" data-tech="Apache,CSS,Git,HTML,JavaScript,jQuery,Linux,MySQL,PHP,Sass">
       <h2>Ticketmelon</h2>
       <span class="project-timeline">Lead Developer<br />October 2012 - December 2013</span>
       <p>Currently under development, Ticketmelon is a ticket sales and event promotion app I helped create for Clicktalad Corporation in Bangkok, Thailand.</p>
@@ -90,10 +90,10 @@ pagetitle: Projects
         <iframe scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/124938056&amp;color=70ad64&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
       </p>
     </div>
-    <div class="project-desc" data-tech="CSS,D3,Git,HTML,JavaScript,Jekyll,LaTeX,Linux,jQuery,PHP,Sass,Shell,Three.js">
+    <div class="project-desc" data-tech="Apache,CSS,D3,Git,HTML,JavaScript,Jekyll,LaTeX,Linux,jQuery,PHP,Sass,Shell,Three.js">
       <h2><a href="/colophon">chaidarun.com</a></h2>
       <span class="project-timeline">September 2011 - Present</span>
-      <p>The layout and scripts are handcoded in Sublime Text and stitched together with Jekyll and Sass. PHP is used for AJAX.</p>
+      <p>The styles and scripts are handcoded in Sublime Text and stitched together with Jekyll and Sass.</p>
       <p><a href="/colophon">More details</a> and <a href="https://github.com/artnc/personal-website">source code</a>.</p>
     </div>
     <div class="project-desc" data-tech="TI-BASIC">
@@ -148,13 +148,13 @@ pagetitle: Projects
 </div>
 <p>
   <span class="tag">AngularJS</span>
+  <span class="tag">Apache</span>
   <span class="tag">ASP.NET</span>
   <span class="tag">AutoHotkey</span>
   <span class="tag">AWS</span>
   <span class="tag">Backbone.js</span>
   <span class="tag">C#</span>
   <span class="tag">C++</span>
-  <span class="tag">Chrome</span>
   <span class="tag">CSS</span>
   <span class="tag">Cygwin</span>
   <span class="tag">D3</span>
@@ -192,10 +192,10 @@ pagetitle: Projects
 
 <script type="text/javascript">
 (function() {
-  var currentProject = 0;
+  var thumbnailImages = $('.thumbnail-cell img');
 
   // Thumbnail indexing
-  $('.thumbnail-cell img').each(function() {
+  thumbnailImages.each(function() {
     var td = $(this).parent();
     var tr = td.parent();
     $(this).attr('data-index', 3 * tr.index() + td.index());
@@ -203,29 +203,40 @@ pagetitle: Projects
 
   // Project switching
   var showProject = function(fade) {
-    $('.project-desc').hide();
-    var tech = ($('.project-desc').eq(currentProject).show().attr('data-tech') || '').split(',');
+    var tech = ($('.project-desc').hide().eq(currentProject).show().attr('data-tech') || '').split(',');
     $('.tag')
       .removeClass('activetag')
       .filter(function() {
         return tech.indexOf(this.textContent) !== -1;
       })
       .addClass('activetag');
-    var thumbnail = $('.thumbnail-cell img').removeClass('current').eq(currentProject);
+    var thumbnail = thumbnailImages.removeClass('current').eq(currentProject);
     if (fade) {
       thumbnail.animate({opacity: 1}, 2000, 'swing', function() {
         thumbnail.addClass('current');
         thumbnail.removeAttr('style');
       });
     } else {
-      thumbnail.addClass('current')
+      thumbnail.addClass('current');
     }
   };
+
+  // Determine initially shown project
+  var currentProject = 0;
+  var hash = location.hash.substr(1);
+  if (hash) {
+    var headings = $('h2');
+    for (var i = 0; i < headings.length; ++i) {
+      if (headings[i].textContent.toLowerCase().indexOf(hash) !== -1) {
+        currentProject = i;
+        break;
+      }
+    }
+  }
   showProject(true);
-  $('.thumbnail-cell img').eq(0).fadeIn();
 
   // Thumbnail selection
-  $('.thumbnail-cell img').on('click', function() {
+  thumbnailImages.on('click', function() {
     currentProject = $(this).attr('data-index');
     showProject();
   });
