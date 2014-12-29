@@ -45,3 +45,8 @@ img/calculator-simon.png
 img/graphics.png
 img/kenken-corner.png
 img/about.png
+img/testcenter.png
+img/windowsphone.png
+img/unreleased.png
+img/github.png
+img/epiclogo.png

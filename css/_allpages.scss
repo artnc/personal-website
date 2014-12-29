@@ -132,7 +132,7 @@ iframe { // YouTube
   }
 }
 
-#content {
+.content {
   background: $gray;
   border-radius: 10px;
   padding: 25px 45px 30px;
@@ -241,8 +241,10 @@ iframe { // YouTube
   background: $dark-gray;
   border: 1px solid transparent;
   border-radius: 10px;
-  cursor: pointer;
-  margin-right: 10px;
+  color: $light-gray;
+  display: inline-block;
+  cursor: default;
+  margin: 0 4px 6px 0;
   padding: 5px 12px;
 }
 .post-info {
@@ -254,7 +256,7 @@ iframe { // YouTube
 }
 
 .activetag {
-  border-color: $light-green;
+  color: $dark-white;
 }
 
 .left {
