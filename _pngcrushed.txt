@@ -50,3 +50,4 @@ img/windowsphone.png
 img/unreleased.png
 img/github.png
 img/epiclogo.png
+img/page-turner.png
