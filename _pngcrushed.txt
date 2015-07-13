@@ -51,3 +51,4 @@ img/unreleased.png
 img/github.png
 img/epiclogo.png
 img/page-turner.png
+img/ttrss-dark.png
