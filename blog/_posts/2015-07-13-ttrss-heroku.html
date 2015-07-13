@@ -16,12 +16,9 @@ cd Tiny-Tiny-RSS</pre>
         <p>Open <code>config.php-dist</code>, change the value of <code>SESSION_CHECK_ADDRESS</code> from 1 to 0, and save.</p>
     </li>
     <li>
-        <p>Log into Heroku.</p>
-        <pre>heroku login</pre>
-    </li>
-    <li>
         <p>Set up a new Heroku project. Replace <code>$APP_NAME</code> below with a custom project name, e.g. <code>john-doe-ttrss</code> to have your TTRSS instance live at <code>https://john-doe-ttrss.herokuapp.com</code>.</p>
-        <pre>heroku create $APP_NAME
+        <pre>heroku login
+heroku create $APP_NAME
 heroku addons:create heroku-postgresql:hobby-dev</pre>
     </li>
     <li>
@@ -50,7 +47,7 @@ git commit -m "Add Heroku files"</pre>
         <pre>git push heroku master</pre>
     </li>
     <li>
-        <p>Go to your app's database in the <a href="https://postgres.heroku.com/databases">Heroku Postgres dashboard</a> and copy its connection settings into your new TTRSS instance, which can be found at the URL described in step 4.</p>
+        <p>Go to your app's database in the <a href="https://postgres.heroku.com/databases">Heroku Postgres dashboard</a> and copy its connection settings into your new TTRSS instance, which can be found at the URL described in step 3.</p>
     </li>
     <li>
         <p>Complete the installation wizard by clicking <em>Test configuration</em>, <em>Initialize database</em>, and <em>Save configuration</em>.</p>
