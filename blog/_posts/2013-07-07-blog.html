@@ -26,7 +26,9 @@ pagetitle: Blog
   <table>
     <tbody>
     {% for post in tag[1] %}
-      <tr><td>{{ post.date | date: "%b %d, %Y" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
+      {% if post.layout == "post" and post.secret != true %}
+        <tr><td>{{ post.date | date: "%b %d, %Y" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
+      {% endif %}
     {% endfor %}
     </tbody>
   </table>
