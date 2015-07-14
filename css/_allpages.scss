@@ -39,13 +39,21 @@ h1, h2, h3 {
   color: $off-white;
 }
 
+h1 {
+  margin-top: 1em;
+}
+
+h2 {
+  margin-top: 2em;
+}
+
 p {
   line-height: 1.7;
 }
 
 code, pre {
   background: #141414;
-  color: #fff;
+  color: $dark-white;
   font-family: Consolas, "Courier New", monospace;
   @include font-size(0.9);
   margin: 0 2px;
@@ -54,13 +62,13 @@ code, pre {
 code {
   border: 1px solid $darker-gray;
   border-radius: 4px;
-  padding: 2px 4px 0px;
+  padding: 4px 5px 3px;
   white-space: nowrap;
 }
 
 pre {
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 iframe { // YouTube
@@ -133,7 +141,7 @@ iframe { // YouTube
 .content {
   background: $gray;
   border-radius: 10px;
-  padding: 25px 45px 30px;
+  padding: 5px 45px 30px;
 
   p {
     margin: 1.75em 0;

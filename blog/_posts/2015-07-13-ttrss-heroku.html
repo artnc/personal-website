@@ -59,7 +59,7 @@ git commit -m "Add Heroku files"</pre>
 <h2>Thanks</h2>
 <p>This guide is based on Reuben Castelino's impressively detailed <a href="http://projectdelphai.github.io/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/">blog post</a> on the subject. I attempt to improve on his method by:</p>
 <ul>
-    <li>favoring the normal TTRSS config process over <code>heroku</code> / <code>sed</code> magic</li>
+    <li>favoring the normal TTRSS database initialization process over manual initialization</li>
     <li>leveraging Heroku's <code>composer.json</code> support instead of relying on a prebuilt copy of <code>mbstring.so</code></li>
     <li>preventing the <code>Session failed to validate (incorrect IP)</code> login error</li>
     <li>being more concise (he did thoughtfully condense his post into a shell script for us TLDR folks, but unfortunately it no longer works)</li>
