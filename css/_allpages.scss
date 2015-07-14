@@ -16,11 +16,7 @@ body {
 }
 
 a {
-  color: $light-green;
   text-decoration: none;
-  &:hover {
-    border-bottom: 1px dotted $dark-green;
-  }
 }
 
 hr {
@@ -83,18 +79,15 @@ iframe { // YouTube
 }
 
 #wrap {
-  padding: 35px 0 25px;
   width: $page-width;
 }
 
 #header {
-  height: 60px;
-  padding: 10px 0;
+  margin: 50px 0 30px;
 
   ul {
     float: right;
-    margin-top: 18px;
-    margin-right: 5px;
+    margin: 0 5px 0 0;
   }
 
   li {
@@ -104,9 +97,8 @@ iframe { // YouTube
     list-style-type: none;
   }
 
-  a {
+  li a, span {
     color: $off-white;
-    float: left;
     @include font-size(1.5);
     text-transform: uppercase;
 
@@ -122,13 +114,14 @@ iframe { // YouTube
   img {
     background: transparent;
     position: absolute;
+    margin-top: -5px;
     @include vendor-prefix(transform, rotate(0deg));
+    width: 40px;
     z-index: 2;
   }
 
-  #logo {
-    margin-top: 18px;
-    margin-left: 100px;
+  span {
+    margin-left: 55px;
   }
 
   .active {
@@ -143,6 +136,13 @@ iframe { // YouTube
 
   p {
     margin: 1.75em 0;
+  }
+
+  a {
+    color: $light-green;
+    &:hover {
+      border-bottom: 1px dotted $dark-green;
+    }
   }
 
   img {
@@ -191,7 +191,7 @@ iframe { // YouTube
 
 #footer {
   color: $light-gray;
-  margin-top: 30px;
+  margin: 30px 0;
   text-align: center;
 
   a {

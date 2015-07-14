@@ -18,8 +18,7 @@
 <div id="topline"></div>
 <div id="wrap" class="centered">
   <div id="header">
-    <a href="/"><img src="/img/icogreen.png" alt="Home"></a>
-    <a id="logo" href="/"><strong>Art</strong>Chaidarun</a>
+    <a id="logo" href="/"><img src="/img/icogreen.png" alt="Home"><span><strong>Art</strong>Chaidarun</span></a>
     <ul>
       <li><a{% if page.categories contains "projects" %} class="active"{% endif %} href="/projects">Projects</a></li>
       <li><a{% if page.categories contains "blog" %} class="active"{% endif %} href="/blog">Blog</a></li>
@@ -37,15 +36,16 @@
 <script type="text/javascript">
 var direction = 360;
 var rotation;
-$("#header img").on('mouseenter', function(){
+var ico = $('#logo img');
+$("#logo").on('mouseenter', function() {
   direction = -direction;
-  this.style.textIndent = "0px";
-  $(this).animate({textIndent: direction}, {
+  ico[0].style.textIndent = "0px";
+  ico.animate({textIndent: direction}, {
     step: function(now, fx){
       rotation = "rotate(" + now + "deg)";
       $(this).css("transform", rotation).css("-ms-transform", rotation).css("-webkit-transform", rotation).css("-o-transform", rotation).css("-moz-transform", rotation);
     },
-    duration: 400
+    duration: 300
   }, "linear");
 });
 
