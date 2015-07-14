@@ -79,6 +79,7 @@ iframe { // YouTube
 }
 
 #wrap {
+  padding-bottom: 30px;
   width: $page-width;
 }
 
@@ -191,8 +192,12 @@ iframe { // YouTube
 
 #footer {
   color: $light-gray;
-  margin: 30px 0;
+  margin-top: 30px;
   text-align: center;
+
+  p {
+    margin: 0;
+  }
 
   a {
     border-radius: 5px;
