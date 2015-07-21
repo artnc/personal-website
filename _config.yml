@@ -1,4 +1,4 @@
+highlighter: pygments
 name: "Art Chaidarun"
 permalink: /:title.html
-pygments: true
 url: https://chaidarun.com
