@@ -52,3 +52,5 @@ img/github.png
 img/epiclogo.png
 img/page-turner.png
 img/ttrss-dark.png
+img/tdd.png
+img/tdd-classic.png
