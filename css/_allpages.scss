@@ -78,6 +78,16 @@ iframe { // YouTube
   width: 560px;
 }
 
+// Scroll bar
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $gray;
+}
+
 // IDs
 
 #topline {
