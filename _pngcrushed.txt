@@ -54,3 +54,4 @@ img/page-turner.png
 img/ttrss-dark.png
 img/tdd.png
 img/tdd-classic.png
+img/triviality.png
