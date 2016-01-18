@@ -1,7 +1,7 @@
 ---
 description: WebGL visualization of the SWC file format for neuron models.
 headcss: <link rel="stylesheet" type="text/css" href="/css/neuron.css">
-headjs: <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script><script type="text/javascript" src="/js/Threea.js"></script><script type="text/javascript" src="/js/csg.js"></script><script type="text/javascript" src="/js/ThreeCSG.js"></script>
+headjs: <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script><script type="text/javascript" src="/js/TrackballControls.js"></script><script type="text/javascript" src="/js/csg.js"></script><script type="text/javascript" src="/js/ThreeCSG.js"></script>
 layout: minimal
 pagetitle: Neuron Modeler
 ---
@@ -27,8 +27,8 @@ pagetitle: Neuron Modeler
 </div>
 
 <script type="text/javascript">
-var width = $("body").width();
-var height = $("body").height() - 4;
+var width = $('body').width();
+var height = $('body').height() - 4;
 var data = new Array(); // 3D array: [neuron][line][element]
 var neurons = new Array();
 var colors = [0xff0000, // red
@@ -72,20 +72,18 @@ var renderer = new THREE.WebGLRenderer({ antialias: false });
 // renderer.setClearColorHex(0xffffff, 1);
 renderer.setSize(width, height);
 
-$("body")[0].appendChild(renderer.domElement);
-
-
+$('body')[0].appendChild(renderer.domElement);
 
 function debugaxis (axisLength){
   //Shorten the vertex function
   function v(x,y,z){
-    return new THREE.Vertex(new THREE.Vector3(x,y,z));
+    return new THREE.Vector3(x,y,z);
   }
 
   //Create axis (point1, point2, colour)
   function createAxis(p1, p2, color){
     var line, lineGeometry = new THREE.Geometry(),
-    lineMat = new THREE.LineBasicMaterial({color: color, lineWidth: 1});
+    lineMat = new THREE.LineBasicMaterial({color: color});
     lineGeometry.vertices.push(p1, p2);
     line = new THREE.Line(lineGeometry, lineMat);
     scene.add(line);
@@ -100,46 +98,50 @@ function debugaxis (axisLength){
 debugaxis(100);
 animate();
 
-
-
-
 function addNeuron(n) {
   var geo = new THREE.SphereGeometry(parseFloat(data[n][0][5]), 8, 8);
   var spherelist = new Array();
-  var ball;
+  var row, ball, x, y, z;
   for (var i = 0; i < data[n].length; i++) {
-    ball = new THREE.Mesh(new THREE.SphereGeometry(parseFloat(data[n][i][5]), 8, 8));
-    var k = new THREE.Vector3(parseFloat(data[n][i][2]), parseFloat(data[n][i][3]), parseFloat(data[n][i][4]));
-    ball.position = k;
-    spherelist.push(k);
-    THREE.GeometryUtils.merge(geo, ball);
+    var row = data[n][i];
+    ball = new THREE.Mesh(new THREE.SphereGeometry(parseFloat(row[5]), 8, 8));
+    var x = parseFloat(row[2]);
+    var y = parseFloat(row[3]);
+    var z = parseFloat(row[4]);
+    spherelist.push(new THREE.Vector3(x, y, z));
+    ball.position.set(x, y, z);
+    ball.updateMatrix();
+    geo.merge(ball.geometry, ball.matrix);
   }
   var p, distance, pipe;
   for (var i = 1; i < data[n].length; i++) {
-    if (data[n][i][6] != -1) {
-      p = data[n][i][6] - data[n][0][0];
-      distance = Math.sqrt(Math.pow(data[n][i][2] - data[n][p][2], 2) + Math.pow(data[n][i][3] - data[n][p][3], 2) + Math.pow(data[n][i][4] - data[n][p][4], 2));
-      pipe = new THREE.Mesh(new THREE.CylinderGeometry(1.0 * data[n][p][5], 1.0 * data[n][i][5], distance, 8, 8, false), new THREE.MeshLambertMaterial({color: colors[n % colors.length]}));
-      pipe.position.set(
-        (1.0 * data[n][p][2] + 1.0 * data[n][i][2]) / 2,
-        (1.0 * data[n][p][3] + 1.0 * data[n][i][3]) / 2,
-        (1.0 * data[n][p][4] + 1.0 * data[n][i][4]) / 2
-      );
-      // pipe.up = new THREE.Vector3(0, 1, 0);
-      // pipe.rotation.x += Math.PI / 2;
-      pipe.up = new THREE.Vector3(1, 0, 0);
-      pipe.lookAt(spherelist[p]);
-      pipe.rotation.y -= Math.PI / 2;
+    var row = data[n][i];
+    if (row[6] === -1) {
+      continue;
     }
-    THREE.GeometryUtils.merge(geo, pipe);
+    p = row[6] - data[n][0][0];
+    var target = data[n][p];
+    distance = Math.sqrt(Math.pow(row[2] - target[2], 2) + Math.pow(row[3] - target[3], 2) + Math.pow(row[4] - target[4], 2));
+    pipe = new THREE.Mesh(new THREE.CylinderGeometry(1.0 * target[5], 1.0 * row[5], distance, 8, 8, false), new THREE.MeshLambertMaterial({color: colors[n % colors.length]}));
+    pipe.position.set(
+      0.5 * target[2] + 0.5 * row[2],
+      0.5 * target[3] + 0.5 * row[3],
+      0.5 * target[4] + 0.5 * row[4]
+    );
+    // pipe.up = new THREE.Vector3(0, 1, 0);
+    // pipe.rotation.x += Math.PI * 0.5;
+    pipe.up = new THREE.Vector3(1, 0, 0);
+    pipe.lookAt(spherelist[p]);
+    pipe.rotation.y -= Math.PI * 0.5;
+    pipe.updateMatrix();
+    geo.merge(pipe.geometry, pipe.matrix);
   }
   mesh = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({color: colors[n % colors.length]}));
   mesh.position.x = parseFloat(data[n][0][2]);
   mesh.position.y = parseFloat(data[n][0][3]);
   mesh.position.z = parseFloat(data[n][0][4]);
   scene.add(mesh);
-  // $("#status").text(neurons[neurons.length - 1] + " added.");
-  $("#status").text("Neuron added. Try dragging with your mouse!");
+  $('#status').text('Neuron added. Try dragging with your mouse!');
   animate();
 }
 
@@ -153,61 +155,56 @@ function render() {
   renderer.render(scene, camera);
 }
 
-$("#lookx").click(function(){
+$('#lookx').click(function(){
   camera.position.set(200, 0, 0);
   camera.rotation.set(0, 0, 0);
   render();
 });
 
-$("#looky").click(function(){
+$('#looky').click(function(){
   camera.position.set(0, 200, 0);
   camera.rotation.set(0, 0, 0);
   render();
 });
 
-$("#lookz").click(function(){
+$('#lookz').click(function(){
   camera.position.set(0, 0, 200);
   camera.rotation.set(0, 0, 0);
   render();
 });
 
-$("#demo").click(function(){
-  $("#status").text("Loading test file provided by Hanchuang Peng...");
-  var f = new XMLHttpRequest();
-  f.open("GET", "/files/2189201CNG.swc", true);
-  f.onreadystatechange = function() {
-    if (f.readyState === 4) {
-      if (f.status === 200) {
-        var tmp = new Array();
-        var lines = f.responseText.split("\n");
-        for (var l = 0; l < lines.length; l++) {
-          signal = $.trim(lines[l]).split("#", 1);
-          if (signal[0].length > 0) {
-            var numbers = signal[0].split(" ");
-            tmp.push(signal[0].split(" "));
-          }
+$('#demo').click(function(){
+  $('#status').text('Loading test file provided by Hanchuang Peng...');
+  setTimeout(function() {
+    $.get('/files/2189201CNG.swc').done(function(response) {
+      var tmp = new Array();
+      var lines = response.split('\n');
+      for (var l = 0; l < lines.length; l++) {
+        signal = $.trim(lines[l]).split('#', 1);
+        if (signal[0].length > 0) {
+          var numbers = signal[0].split(' ');
+          tmp.push(signal[0].split(' '));
         }
-        $("#status").text("Rendering...");
-        data.push(tmp);
-        neurons.push("Hanchuang Peng's test file");
-        $("#status").text("Starting...");
-        addNeuron(neurons.length - 1);
       }
-    }
-  }
-  f.send(null);
+      $('#status').text('Rendering...');
+      data.push(tmp);
+      neurons.push('Hanchuang Peng\'s test file');
+      $('#status').text('Starting...');
+      addNeuron(neurons.length - 1);
+    });
+  }, 100);
 });
 
-$("body").on('dragover', function(e){
+$('body').on('dragover', function(e){
   e.originalEvent.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
   return false;
 });
 
-$("body").on('drop', function(evt){
+$('body').on('drop', function(evt){
   var files = evt.originalEvent.dataTransfer.files; // FileList object.
   for (var i = 0; i < files.length; i++) {
     if (files[i].type.match('image.*')) {
-      $("#status").text("Wrong filetype!" + files[i].type);
+      $('#status').text('Wrong filetype!' + files[i].type);
       continue;
     }
     var reader = new FileReader();
@@ -215,29 +212,29 @@ $("body").on('drop', function(evt){
       return function(e) {
         var abort = 0;
         var tmp = new Array();
-        var lines = e.target.result.split("\n");
+        var lines = e.target.result.split('\n');
         for (var l = 0; l < lines.length; l++) {
-          signal = $.trim(lines[l]).split("#", 1);
+          signal = $.trim(lines[l]).split('#', 1);
           if (signal[0].length > 0) {
-            var numbers = signal[0].split(" ");
+            var numbers = signal[0].split(' ');
             if (numbers.length != 7) {
-              $("#status").text("Data is corrupted: Wrong number of entries at line " + (l + 1) + ".");
+              $('#status').text('Data is corrupted: Wrong number of entries at line ' + (l + 1) + '.');
               abort = 1;
               break;
             } else {
-              tmp.push(signal[0].split(" "));
+              tmp.push(signal[0].split(' '));
             }
           }
         }
         if (abort < 1) {
-          $("#status").text("Rendering...");
+          $('#status').text('Rendering...');
           data.push(tmp);
           neurons.push(f.name);
           addNeuron(neurons.length - 1);
         }
       };
     })(files[i]);
-    $("#status").text("Parsing...");
+    $('#status').text('Parsing...');
     reader.readAsText(files[i]);
   }
   return false;
