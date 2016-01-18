@@ -11,7 +11,7 @@ body {
   background: $dark-gray url('/css/stripe.png') fixed;
   color: $dark-white;
   font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
-  @include font-size(1);
+  @include font-size(1.1);
   min-height: 100%;
 }
 
@@ -55,14 +55,14 @@ code, pre {
   background: #141414;
   color: $dark-white;
   font-family: Consolas, "Courier New", monospace;
-  @include font-size(0.9);
+  @include font-size(1.1);
   margin: 0 2px;
 }
 
 code {
   border: 1px solid $darker-gray;
   border-radius: 4px;
-  padding: 4px 5px 3px;
+  padding: 4px 6px 3px;
   white-space: nowrap;
 }
 
@@ -150,7 +150,7 @@ iframe { // YouTube
 
 .content {
   background: $gray;
-  padding: 5px 45px 30px;
+  padding: 5px 70px 30px;
 
   p {
     margin: 1.75em 0;
