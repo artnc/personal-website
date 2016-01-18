@@ -126,6 +126,11 @@
       opacity: 0.05;
       transition: opacity 0.15s;
 
+      &.dark {
+        filter: brightness(4);
+        -webkit-filter: brightness(4);
+      }
+
       &.untagged {
         opacity: 0.05 !important;
       }
