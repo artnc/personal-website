@@ -1,3 +1,4 @@
+exclude: ["personal-website.sublime-project", "personal-website.sublime-workspace"]
 highlighter: pygments
 name: "Art Chaidarun"
 permalink: /:title.html
