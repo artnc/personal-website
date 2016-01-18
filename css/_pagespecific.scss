@@ -91,11 +91,12 @@
 
   .project-cell {
     display: table-cell;
-    padding: 20px 0 10px;
+    height: 400px;
+    padding: 40px 0 0;
     vertical-align: top;
 
     &:first-child {
-      padding-right: 20px;
+      padding-right: 35px;
       width: 100%;
     }
 
@@ -110,18 +111,6 @@
 
   td {
     padding: 0;
-
-    &.work {
-      background: #181820;
-    }
-
-    &.personal {
-      background: #182018;
-    }
-
-    &.school {
-      background: #202018;
-    }
   }
 
   .thumbnail-cell {
@@ -130,16 +119,18 @@
     width: 105px;
 
     img {
+      border-radius: 5px;
       box-shadow: none;
       display: block;
-      max-width: 105px;
-      opacity: 0.02;
+      max-width: 100px;
+      opacity: 0.05;
+      transition: opacity 0.15s;
 
-      &:hover {
-        opacity: 0.5;
+      &.untagged {
+        opacity: 0.05 !important;
       }
 
-      &.current, &.tagged {
+      &:hover, &.current, &.tagged {
         opacity: 1;
       }
     }

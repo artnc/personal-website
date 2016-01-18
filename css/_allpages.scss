@@ -272,6 +272,7 @@ iframe { // YouTube
   cursor: default;
   margin: 0 4px 6px 0;
   padding: 5px 12px;
+  transition: color 0.2s;
 }
 .post-info {
   background: $dark-gray;
