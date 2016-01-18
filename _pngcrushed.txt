@@ -55,3 +55,4 @@ img/ttrss-dark.png
 img/tdd.png
 img/tdd-classic.png
 img/triviality.png
+img/duo.png
