@@ -19,7 +19,6 @@ custom page variables
 includes
 
 - ga                  = google analytics js
-- piwik               = piwik js
 
 layouts
 
@@ -51,4 +50,4 @@ workflow tools
 
 1. _run.sh
 1. git
-1. ftp
+1. rsync

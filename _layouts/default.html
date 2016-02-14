@@ -12,7 +12,6 @@
   <script>window.jQuery || document.write('<script src="/js/jquery-1.10.1.min.js"><\/script>')</script>
   <script type="text/javascript" src={% if page.url == "/index.html" %}"/js/jquery.tipsy.js"{% else %}"/js/lightbox.js"{% endif %}></script>
   {% if page.headjs != null %}{{ page.headjs }}{% endif %}
-  {% include ga.html %}
 </head>
 <body id="top" class="{{ page.title | downcase | remove: ".html" | replace:' ','-' }}-html">
 <div id="topline"></div>
@@ -51,6 +50,6 @@ $("#logo").on('mouseenter', function() {
 
 $("a[href*='http']:not([href^='/'])").prop("target", "_blank");
 </script>
-{% include piwik.html %}
+{% include ga.html %}
 </body>
 </html>
