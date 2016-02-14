@@ -207,8 +207,8 @@ pagetitle: Projects
   });
 
   // Project switching
-  var showProject = function(updateURL) {
-    updateURL = updateURL !== false;
+  var showProject = function(replaceURL) {
+    replaceURL = replaceURL !== false;
     var $project = $('.project-desc').hide().eq(currentProject).show();
     var tech = ($project.attr('data-tech') || '').split(',');
     $('.tag')
@@ -218,7 +218,8 @@ pagetitle: Projects
       })
       .addClass('activetag');
     thumbnailImages.removeClass('current').eq(currentProject).addClass('current');
-    window.history.replaceState({}, '', window.location.pathname + '#' + $project.attr('data-hash'));
+    replaceURL && window.history.replaceState(
+      {}, '', window.location.pathname + '#' + $project.attr('data-hash'));
   };
 
   // Determine initially shown project
