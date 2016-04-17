@@ -57,3 +57,4 @@ img/tdd-classic.png
 img/triviality.png
 img/duo.png
 img/duolingo-earth.png
+img/slack-emails.png
