@@ -189,8 +189,18 @@
 // Blog
 
 .blog-html {
-  .content img {
-    margin-left: 10px;
+  h2 {
+    a {
+      outline: none;
+
+      &:hover {
+        border: 0;
+      }
+    }
+
+    img {
+      margin-left: 10px;
+    }
   }
 }
 
