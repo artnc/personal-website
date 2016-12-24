@@ -2,7 +2,7 @@
 layout: default
 ---
 {{ content }}
-<p class="post-info">{% if page.tags != empty %}{{ page.tags | join: ', ' }} | {% endif %}{{ page.date | date: "%b %d, %Y" }}</p>
+<p class="post-info">{% if page.tags != empty %}{{ page.tags | join: ', ' }} | {% endif %}{{ page.date | date: "%Y-%m-%d" }}</p>
 {% if page.comments %}
 <div id="disqus_thread"></div>
 <script type="text/javascript">

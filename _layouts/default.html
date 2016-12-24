@@ -6,6 +6,8 @@
   <meta name="author" content="Art Chaidarun">
   <title>{% if page.pagetitle != null %}{{ page.pagetitle }} | {% endif %}Art Chaidarun</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#6fe358">
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   {% if page.headcss != null %}{{ page.headcss }}{% endif %}
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
@@ -29,17 +31,15 @@
     {{ content }}
   </div>
   <div id="footer">
-    <p>&copy; {{ site.time | date: "%Y" }} Art Chaidarun |<a href="https://www.facebook.com/artnc" title="facebook">f</a><a href="http://www.linkedin.com/in/artnc/" title="linkedin">in</a><a href="https://plus.google.com/117410706532450381491?rel=author" title="google+">g+</a><a href="https://github.com/artnc" title="github">gh</a><a href="/feed.xml" title="blog feed">rss</a></p>
+    <p>&copy; {{ site.time | date: "%Y" }} Art Chaidarun<span><a href="https://www.facebook.com/artnc" title="facebook">f</a><a href="http://www.linkedin.com/in/artnc/" title="linkedin">in</a><a href="https://plus.google.com/117410706532450381491?rel=author" title="google+">g+</a><a href="https://github.com/artnc" title="github">gh</a><a href="/feed.xml" title="blog feed">rss</a></span></p>
   </div>
 </div>
 <script type="text/javascript">
-var direction = 360;
 var rotation;
 var ico = $('#logo img');
 $("#logo").on('mouseenter', function() {
-  direction = -direction;
   ico[0].style.textIndent = "0px";
-  ico.animate({textIndent: direction}, {
+  ico.animate({textIndent: 360}, {
     step: function(now, fx){
       rotation = "rotate(" + now + "deg)";
       $(this).css("transform", rotation).css("-ms-transform", rotation).css("-webkit-transform", rotation).css("-o-transform", rotation).css("-moz-transform", rotation);

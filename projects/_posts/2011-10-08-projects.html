@@ -7,7 +7,7 @@ pagetitle: Projects
     <div class="project-desc" data-hash="duolingo" data-tech="AWS,Backbone.js,Bash,CSS,DynamoDB,Git,HTML,JavaScript,jQuery,LESS,Linux,MySQL,Pyramid,Python,Redis,Webpack">
       <h2>Duolingo</h2>
       <span class="project-timeline">Senior Software Engineer<br />January 2014 - Present</span>
-      <p><a href="https://www.duolingo.com/">Duolingo</a> is a free alternative to Rosetta Stone. Available on web and mobile, it was named 2013 App of the Year by Apple. Its game mechanics are pretty addicting - I signed up on a whim and ended up <a href="/duolingo">completing</a> five language courses.</p>
+      <p><a href="https://www.duolingo.com/">Duolingo</a> is the most popular way to learn a language online and was named 2013 App of the Year by Apple. Its game mechanics are pretty addicting - I signed up on a whim and ended up <a href="/duolingo">completing</a> five language courses.</p>
       <p>I currently work on the Foundations team as platform owner of Duolingo's flagship apps for web and Windows.</p>
     </div>
     <div class="project-desc" data-hash="duolingo-test-center" data-tech="AWS,Backbone.js,Bash,CSS,DynamoDB,Eclipse,Git,HTML,LESS,Java,JavaScript,jQuery,Linux,Pyramid,Python,Redis">
@@ -116,38 +116,25 @@ pagetitle: Projects
       <p>I still have and use the same calculator for my programs, which range from games like <a href="/calculator">Blackjack and Simon</a> (9th grade) to <a href="https://github.com/artnc/ti-basic">binomial tree option pricers</a> (last semester of college).</p>
     </div>
   </div>
-  <table class="project-cell">
-    <tr>
-      <td class="thumbnail-cell"><img src="/img/duo.png" alt="Duolingo"></td>
-      <td class="thumbnail-cell"><img src="/img/testcenter.png" alt="Duolingo Test Center"></td>
-      <td class="thumbnail-cell"><img src="/img/windowsphone.png" alt="Duolingo Windows Phone"></td>
-    </tr>
-    <tr>
-      <td class="thumbnail-cell"><img src="/img/triviality.png" alt="Triviality"></td>
-      <td class="thumbnail-cell"><img class="dark" src="/img/duolingo-earth.png" alt="Duolingo Earth"></td>
-      <td class="thumbnail-cell"><img class="dark" src="/img/tdd.png" alt="True Daily Double"></td>
-    </tr>
-    <tr>
-      <td class="thumbnail-cell"><img src="/img/cifer.png" alt="CIFEr"></td>
-      <td class="thumbnail-cell"><img src="/img/epiclogo.png" alt="Epic"></td>
-      <td class="thumbnail-cell"><img src="/img/github.png" alt="GitHub"></td>
-    </tr>
-    <tr>
-      <td class="thumbnail-cell"><img src="/img/ticketmelon.png" alt="Ticketmelon"></td>
-      <td class="thumbnail-cell"><img src="/img/jinsup.png" alt="JinSup"></td>
-      <td class="thumbnail-cell"><img src="/img/neuron.png" alt="3D Neuron Modeler"></td>
-    </tr>
-    <tr>
-      <td class="thumbnail-cell"><img src="/img/kenken-corner.png" alt="KenKen"></td>
-      <td class="thumbnail-cell"><img src="/img/graphics.png" alt="Graphics"></td>
-      <td class="thumbnail-cell"><img src="/img/tuba.png" alt="Sousaphone"></td>
-    </tr>
-    <tr>
-      <td class="thumbnail-cell"><img class="dark" src="/img/home.png" alt="chaidarun.com"></td>
-      <td class="thumbnail-cell"><img src="/img/calculator-simon.png" alt="Calculator Programs"></td>
-      <td></td>
-    </tr>
-  </table>
+  <div class="project-cell">
+    <div class="thumbnail"><img src="/img/duo.png" alt="Duolingo"></div>
+    <div class="thumbnail"><img src="/img/testcenter.png" alt="Duolingo Test Center"></div>
+    <div class="thumbnail"><img src="/img/windowsphone.png" alt="Duolingo Windows Phone"></div>
+    <div class="thumbnail"><img src="/img/triviality.png" alt="Triviality"></div>
+    <div class="thumbnail"><img class="dark" src="/img/duolingo-earth.png" alt="Duolingo Earth"></div>
+    <div class="thumbnail"><img class="dark" src="/img/tdd.png" alt="True Daily Double"></div>
+    <div class="thumbnail"><img src="/img/cifer.png" alt="CIFEr"></div>
+    <div class="thumbnail"><img src="/img/epiclogo.png" alt="Epic"></div>
+    <div class="thumbnail"><img src="/img/github.png" alt="GitHub"></div>
+    <div class="thumbnail"><img src="/img/ticketmelon.png" alt="Ticketmelon"></div>
+    <div class="thumbnail"><img src="/img/jinsup.png" alt="JinSup"></div>
+    <div class="thumbnail"><img src="/img/neuron.png" alt="3D Neuron Modeler"></div>
+    <div class="thumbnail"><img src="/img/kenken-corner.png" alt="KenKen"></div>
+    <div class="thumbnail"><img src="/img/graphics.png" alt="Graphics"></div>
+    <div class="thumbnail"><img src="/img/tuba.png" alt="Sousaphone"></div>
+    <div class="thumbnail"><img class="dark" src="/img/home.png" alt="chaidarun.com"></div>
+    <div class="thumbnail"><img src="/img/calculator-simon.png" alt="Calculator Programs"></div>
+  </div>
 </div>
 <p>
   <span class="tag">AngularJS</span>
@@ -197,13 +184,11 @@ pagetitle: Projects
 
 <script type="text/javascript">
 (function() {
-  var thumbnailImages = $('.thumbnail-cell img');
+  var thumbnailImages = $('.thumbnail img');
 
   // Thumbnail indexing
-  thumbnailImages.each(function() {
-    var td = $(this).parent();
-    var tr = td.parent();
-    $(this).attr('data-index', 3 * tr.index() + td.index());
+  thumbnailImages.each(function(i) {
+    $(this).attr('data-index', i);
   });
 
   // Project switching

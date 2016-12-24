@@ -1,13 +1,8 @@
 .index-html {
-  #wrap {
-    width: $index-width;
-  }
-
   .content {
-    border-radius: $index-width / 2;
-    height: $index-width;
+    height: 550px;
     padding: 0px;
-    width: $index-width;
+    width: 550px;
   }
 
   svg {
@@ -25,8 +20,8 @@
   }
 
   circle {
-    stroke: $gray;
-    stroke-width: 1.5px;
+    stroke: $dark-gray;
+    stroke-width: 3px;
     -webkit-touch-callout: none;
     @include vendor-prefix(user-select, none);
 
@@ -82,7 +77,8 @@
 
   .project-table {
     display: table;
-    min-height: 400px;
+    margin-bottom: 40px;
+    min-height: 450px;
   }
 
   .project-desc {
@@ -101,7 +97,17 @@
     }
 
     &:last-child {
-      min-width: 315px;
+      $thumbnail-width: 105px;
+
+      min-width: $thumbnail-width;
+
+      @media(min-width: 450px) {
+        min-width: 2 * $thumbnail-width;
+      }
+
+      @media(min-width: 600px) {
+        min-width: 3 * $thumbnail-width;
+      }
     }
   }
 
@@ -109,21 +115,16 @@
     color: $light-gray;
   }
 
-  td {
-    padding: 0;
-  }
-
-  .thumbnail-cell {
+  .thumbnail {
     cursor: pointer;
-    height: 66px;
-    width: 105px;
+    display: inline-block;
 
     img {
       border-radius: 5px;
       box-shadow: none;
       display: block;
       max-width: 100px;
-      opacity: 0.05;
+      opacity: 0.15;
       transition: opacity 0.15s;
 
       &.dark {
@@ -201,6 +202,10 @@
     img {
       margin-left: 10px;
     }
+  }
+
+  .date {
+    white-space: nowrap;
   }
 }
 

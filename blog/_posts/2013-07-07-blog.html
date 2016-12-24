@@ -7,7 +7,7 @@ pagetitle: Blog
   <tbody>
 {% for post in site.posts %}
   {% if post.layout == "post" and post.secret != true %}
-    <tr><td>{{ post.date | date: "%b %d, %Y" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
+    <tr><td class="date">{{ post.date | date: "%Y-%m-%d" }}</td><td><a href="{{ post.url | remove: ".html" }}">{{ post.h1 }}</a></td></tr>
   {% endif %}
 {% endfor %}
   </tbody>
