@@ -1,5 +1,6 @@
-exclude: ["personal-website.sublime-project", "personal-website.sublime-workspace"]
+destination: build
 highlighter: pygments
 name: "Art Chaidarun"
 permalink: /:title.html
+source: src
 url: https://chaidarun.com

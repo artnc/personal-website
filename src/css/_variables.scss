@@ -1,0 +1,64 @@
+// Dimension
+
+$page-width: 720px;
+
+// Colors
+
+$bright-green: #6fe358;
+// $light-green: #7dcf6d; // Old <a> color.. a little too bright?
+$light-green: #70ad64;
+$dark-green: #355325;
+
+$off-white: #ddd;
+$dark-white: #bbb;
+$light-gray: #555;
+$gray: #333;
+$dark-gray: #181818;
+$little-darker-gray: #111111;
+$darker-gray: #0c0c0c;
+
+
+// IE8 rem fallback
+
+$html-font-size: 80%;
+
+@mixin font-size($rem) {
+  font-size: ($rem * $html-font-size);
+  font-size: $rem + rem;
+}
+
+// Vendor prefixes
+
+@mixin vendor-prefix($name, $argument) {
+  #{$name}: $argument;
+  -webkit-#{$name}: $argument;
+  -ms-#{$name}: $argument;
+  -moz-#{$name}: $argument;
+  -o-#{$name}: $argument;
+}
+
+// Grayscale
+
+@mixin grayscale-on() {
+  filter: url(filters.svg#grayscale); /* FF 3.5+ */
+  filter: gray; /* IE6-9 */
+  -webkit-filter: grayscale(1); /* Chrome, Safari 6+, Opera 15+ */
+}
+
+@mixin grayscale-off() {
+  filter: none;
+  -webkit-filter: grayscale(0);
+}
+
+// Top-down linear background gradient
+// http://www.impressivewebs.com/css3-linear-gradient-syntax/
+
+@mixin background-gradient($top, $bottom) {
+  background: -moz-linear-gradient($top, $bottom); /* FF 3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, $top), color-stop(100%, $bottom)); /* Safari 4+, Chrome 2+ */
+  background: -webkit-linear-gradient($top, $bottom); /* Safari 5.1+, Chrome 10+ */
+  background: -o-linear-gradient($top, $bottom); /* Opera 11.10 */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='$top', endColorstr='$bottom'); /* IE6 & IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='$top', endColorstr='$bottom')"; /* IE8+ */
+  background: linear-gradient($top, $bottom); /* the standard */
+}

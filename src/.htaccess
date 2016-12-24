@@ -1,0 +1,48 @@
+# 404 page
+
+ErrorDocument 404 /404
+
+# Legacy URLs
+
+Redirect 301 /sublime-file-locking https://github.com/artnc/sublime-file-locking
+Redirect 301 /ncrr http://www.ncrr.net/
+Redirect 301 /home /
+Redirect 301 /code /projects
+Redirect 301 /assets/ArtChaidarun-WebResume.pdf /files/ArtChaidarun-WebResume.pdf
+Redirect 301 /raytracer /graphics
+Redirect 301 /kenken /projects
+Redirect 301 /notes/cavalier-on-android /cavalier-on-android
+Redirect 301 /notes/sublime-build /sublime-build
+Redirect 301 /notes/openni-k4w /openni-k4w
+Redirect 301 /notes/fedup /fedup
+Redirect 301 /notes/linuxsampler /linuxsampler
+Redirect 301 /notes /blog
+
+# Short URL for resume
+
+Redirect 301 /resume /files/ArtChaidarun-WebResume.pdf
+
+# http://andrewho.co.uk/weblog/clean-urls-on-jekyll-apache
+
+RewriteEngine On
+
+RewriteCond %{HTTP_HOST} ^[^\.]+\.chaidarun\.com$ [NC]
+RewriteRule ^(.*)$ https://chaidarun.com/$1 [R=301,L]
+
+RewriteRule ^(.+)/$ https://%{HTTP_HOST}/$1 [R=301]
+Options -Indexes
+DirectorySlash Off
+
+RewriteCond %{THE_REQUEST} ^(GET|HEAD)\ /.+\.html\ HTTP
+RewriteRule ^(.+)\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^.+$ %{REQUEST_FILENAME}.html [L]
+
+# MIME type for fonts
+
+AddType application/vnd.ms-fontobject .eot
+AddType font/ttf .ttf
+AddType font/otf .otf
+AddType application/x-font-woff .woff

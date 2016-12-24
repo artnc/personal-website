@@ -1,0 +1,36 @@
+---
+description: A detailed guide for connecting an Android device to the University of Virginia's secure wireless network, cavalier.
+h1: Connecting Android to UVa's Cavalier Network
+layout: post
+pagetitle: Connecting Android to UVa's Cavalier Network
+tags: ["linux"]
+comments: true
+---
+<p>This method takes about five minutes and has been confirmed by several people to work, despite the lack of official Android support from <a href="http://its.virginia.edu/mobile/android.html#wireless">ITS</a>. The only reported issue is that the fourth step sometimes fails on the Nexus 4. Please let me (nc5rk) know if you run into problems!</p>
+
+<a href="/img/android-on-cavalier-connected.png" data-lightbox="lightbox" class="nounderline" title="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"><img src="/img/android-on-cavalier-connected.png" class="right overlay" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"></a>
+<ol>
+  <li>Go to <strong>Settings &gt; Wireless &amp; networks &gt; Wi-Fi settings</strong> and make sure your Android device can detect the cavalier network.</li>
+  <li>Either connect to <a href="http://its.virginia.edu/mobile/android.html#wireless">wahoo</a> or turn on mobile data. Then open your device's web browser and go to <a href="https://standard.pki.virginia.edu/pkcs12/">https://standard.pki.virginia.edu/pkcs12/</a></li>
+  <li>Click OK, fill out the required information, and submit.</li>
+  <li>Your browser will redirect to another page and start downloading a file named <strong><em>[computing id]</em>.p12</strong>. If you get a toast saying that the certificate has been installed, skip to step 7.</li>
+  <li>The default save location will probably be a folder called "Downloads", but you need to change it to <strong>/mnt/sdcard</strong>. Save the file.</li>
+  <li>Go to <strong>Settings &gt; Location &amp; security</strong> and click "Install from SD card" (sometimes called "Install from device storage"). Name your certificate whatever you want.</li>
+  <li>Go back to <strong>Settings &gt; Wireless &amp; networks &gt; Wi-Fi settings</strong> and click on cavalier.</li>
+  <li>Enter these settings. Pay attention to the capitalization of Virginia.EDU!
+    <table class="borderless">
+      <tr><td>EAP method: </td><td><code>TLS</code></td></tr>
+      <tr><td>Phase 2 authentication: </td><td><code>None</code></td></tr>
+      <tr><td>CA certificate: </td><td><code>[certificate name]</code></td></tr>
+      <tr><td>User certificate: </td><td><code>[certificate name]</code></td></tr>
+      <tr><td>Identity: </td><td><code>[lowercase computing id]@Virginia.EDU</code></td></tr>
+      <tr><td>Anonymous identity: </td><td><code>[leave blank]</code> </td></tr>
+      <tr><td>Password: </td><td><code>[netbadge password]</code></td></tr>
+    </table>
+  </li>
+  <li>Click Connect. Enter your credential storage password if asked. (<a href="https://www.google.com/search?q=android+reset+credential+storage+password">Don't know it?</a>)</li>
+</ol>
+
+<p>Note that every time you reboot, the cavalier network will be disabled and you will need to repeat step 9. This is a "feature" of Android. You'll also need to repeat the whole process every year when you renew your certificate, just like you do with your computer and other devices.</p>
+
+<p>If you need to connect Linux to cavalier, try <a href="http://uvalug.org/wiki/Cavalier_Wireless_with_Network_Manager">this</a>.</p>

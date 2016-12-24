@@ -1,0 +1,414 @@
+---
+description: Hello! I'm a recent UVa graduate now working as a software engineer at Duolingo.
+layout: default
+secret: true
+---
+<!--<script type="text/javascript" src="/js/jquery-1.10.1.min.js"></script>-->
+<script type="text/javascript" src="/js/jquery.tipsy.js"></script>
+<script type="text/javascript" src="/js/d3.v3.min.js"></script>
+<script>
+  $("body")[0].className = "index-html";
+  var w = 550,
+      h = 550;
+
+  var force = d3.layout.force()
+    .charge(-60)
+    .linkDistance(40)
+    .size([w, h]);
+
+  var svg = d3.select(".content").append("svg")
+    .attr("width", w)
+    .attr("height", h);
+
+  svg
+    .append("defs")
+      .append("pattern")
+      .attr("id", "hello")
+      .attr("x", "53")
+      .attr("y", "3")
+      .attr("patternUnits", "userSpaceOnUse")
+      .attr("height", "80")
+      .attr("width", "80")
+        .append("image")
+        .attr("x", "0")
+        .attr("y", "0")
+        .attr("height", "80")
+        .attr("width", "80")
+        .attr("xlink:href", "/img/hello.png");
+
+  var graph = {
+    "nodes":[
+      {"n":"Hello!","g":0,"r":40,"u":"/about"},
+      {"n":"University of Virginia '13","g":3,"r":17},
+      {"n":"Web","g":2,"r":7},
+      {"n":"HTML5","g":2,"r":7},
+      {"n":"JavaScript","g":2,"r":7},
+      {"n":"CSS3","g":2,"r":7},
+      {"n":"Java","g":2,"r":7},
+      {"n":"Windows","g":2,"r":7},
+      {"n":"Python","g":2,"r":7},
+      {"n":"LaTeX","g":2,"r":7},
+      {"n":"jQuery","g":2,"r":7},
+      {"n":"Backbone","g":2,"r":7},
+      {"n":"Android","g":2,"r":7},
+      {"n":"PhoneGap","g":2,"r":7},
+      {"n":"AutoHotkey","g":2,"r":7},
+      {"n":"TI-BASIC","g":2,"r":7},
+      {"n":"Coding","g":2,"r":17},
+      {"n":"Living","g":1,"r":7},
+      {"n":"Boston, MA","g":1,"r":7},
+      {"n":"Worcester, MA","g":1,"r":7},
+      {"n":"Walla Walla, WA","g":1,"r":7},
+      {"n":"Charlottesville, VA","g":1,"r":7},
+      {"n":"Hanover, NH","g":1,"r":7},
+      {"n":"Birmingham, UK","g":1,"r":7},
+      {"n":"Bangkok, Thailand","g":1,"r":7},
+      {"n":"Music","g":1,"r":7},
+      {"n":"Piano","g":1,"r":7},
+      {"n":"Clarinet","g":1,"r":7},
+      {"n":"Tuba (Sousaphone)","g":1,"r":7},
+      {"n":"Networks","g":1,"r":7},
+      {"n":"Facebook","g":1,"r":7,"u":"https://www.facebook.com/artnc"},
+      {"n":"Sporcle","g":1,"r":7,"u":"http://www.sporcle.com/user/artnc"},
+      {"n":"Fitocracy","g":1,"r":7,"u":"https://www.fitocracy.com/profile/artnc/"},
+      {"n":"Duolingo","g":1,"r":7,"u":"http://www.duolingo.com/#/artnc"},
+      {"n":"French","g":1,"r":7},
+      {"n":"Spanish","g":1,"r":7},
+      {"n":"GitHub","g":1,"r":7,"u":"https://github.com/artnc"},
+      {"n":"Google+","g":1,"r":7,"u":"https://plus.google.com/117410706532450381491?rel=author"},
+      {"n":"PHP","g":2,"r":7},
+      {"n":"Personal","g":1,"r":17},
+      {"n":"Cavalier Marching Band","g":3,"r":7},
+      {"n":"Computer Science Major","g":3,"r":7},
+      {"n":"Mathematics Major","g":3,"r":7},
+      {"n":"Echols Scholar","g":3,"r":7,"u":"http://college.artsandsciences.virginia.edu/echols"},
+      {"n":"Recreational","g":2,"r":7},
+      {"n":"Mobile","g":2,"r":7},
+      {"n":"Discrete Mathematics","g":3,"r":7},
+      {"n":"Algorithms","g":3,"r":7},
+      {"n":"Parallel Computing","g":3,"r":7},
+      {"n":"Defense Against the Dark Arts","g":3,"r":7},
+      {"n":"Artificial Intelligence","g":3,"r":7},
+      {"n":"Computer Graphics","g":3,"r":7,"u":"http://www.cs.virginia.edu/~gfx/Courses/2012/IntroGraphics/index.html"},
+      {"n":"Multivariate Calculus","g":3,"r":7},
+      {"n":"Ordinary Diff Eq","g":3,"r":7},
+      {"n":"Linear Algebra","g":3,"r":7},
+      {"n":"Abstract Algebra","g":3,"r":7,"u":"http://people.virginia.edu/~des5e/F12,3354/F12,3354,syllabus.html"},
+      {"n":"Probability","g":3,"r":7},
+      {"n":"Statistics","g":3,"r":7},
+      {"n":"Computer Architecture","g":3,"r":7},
+      {"n":"Theory of Computation","g":3,"r":7,"u":"http://www.cs.virginia.edu/~robins/cs3102/CS3102_Syllabus.pdf"},
+      {"n":"MySQL","g":2,"r":7},
+      {"n":"C/C++","g":2,"r":7},
+      {"n":"Concert Band","g":1,"r":7},
+      {"n":"Track &amp; Field","g":1,"r":7},
+      {"n":"Knowledge Bowl","g":1,"r":7},
+      {"n":"Math Contests","g":1,"r":7},
+      {"n":"MODX","g":2,"r":7},
+      {"n":"Fedora Linux","g":2,"r":7},
+      {"n":"Private Tutor","g":3,"r":7},
+      {"n":"LinkedIn","g":1,"r":7,"u":"http://www.linkedin.com/in/artnc/"},
+      {"n":"100m","g":1,"r":7},
+      {"n":"200m","g":1,"r":7},
+      {"n":"4x100m Relay","g":1,"r":7},
+      {"n":"AMC","g":1,"r":7},
+      {"n":"AIME","g":1,"r":7},
+      {"n":"UKMT","g":1,"r":7},
+      {"n":"Math is Cool","g":1,"r":7},
+      {"n":"MathCounts","g":1,"r":7},
+      {"n":"Math League","g":1,"r":7},
+      {"n":"Twitter Bootstrap","g":2,"r":7},
+      {"n":"Neuron Visualization","g":4,"r":7,"u":"/neuron"},
+      {"n":"Class Projects","g":4,"r":7},
+      {"n":"Epic Systems","g":4,"r":7},
+      {"n":"Norfolk County Rifle Range","g":4,"r":7},
+      {"n":"Ticketmelon","g":4,"r":7},
+      {"n":"Financial Market Simulation","g":4,"r":7},
+      {"n":"KenKen Generator &amp; Solver","g":4,"r":7},
+      {"n":"Raytracing, Morphing, and OpenGL","g":4,"r":7,"u":"/graphics"},
+      {"n":"QWERTY to Dvorak Converter","g":4,"r":7,"u":"/dvorak"},
+      {"n":"ST2 File Locking Plugin","g":4,"r":7},
+      {"n":"LaTeX Homework Template","g":4,"r":7},
+      {"n":"Personal Projects","g":4,"r":7},
+      {"n":"Projects","g":4,"r":17},
+      {"n":"Work","g":4,"r":7},
+      {"n":"Digital Logic Design","g":3,"r":7},
+      {"n":"Git","g":2,"r":7},
+      {"n":"Boy Scouts","g":1,"r":7},
+      {"n":"Washington State Champion","g":1,"r":7},
+      {"n":"Sass","g":2,"r":7},
+      {"n":"Thai Student Organization","g":3,"r":7},
+      {"n":"AP Scholar with Distinction","g":1,"r":7},
+      {"n":"Pittsburgh, PA","g":1,"r":7},
+      {"n":"Stochastic Processes","g":3,"r":7},
+      {"n":"Derivative Securities","g":3,"r":7},
+      {"n":"Real Analysis","g":3,"r":7},
+      {"n":"Software Development Methods","g":3,"r":7},
+      {"n":"Program &amp; Data Representation","g":3,"r":7},
+      {"n":"Multiple Integral Calculator","g":4,"r":7,"u":"/integral"},
+      {"n":"Madison, WI","g":1,"r":7},
+      {"n":"AJAX","g":2,"r":7},
+      {"n":"Calculator Blackjack &amp; Simon","g":4,"r":7},
+      {"n":"Pentris","g":4,"r":7},
+      {"n":"Midimeter","g":4,"r":7},
+      {"n":"Research","g":4,"r":7},
+      {"n":"Resume","g":5,"r":17,"u":"/resume"},
+      {"n":"Advanced Placement Credits","g":3,"r":7},
+      {"n":"AP Calculus BC","g":3,"r":7},
+      {"n":"AP Microeconomics","g":3,"r":7},
+      {"n":"AP Macroeconomics","g":3,"r":7},
+      {"n":"AP Biology","g":3,"r":7},
+      {"n":"AP Statistics","g":3,"r":7},
+      {"n":"AP Chemistry","g":3,"r":7},
+      {"n":"AP Physics B","g":3,"r":7},
+      {"n":"AP Computer Science","g":3,"r":7},
+      {"n":"AP English Literature","g":3,"r":7},
+      {"n":"Symbolic Logic","g":3,"r":7},
+      {"n":"chaidarun.com","g":4,"r":7,"u":"/colophon"},
+      {"n":"Sublime Text","g":2,"r":7},
+      {"n":"Jekyll","g":2,"r":7},
+      {"n":"Flask","g":2,"r":7},
+      {"n":"PostgreSQL","g":2,"r":7},
+      {"n":"Heroku","g":2,"r":7},
+      {"n":"SoundCloud","g":1,"r":7,"u":"https://soundcloud.com/artnc"},
+      {"n":"CIFEr Hedge Fund Competition","g":4,"r":7,"u":"http://www.ieee-cifer.org/competition.html"},
+      {"n":"Intermediate Honors","g":3,"r":7},
+      {"n":"Head TA","g":3,"r":7}
+    ],
+    "links":[
+      {"source":2,"target":3},
+      {"source":2,"target":5},
+      {"source":2,"target":13},
+      {"source":2,"target":60},
+      {"source":2,"target":128},
+      {"source":3,"target":5},
+      {"source":4,"target":10},
+      {"source":4,"target":11},
+      {"source":4,"target":79},
+      {"source":5,"target":79},
+      {"source":6,"target":12},
+      {"source":2,"target":4},
+      {"source":16,"target":2},
+      {"source":16,"target":6},
+      {"source":16,"target":7},
+      {"source":0,"target":39},
+      {"source":39,"target":17},
+      {"source":17,"target":18},
+      {"source":17,"target":19},
+      {"source":17,"target":20},
+      {"source":17,"target":21},
+      {"source":17,"target":22},
+      {"source":17,"target":23},
+      {"source":17,"target":24},
+      {"source":17,"target":108},
+      {"source":39,"target":25},
+      {"source":25,"target":26},
+      {"source":25,"target":27},
+      {"source":25,"target":28},
+      {"source":39,"target":29},
+      {"source":29,"target":30},
+      {"source":29,"target":31},
+      {"source":29,"target":32},
+      {"source":29,"target":33},
+      {"source":33,"target":34},
+      {"source":33,"target":35},
+      {"source":29,"target":36},
+      {"source":29,"target":37},
+      {"source":2,"target":38},
+      {"source":38,"target":66},
+      {"source":0,"target":1},
+      {"source":1,"target":40},
+      {"source":1,"target":41},
+      {"source":1,"target":42},
+      {"source":1,"target":43},
+      {"source":40,"target":28},
+      {"source":16,"target":44},
+      {"source":44,"target":8},
+      {"source":16,"target":9},
+      {"source":44,"target":14},
+      {"source":44,"target":15},
+      {"source":44,"target":66},
+      {"source":16,"target":45},
+      {"source":45,"target":12},
+      {"source":45,"target":13},
+      {"source":2,"target":45},
+      {"source":41,"target":46},
+      {"source":41,"target":47},
+      {"source":41,"target":48},
+      {"source":41,"target":49},
+      {"source":41,"target":50},
+      {"source":41,"target":51},
+      {"source":41,"target":54},
+      {"source":41,"target":94},
+      {"source":42,"target":47},
+      {"source":42,"target":52},
+      {"source":42,"target":53},
+      {"source":42,"target":54},
+      {"source":42,"target":55},
+      {"source":42,"target":56},
+      {"source":42,"target":57},
+      {"source":42,"target":102},
+      {"source":42,"target":103},
+      {"source":42,"target":104},
+      {"source":41,"target":58},
+      {"source":41,"target":59},
+      {"source":41,"target":105},
+      {"source":41,"target":106},
+      {"source":16,"target":61},
+      {"source":24,"target":62},
+      {"source":24,"target":65},
+      {"source":16,"target":61},
+      {"source":20,"target":62},
+      {"source":20,"target":63},
+      {"source":20,"target":64},
+      {"source":20,"target":65},
+      {"source":68,"target":52},
+      {"source":68,"target":53},
+      {"source":68,"target":55},
+      {"source":68,"target":56},
+      {"source":16,"target":67},
+      {"source":4,"target":109},
+      {"source":38,"target":109},
+      {"source":29,"target":69},
+      {"source":63,"target":70},
+      {"source":63,"target":71},
+      {"source":63,"target":72},
+      {"source":65,"target":73},
+      {"source":73,"target":74},
+      {"source":65,"target":74},
+      {"source":65,"target":75},
+      {"source":65,"target":76},
+      {"source":65,"target":77},
+      {"source":65,"target":78},
+      {"source":27,"target":62},
+      {"source":0,"target":16},
+      {"source":0,"target":92},
+      {"source":92,"target":91},
+      {"source":92,"target":93},
+      {"source":92,"target":81},
+      {"source":92,"target":113},
+      {"source":113,"target":85},
+      {"source":113,"target":80},
+      {"source":81,"target":86},
+      {"source":81,"target":87},
+      {"source":91,"target":84},
+      {"source":91,"target":88},
+      {"source":91,"target":89},
+      {"source":91,"target":90},
+      {"source":91,"target":107},
+      {"source":91,"target":110},
+      {"source":91,"target":111},
+      {"source":91,"target":112},
+      {"source":93,"target":82},
+      {"source":93,"target":83},
+      {"source":93,"target":84},
+      {"source":39,"target":114},
+      {"source":1,"target":113},
+      {"source":91,"target":44},
+      {"source":16,"target":95},
+      {"source":36,"target":95},
+      {"source":20,"target":96},
+      {"source":64,"target":97},
+      {"source":76,"target":97},
+      {"source":5,"target":98},
+      {"source":1,"target":99},
+      {"source":24,"target":100},
+      {"source":17,"target":101},
+      {"source":114,"target":69},
+      {"source":1,"target":115},
+      {"source":115,"target":116},
+      {"source":115,"target":117},
+      {"source":115,"target":118},
+      {"source":115,"target":119},
+      {"source":115,"target":120},
+      {"source":115,"target":121},
+      {"source":115,"target":122},
+      {"source":115,"target":123},
+      {"source":115,"target":124},
+      {"source":100,"target":115},
+      {"source":41,"target":125},
+      {"source":91,"target":126},
+      {"source":16,"target":127},
+      {"source":44,"target":128},
+      {"source":2,"target":129},
+      {"source":8,"target":129},
+      {"source":2,"target":130},
+      {"source":2,"target":131},
+      {"source":29,"target":132},
+      {"source":113,"target":133},
+      {"source":1,"target":134},
+      {"source":105,"target":135}
+    ]
+  };
+
+  force
+    .nodes(graph.nodes)
+    .links(graph.links)
+    .start();
+
+  var link = svg.selectAll(".link")
+    .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", 1);
+
+  var tmp;
+  var node = svg.selectAll(".node")
+    .data(graph.nodes)
+    .enter().append("a")
+      .attr("xlink:href", function(d) { return d.u; })
+      .append("circle")
+        .attr("class", function(d) { return "node group" + d.g; })
+        .attr("r", function(d) { return d.r; })
+        .attr("data-title", function(d) { return d.n; })
+        .call(force.drag);
+
+  node.append("title")
+    .text(function(d, i) { return i; });
+
+  force.on("tick", function() {
+    link
+      .attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+    node
+      .attr("cx", function(d) { return d.x; })
+      .attr("cy", function(d) { return d.y; });
+  });
+
+
+
+
+
+
+
+  var nodes = $("svg .node");
+
+  nodes.tipsy({
+      trigger: 'manual',
+      gravity: 's',
+      fade: true,
+      html: true,
+      opacity: 0.95,
+      title: function() {
+        return this.getAttribute("data-title");
+      }
+    })
+    .hover(function() {
+      $(this).tipsy("show");
+    }, function() {
+      $(this).tipsy("hide");
+    });
+
+  var prevCarouseled = 0;
+  var interval = setInterval(function() {
+    $(nodes[prevCarouseled])
+      .tipsy("hide");
+    $(nodes[prevCarouseled = Math.floor(100 * Math.random())])
+      .tipsy("show");
+  }, 1500);
+
+  $("a[href*='http']:not([href^='/'])").attr("target", "_blank");
+</script>

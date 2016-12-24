@@ -1,0 +1,36 @@
+---
+h1: Connecting a MIDI Keyboard to LinuxSampler
+layout: post
+pagetitle: Connecting a MIDI Keyboard to LinuxSampler
+tags: ["linux", "music"]
+---
+<p>A couple years ago I went shopping for a MIDI keyboard based on price and key weighting, with no consideration given to audio quality. I figured that'd be lousy anyway, and on Windows I had used an acoustic modeling program called Pianoteq that did a decent enough job of replacing the stock samples.</p>
+<p>Unable to find a similar modeler for Linux*, I decided to go with <a href="http://www.linuxsampler.org/about.html">LinuxSampler</a>. Unfortunately, none of the installation guides I could find online worked for me. The process of getting the LinuxSampler engine, either of the two available frontends, JACK, and my keyboard to work together slowly degenerated into semi-randomly guessing different permutations of steps to take. Eventually I hit upon the magic formula for each of the two official frontends, JSampler (preferred) and QSampler.</p>
+<p>Here I assume you have the LinuxSampler engine with all the required libraries installed already, and that all you need now is to get JSampler and/or QSampler to detect your MIDI controller.</p>
+
+<h2>JSampler</h2>
+<a href="/img/linuxsampler-jsampler.png" data-lightbox="lightbox" class="nounderline" title="JSampler"><img src="/img/linuxsampler-jsampler.png" class="right overlay" alt="JSampler"></a>
+<ol>
+  <li>Disconnect the USB cable connecting the keyboard/controller to the computer.</li>
+  <li>Run <code>linuxsampler</code>.</li>
+  <li>Open Fantasia via <code>java -jar Fantasia-0.9.jar</code>.</li>
+  <li>Run <code>qjackctl</code>.</li>
+  <li>(Optional) Load your custom LSCP script into JSampler. <a href="https://github.com/artnc/dotfiles/blob/master/linuxsampler/jsampler_settings.lscp">Here's mine</a>.</li>
+  <li>With the keyboard powered off, plug in the USB or MIDI cable.</li>
+  <li>In qjackctl, click Connect and link "USB MIDI" output with "LinuxSampler" input. See screenshot below.</li>
+  <li>Power on the keyboard.</li>
+  <li>Close qjackctl.</li>
+</ol>
+
+<h2>QSampler</h2>
+<a href="/img/linuxsampler-qjackctl.png" data-lightbox="lightbox" class="nounderline" title="qjackctl"><img src="/img/linuxsampler-qjackctl.png" class="right overlay" alt="qjackctl"></a>
+<ol>
+  <li>Run <code>linuxsampler</code>.</li>
+  <li>Run <code>qsampler</code>.</li>
+  <li>Power on the keyboard and connect the USB cable.</li>
+  <li>Run <code>qjackctl</code>.</li>
+  <li>In qjackctl, click Connect and link "USB MIDI" output with "LinuxSampler" input. See screenshot to the right.</li>
+  <li>Close qjackctl.</li>
+</ol>
+
+<p><em>* Pianoteq has become <a href="http://www.pianoteq.com/pianoteq4">available</a> for Linux since the time this post was written.</em></p>

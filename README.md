@@ -38,16 +38,19 @@ sass partials
 - variables           = sass variables, mixins
 - webfonts            = fonts
 
-workflow tools
+### workflow
 
-- _minify/            = htmlcompressor/closure/yui binaries
-- _notes.md           = scratchpad for commit changes, todos, etc
-- _pngcrushed.txt     = list of all crushed pngs
-- _run.sh             = build jekyll/sass, minify all _site html/css/js/png
-- README.md           = summary of my changes to default jekyll install
+developing
 
-### publishing
+```bash
+make watch
+make css
+make serve
+```
 
-1. _run.sh
-1. git
-1. rsync
+publishing
+
+```bash
+make build
+make sync host=**.**.**.***
+```

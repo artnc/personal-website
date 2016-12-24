@@ -1,9 +1,7 @@
-.sass-cache/
-_minify/
-_site/
-css/.sass-cache/
-css/main.css
-files/ArtChaidarun-WebResume.pdf
-php/
 *.sublime-workspace
+.sass-cache/
+/build/
 _notes.md
+ArtChaidarun-WebResume.pdf
+main.css
+php/
