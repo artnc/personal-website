@@ -2,7 +2,7 @@
 
 * {
   box-sizing: border-box;
-  outline: none;
+  outline: 0;
 }
 
 html {
@@ -124,17 +124,23 @@ iframe { // YouTube
   }
 
   li a, span {
+    border-bottom: 2px solid transparent;
     color: $off-white;
     @include font-size(1.5);
     padding-bottom: 2px;
     text-transform: uppercase;
+    transition: border-color 0.25s;
 
     &:hover {
-      border-bottom: 2px solid $gray;
+      border-color: $gray;
     }
 
     &:active {
       padding-top: 1px;
+    }
+
+    &.active {
+      border-color: $bright-green;
     }
   }
 
@@ -154,14 +160,9 @@ iframe { // YouTube
   span {
     margin-left: 40px;
   }
-
-  .active {
-    border-bottom: 2px solid $bright-green !important;
-  }
 }
 
 .content {
-  // background: $gray;
   border-radius: 15px;
   padding: 5px 0 30px;
 
@@ -171,8 +172,12 @@ iframe { // YouTube
 
   a {
     color: $light-green;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 1px;
+    transition: border-color 0.25s;
+
     &:hover {
-      border-bottom: 1px dotted $dark-green;
+      border-color: $dark-green;
     }
   }
 
@@ -283,7 +288,7 @@ iframe { // YouTube
 }
 
 .tag {
-  background: $little-darker-gray;
+  background: $darker-gray;
   border: 1px solid transparent;
   border-radius: 10px;
   color: $light-gray;
@@ -292,6 +297,7 @@ iframe { // YouTube
   margin: 0 4px 6px 0;
   padding: 5px 12px;
   transition: color 0.2s;
+  user-select: none;
 }
 .post-info {
   background: $dark-gray;

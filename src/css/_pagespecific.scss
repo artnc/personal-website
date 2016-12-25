@@ -26,10 +26,6 @@
     stroke-width: 3px;
     -webkit-touch-callout: none;
     @include vendor-prefix(user-select, none);
-
-    &:hover {
-      stroke: $darker-gray;
-    }
   }
 
   .group0 {
@@ -99,7 +95,7 @@
     }
 
     &:last-child {
-      $thumbnail-width: 105px;
+      $thumbnail-width: 100px;
 
       min-width: $thumbnail-width;
 
@@ -118,12 +114,10 @@
   }
 
   .thumbnail {
-    border-radius: 5px;
     box-shadow: none;
     cursor: pointer;
     display: block;
     display: inline-block;
-    margin: 0 0 4px 4px;
     max-width: 100px;
     opacity: 0.15;
     transition: opacity 0.15s;
@@ -192,12 +186,8 @@
 
 .blog-html {
   h2 {
-    a {
-      outline: none;
-
-      &:hover {
-        border: 0;
-      }
+    a:hover {
+      border: 0;
     }
 
     img {
