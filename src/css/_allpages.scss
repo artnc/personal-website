@@ -34,7 +34,7 @@ hr {
 
 h1 {
   @include font-size(2.5);
-  font-weight: bold;
+  font-weight: 700;
   margin: .67em 0 1em;
 }
 
@@ -190,7 +190,7 @@ iframe { // YouTube
 
   th {
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
     text-align: left;
   }
 
@@ -238,7 +238,7 @@ iframe { // YouTube
   a {
     border-radius: 5px;
     color: $light-gray;
-    font-weight: bold;
+    font-weight: 700;
     padding-left: 10px;
     &:hover {
       border: 0;

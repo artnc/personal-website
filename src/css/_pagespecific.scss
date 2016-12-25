@@ -1,15 +1,17 @@
 .index-html {
+  $svg-size: 550px;
+
   .content {
-    height: 550px;
+    height: $svg-size;
+    margin-left: 50%;
     padding: 0px;
-    width: 550px;
+    transform: translateX(-$svg-size / 2);
+    width: $svg-size;
   }
 
   svg {
     font-family: Arial;
-    font-weight: bold;
-    margin-left: 11px;
-    margin-top: 16px;
+    font-weight: 700;
     position: absolute;
   }
 
