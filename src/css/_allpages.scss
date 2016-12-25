@@ -14,7 +14,7 @@ html {
 
 body {
   background: $dark-gray;
-  color: $dark-white;
+  color: $off-white;
   font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
   @include font-size(1.25);
   min-height: 100%;
@@ -56,7 +56,7 @@ p {
 
 code, pre {
   background: #141414;
-  color: $dark-white;
+  color: $off-white;
   font-family: Consolas, "Courier New", monospace;
   @include font-size(1.1);
   margin: 0 2px;
@@ -302,7 +302,7 @@ iframe { // YouTube
 }
 
 .activetag {
-  color: $dark-white;
+  color: $off-white;
 }
 
 .left {

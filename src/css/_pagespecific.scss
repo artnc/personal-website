@@ -116,29 +116,28 @@
   }
 
   .thumbnail {
+    border-radius: 5px;
+    box-shadow: none;
     cursor: pointer;
+    display: block;
     display: inline-block;
+    margin: 0 0 4px 4px;
+    max-width: 100px;
+    opacity: 0.15;
+    transition: opacity 0.15s;
+    vertical-align: top;
 
-    img {
-      border-radius: 5px;
-      box-shadow: none;
-      display: block;
-      max-width: 100px;
-      opacity: 0.15;
-      transition: opacity 0.15s;
+    &.dark {
+      filter: brightness(4);
+      -webkit-filter: brightness(4);
+    }
 
-      &.dark {
-        filter: brightness(4);
-        -webkit-filter: brightness(4);
-      }
+    &.untagged {
+      opacity: 0.05 !important;
+    }
 
-      &.untagged {
-        opacity: 0.05 !important;
-      }
-
-      &:hover, &.current, &.tagged {
-        opacity: 1;
-      }
+    &:hover, &.current, &.tagged {
+      opacity: 1;
     }
   }
 

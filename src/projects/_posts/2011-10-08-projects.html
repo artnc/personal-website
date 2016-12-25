@@ -4,7 +4,7 @@ pagetitle: Projects
 ---
 <div class="project-table">
   <div class="project-cell">
-    <div class="project-desc" data-hash="duolingo" data-tech="AWS,Backbone.js,Bash,CSS,DynamoDB,Git,HTML,JavaScript,jQuery,LESS,Linux,MySQL,Pyramid,Python,Redis,Webpack">
+    <div class="project-desc" data-hash="duolingo" data-tech="AWS,Backbone.js,Bash,CSS,DynamoDB,Flask,Git,HTML,JavaScript,jQuery,LESS,Linux,MySQL,Pyramid,Python,React,Redis,Redux,Sass,TypeScript,Webpack">
       <h2>Duolingo</h2>
       <span class="project-timeline">Senior Software Engineer<br />January 2014 - Present</span>
       <p><a href="https://www.duolingo.com/">Duolingo</a> is the most popular way to learn a language online and was named 2013 App of the Year by Apple. Its game mechanics are pretty addicting - I signed up on a whim and ended up <a href="/duolingo">completing</a> five language courses.</p>
@@ -22,13 +22,13 @@ pagetitle: Projects
       <p>I took on the task of single-handedly writing Duolingo's <a href="https://www.windowsphone.com/s?appid=2d89520e-d360-4b5b-ba5a-5a15064aa935">Windows app</a> as a side project while working on Test Center. It <a href="http://www.windowscentral.com/hidden-gems-day-11-duolingo">launched</a> in November 2014 and has since been converted into a Windows 10 universal app.</p>
       <p>Within a month of its release into the wild, the app reached #1 in the Education category with a 4.7 star rating based on over 5000 store reviews.</p>
     </div>
-    <div class="project-desc" data-hash="triviality" data-tech="CSS,Flux,Git,HTML,JavaScript,Linux,ReactJS,Sass,Webpack">
+    <div class="project-desc" data-hash="triviality" data-tech="CSS,Git,HTML,JavaScript,Linux,React,Redux,Sass,Webpack">
       <h2>Triviality</h2>
       <span class="project-timeline">December 2015</span>
       <p><a href="http://artnc.github.io/triviality/">Triviality</a> is a free online game that I designed and coded one winter break in order to learn React.</p>
       <p>Inspired by <em>Classic Trivia</em> and <em>What's the Lyric</em>, Triviality is a question-and-answer quiz app that pulls data from the <a href="http://j-archive.com/">J! Archive</a> via <a href="http://jservice.io/">jService</a>. It's optimized for the Amazon Fire TV but also works with keyboard, mouse, and/or touchscreen.</p>
     </div>
-    <div class="project-desc" data-hash="duolingo-earth" data-tech="CSS,Flask,Git,HTML,JavaScript,jQuery,Linux,Python,Sass,Socket.io,WebGL">
+    <div class="project-desc" data-hash="duolingo-earth" data-tech="AWS,CSS,Flask,Git,HTML,JavaScript,jQuery,Linux,Python,Sass,Socket.io,WebGL">
       <h2>Duolingo Earth</h2>
       <span class="project-timeline">December 2015</span>
       <p>For Duolingo's 2015 hackathon, coworker Karin Tsai and I created a WebGL app that visualizes global user events (e.g. registration, lesson start, course completion) in realtime.</p>
@@ -50,7 +50,7 @@ pagetitle: Projects
       <p>I worked on improving the diagnosis lookup interface, which involved a lot of plain old JavaScript (no libraries allowed!), some C#, and usability testing with local physicians.</p>
     </div>
     <div class="project-desc" data-hash="misc" data-tech="Backbone.js,Bash,CSS,D3,Flask,Git,HTML,Java,JavaScript,Jekyll,jQuery,LaTeX,Python,Sass,TI-BASIC,WebGL">
-      <h2>Miscellaneous FOSS</h2>
+      <h2>Miscellaneous</h2>
       <span class="project-timeline">August 2007 - Present</span>
       <h3 id="tools">Online Tools</h3>
 
@@ -116,25 +116,25 @@ pagetitle: Projects
       <p>I still have and use the same calculator for my programs, which range from games like <a href="/calculator">Blackjack and Simon</a> (9th grade) to <a href="https://github.com/artnc/ti-basic">binomial tree option pricers</a> (last semester of college).</p>
     </div>
   </div>
-  <div class="project-cell">
-    <div class="thumbnail"><img src="/img/duo.png" alt="Duolingo"></div>
-    <div class="thumbnail"><img src="/img/testcenter.png" alt="Duolingo Test Center"></div>
-    <div class="thumbnail"><img src="/img/windowsphone.png" alt="Duolingo Windows Phone"></div>
-    <div class="thumbnail"><img src="/img/triviality.png" alt="Triviality"></div>
-    <div class="thumbnail"><img class="dark" src="/img/duolingo-earth.png" alt="Duolingo Earth"></div>
-    <div class="thumbnail"><img class="dark" src="/img/tdd.png" alt="True Daily Double"></div>
-    <div class="thumbnail"><img src="/img/cifer.png" alt="CIFEr"></div>
-    <div class="thumbnail"><img src="/img/epiclogo.png" alt="Epic"></div>
-    <div class="thumbnail"><img src="/img/github.png" alt="GitHub"></div>
-    <div class="thumbnail"><img src="/img/ticketmelon.png" alt="Ticketmelon"></div>
-    <div class="thumbnail"><img src="/img/jinsup.png" alt="JinSup"></div>
-    <div class="thumbnail"><img src="/img/neuron.png" alt="3D Neuron Modeler"></div>
-    <div class="thumbnail"><img src="/img/kenken-corner.png" alt="KenKen"></div>
-    <div class="thumbnail"><img src="/img/graphics.png" alt="Graphics"></div>
-    <div class="thumbnail"><img src="/img/tuba.png" alt="Sousaphone"></div>
-    <div class="thumbnail"><img class="dark" src="/img/home.png" alt="chaidarun.com"></div>
-    <div class="thumbnail"><img src="/img/calculator-simon.png" alt="Calculator Programs"></div>
-  </div>
+  <div class="project-cell"><!--
+    --><img class="thumbnail" src="/img/duo.png" alt="Duolingo"><!--
+    --><img class="thumbnail" src="/img/testcenter.png" alt="Duolingo Test Center"><!--
+    --><img class="thumbnail" src="/img/windowsphone.png" alt="Duolingo Windows Phone"><!--
+    --><img class="thumbnail" src="/img/triviality.png" alt="Triviality"><!--
+    --><img class="thumbnail dark" src="/img/duolingo-earth.png" alt="Duolingo Earth"><!--
+    --><img class="thumbnail dark" src="/img/tdd.png" alt="True Daily Double"><!--
+    --><img class="thumbnail" src="/img/cifer.png" alt="CIFEr"><!--
+    --><img class="thumbnail" src="/img/epiclogo.png" alt="Epic"><!--
+    --><img class="thumbnail" src="/img/github.png" alt="GitHub"><!--
+    --><img class="thumbnail" src="/img/ticketmelon.png" alt="Ticketmelon"><!--
+    --><img class="thumbnail" src="/img/jinsup.png" alt="JinSup"><!--
+    --><img class="thumbnail" src="/img/neuron.png" alt="3D Neuron Modeler"><!--
+    --><img class="thumbnail" src="/img/kenken-corner.png" alt="KenKen"><!--
+    --><img class="thumbnail" src="/img/graphics.png" alt="Graphics"><!--
+    --><img class="thumbnail" src="/img/tuba.png" alt="Sousaphone"><!--
+    --><img class="thumbnail dark" src="/img/home.png" alt="chaidarun.com"><!--
+    --><img class="thumbnail" src="/img/calculator-simon.png" alt="Calculator Programs"><!--
+  --></div>
 </div>
 <p>
   <span class="tag">AngularJS</span>
@@ -151,7 +151,6 @@ pagetitle: Projects
   <span class="tag">DynamoDB</span>
   <span class="tag">Eclipse</span>
   <span class="tag">Flask</span>
-  <span class="tag">Flux</span>
   <span class="tag">Git</span>
   <span class="tag">Heroku</span>
   <span class="tag">HTML</span>
@@ -168,11 +167,13 @@ pagetitle: Projects
   <span class="tag">PostgreSQL</span>
   <span class="tag">Pyramid</span>
   <span class="tag">Python</span>
-  <span class="tag">ReactJS</span>
+  <span class="tag">React</span>
   <span class="tag">Redis</span>
+  <span class="tag">Redux</span>
   <span class="tag">Sass</span>
   <span class="tag">Socket.io</span>
   <span class="tag">TI-BASIC</span>
+  <span class="tag">TypeScript</span>
   <span class="tag">Visual Studio</span>
   <span class="tag">WebGL</span>
   <span class="tag">Webpack</span>
@@ -184,7 +185,7 @@ pagetitle: Projects
 
 <script type="text/javascript">
 (function() {
-  var thumbnailImages = $('.thumbnail img');
+  var thumbnailImages = $('.thumbnail');
 
   // Thumbnail indexing
   thumbnailImages.each(function(i) {
