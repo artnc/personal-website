@@ -7,75 +7,85 @@ comments: true
 ---
 <p>This takes 5-10 minutes from start to finish :) The only prerequisite tools are <a href="https://git-scm.com/">git</a> and the <a href="https://toolbelt.heroku.com/">Heroku CLI</a>.</p>
 <ol>
-    <li>
-        <p>Download a local copy of TTRSS.</p>
-        <pre>git clone https://github.com/gothfox/Tiny-Tiny-RSS.git
-cd Tiny-Tiny-RSS</pre>
-    </li>
-    <li>
-        <p>Open <code>config.php-dist</code>, change the value of <code>SESSION_CHECK_ADDRESS</code> from 1 to 0, and save.</p>
-    </li>
-    <li>
-        <p>Set up a new Heroku project. Replace <code>$APP_NAME</code> below with a custom project name, e.g. <code>john-doe-ttrss</code> to have your TTRSS instance live at <code>https://john-doe-ttrss.herokuapp.com</code>.</p>
-        <pre>heroku login
+  <li>
+    <p>Download a local copy of TTRSS.</p>
+{% highlight shell %}
+git clone https://github.com/gothfox/Tiny-Tiny-RSS.git
+cd Tiny-Tiny-RSS
+{% endhighlight %}
+  </li>
+  <li>
+    <p>Open <code>config.php-dist</code>, change the value of <code>SESSION_CHECK_ADDRESS</code> from 1 to 0, and save.</p>
+  </li>
+  <li>
+    <p>Set up a new Heroku project. Replace <code>$APP_NAME</code> below with a custom project name, e.g. <code>john-doe-ttrss</code> to have your TTRSS instance live at <code>https://john-doe-ttrss.herokuapp.com</code>.</p>
+{% highlight shell %}
+heroku login
 heroku create $APP_NAME
-heroku addons:create heroku-postgresql:hobby-dev</pre>
-    </li>
-    <li>
-        <p>Add a few special files needed by Heroku.</p>
-        <pre>cat &lt;&lt; EOM > Procfile
+heroku addons:create heroku-postgresql:hobby-dev
+{% endhighlight %}
+  </li>
+  <li>
+    <p>Add a few special files needed by Heroku.</p>
+{% highlight shell %}
+cat << EOM > Procfile
 web: ~/web-boot.sh
 EOM
-cat &lt;&lt; EOM > composer.json
+cat << EOM > composer.json
 {
-    "require": {
-        "ext-mbstring": "*"
-    }
+  "require": {
+    "ext-mbstring": "*"
+  }
 }
 EOM
-cat &lt;&lt; EOM > web-boot.sh
+cat << EOM > web-boot.sh
 sed -i 's/^ServerLimit 1/ServerLimit 8/' ~/.heroku/php/etc/apache2/httpd.conf
 sed -i 's/^MaxClients 1/MaxClients 8/' ~/.heroku/php/etc/apache2/httpd.conf
 vendor/bin/heroku-php-apache2
 EOM
 chmod +x web-boot.sh
 git add -A
-git commit -m "Add Heroku files"</pre>
-    </li>
-    <li>
-        <p>Push your local TTRSS repo to Heroku.</p>
-        <pre>git push heroku master</pre>
-    </li>
-    <li>
-        <p>Go to your app's database in the <a href="https://postgres.heroku.com/databases">Heroku Postgres dashboard</a> and copy its connection settings into your new TTRSS instance, which can be found at the URL described in step 3.</p>
-    </li>
-    <li>
-        <p>Complete the installation wizard by clicking <em>Test configuration</em>, <em>Initialize database</em>, and <em>Save configuration</em>.</p>
-    </li>
-    <li>
-        <p>Log in to your TTRSS instance with the default username <code>admin</code> and password <code>password</code>.</p>
-    </li>
+git commit -m "Add Heroku files"
+{% endhighlight %}
+  </li>
+  <li>
+    <p>Push your local TTRSS repo to Heroku.</p>
+{% highlight bash %}
+git push heroku master
+{% endhighlight %}
+  </li>
+  <li>
+    <p>Go to your app's database in the <a href="https://postgres.heroku.com/databases">Heroku Postgres dashboard</a> and copy its connection settings into your new TTRSS instance, which can be found at the URL described in step 3.</p>
+  </li>
+  <li>
+    <p>Complete the installation wizard by clicking <em>Test configuration</em>, <em>Initialize database</em>, and <em>Save configuration</em>.</p>
+  </li>
+  <li>
+    <p>Log in to your TTRSS instance with the default username <code>admin</code> and password <code>password</code>.</p>
+  </li>
 </ol>
 <h2>Thanks</h2>
 <p>This guide is based on Reuben Castelino's impressively detailed <a href="http://projectdelphai.github.io/blog/2013/03/15/replacing-google-reader-with-tt-rss-on-heroku/">blog post</a> on the subject. I attempt to improve on his method by:</p>
 <ul>
-    <li>favoring the normal TTRSS database initialization process over manual initialization</li>
-    <li>leveraging Heroku's <code>composer.json</code> support instead of relying on a prebuilt copy of <code>mbstring.so</code></li>
-    <li>preventing the <code>Session failed to validate (incorrect IP)</code> login error</li>
-    <li>being more concise (he did thoughtfully condense his post into a shell script for us TLDR folks, but unfortunately it no longer works)</li>
+  <li>favoring the normal TTRSS database initialization process over manual initialization</li>
+  <li>leveraging Heroku's <code>composer.json</code> support instead of relying on a prebuilt copy of <code>mbstring.so</code></li>
+  <li>preventing the <code>Session failed to validate (incorrect IP)</code> login error</li>
+  <li>being more concise (he did thoughtfully condense his post into a shell script for us TLDR folks, but unfortunately it no longer works)</li>
 </ul>
 <h2>Extra Credit</h2>
 <p>I highly recommend the <a href="https://github.com/levito/tt-rss-feedly-theme">Feedly theme</a> for TTRSS. You can easily convert it into a <a href="/img/ttrss-dark.png" data-lightbox="lightbox" title="The dark theme rises">dark theme</a> by going to <em>Preferences > Customize stylesheet</em> and pasting in the following:</p>
-<pre>body {
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
+{% highlight css %}
+body {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 
 img {
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
 }
 
 .scoreWrap {
-    display: none !important;
-}</pre>
+  display: none !important;
+}
+{% endhighlight %}

@@ -56,22 +56,22 @@ p {
 
 code, pre {
   background: #141414;
-  color: $off-white;
-  font-family: Consolas, "Courier New", monospace;
+  font-family: Consolas, Monaco, "Courier New", monospace;
   @include font-size(1.1);
-  margin: 0 2px;
 }
 
-code {
+code:not([data-lang]) {
   border: 1px solid $darker-gray;
   border-radius: 4px;
+  color: $off-white;
+  margin: 0 2px;
   padding: 4px 6px 3px;
   white-space: nowrap;
 }
 
 pre {
   border-radius: 10px;
-  padding: 10px 15px;
+  padding: 15px 20px;
 }
 
 iframe { // YouTube
