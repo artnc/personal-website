@@ -1,5 +1,7 @@
 destination: build
 highlighter: pygments
+markdown: redcarpet # kramdown doesn't support ``` for code blocks
+markdown_ext: "md"
 name: "Art Chaidarun"
 permalink: /:title.html
 source: src
