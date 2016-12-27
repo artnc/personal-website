@@ -8,7 +8,6 @@
 html {
   background: $dark-gray;
   height: 100%;
-  font-size: $html-font-size;
   overflow-y: scroll;
 }
 
@@ -16,7 +15,7 @@ body {
   background: $dark-gray;
   color: $off-white;
   font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
-  @include font-size(1.25);
+  font-size: 16px;
   min-height: 100%;
 }
 
@@ -33,21 +32,18 @@ hr {
 }
 
 h1 {
-  @include font-size(2.5);
-  font-weight: 700;
-  margin: .67em 0 1em;
-}
-
-h1, h2, h3 {
-  color: $off-white;
-}
-
-h1 {
-  margin-top: 1em;
+  font-size: 40px;
+  margin: 1em 0;
 }
 
 h2 {
-  margin-top: 2em;
+  font-size: 30px;
+  margin-top: 1.5em;
+}
+
+h3 {
+  font-size: 20px;
+  // font-weight: 500;
 }
 
 p {
@@ -55,17 +51,16 @@ p {
 }
 
 code, pre {
-  background: #141414;
+  background: $gray;
   font-family: Consolas, Monaco, "Courier New", monospace;
-  @include font-size(1.1);
+  font-size: 14px;
 }
 
 code:not([data-lang]) {
-  border: 1px solid $darker-gray;
   border-radius: 4px;
   color: $off-white;
   margin: 0 2px;
-  padding: 4px 6px 3px;
+  padding: 4px 7px 3px;
   white-space: nowrap;
 }
 
@@ -91,6 +86,21 @@ iframe { // YouTube
   background: $gray;
 }
 
+// Selection
+
+@mixin selection() {
+  color: $dark-gray;
+  background: $select-green;
+}
+
+::-moz-selection {
+  @include selection();
+}
+
+::selection {
+  @include selection();
+}
+
 // IDs
 
 #topline {
@@ -106,6 +116,7 @@ iframe { // YouTube
 
 #header {
   margin: 50px 0 30px;
+  user-select: none;
 
   ul {
     margin: 10px 5px 60px;
@@ -126,7 +137,7 @@ iframe { // YouTube
   li a, span {
     border-bottom: 2px solid transparent;
     color: $off-white;
-    @include font-size(1.5);
+    font-size: 18px;
     padding-bottom: 2px;
     text-transform: uppercase;
     transition: border-color 0.25s;
@@ -228,9 +239,10 @@ iframe { // YouTube
 
 #footer {
   color: $light-gray;
-  @include font-size(1.1);
+  font-size: 14px;
   margin-top: 30px;
   text-align: center;
+  user-select: none;
 
   p {
     margin: 0;

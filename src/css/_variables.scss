@@ -7,23 +7,14 @@ $page-width: 720px;
 $bright-green: #6fe358;
 $light-green: #70ad64;
 $dark-green: #355325;
+$select-green: #c5ffba;
 
-$off-white: #bbb;
+$off-white: #ccc;
 $light-gray: #555;
 $gray: #333;
 $dark-gray: #181818;
 $little-darker-gray: #111111;
 $darker-gray: #0c0c0c;
-
-
-// IE8 rem fallback
-
-$html-font-size: 80%;
-
-@mixin font-size($rem) {
-  font-size: ($rem * $html-font-size);
-  font-size: $rem + rem;
-}
 
 // Vendor prefixes
 
