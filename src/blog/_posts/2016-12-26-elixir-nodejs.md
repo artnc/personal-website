@@ -5,11 +5,11 @@ pagetitle: Elixir for Node.js Developers
 tags: []
 comments: true
 ---
-Bilingual dictionaries and glossaries are some of the most valuable tools for learning natural languages like French. The idea also applies perfectly well to programming languages, and so here's the guide I wished I had before embarking on my trip to Elixir land. Corrections from those fluent in Elixir are welcome!
+Bilingual dictionaries are some of the most valuable tools for learning natural languages like French. The idea also applies perfectly well to programming languages, and so here's the guide I wished I had before embarking on my trip to Elixir land. Corrections from those more fluent in Elixir are welcome!
 
 ## The Elixir ecosystem
 
-Let's first take a look at the software that comes with Elixir. I personally find tooling the biggest obstacle to learning any new language; the language itself is usually more stable and straightforward.
+Let's first take a look at the software that comes with Elixir. I find tooling the biggest obstacle to learning any new language; the language itself is usually more stable and straightforward.
 
 ### BEAM
 
@@ -17,31 +17,31 @@ BEAM is also known as the Erlang Virtual Machine (EVM). It's the platform that E
 
 ### OTP
 
-I initially thought OTP ("Open Telecom Platform") was basically just Erlang's standard library. Its full name isn't exactly enlightening. Now I think of OTP as the parts of Erlang's stdlib that deal with [concurrency](http://elixir-lang.org/getting-started/processes.html). That's a central but huge topic native to BEAM languages, so I won't cover it any further.
+I initially thought OTP ("Open Telecom Platform") was basically just Erlang's standard library. Its full name isn't exactly enlightening. Now I think of OTP as only the parts of Erlang's stdlib that deal with [concurrency](http://elixir-lang.org/getting-started/processes.html). The actor model of concurrency is a central but huge topic native to BEAM languages, so I won't cover it any further.
 
 ### Mix
 
 [Mix](http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html) is Elixir's build tool / task runner. It's analogous to Jake, Gulp, and much of the `npm` client (which seems to think the "p" in its name means "project" instead of "package").
 
+Mix uses the dev [environment](http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html#environments) by default but can be overridden with an environment variable: `MIX_ENV=prod`. This is similar to how React expects you to set `NODE_ENV=production` for release builds.
+
 When setting up a new Node.js project, you typically run `npm init` and then add `node_modules` to your `.gitignore`. The Elixir equivalent is `mix new project_name`. We'll soon see a few more of Mix's many available commands.
 
 ### Hex
 
-[Hex](https://hex.pm/) is Elixir's package manager, analogous to the npm registry and the parts of the `npm` client that actually deal with package management. One big difference is that you don't get a "hex" command when you install Elixir. You instead use Hex via Mix commands like `mix deps.get` (analogous to `npm install`).
+[Hex](https://hex.pm/) is Elixir's package manager, analogous to the npm registry and the parts of the `npm` client that actually deal with package management. One big difference is that you don't get a separate "hex" command when you install Elixir. You instead use Hex via Mix commands like `mix deps.get` (analogous to `npm install`).
 
 Elixir's equivalents of `package.json` and `npm-shrinkwrap.json` are `mix.exs` and `mix.lock`, respectively. Running `mix deps.get` will install all packages declared in those files. There currently aren't any Mix commands that work like either `npm install package_name` or `npm save`, so to add or remove packages you'll have to edit `mix.exs` manually and then run `mix deps.get` again. On the upside, Mix automatically updates `mix.lock` for you.
 
 ### iex and elixir
 
-Enough about `npm` already. The Elixir counterparts to Node.js's `node` command are `iex` and `elixir`. Running `iex` will open an interactive Elixir prompt, while running `iex -S mix` will open the prompt in the context of the current directory's compiled Mix project.
+Okay, enough about npm already. The Elixir counterparts to Node.js's `node` command are `iex` and `elixir`. Running `iex` will open an interactive Elixir prompt (or [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)), while running `iex -S mix` will open the prompt in the context of the current directory's compiled Mix project. You can alternatively execute the compiled project via `mix run` if you don't need the prompt.
 
 Wait, you need to compile Elixir? Although you do need to compile Mix projects via `mix compile`, you can also run a standalone Elixir script with the command `elixir foobar.exs` (note the `.exs` extension, as opposed to `.ex`). Mix itself is implemented as an Elixir script!
 
-Mix uses the dev [environment](http://elixir-lang.org/getting-started/mix-otp/introduction-to-mix.html#environments) by default but can be overridden with an environment variable: `MIX_ENV=prod mix compile`. This is similar to how React expects you to set `NODE_ENV=production` for release builds.
-
 ### Phoenix
 
-[Phoenix](http://www.phoenixframework.org/) has a lot in common with Express.js and Ruby on Rails: they're the go-to web frameworks, they've turned their authors into household names within the language community, and they don't actually ship with the language itself. (I'm mentioning Phoenix only because it's so popular.)
+[Phoenix](http://www.phoenixframework.org/) has a lot in common with Express.js and Ruby on Rails: they're the go-to web frameworks, they've made household names out of their authors, and they don't actually ship with the language itself. I'm mentioning Phoenix only because it's so popular and what you'll probably be using if you're coming from Node.js.
 
 ## The Elixir language
 
@@ -157,6 +157,6 @@ IO.puts(String.upcase(String.trim(" hello")))
 
 ## Final thoughts
 
-Although it's too early for me to decide whether Elixir lives up to its massive hype, I've generally liked what I've seen so far. Pipes are convenient, the concurrency model is as elegant as promised, and the flavor of functional programming is more pragmatic than dogmatic. I'm still skeptical about dynamic typing, but there are tools like Dialyzer (analogous to Facebook's Flow) that can provide some peace of mind. Maybe "let it crash" hasn't quite sunk in yet.
+Although it's too early for me to decide whether Elixir lives up to its massive hype, I've generally liked what I've seen so far. Pipes are convenient, concurrency is as elegant as promised, and the flavor of functional programming is more pragmatic than dogmatic. I'm still a bit skeptical about dynamic typing, but there are tools like Dialyzer (analogous to Facebook's Flow) that can provide some peace of mind. Maybe "let it crash" hasn't quite sunk in yet.
 
 I'm also really not a huge fan of all the Rails-esque boilerplate that Phoenix generates. The current lack of mature framework options has more to do with how young the language is, though, and it's not too hard to pare down Phoenix anyway. Consider it a glowing endorsement of both Elixir and Phoenix that these minor details are my only complaints :)

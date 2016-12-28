@@ -22,6 +22,7 @@ npm ("node package manager") is the most widely used JS equivalent of Python's p
 - npm records installed packages in a file called package.json, while pip traditionally stores them in a file called requirements.txt.
 
     `npm install` will install all packages listed in the current directory's package.json. The pip equivalent is `pip install -r requirements.txt`.
+
 - npm installs packages into the current directory's node_modules/ subdirectory, creating it if necessary. pip installs packages at a location within the current Python installation itself.
 
     Python projects typically use a virtualenv so that project-specific libraries don't clutter your system's main Python installation. Since npm installs to the current directory's node_modules/ by default, any directory with a node_modules/ subdirectory is effectively its own contained environment.

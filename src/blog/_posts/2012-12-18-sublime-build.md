@@ -4,7 +4,7 @@ h1: Sublime Text Build Systems
 layout: post
 pagetitle: Sublime Text Build Systems
 ---
-Pretty much what it says on the tin. Open [Sublime](http://www.sublimetext.com) and go to Tools > Build Systems > New Build System, paste in the code, and save under whatever name you want. You'll then be able to save and compile these special filetypes by just hitting F7. I'm using Linux, so you may need to replace a few of the Bash commands with their Batch equivalents if you're on Windows.
+Pretty much what it says on the tin. Open [Sublime](http://www.sublimetext.com) and go to Tools > Build Systems > New Build System, paste in the code, and save under whatever name you want. You'll then be able to save and compile these special filetypes just by hitting F7. I'm using Linux, so you may need to replace a few of the Bash commands with their Batch equivalents if you're on Windows.
 
 ## LaTeX
 
@@ -20,7 +20,7 @@ This compiles LaTeX source, creates/updates a PDF with the same filename, and de
 
 ## Sass
 
-Requires Sass and Nathan Henderson's [Sass plugin](https://github.com/nathos/sass-textmate-bundle).
+Requires Sass and the [Sass plugin](https://github.com/nathos/sass-textmate-bundle) for Sublime.
 
 ```json
 {
@@ -31,7 +31,7 @@ Requires Sass and Nathan Henderson's [Sass plugin](https://github.com/nathos/sas
 ```
 
 ## LilyPond
-Requires LilyPond and Yannis Rammos's [LilyPond plugin](https://github.com/yrammos/SubLilyPond).
+Requires LilyPond and the [LilyPond plugin](https://github.com/yrammos/SubLilyPond) for Sublime.
 
 ```json
 {

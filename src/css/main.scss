@@ -29,17 +29,7 @@ $green-bright: #6fe358;
 $green-dark: #355325;
 $green-light: #70ad64;
 $green-select: #c5ffba;
-$white-off: #bbb;
-
-// Vendor prefixes
-
-@mixin vendor-prefix($name, $argument) {
-  #{$name}: $argument;
-  -webkit-#{$name}: $argument;
-  -ms-#{$name}: $argument;
-  -moz-#{$name}: $argument;
-  -o-#{$name}: $argument;
-}
+$white-off: #c0c0c0;
 
 /******************************************************************** GLOBAL */
 
@@ -47,7 +37,9 @@ $white-off: #bbb;
 
 * {
   box-sizing: border-box;
-  outline: 0;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-touch-callout: none;
 }
 
 html {
@@ -69,10 +61,10 @@ a {
 }
 
 hr {
-  background-color: $gray-dark;
+  background-color: $gray-light;
   border: 0;
   color: $gray-dark;
-  height: 2px;
+  height: 1px;
   margin: 30px 0;
 }
 
@@ -148,13 +140,9 @@ iframe { // YouTube
   background: $green-select;
 }
 
-::-moz-selection {
-  @include selection();
-}
+::-moz-selection { @include selection(); }
 
-::selection {
-  @include selection();
-}
+::selection { @include selection(); }
 
 // IDs
 
@@ -170,11 +158,14 @@ iframe { // YouTube
 }
 
 #header {
-  margin: 50px 0 30px;
-  @include vendor-prefix(user-select, none);
+  margin: 20px 0 30px;
+
+  @media($media-desktop) {
+    margin: 50px 0 30px;
+  }
 
   ul {
-    margin: 10px 5px 60px;
+    margin: 10px 0 0 25px;
     padding: 0;
 
     @media($media-desktop) {
@@ -185,14 +176,20 @@ iframe { // YouTube
 
   li {
     float: left;
-    margin-left: 30px;
+    font-size: $font-size-body;
     list-style-type: none;
+    margin-left: 10px;
+
+    @media($media-desktop) {
+      font-size: $font-size-h3;
+      margin-left: 30px;
+    }
   }
 
   li a, span {
     border-bottom: 2px solid transparent;
     color: $white-off;
-    font-size: $font-size-h3;
+    display: inline-block;
     padding-bottom: 2px;
     text-transform: uppercase;
     transition: border-color 0.25s;
@@ -201,13 +198,13 @@ iframe { // YouTube
       border-color: $gray;
     }
 
-    &:active {
-      padding-top: 1px;
-    }
-
     &.active {
       border-color: $green-bright;
     }
+  }
+
+  li a:active {
+    padding-top: 1px;
   }
 
   #logo {
@@ -219,7 +216,6 @@ iframe { // YouTube
     position: absolute;
     margin-top: -1px;
     width: 30px;
-    z-index: 2;
   }
 
   #logo:hover img {
@@ -228,6 +224,7 @@ iframe { // YouTube
   }
 
   span {
+    font-size: $font-size-h3;
     margin-left: 40px;
   }
 }
@@ -242,6 +239,9 @@ iframe { // YouTube
 
   a {
     color: $green-light;
+  }
+
+  a:not([data-lightbox]) {
     border-bottom: 1px solid transparent;
     padding-bottom: 2px;
     transition: border-color 0.25s;
@@ -257,6 +257,10 @@ iframe { // YouTube
 
   li {
     margin: 1em 0;
+
+    p {
+      margin: 1em 0 1.5em;
+    }
   }
 
   th {
@@ -297,7 +301,6 @@ iframe { // YouTube
   font-size: $font-size-small;
   margin-top: 30px;
   text-align: center;
-  @include vendor-prefix(user-select, none);
 
   p {
     margin: 0;
@@ -329,14 +332,15 @@ iframe { // YouTube
   svg {
     fill: $gray-light;
     height: 100%;
+    transition: fill 0.25s;
     width: 100%;
   }
 }
 
 // Classes
 
-.nounderline:hover, .lb-close:hover {
-  border-bottom: 0;
+.nounderline, .nounderline:hover, .lb-close:hover {
+  border-bottom: 0 !important;
 }
 
 .borderless {
@@ -365,13 +369,12 @@ iframe { // YouTube
   margin: 0 4px 6px 0;
   padding: 5px 12px;
   transition: color 0.2s;
-  @include vendor-prefix(user-select, none);
 }
 
 .post-info {
   color: $gray-light;
   font-size: $font-size-h3;
-  margin-bottom: 20px;
+  margin: 2em 0 1em;
 }
 
 .activetag {
@@ -436,8 +439,6 @@ img.right {
   circle {
     stroke: $gray-dark;
     stroke-width: 3px;
-    -webkit-touch-callout: none;
-    @include vendor-prefix(user-select, none);
   }
 
   .group0 { fill: $green-bright; }
@@ -514,7 +515,7 @@ img.right {
     display: block;
     display: inline-block;
     max-width: 100px;
-    opacity: 0.15;
+    opacity: 0.2;
     transition: opacity 0.15s;
     vertical-align: top;
 
@@ -603,6 +604,10 @@ img.right {
 .about-html {
   .content img {
     margin-top: 10px;
-    width: 215px;
+    width: 40%;
+
+    @media($media-desktop) {
+      width: 215px;
+    }
   }
 }
