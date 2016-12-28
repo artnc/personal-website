@@ -29,13 +29,10 @@ layouts
 
 sass partials
 
-- allpages            = applies to all pages
 - lightbox            = for lightbox.js
 - normalize           = normalize.css reset
-- pagespecific        = filtered by body class
-- syntax              = for pygments
+- twilight            = for pygments
 - tipsy               = for tipsy plugin
-- variables           = sass variables, mixins
 - webfonts            = fonts
 
 ### workflow
@@ -44,7 +41,6 @@ developing
 
 ```bash
 make watch
-make css
 make serve
 ```
 

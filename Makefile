@@ -1,19 +1,11 @@
 .PHONY: all
 all: serve
 
-# Watch Sass for changes
-.PHONY: css
-css:
-	wr -c 0 "sass --style compressed --sourcemap=none src/css/_main.scss src/css/main.css" src/css/*.scss
-
 # Build production files
 .PHONY: build
 build:
 	# Crush all uncrushed PNGs
 	python scripts/pngcrush.py
-
-	# Build Sass
-	sass --style compressed --sourcemap=none src/css/_main.scss src/css/main.css
 
 	# Build Jekyll
 	jekyll build
