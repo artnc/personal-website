@@ -8,7 +8,7 @@ build:
 	python scripts/pngcrush.py
 
 	# Build Jekyll
-	jekyll build
+	cd src && jekyll build
 
 	# Compress HTML and inline CSS/JS
 	echo "Running htmlcompressor..."
@@ -45,4 +45,4 @@ sync:
 # Watch Jekyll source directory for changes
 .PHONY: watch
 watch:
-	jekyll build --watch
+	cd src && jekyll build --watch

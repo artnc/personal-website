@@ -33,7 +33,8 @@ def main():
 
     # Write crushed file list
     with codecs.open(CRUSHED_LIST_FILE, 'w', 'utf8') as f:
-        json.dump(sorted(crushed), f, indent=2, separators=(',', ': '))
+        text = json.dumps(sorted(crushed), f, indent=2, separators=(',', ': '))
+        f.write(text + '\n')
 
 
 if __name__ == '__main__':
