@@ -307,7 +307,7 @@ iframe { // YouTube
   }
 
   span {
-    margin-left: 20px;
+    margin-left: 25px;
     text-align: left;
   }
 
@@ -322,9 +322,21 @@ iframe { // YouTube
     width: $size;
 
     &:hover {
-      &:nth-of-type(1) > svg { fill: #999; }
-      &:nth-of-type(2) > svg { fill: #0082b4; }
-      &:nth-of-type(3) > svg { fill: #f80; }
+      &:nth-of-type(1) > svg {
+        fill: $white-off;
+      }
+
+      &:nth-of-type(2) > svg {
+        fill: #0077b5;
+      }
+
+      &:nth-of-type(3) > svg {
+        fill: $green-bright;
+      }
+
+      &:nth-of-type(4) > svg {
+        fill: #f80;
+      }
     }
   }
 
@@ -332,7 +344,7 @@ iframe { // YouTube
   svg {
     fill: $gray-light;
     height: 100%;
-    transition: fill 0.25s;
+    transition: fill 0.4s;
     width: 100%;
   }
 }
@@ -607,7 +619,7 @@ img.right {
     width: 40%;
 
     @media($media-desktop) {
-      width: 215px;
+      width: 155px;
     }
   }
 }
