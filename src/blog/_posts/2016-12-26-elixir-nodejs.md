@@ -149,10 +149,10 @@ Blessed with native support via `|>`, chaining works with all functions that tak
 
 ```elixir
 # Prints "HELLO"
-IO.puts(String.upcase("hello"))
+IO.puts(String.upcase(String.trim(" hello")))
 
 # Same, but laid out more naturally
-"hello" |> String.upcase |> IO.puts
+"hello" |> String.trim |> String.upcase |> IO.puts
 ```
 
 ## Final thoughts
