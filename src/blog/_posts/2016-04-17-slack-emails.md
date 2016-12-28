@@ -5,7 +5,7 @@ pagetitle: Forwarding Emails to Slack
 tags: ["web"]
 comments: true
 ---
-<a href="/img/slack-emails.png" data-lightbox="lightbox" class="nounderline" title="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"><img src="/img/slack-emails.png" class="overlay" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier" style="width:100%"></a>
+<a href="/img/slack-emails.jpg" data-lightbox="lightbox" class="nounderline" title="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"><img src="/img/slack-emails.jpg" class="overlay" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier" style="width:100%"></a>
 
 You receive notification emails often and would rather send them to Slack instead of having them clutter your inbox. Here's a DIY solution that takes around 10 minutes to set up. Things you'll need:
 

@@ -8,7 +8,7 @@ comments: true
 ---
 This method takes about five minutes and has been confirmed by several people to work, despite the lack of official Android support from [ITS](http://its.virginia.edu/mobile/android.html#wireless). The only reported issue is that the fourth step sometimes fails on the Nexus 4. Please let me (nc5rk) know if you run into problems!
 
-<a href="/img/android-on-cavalier-connected.png" data-lightbox="lightbox" class="nounderline" title="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"><img src="/img/android-on-cavalier-connected.png" class="right overlay" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"></a>
+<a href="/img/android-on-cavalier-connected.jpg" data-lightbox="lightbox" class="nounderline" title="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"><img src="/img/android-on-cavalier-connected.jpg" class="right overlay" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"></a>
 
 1. Go to *Settings > Wireless & networks > Wi-Fi settings* and make sure your Android device can detect the cavalier network.
 1. Either connect to [wahoo](http://its.virginia.edu/mobile/android.html#wireless) or turn on mobile data. Then open your device's web browser and go to [https://standard.pki.virginia.edu/pkcs12/](https://standard.pki.virginia.edu/pkcs12/)

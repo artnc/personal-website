@@ -10,7 +10,7 @@ Nearly all of my sheet music is in PDF. I'm usually too <span style="text-decora
 Last night I hacked together a little program that allows you to send PageUp and PageDown keypresses by tilting your head. For now, it runs only on Linux and detects only human faces.
 
 <div class="text-centered">
-  <img alt="OpenCV page turner" src="/img/page-turner.png">
+  <img alt="OpenCV page turner" src="/img/page-turner.jpg">
 </div>
 
 ## Installation

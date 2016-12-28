@@ -13,7 +13,7 @@ Here I assume you have the LinuxSampler engine with all the required libraries i
 
 ## JSampler
 
-<a href="/img/linuxsampler-jsampler.png" data-lightbox="lightbox" class="nounderline" title="JSampler"><img src="/img/linuxsampler-jsampler.png" class="right overlay" alt="JSampler"></a>
+<a href="/img/linuxsampler-jsampler.jpg" data-lightbox="lightbox" class="nounderline" title="JSampler"><img src="/img/linuxsampler-jsampler.jpg" class="right overlay" alt="JSampler"></a>
 
 1. Disconnect the USB cable connecting the keyboard/controller to the computer.
 1. Run `linuxsampler`.
@@ -27,7 +27,7 @@ Here I assume you have the LinuxSampler engine with all the required libraries i
 
 ## QSampler
 
-<a href="/img/linuxsampler-qjackctl.png" data-lightbox="lightbox" class="nounderline" title="qjackctl"><img src="/img/linuxsampler-qjackctl.png" class="right overlay" alt="qjackctl"></a>
+<a href="/img/linuxsampler-qjackctl.jpg" data-lightbox="lightbox" class="nounderline" title="qjackctl"><img src="/img/linuxsampler-qjackctl.jpg" class="right overlay" alt="qjackctl"></a>
 
 1. Run `linuxsampler`.
 1. Run `qsampler`.

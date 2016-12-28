@@ -65,7 +65,7 @@ This guide is based on Reuben Castelino's impressively detailed [blog post](http
 
 ## Extra Credit
 
-I highly recommend the [Feedly theme](https://github.com/levito/tt-rss-feedly-theme) for TTRSS. You can easily convert it into a <a href="/img/ttrss-dark.png" data-lightbox="lightbox" title="The dark theme rises">dark theme</a> by going to *Preferences > Customize stylesheet* and pasting in the following:
+I highly recommend the [Feedly theme](https://github.com/levito/tt-rss-feedly-theme) for TTRSS. You can easily convert it into a <a href="/img/ttrss-dark.jpg" data-lightbox="lightbox" title="The dark theme rises">dark theme</a> by going to *Preferences > Customize stylesheet* and pasting in the following:
 
 ```css
 body {
