@@ -47,14 +47,14 @@ secret: true
       return acc;
     }, {});
 
-    // Just for dev convenience
+    // Just for dev Convenience
     var maxIdSeen = _.max(_.keys(idIndices).map(k => parseInt(k)));
     var idFreeStatuses = Array(maxIdSeen).fill(true);
     _.keys(idIndices).forEach(id => { idFreeStatuses[id] = false });
     var freeIds = [];
     idFreeStatuses.forEach((free, i) => free && freeIds.push(i));
     freeIds.push((maxIdSeen + 1) + '+')
-    console.debug('Free IDs:', freeIds.join())
+    Console.debug('Free IDs:', freeIds.join())
 
     return [{
       nodes: data.map(d => _.omit(d, 'i', 't')),
@@ -94,7 +94,7 @@ secret: true
       {"i":62,"n":"Concert Band"},
       {"i":63,"n":"Track &amp; Field","t":[70,71,72]},
       {"i":64,"n":"Knowledge Bowl","t":[97]},
-      {"i":65,"n":"Math contests","t":[73,74,75,76,77,78]},
+      {"i":65,"n":"Math Contests","t":[73,74,75,76,77,78]},
       {"i":69,"n":"LinkedIn","u":"http://www.linkedin.com/in/artnc/"},
       {"i":70,"n":"100m"},
       {"i":71,"n":"200m"},
@@ -123,7 +123,7 @@ secret: true
       {"i":164,"n":"Lifting things up &amp; putting them down again"},
       {"i":165,"n":"But not the Pokémon anime :/"},
       {"i":166,"n":"Board games"},
-      {"i":167,"n":"High school","t":[62,63,64,65,96,100]},
+      {"i":167,"n":"High School","t":[62,63,64,65,96,100]},
     ],
     // Coding
     "2": [
@@ -210,7 +210,7 @@ secret: true
       {"i":133,"n":"CIFEr Hedge Fund Competition","u":"http://www.ieee-cifer.org/competition.html"},
       {"i":134,"n":"Intermediate Honors"},
       {"i":140,"n":"AP English Language"},
-      {"i":113,"n":"Financial Engineering Research","t":[85,133]},
+      {"i":113,"n":"Financial Engineering Research Group","t":[85,133]},
       {"i":115,"n":"Advanced Placement","t":[116,117,118,119,120,121,122,123,124,140]},
       {"i":116,"n":"AP Calculus BC"},
       {"i":117,"n":"AP Microeconomics"},
@@ -235,7 +235,7 @@ secret: true
       {"i":91,"n":"Personal Projects","t":[44,88,89,90,107,110,126,150]},
       {"i":92,"n":"Work","r":17,"t":[68,82,84,91,93,153]},
       {"i":93,"n":"Duolingo","t":[147,148,149,150]},
-      {"i":107,"n":"True Daily Double"},
+      {"i":107,"n":"Jeopardy! Simulator"},
       {"i":110,"n":"Calculator Blackjack &amp; Simon"},
       {"i":126,"n":"chaidarun.com","u":"/colophon"},
       {"i":147,"n":"Duolingo for Windows"},
