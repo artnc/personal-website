@@ -31,7 +31,7 @@ npm ("node package manager") is the most widely used JS equivalent of Python's p
 
 ## What's webpack? Why are we using it?
 
-Webpack is a build system like Make or Gradle. At a minimum, we need it for combining hundreds of JS source files into a few that we send to the browser. It does so by implementing a module import system - a fairly universal language feature that vanilla JS doesn't yet provide.
+Webpack is a build system like Make or Gradle. At a minimum, we need it for combining hundreds of JS source files into a few that we send to the browser. It does so by implementing a module import system---a fairly universal language feature that vanilla JS doesn't yet provide.
 
 The other main feature of webpack that we currently use is webpack-dev-server, a companion tool that can automatically build our JS and serve it from localhost:9091. This separation from the Paste server drastically reduces the time wasted on local server reloads because:
 

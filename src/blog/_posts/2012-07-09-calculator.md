@@ -22,7 +22,7 @@ Programming on a graphing calculator is funny business. It's like writing and op
 
 - Numeric variable names can be any English letter or &theta;. Who needs more than 27 anyway? Additionally, ten string variables are available.
 
-- All variables are globally scoped. Or rather, "universally" scoped - they're shared among all TI-BASIC programs on the calculator.
+- All variables are globally scoped. Or rather, "universally" scoped---they're shared among all TI-BASIC programs on the calculator.
 
 - Closing quotes, parentheses, and brackets are optional.
 
