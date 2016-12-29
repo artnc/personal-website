@@ -19,12 +19,12 @@ $width-page: 720px;
 
 // Colors
 
-$gray-dark: #181818;
-$gray-darker: #0c0c0c;
-$gray-light: #666;
-$gray: #333;
+$gray-dark: #202227;
+$gray-darker: #14171d;
+$gray-light: #626874;
+$gray: #313640;
 $green-bright: #6fe358;
-$green-dark: #355325;
+$green-dark: #00583c;
 $green-light: #70ad64;
 $green-select: #c5ffba;
 $white-off: #c0c0c0;
@@ -121,6 +121,10 @@ iframe { // YouTube
   width: 560px;
 }
 
+img {
+  border-radius: 2px;
+}
+
 // Scroll bar
 
 ::-webkit-scrollbar {
@@ -156,7 +160,7 @@ iframe { // YouTube
 }
 
 #header {
-  margin: 20px 0 30px;
+  margin: 20px 0;
   user-select: none;
 
   @media($media-desktop) {
@@ -164,7 +168,7 @@ iframe { // YouTube
   }
 
   ul {
-    margin: 10px 0 0 25px;
+    margin: 0 0 0 25px;
     padding: 0;
 
     @media($media-desktop) {
@@ -175,7 +179,7 @@ iframe { // YouTube
 
   li {
     float: left;
-    font-size: $font-size-body;
+    font-size: $font-size-small;
     list-style-type: none;
     margin-left: 10px;
 
@@ -230,7 +234,7 @@ iframe { // YouTube
 
 .content {
   border-radius: 15px;
-  padding: 5px 0 30px;
+  padding: 5px 0 10px;
 
   p {
     margin: 1.8em 0;
@@ -296,7 +300,6 @@ iframe { // YouTube
   color: $gray-light;
   font-size: $font-size-small;
   margin-top: 30px;
-  text-align: center;
   user-select: none;
 
   p {
@@ -443,7 +446,7 @@ img.right {
   }
 
   line {
-    stroke: #666;
+    stroke: #6c7486;
     stroke-opacity: .6;
     stroke-width: 1px;
   }
@@ -455,11 +458,12 @@ img.right {
   }
 
   .g0 { fill: $green-bright; }
-  .g1 { fill: $green-dark; }
-  .g2 { fill: $green-light; }
-  .g3 { fill: $green-light; }
-  .g4 { fill: $green-dark; }
-  .g5 { fill: $green-light; }
+  .g1, .g4 { fill: $green-dark; }
+  .g2, .g3, .g5 { fill: $green-light; }
+
+  #footer {
+    text-align: center;
+  }
 }
 
 // Projects
@@ -499,12 +503,12 @@ img.right {
     vertical-align: top;
 
     &:first-child {
-      padding-right: 35px;
+      padding-right: 40px;
       width: 100%;
     }
 
     &:last-child {
-      $width-thumbnail: 100px;
+      $width-thumbnail: 103px;
 
       min-width: $width-thumbnail;
 
@@ -523,10 +527,12 @@ img.right {
   }
 
   .thumbnail {
+    border-radius: 2px;
     box-shadow: none;
     cursor: pointer;
     display: block;
     display: inline-block;
+    margin: 0 3px 3px 0;
     max-width: 100px;
     opacity: 0.2;
     transition: opacity 0.15s;
@@ -538,7 +544,7 @@ img.right {
     }
 
     &.untagged {
-      opacity: 0.05 !important;
+      opacity: 0.2 !important;
     }
 
     &:hover, &.current, &.tagged {
