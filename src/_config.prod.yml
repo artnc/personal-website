@@ -1,0 +1,4 @@
+gems:
+  - octopress-autoprefixer
+sass:
+  style: compressed

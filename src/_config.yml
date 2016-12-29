@@ -1,6 +1,4 @@
 destination: ../build
-gems:
-  - octopress-autoprefixer
 highlighter: pygments
 markdown: redcarpet # kramdown doesn't support ``` for code blocks
 markdown_ext: "md"
@@ -8,6 +6,4 @@ name: "Art Chaidarun"
 permalink: /:title.html
 redcarpet:
   extensions: ["smart"]
-sass:
-  style: compressed
 url: https://chaidarun.com

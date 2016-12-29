@@ -8,7 +8,7 @@ build:
 	python scripts/pngcrush.py
 
 	# Build Jekyll
-	cd src && jekyll build
+	cd src && jekyll build --config "_config.yml,_config.prod.yml"
 
 	# Compress HTML and inline CSS/JS
 	echo "Running htmlcompressor..."
