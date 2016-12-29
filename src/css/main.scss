@@ -3,7 +3,6 @@
 
 @import "normalize";
 @import "twilight";
-@import "tipsy";
 
 /****************************************************************** VARIABLES*/
 
@@ -425,20 +424,22 @@ img.right {
 /********************************************************************* PAGES */
 
 .index-html {
-  $size-svg: 550px;
+  $height-svg: 600px;
+  $width-svg: 720px;
 
   .content {
-    height: $size-svg;
+    height: $height-svg - 30px;
     margin-left: 50%;
+    overflow: hidden;
     padding: 0px;
-    transform: translateX(-$size-svg / 2);
-    width: $size-svg;
-  }
+    transform: translateX(-$width-svg / 2);
+    width: $width-svg;
 
-  svg {
-    font-family: Arial;
-    font-weight: 700;
-    position: absolute;
+    svg {
+      font-family: Arial;
+      font-weight: 700;
+      margin-top: -30px;
+    }
   }
 
   line {
@@ -453,12 +454,12 @@ img.right {
     user-select: none;
   }
 
-  .group0 { fill: $green-bright; }
-  .group1 { fill: $green-dark; }
-  .group2 { fill: $green-light; }
-  .group3 { fill: $green-light; }
-  .group4 { fill: $green-dark; }
-  .group5 { fill: $green-light; }
+  .g0 { fill: $green-bright; }
+  .g1 { fill: $green-dark; }
+  .g2 { fill: $green-light; }
+  .g3 { fill: $green-light; }
+  .g4 { fill: $green-dark; }
+  .g5 { fill: $green-light; }
 }
 
 // Projects
@@ -622,4 +623,48 @@ img.right {
       width: 155px;
     }
   }
+}
+
+/********************************************************************* TIPSY */
+
+.tipsy {
+  font-size: $font-size-small;
+  padding: 5px;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.tipsy-inner {
+  background-color: $gray-darker;
+  color: $white-off;
+  max-width: 200px;
+  padding: 5px 8px 4px 8px;
+  text-align: center;
+}
+
+.tipsy-inner {
+  border-radius: 3px;
+}
+
+.tipsy-arrow {
+  border: 5px dashed #000;
+  height: 0;
+  line-height: 0;
+  position: absolute;
+  width: 0;
+}
+
+.tipsy-arrow-s {
+  border-top-color: #000;
+}
+
+.tipsy-s .tipsy-arrow {
+  border-bottom: none;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-top-style: solid;
+  bottom: 0;
+  left: 50%;
+  margin-left: -5px;
 }
