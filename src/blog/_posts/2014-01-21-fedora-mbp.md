@@ -1,11 +1,11 @@
 ---
-h1: Fedora 20 on the MacBook Pro
+h1: Fedora Linux on the MacBook Pro
 layout: post
-pagetitle: Fedora 20 on the MacBook Pro
+pagetitle: Fedora Linux on the MacBook Pro
 tags: ["linux"]
 comments: true
 ---
-I recently came into ownership of a late-2013 MacBook Pro with Retina display. About an hour every morning of my first week with this laptop was spent extinguishing Linux fires that had somehow sprung up overnight. This post is a summary of the progress I've made on these issues in roughly decreasing order of importance. Not everything works as well as I'd like yet, so watch this space for updates.
+I recently came into ownership of a late-2013 MacBook Pro with Retina display. About an hour every morning of my first week with this laptop was spent extinguishing Linux fires that had somehow sprung up overnight. This post is a summary of the progress I've made on those issues in roughly decreasing order of importance. It was originally written for Fedora 20 but should still mostly work.
 
 ## WiFi doesn't work
 
@@ -75,12 +75,24 @@ Run `synclient TapButton1=1`. This effect isn't permanent, so you should add it 
 
 Well they supposedly do, but you need to have everything connected before booting Linux. Hot-plugging doesn't work.
 
-## Webcam doesn't work (and isn't going to)
+## Webcam doesn't work
 
 The Linux kernel version 3.0+ includes the driver for Apple's iSight camera. Unfortunately, newer Apple laptops have a so-called FaceTime HD camera instead, listed as "Broadcom Corporation Device 1570" by `lspci`.
 
 I've scoured the interwebs fairly thoroughly and despite one dubious [report](https://bbs.archlinux.org/viewtopic.php?pid=1139257#p1139257) to the contrary, it seems that FaceTime HD camera support on Linux just doesn't exist yet. The Arch wiki [agrees](https://wiki.archlinux.org/index.php/MacBookPro11,x#Web_cam).
 
+> **Update:** The Arch wiki now links to an [experimental driver](https://github.com/patjak/bcwc_pcie/). I haven't personally tried it.
+
 ## Red light in headphone jack always on
 
 Some people have had luck with `amixer set IEC958 off`. I haven't. The red light wastes a few electrons but is otherwise harmless.
+
+> **Update:** My red light has since fixed itself, but thanks to commenter Jonny for this tip below!
+
+> "Try this to disale the red lighht in headphone jack:
+
+> ```
+amixer -c 0 sset "IEC958",16 off
+```
+
+> Use ```amixer -c 0``` to list your devices. My notebook (MacbootPro9,2) has 3 IEC952 entries, and this is the one that disabled the light."
