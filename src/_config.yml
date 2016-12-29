@@ -1,4 +1,6 @@
 destination: ../build
+gems:
+  - octopress-autoprefixer
 highlighter: pygments
 markdown: redcarpet # kramdown doesn't support ``` for code blocks
 markdown_ext: "md"

@@ -159,6 +159,7 @@ iframe { // YouTube
 
 #header {
   margin: 20px 0 30px;
+  user-select: none;
 
   @media($media-desktop) {
     margin: 50px 0 30px;
@@ -301,6 +302,7 @@ iframe { // YouTube
   font-size: $font-size-small;
   margin-top: 30px;
   text-align: center;
+  user-select: none;
 
   p {
     margin: 0;
@@ -381,6 +383,7 @@ iframe { // YouTube
   margin: 0 4px 6px 0;
   padding: 5px 12px;
   transition: color 0.2s;
+  user-select: none;
 }
 
 .post-info {
@@ -451,6 +454,7 @@ img.right {
   circle {
     stroke: $gray-dark;
     stroke-width: 3px;
+    user-select: none;
   }
 
   .group0 { fill: $green-bright; }
