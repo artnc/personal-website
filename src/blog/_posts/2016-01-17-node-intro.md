@@ -5,7 +5,7 @@ pagetitle: Simple Intro to Node.js, npm, and webpack
 tags: ["web"]
 comments: true
 ---
-> *This was originally written for fellow [Duolingo](https://www.duolingo.com/) employees and therefore assumes that the reader is familiar with Python.*</blockquote>
+> This was originally written for fellow [Duolingo](https://www.duolingo.com/) employees and therefore assumes that the reader is familiar with Python.
 
 ## What's Node.js? Why are we using it?
 

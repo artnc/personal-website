@@ -93,6 +93,7 @@ p {
 code, pre {
   background: $gray;
   font-family: Consolas, Monaco, "Courier New", monospace;
+  font-style: normal;
   font-size: $font-size-small;
 }
 
@@ -119,6 +120,10 @@ iframe { // YouTube
   display: block;
   height: 315px;
   width: 560px;
+}
+
+blockquote {
+  font-style: italic;
 }
 
 img {
