@@ -29,7 +29,6 @@ layouts
 
 sass partials
 
-- lightbox            = for lightbox.js
 - normalize           = normalize.css reset
 - twilight            = for pygments
 - tipsy               = for tipsy plugin

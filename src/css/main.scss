@@ -4,7 +4,6 @@
 @import "normalize";
 @import "twilight";
 @import "tipsy";
-@import "lightbox";
 
 /****************************************************************** VARIABLES*/
 
@@ -239,11 +238,8 @@ iframe { // YouTube
   }
 
   a {
-    color: $green-light;
-  }
-
-  a:not([data-lightbox]) {
     border-bottom: 1px solid transparent;
+    color: $green-light;
     padding-bottom: 2px;
     transition: border-color 0.25s;
 
