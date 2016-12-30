@@ -161,15 +161,15 @@ img {
 
 #wrap {
   max-width: $width-page;
-  padding: 0 30px 30px;
+  padding: 0 30px;
 }
 
 #header {
-  margin: 20px 0;
+  margin: 20px 0 60px;
   user-select: none;
 
   @media($media-desktop) {
-    margin: 50px 0 30px;
+    margin: 50px 0 70px;
   }
 
   ul {
@@ -239,7 +239,6 @@ img {
 
 .content {
   border-radius: 15px;
-  padding: 5px 0 10px;
 
   p {
     margin: 1.8em 0;
@@ -304,8 +303,12 @@ img {
 #footer {
   color: $gray-light;
   font-size: $font-size-small;
-  margin: 40px 0;
+  margin: 40px 0 30px;
   user-select: none;
+
+  @media($media-desktop) {
+    margin: 70px 0 40px;
+  }
 
   p {
     margin: 0;
@@ -437,7 +440,7 @@ img.right {
 
   .content {
     height: $height-svg - 30px;
-    margin-left: 50%;
+    margin: -40px 0 -40px 50%;
     overflow: hidden;
     padding: 0px;
     transform: translateX(-$width-svg / 2);
@@ -494,7 +497,6 @@ img.right {
   .project-table {
     display: table;
     margin-bottom: 40px;
-    min-height: 460px;
   }
 
   .project-desc {
@@ -504,7 +506,6 @@ img.right {
   .project-cell {
     display: table-cell;
     height: 420px;
-    padding: 40px 0 0;
     vertical-align: top;
 
     &:first-child {
