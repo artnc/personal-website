@@ -37,6 +37,14 @@ build:
 serve:
 	cd build && ../scripts/serve.py
 
+# Submit sitemap to Google and Bing (lol?)
+.PHONY: sitemap
+sitemap:
+	curl -i -X PUT \
+	  -H "Authorization: Bearer ${token}" \
+	  "https://content.googleapis.com/webmasters/v3/sites/http%3A%2F%2Fchaidarun.com%2F/sitemaps/http%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
+	curl -Ii "http://www.bing.com/ping?sitemap=http%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
+
 # Upload to DigitalOcean via rsync
 .PHONY: sync
 sync:

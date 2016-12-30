@@ -47,5 +47,6 @@ publishing
 
 ```bash
 make build
-make sync host=**.**.**.***
+make sync host=******
+make sitemap token=******
 ```
