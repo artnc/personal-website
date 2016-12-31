@@ -42,8 +42,8 @@ serve:
 sitemap:
 	curl -i -X PUT \
 	  -H "Authorization: Bearer ${token}" \
-	  "https://content.googleapis.com/webmasters/v3/sites/http%3A%2F%2Fchaidarun.com%2F/sitemaps/http%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
-	curl -Ii "http://www.bing.com/ping?sitemap=http%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
+	  "https://content.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fchaidarun.com%2F/sitemaps/https%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
+	curl -Ii "http://www.bing.com/ping?sitemap=https%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
 
 # Upload to DigitalOcean via rsync
 .PHONY: sync
