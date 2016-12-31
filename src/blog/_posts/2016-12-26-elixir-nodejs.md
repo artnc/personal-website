@@ -13,11 +13,11 @@ Let's first take a look at the software that comes with Elixir. I find tooling t
 
 ### BEAM
 
-BEAM is also known as the Erlang Virtual Machine (EVM). It's the platform that Elixir runs on, similar to how Chrome's V8 engine is what powers Node.js. A better comparison would be to Java's JVM, which now supports a variety of languages other than the one for which it was originally created. Elixir tutorials often rave about BEAM, but as with V8 and the JVM, you can mostly ignore it while you're starting out.
+BEAM is also known as the Erlang Virtual Machine (EVM). It's the platform that Elixir runs on, similar to how Chrome's V8 engine is what powers Node.js. A better comparison would be to Java's JVM, which now supports a variety of languages other than Java.
 
 ### OTP
 
-I initially thought OTP ("Open Telecom Platform") was basically just Erlang's standard library. Its full name isn't exactly enlightening. Now I think of OTP as only the parts of Erlang's stdlib that deal with [concurrency](http://elixir-lang.org/getting-started/processes.html). The actor model of concurrency is a central but huge topic native to BEAM languages, so I won't cover it any further.
+I initially thought OTP ("Open Telecom Platform") was just an incredibly fancy name for Erlang's standard library. Now I think of OTP as the subset of Erlang's stdlib that facilitates the [actor model](http://www.brianstorti.com/the-actor-model/) of concurrency. People sometimes refer to Erlang as "Erlang/OTP" because the actor model is such a big deal---it's what BEAM was built for.
 
 ### Mix
 

@@ -12,6 +12,7 @@ custom page variables
 - description         = content for meta description
 - headcss             = extra css for head
 - headjs              = extra js for head
+- jquery              = whether jquery should be included
 - h1                  = what should go inside h1 tags
 - pagetitle           = what should go inside title tags
 - secret              = true iff page should be published but not sitemapped
