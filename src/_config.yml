@@ -4,6 +4,7 @@ markdown: redcarpet # kramdown doesn't support ``` for code blocks
 markdown_ext: "md"
 name: "Art Chaidarun"
 permalink: /:title.html
+port: 8005
 redcarpet:
   extensions: ["smart"]
 url: https://chaidarun.com

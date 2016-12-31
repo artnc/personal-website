@@ -32,10 +32,10 @@ build:
 	  --remove-intertag-spaces \
 	  --type xml
 
-# Serve website at localhost:8005
+# Watch Jekyll source directory for changes and serve at localhost:8005
 .PHONY: serve
 serve:
-	cd build && ../scripts/serve.py
+	cd src && jekyll serve --port 8005
 
 # Submit sitemap to Google and Bing (lol?)
 .PHONY: sitemap
@@ -49,8 +49,3 @@ sitemap:
 .PHONY: sync
 sync:
 	rsync -azP build/ art@${host}:/home/art/site
-
-# Watch Jekyll source directory for changes
-.PHONY: watch
-watch:
-	cd src && jekyll build --watch

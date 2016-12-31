@@ -40,7 +40,6 @@ sass partials
 developing
 
 ```bash
-make watch
 make serve
 ```
 
