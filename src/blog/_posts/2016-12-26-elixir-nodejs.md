@@ -33,11 +33,21 @@ When setting up a new Node.js project, you typically run `npm init` and then add
 
 Elixir's equivalents of `package.json` and `npm-shrinkwrap.json` are `mix.exs` and `mix.lock`, respectively. Running `mix deps.get` will install all packages declared in those files. There currently aren't any Mix commands that work like either `npm install package_name` or `npm save`, so to add or remove packages you'll have to edit `mix.exs` manually and then run `mix deps.get` again. On the upside, Mix automatically updates `mix.lock` for you.
 
-### iex and elixir
+### IEx
 
 Okay, enough about npm already. The Elixir counterparts to Node.js's `node` command are `iex` and `elixir`. Running `iex` will open an interactive Elixir prompt (or [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop)), while running `iex -S mix` will open the prompt in the context of the current directory's compiled Mix project. You can alternatively execute the compiled project via `mix run` if you don't need the prompt.
 
 Wait, you need to compile Elixir? Although you do need to compile Mix projects via `mix compile`, you can also run a standalone Elixir script with the command `elixir foobar.exs` (note the `.exs` extension, as opposed to `.ex`). Mix itself is implemented as an Elixir script!
+
+### ExUnit
+
+Elixir has an official unit testing framework that integrates with Mix via `mix test`. Having one true framework is pretty great if for no other reason than avoiding the dependency hell of Mocha, Chai, Karma, Sinon, etc.
+
+### Dialyzer
+
+Despite being a dynamically typed language, Erlang comes with a static analysis tool called `dialyzer`. It can automatically detect certain type errors even in the absence of type declarations, kind of like TypeScript and Flow. If you do prefer declaring types yourself, both Erlang and Elixir offer an [annotation syntax](http://elixir-lang.org/getting-started/typespecs-and-behaviours.html) that Dialyzer understands.
+
+[Dialyxir](https://github.com/jeremyjh/dialyxir) makes Dialyzer much easier to use with Elixir.
 
 ### Phoenix
 
@@ -57,7 +67,7 @@ As another example, consider Webpack's [output.libraryTarget](https://webpack.gi
 
 The official guide introduces the capture operator `&` in [chapter 8](http://elixir-lang.org/getting-started/modules.html#funtuallyction-capturing) with a link to details in the [language reference](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#&/1). I think `&` deserves extra attention due to how unfamiliar yet common it is. Elixir newcomers may not realize that it has three distinct meanings depending on context:
 
-1. `&` obtains references to named functions, allowing them to be passed around as variables and called as anonymous functions (a.k.a. lambdas). In JavaScript, you can just refer to a named function by its name:
+1. `&` obtains references to named functions, allowing them to be passed around as variables and called as anonymous functions (a.k.a. lambdas). In JavaScript, you can simply refer to a named function by its name:
 
     ```js
     [1.62, 2.72].map(Math.floor); // [1.0, 2.0]
@@ -108,7 +118,7 @@ At this point you might be wondering how the compiler (or anyone else reading yo
 
 ### Pipe operator
 
-Underscore and Lodash have a `_.chain` [function](http://underscorejs.org/#chaining) that lets you express data transformations in chronological order of application. It looks really nice but ends up being kinda awkward to use in practice. The same functionality is built into Elixir as the pipe operator `|>`. A JavaScript example adapted from the Underscore docs:
+Underscore and Lodash have a `_.chain` [function](http://underscorejs.org/#chaining) that lets you express data transformations in chronological order of application. It looks really nice but ends up being clunky to use in practice. The same functionality is built into Elixir as the pipe operator `|>`. A JavaScript example adapted from the Underscore docs:
 
 ```js
 const lyrics = [
@@ -157,6 +167,8 @@ IO.puts(String.upcase(String.trim(" hello")))
 
 ## Final thoughts
 
-Although it's too early for me to decide whether Elixir lives up to its massive hype, I've generally liked what I've seen so far. Pipes are convenient, concurrency is as elegant as promised, and the flavor of functional programming is more pragmatic than dogmatic. I'm still a bit skeptical about dynamic typing, but there are tools like Dialyzer (analogous to Facebook's Flow) that can provide some peace of mind. Maybe "let it crash" hasn't quite sunk in yet.
+Although it's hard to say whether Elixir lives up to its massive hype, I've generally liked what I've seen so far. The flavor of functional programming is more pragmatic than dogmatic, the concurrency model is as elegant as promised, and the included development tools are easily the best of any language I've used.
 
-I'm also really not a huge fan of all the Rails-esque boilerplate that Phoenix generates. The current lack of mature framework options has more to do with how young the language is, though, and it's not too hard to pare down Phoenix anyway. Consider it a glowing endorsement of both Elixir and Phoenix that these minor details are my only complaints :)
+I'm still a bit skeptical about dynamic typing, but maybe "let it crash" just hasn't sunk in yet. I'm also really not a huge fan of all the Rails-esque boilerplate that Phoenix generates. The current lack of mature framework options has more to do with how young the language is, though, and it's not too hard to pare down Phoenix anyway.
+
+Consider it a glowing endorsement of both Elixir and Phoenix that these minor details are my only complaints :)
