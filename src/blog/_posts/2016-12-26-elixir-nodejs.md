@@ -31,7 +31,7 @@ When setting up a new Node.js project, you typically run `npm init` and then add
 
 [Hex](https://hex.pm/) is Elixir's package manager, analogous to the npm registry and the parts of the `npm` client that actually deal with package management. One big difference is that you don't get a separate "hex" command when you install Elixir. You instead use Hex via Mix commands like `mix deps.get` (analogous to `npm install`).
 
-Elixir's equivalents of `package.json` and `npm-shrinkwrap.json` are `mix.exs` and `mix.lock`, respectively. Running `mix deps.get` will install all packages declared in those files. There currently aren't any Mix commands that work like either `npm install package_name` or `npm save`, so to add or remove packages you'll have to edit `mix.exs` manually and then run `mix deps.get` again. On the upside, Mix automatically updates `mix.lock` for you.
+Elixir's equivalents of `package.json` and `npm-shrinkwrap.json` are `mix.exs` and `mix.lock`, respectively. Running `mix deps.get` will install all packages declared in those files. There currently aren't any Mix commands that work like `npm install --save`, so to add or remove individual packages you'll have to edit `mix.exs` manually and then run `mix deps.get` again. On the upside, Mix automatically updates `mix.lock` for you.
 
 ### IEx
 
@@ -67,7 +67,7 @@ As another example, consider Webpack's [output.libraryTarget](https://webpack.gi
 
 The official guide introduces the capture operator `&` in [chapter 8](http://elixir-lang.org/getting-started/modules.html#funtuallyction-capturing) with a link to details in the [language reference](https://hexdocs.pm/elixir/Kernel.SpecialForms.html#&/1). I think `&` deserves extra attention due to how unfamiliar yet common it is. Elixir newcomers may not realize that it has three distinct meanings depending on context:
 
-1. `&` obtains references to named functions, allowing them to be passed around as variables and called as anonymous functions (a.k.a. lambdas). In JavaScript, you can simply refer to a named function by its name:
+1. `&` obtains references to named functions, allowing them to be passed around as variables and called as anonymous functions (a.k.a. lambdas). In JavaScript, you can simply refer to a named function like `Math.floor` by its name:
 
     ```js
     [1.62, 2.72].map(Math.floor); // [1.0, 2.0]
@@ -158,11 +158,11 @@ Just like in Underscore and Lodash, Elixir functions specify the data that they 
 Blessed with native support via `|>`, chaining works with all functions that take at least one argument. But there's another reason it's ubiquitous in Elixir: the language's lack of objects. Since instance methods like JavaScript's `String.prototype.toUpperCase` don't exist, all such features are implemented as "static" methods in Elixir:
 
 ```elixir
-# Prints "HELLO"
+# Prints "HELLO" and returns :ok
 IO.puts(String.upcase(String.trim(" hello")))
 
 # Same, but laid out more naturally
-"hello" |> String.trim |> String.upcase |> IO.puts
+" hello" |> String.trim |> String.upcase |> IO.puts
 ```
 
 ## Final thoughts
