@@ -1,6 +1,5 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 
-import codecs
 import json
 import os
 import subprocess
@@ -11,7 +10,7 @@ CRUSHED_LIST_FILE = os.path.join('scripts', 'pngcrushed.json')
 
 def main():
     # Read crushed file list
-    with codecs.open(CRUSHED_LIST_FILE, 'r', 'utf8') as f:
+    with open(CRUSHED_LIST_FILE, 'r') as f:
         crushed = set(json.load(f))
 
     # Search for PNGs
@@ -32,8 +31,8 @@ def main():
             crushed.add(fpath)
 
     # Write crushed file list
-    with codecs.open(CRUSHED_LIST_FILE, 'w', 'utf8') as f:
-        text = json.dumps(sorted(crushed), f, indent=2, separators=(',', ': '))
+    with open(CRUSHED_LIST_FILE, 'w') as f:
+        text = json.dumps(sorted(crushed), indent=2, separators=(',', ': '))
         f.write(text + '\n')
 
 
