@@ -1,4 +1,5 @@
 destination: ../build
+future: true
 highlighter: pygments
 markdown: redcarpet # kramdown doesn't support ``` for code blocks
 markdown_ext: "md"
