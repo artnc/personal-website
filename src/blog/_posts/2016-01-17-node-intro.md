@@ -23,9 +23,9 @@ npm ("node package manager") is the most widely used JS equivalent of Python's p
 
     `npm install` will install all packages listed in the current directory's package.json. The pip equivalent is `pip install -r requirements.txt`.
 
-- npm installs packages into the current directory's node_modules/ subdirectory, creating it if necessary. pip installs packages at a location within the current Python installation itself.
+- npm installs packages into the current directory's node\_modules/ subdirectory, creating it if necessary. pip installs packages at a location within the current Python installation itself.
 
-    Python projects typically use a virtualenv so that project-specific libraries don't clutter your system's main Python installation. Since npm installs to the current directory's node_modules/ by default, any directory with a node_modules/ subdirectory is effectively its own contained environment.
+    Python projects typically use a virtualenv so that project-specific libraries don't clutter your system's main Python installation. Since npm installs to the current directory's node\_modules/ by default, any directory with a node\_modules/ subdirectory is effectively its own contained environment.
 
     Very rarely, you want a package to be globally available. With pip you run `pip install foobar` outside of any virtualenv; with npm you run `npm install -g foobar` from any directory.
 
@@ -33,7 +33,7 @@ npm ("node package manager") is the most widely used JS equivalent of Python's p
 
 Webpack is a build system like Make or Gradle. At a minimum, we need it for combining hundreds of JS source files into a few that we send to the browser. It does so by implementing a module import system---a fairly universal language feature that vanilla JS doesn't yet provide.
 
-The other main feature of webpack that we currently use is webpack-dev-server, a companion tool that can automatically build our JS and serve it from localhost:9091. This separation from the Paste server drastically reduces the time wasted on local server reloads because:
+The other main feature of webpack that we currently use is `webpack-dev-server`, a companion tool that can automatically build our JS and serve it from localhost:9091. This separation from the Paste server drastically reduces the time wasted on local server reloads because:
 
 - Paste no longer reloads our Python backend whenever you make a JS change
 - Paste no longer rebuilds our entire JS codebase whenever you make a Python change
