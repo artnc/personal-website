@@ -101,6 +101,25 @@ sudo umount /mnt/seagate
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
 
+## Fixing the default LaTeX font
+
+Rendering a LaTeX file to PDF works fine after installing `texlive-core`, but what's up with the fugly text? Zooming in reveals that the bitmap version of Computer Modern is being used. We need to specify an infinitely scalable vector font instead.
+
+The first step of the [fix](https://bbs.archlinux.org/viewtopic.php?pid=523453#p523453) is to enable Latin Modern, the widely accepted successor to Computer Modern:
+
+
+```shell
+updmap --enable Map=lm.map
+```
+
+Then add this to the preamble of your LaTeX document:
+
+```latex
+\usepackage{lmodern}
+```
+
+Generate the PDF again, and font rendering should be fixed.
+
 ## Supporting true color in xfce4-terminal
 
 Set `TERM=xterm-256color` in your `.zshrc` / `.bashrc`.
