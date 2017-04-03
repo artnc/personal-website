@@ -216,7 +216,7 @@ var [graph, idIndices] = (data => {
   "4": [
     {"i":44,"n":"Triviality"},
     {"i":68,"n":"Private Tutor","t":[52,53,55,56]},
-    {"i":82,"n":"Epic Systems"},
+    {"i":82,"n":"OpenAI"},
     {"i":84,"n":"Ticketmelon"},
     {"i":88,"n":"Neuron Visualization","u":"/neuron"},
     {"i":89,"n":"OpenCV Page Turner"},
@@ -231,7 +231,7 @@ var [graph, idIndices] = (data => {
     {"i":148,"n":"Duolingo for Web"},
     {"i":149,"n":"Duolingo English Test"},
     {"i":150,"n":"Duolingo Earth"},
-    {"i":153,"n":"Clicktalad","t":[84]},
+    {"i":153,"n":"Epic Systems","t":[84]},
   ],
 });
 

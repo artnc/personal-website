@@ -198,7 +198,7 @@ img {
     border-bottom: 2px solid transparent;
     color: $white-off;
     display: inline-block;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     text-transform: uppercase;
     transition: border-color 0.25s;
 
@@ -247,7 +247,7 @@ img {
   a {
     border-bottom: 1px solid transparent;
     color: $green-light;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     transition: border-color 0.25s;
 
     &:hover {
