@@ -101,6 +101,16 @@ sudo umount /mnt/seagate
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
 
+## Booting UEFI with an existing EFI partition
+
+GRUB was presenting me with its own slow-ass [shell](https://www.linux.com/learn/how-rescue-non-booting-grub-2-linux) instead of an OS selection menu. The [problem](https://bbs.archlinux.org/viewtopic.php?pid=1348012#p1348012) was that the live USB had installed some rather important files into the root filesystem's `/boot` folder instead of the EFI partition.
+
+I had mistakenly been under the impression that mounting the existing EFI partition (used by Windows) to the root filesystem's `/boot` was unnecessary because both already existed and had stuff in them. [Reinstalling](https://bbs.archlinux.org/viewtopic.php?pid=1641965#p1641965) with the partition mounted fixed things.
+
+## Ditching GRUB (only for UEFI systems)
+
+GRUB is the kitchen sink bootloader. Systemd comes with its own UEFI bootloader that's much simpler and works perfectly fine if all you need is an OS selection menu. As explained in the [guide](https://wiki.archlinux.org/index.php/systemd-boot), just enable `systemd-boot` and create the two files `arch.conf` and `loader.conf`.
+
 ## Fixing the default LaTeX font
 
 Rendering a LaTeX file to PDF works fine after installing `texlive-core`, but what's up with the fugly text? Zooming in reveals that the bitmap version of Computer Modern is being used. We need to specify an infinitely scalable vector font instead.
@@ -120,6 +130,40 @@ Then add this to the preamble of your LaTeX document:
 
 Generate the PDF again, and font rendering should be fixed.
 
+## Getting Intel Wireless 8260 card to work
+
+Trying to [activate](https://wiki.archlinux.org/index.php/Wireless_network_configuration) my WiFi card with `ip link set wlp4s0 up` failed with a vague `RTNETLINK answers: Input/output error` message. Turns out that version 22 of the Linux kernel's firmware for my particular WiFi card was [problematic](https://bbs.archlinux.org/viewtopic.php?pid=1590387#p1590387). You can see what firmware version you're on by running `dmesg | grep 'iwlwifi.*loaded'`.
+
+The solution was to force Linux to use the previous version of the firmware by [disabling](https://ubuntuforums.org/showthread.php?t=2342945&p=13568896#post13568896) the latest version. As root:
+
+```shell
+# Stop kernel module "iwlwifi", which will need to be restarted. (Not sure what iwlmvm is, but `rmmod iwlwifi` complains that it's in the way)
+rmmod iwlmvm
+rmmod iwlwifi
+
+# Rename the firmware file so that Linux won't find it
+cd /lib/firmware
+mv iwlwifi-8000C-22.ucode iwlwifi-8000C-22.bak
+
+# Re-enable modules
+modprobe iwlwifi
+modprobe iwlmvm
+```
+
+Since I was setting up Arch at my office without the luxury of ethernet, I actually ended up having to go through this process twice: once on the live USB and again on my laptop's instance of Arch.
+
+## Manually connecting to a WPA network
+
+TLDR of the Arch [guide](https://wiki.archlinux.org/index.php/Wireless_network_configuration) (run as root):
+
+```shell
+ip link set wlp4s0 up
+wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "ssid" "password")
+# (Switch to another TTY at this point)
+dhchpd
+ping 8.8.8.8
+```
+
 ## Supporting true color in xfce4-terminal
 
 Set `TERM=xterm-256color` in your `.zshrc` / `.bashrc`.
@@ -133,9 +177,9 @@ Install `fonts-tlwg` (AUR). It looks perfectly fine and just works. I first trie
 - App launcher: dmenu
 - AUR helper: pacaur
 - Clipboard manager: xfce4-clipman
-- Editor: subl3/neovim
-- File manager: thunar/ranger
-- Image viewer: viewnior
+- Editor: subl3/nano
+- File manager: thunar
+- Image viewer: ristretto
 - Password manager: keepassx2
 - Shell: zsh
 - Status bar: i3blocks
