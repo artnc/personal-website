@@ -130,16 +130,6 @@ img {
   border-radius: 2px;
 }
 
-// Scroll bar
-
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $gray;
-}
-
 // Selection
 
 @mixin selection() {
