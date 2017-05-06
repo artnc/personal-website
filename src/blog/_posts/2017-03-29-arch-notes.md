@@ -75,7 +75,7 @@ When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec 
 
 External HDDs not marketed specifically for Mac are typically formatted as NTFS, the file system used by Windows. It's best to keep NTFS if you ever plan to access your HDD from Windows, in which case you'll need to do a little extra setup for Linux:
 
-```bash
+```shell
 # First, plug the HDD into your computer and verify that it can be detected
 lsusb
 
@@ -100,6 +100,20 @@ sudo umount /mnt/seagate
 ```
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
+
+## Fixing audio mute
+
+First of all, make sure you have the `alsa-utils` package installed. It provides two useful programs to keep open while debugging sound issues: `speaker-test -t wav -c 2` plays a looping audio sample, and `alsamixer` shows the current volume and mute status of all audio channels.
+
+Most people online suggest muting via the command `amixer set Master toggle`. This works but has an unfortunate quirk on some systems: running it a second time doesn't actually unmute!
+
+Muting Master mutes all channels, but unmuting Master unmutes only the Master channel. That's a problem if you have other audio channels that depend on Master, e.g. Speaker and Headphone. The `pulseaudio` package provides `pactl`, an alternative to `amixer` that doesn't suffer from the same bug. Run `pactl set-sink-mute 0 toggle` to toggle the mute status of all channels in unison.
+
+In my i3 config, I have that command bound to my keyboard's mute button like so:
+
+```shell
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+```
 
 ## Booting UEFI with an existing EFI partition
 

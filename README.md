@@ -39,13 +39,13 @@ sass partials
 
 developing
 
-```bash
+```shell
 make serve
 ```
 
 publishing
 
-```bash
+```shell
 make build
 make sync host=******
 make sitemap token=******
