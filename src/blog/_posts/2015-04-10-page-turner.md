@@ -5,7 +5,7 @@ pagetitle: Turning Pages with Face Recognition
 tags: ["linux", "music"]
 comments: true
 ---
-Nearly all of my sheet music is in PDF. I'm usually too <span style="text-decoration:line-through">lazy</span>&nbsp;<span style="text-decoration:line-through">cheap</span> environmentally friendly to print it out, and sadly there are only so many notes that can fit on a screen. My playing has typically been littered with impromptu rest measures that occur when I reach for the mouse to scroll down.
+Nearly all of my sheet music is in PDF. I'm usually too ~~lazy~~ ~~cheap~~ environmentally friendly to print it out, and sadly there are only so many notes that can fit on a screen. My playing has typically been littered with impromptu rest measures that occur when I reach for the mouse to scroll down.
 
 Last night I hacked together a little program that allows you to send PageUp and PageDown keypresses by tilting your head. For now, it runs only on Linux and detects only human faces.
 
