@@ -141,6 +141,13 @@ img {
 
 ::selection { @include selection(); }
 
+// Placeholder
+
+::-webkit-input-placeholder { color: $gray-light; }
+::-moz-placeholder { color: $gray-light; }
+:-ms-input-placeholder { color: $gray-light; }
+:-moz-placeholder { color: $gray-light; }
+
 // IDs
 
 #topline {
