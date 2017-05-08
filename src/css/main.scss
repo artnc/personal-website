@@ -8,6 +8,7 @@
 
 // Sizes
 
+$border-radius: 4px;
 $font-size-body: 16px;
 $font-size-h1: 40px;
 $font-size-h2: 30px;
@@ -98,7 +99,7 @@ code, pre {
 }
 
 code:not([data-lang]) {
-  border-radius: 4px;
+  border-radius: $border-radius;
   color: $white-off;
   margin: 0 2px;
   padding: 4px 7px 3px;
@@ -106,7 +107,7 @@ code:not([data-lang]) {
 }
 
 pre {
-  border-radius: 10px;
+  border-radius: $border-radius;
   margin: 2em 0;
   padding: 15px 20px;
 }
@@ -127,7 +128,7 @@ blockquote {
 }
 
 img {
-  border-radius: 2px;
+  border-radius: $border-radius;
 }
 
 // Selection
@@ -235,8 +236,6 @@ img {
 }
 
 .content {
-  border-radius: 15px;
-
   p {
     margin: 1.8em 0;
   }
@@ -278,7 +277,7 @@ img {
   button, input, select {
     background: $white-off;
     border: 0;
-    border-radius: 3px;
+    border-radius: $border-radius;
     font-family: 'Open Sans', 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
     color: $gray-dark;
     margin: 0 3px;
@@ -383,7 +382,7 @@ img {
 .tag {
   background: $gray-darker;
   border: 1px solid transparent;
-  border-radius: 10px;
+  border-radius: $border-radius;
   color: $gray-light;
   display: inline-block;
   cursor: default;
@@ -396,7 +395,7 @@ img {
 .post-info {
   color: $gray-light;
   font-size: $font-size-h3;
-  margin: 2em 0 1em;
+  margin: 2em 0;
 }
 
 .activetag {
@@ -436,10 +435,10 @@ img.right {
 /********************************************************************* PAGES */
 
 .index-html {
-  $height-svg: 600px;
-  $width-svg: 720px;
-
   .content {
+    $height-svg: 600px;
+    $width-svg: 720px;
+
     height: $height-svg - 30px;
     margin: -40px 0 -40px 50%;
     overflow: hidden;
@@ -452,23 +451,23 @@ img.right {
       font-weight: 700;
       margin-top: -30px;
     }
-  }
 
-  line {
-    stroke: #6c7486;
-    stroke-opacity: .6;
-    stroke-width: 1px;
-  }
+    line {
+      stroke: #6c7486;
+      stroke-opacity: .6;
+      stroke-width: 1px;
+    }
 
-  circle {
-    stroke: $gray-dark;
-    stroke-width: 3px;
-    user-select: none;
-  }
+    circle {
+      stroke: $gray-dark;
+      stroke-width: 3px;
+      user-select: none;
+    }
 
-  .g0 { fill: $green-bright; }
-  .g1, .g4 { fill: $green-dark; }
-  .g2, .g3, .g5 { fill: $green-light; }
+    .g0 { fill: $green-bright; }
+    .g1, .g4 { fill: $green-dark; }
+    .g2, .g3, .g5 { fill: $green-light; }
+  }
 
   #footer {
     text-align: center;
@@ -477,7 +476,7 @@ img.right {
 
 // Projects
 
-.projects-html {
+.projects-html .content {
   h2 {
     margin: 0 0 .25em;
   }
@@ -533,7 +532,7 @@ img.right {
   }
 
   .thumbnail {
-    border-radius: 2px;
+    border-radius: $border-radius;
     box-shadow: none;
     cursor: pointer;
     display: block;
@@ -555,26 +554,6 @@ img.right {
 
     &:hover, &.current, &.tagged {
       opacity: 1;
-    }
-  }
-
-  .legend {
-    margin: 0 auto;
-
-    td {
-      &:first-child span {
-        border-radius: 10px;
-        display: inline-block;
-        height: 6px;
-        margin-right: 6px;
-        width: 6px;
-      }
-
-      &:last-child {
-        color: $gray-light;
-        padding-top: 1px;
-        text-transform: uppercase;
-      }
     }
   }
 }
@@ -609,13 +588,13 @@ img.right {
   }
 }
 
-.graphics-html {
-  .content a img {
+.graphics-html .content {
+  a img {
     height: 190px;
   }
 }
 
-.fizzbuzz-html {
+.fizzbuzz-html .content {
   textarea {
     font-family: Consolas, monospace;
   }
@@ -623,29 +602,29 @@ img.right {
 
 // Blog
 
-.blog-html {
+.blog-html .content {
   .date {
     color: $gray-light;
     white-space: nowrap;
   }
 }
 
-.cavalier-on-android-html {
-  .content a img {
+.cavalier-on-android-html .content {
+  a img {
     max-width: 240px;
   }
 }
 
-.linuxsampler-html {
-  .content a img {
+.linuxsampler-html .content {
+  a img {
     max-width: 300px;
   }
 }
 
 // About
 
-.about-html {
-  .content img {
+.about-html .content {
+  img {
     margin-top: 10px;
     width: 40%;
 
@@ -729,7 +708,7 @@ img.right {
 }
 
 .tipsy-inner {
-  border-radius: 3px;
+  border-radius: $border-radius;
 }
 
 .tipsy-arrow {
