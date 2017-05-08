@@ -385,9 +385,10 @@ img {
   border-radius: $border-radius;
   color: $gray-light;
   display: inline-block;
+  font-size: $font-size-small;
   cursor: default;
   margin: 0 6px 6px 0;
-  padding: 5px 12px;
+  padding: 5px 10px;
   transition: color 0.2s;
   user-select: none;
 }
