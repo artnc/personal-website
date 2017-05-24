@@ -616,6 +616,12 @@ img.right {
   }
 }
 
+.guitalele-html .content {
+  td:first-child {
+    white-space: nowrap;
+  }
+}
+
 .linuxsampler-html .content {
   a img {
     max-width: 300px;

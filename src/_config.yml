@@ -7,5 +7,5 @@ name: "Art Chaidarun"
 permalink: /:title.html
 port: 8005
 redcarpet:
-  extensions: ["smart", "strikethrough", "with_toc_data"]
+  extensions: ["smart", "strikethrough", "tables", "with_toc_data"]
 url: https://chaidarun.com
