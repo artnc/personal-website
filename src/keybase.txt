@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/artnc
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://chaidarun.com
+  * I am artnc (https://keybase.io/artnc) on keybase.
+  * I have a public key with fingerprint 2F71 7BE5 112A 04F1 E0F1  D5FA 5FC5 66E3 8689 A53C
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "01205dc5037de9efea4360439db015e34462191f93b0011d50c9188bde509bb1f5ca0a",
+            "fingerprint": "2f717be5112a04f1e0f1d5fa5fc566e38689a53c",
+            "host": "keybase.io",
+            "key_id": "5fc566e38689a53c",
+            "kid": "0101364ca984a9570530a89b051e7fd8f733805ddc96633723f95abdfab8019d14ac0a",
+            "uid": "cb4b386376851da236af474479ef9519",
+            "username": "artnc"
+        },
+        "revoke": {
+            "sig_ids": [
+                "2d31a8cf0f8e72f1ecd86dbd795bf2ea45ce502a24030aee7fc238ddb2c22c690f"
+            ]
+        },
+        "service": {
+            "hostname": "chaidarun.com",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1495596907,
+    "expire_in": 157680000,
+    "prev": "f8b0f63cf8e74baec398b4dea7b27993c2052d5e16a3154e7deb30e7f621dc9f",
+    "seqno": 20,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.70
+Comment: https://keybase.io/crypto
+
+yMOtAnicbVJrbBRFHL8WKPQFnByPYCW4NlTb2s7s7PMoVSCNmggELW1OkMvs7GxZ
+Dm6vew9KC9UqFppAwAhCIC1pedQGhIQitUbgoDRBAQlFNCKId1UTSAEprdREi3MN
+fHO/bHb29/+95n8uc5QjLcnbbfTWNxwoSrpwpj/s8GQ/9tVwmqWv5dw1nI+OvOgq
+nQZDXp+pc24OQB6IOhEBknWqUoNiAUlAQKquAShSJAgSD1VoqEgDAEJdBESFiqLp
+VASqpkFDJBhgLp8zTH8FtQO26Q8xWt6QoaxREUIeA8GAFBhs1sCiQURJokiRFBWL
+iLDBFVYwMcHMaThIC0yLnbEP74i9/8E/9Q0gkgSCVUXAqigDEQGsqBoQIZUNXTFk
+hBSWTCeqJCEk88hQRazpBtYUAFUdCpiM+A6P0BFN0JgIkiVFhDrmkYQNQRYEmVWi
+ilBNAIPU9uPVlKGxHfITbn0+Z9OI5aOJUoNmBXMc5NxLOV5HECvEAIZCZZ5lJ7oi
+6Zouq6Jm8KxgkbDyeMwLgHmmzC7hkaLrGk94nkgqMLh3GTeTi5hkhDxR0RNpsgKb
+OrbD/gJirWauArYVsoi1iv1aEQoFgu6ErdDaQAK7hmreJyxezfTr7IbYRITaQdPy
+c27IkCRkJmihoIqiyqTlfI5WBUybes0EQmR9APYkdGiEURqKBgwJkUQ0QcOUIFXR
+BJ1iWeNlVUWEbROvixRKGEFRoGypNARYRLZF7CoMLpGr0m9xbp6RhnAF42TV+XEo
+bFNu/dkzy0Y7ktIcKWOSE6vrSEud+HShF+VNdNSXHsx13vo6qWx1OPJwcXZx5/El
+wSFSlH3YcaOnaV3JGDs1Wl5yqV3u3NX060Dso8Uvp0xyzdrncWYcsK/nHdrS5uzP
+7ZuRFTpQ8mh5/kBswvf76xfsOJ+3a8jT05ZecRu6GooKTjwr3S+NftF7uXZw96pd
+6Z9v6gOPsn57u+Po68nON9/Z5542XTryuHrfuldLl/S/91lx2+8Hc+suvdgbje8Z
+6il8mHat5pue4x9/Yl2Z2L197ui151aOvY6OwSRyrXbQ02V3zruVgbM6YHv6zlnR
+0Lebm0sbm68Pe5aUVfozf8apYxcdvn3Us+GHYtfSnsbX/EWtvrSvuv3jUlrEDdnn
+T75y7+b79JniKc4rrQs2Lnx+D1r5ViyulNnjNk24WPXC5Mg/v3RFK/84/SB89d7D
+v9CMu3cexN9A0//cVts9Pcl3KPbTenNow4I9H9wYL7uqrzxXY8bLx18o3JhSF8YZ
+87OG5oz6V/ZZceumtH308Nw1+/uO9NvTLugfVsyOnmg5tvxs4ba9LP6579o7Gpz5
+96q2/jizrnj+YH/X3gc+626Oo+XE5Dv3yw1ja3Fv9ayrl5sLZ55sur854jp9q25n
+R9XcXK6tNt51sSxtwks7Tu2OTd0qHKmsz+meFF1eoC5r/jJnIaj/uz2jfLsUm32q
+5ZS3sdrr+3Sgz+GYMzW5oH9eSV5rpms4EJ/yHy702Fw=
+=tnT0
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/artnc
+
+==================================================================
