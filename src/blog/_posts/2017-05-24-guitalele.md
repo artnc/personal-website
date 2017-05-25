@@ -2,13 +2,13 @@
 h1: Get a Guitalele Already
 layout: post
 pagetitle: Get a Guitalele Already
-tags: []
+tags: ["music"]
 comments: true
 ---
 The guitalele is a miniature guitar built like a ukulele, and it should be your next -- or even first -- musical instrument.
 
 <div class="text-centered">
-  <img alt="Guitalele" src="/img/guitalele.jpg" style="width:100%;">
+  <img alt="Guitalele" src="/img/guitalele.jpg" style="max-width:100%;">
 </div>
 
 For comparison with any instruments you might already play, here are my subjective and flamebaity ratings of several instruments' different qualities:
@@ -32,7 +32,7 @@ The guitalele does earn the most stars here, but that's a pretty crude heuristic
 
 ## Because it's fun
 
-Some instruments, like violin, are culturally very serious and competitive. Others, like [sousaphone](http://localhost:8005/img/sousaphone.jpg), are utterly ridiculous and more about showmanship than musicianship. The guitalele inherits a casual, friendly attitude from its ukulele roots.
+Some instruments, like violin, are culturally very serious and competitive. Others, like [sousaphone](/img/sousaphone.jpg), are utterly ridiculous and more about showmanship than musicianship. The guitalele inherits a casual, friendly attitude from its ukulele roots.
 
 Its six strings are tuned ADGCEA, which is non-coincidentally equivalent to capoing a regular guitar at the 5th fret. If you can play guitar, you already know how to play guitalele! The familiar fingering and small size make it even more conducive to passing around the campfire than a guitar is.
 
