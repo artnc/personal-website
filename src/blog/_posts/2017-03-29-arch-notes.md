@@ -71,6 +71,8 @@ Install [networkmanager](https://www.archlinux.org/packages/extra/x86_64/network
 
 When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec tunnel to L2TP host". You may also need to uncheck "Perfect Forward Secrecy".
 
+> Update 2017-07-08: Due to a Linux kernel [regression](https://bbs.archlinux.org/viewtopic.php?pid=1713763#p1713763), you supposedly now must also install `linux-lts` and then run `sudo grub-mkconfig`. I still haven't gotten it working, though.
+
 ## Using an external hard drive
 
 External HDDs not marketed specifically for Mac are typically formatted as NTFS, the file system used by Windows. It's best to keep NTFS if you ever plan to access your HDD from Windows, in which case you'll need to do a little extra setup for Linux:
@@ -181,6 +183,36 @@ ping 8.8.8.8
 ## Supporting true color in xfce4-terminal
 
 Set `TERM=xterm-256color` in your `.zshrc` / `.bashrc`.
+
+## Making Android Studio / React Native work
+
+I was trying to set up React Native, which involves setting up Android Studio. Everything went well up until `react-native run-android`:
+
+```
+java.io.IOException: Cannot run program "/home/art/Android/Sdk/build-tools/23.0.1/aapt": error=2, No such file or directory
+```
+
+The solution is to enable the [multilib repository](https://wiki.archlinux.org/index.php/multilib) and then install [some packages](https://medium.com/@bpdp/undocumented-manual-of-react-native-for-64-bit-linux-5a7992ae3008):
+
+```shell
+pacman -S lib32-gcc-libs lib32-glibc lib32-libstdc++5 lib32-ncurses lib32-zlib
+```
+
+If your `JAVA_HOME` environment variable is unset, you may also need to set it to the grandparent directory of the file found by `locate tools.jar`. For example:
+
+```shell
+export JAVA_HOME=/opt/android-studio/jre
+```
+
+## Multi-monitor on Thinkpad P51
+
+Using the default `nouveau` graphics driver results in `xrandr` freezing with an external monitor plugged in. I still haven't gotten the DisplayPort ports to work, but here's my solution for VGA/DVI:
+
+1. Install `nvidia` package
+1. Uninstall `xf86-video-nouveau` if installed
+1. Reboot computer. In BIOS, switch from "Hybrid Graphics" to "Discrete Graphics"
+
+Fonts might look huge in i3 after switching to `nvidia`; restarting i3 with `$mod + Shift + R` fixes it.
 
 ## Adding Thai font support
 
