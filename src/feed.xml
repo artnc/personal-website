@@ -11,11 +11,7 @@
     <language>en-us</language>
     <pubDate>{{ site.time | date: time_format }}</pubDate>
     <lastBuildDate>{{ site.time | date: time_format }}</lastBuildDate>
-    {% assign addedPosts = 1 %}
-    {% for post in site.posts %}
-      {% if addedPosts > 10 %}
-        {% break %}
-      {% endif %}
+    {% for post in site.posts limit:20 %}
       {% if post.layout == "post" %}
       <item>
         <title>{{ post.h1 }}</title>
@@ -25,7 +21,6 @@
         <description>{{ post.content | replace:'="//','="http//' | replace:'href="/','href="https://chaidarun.com/' | replace:'src="/','src="https://chaidarun.com/' | replace:'="http//','="//' | xml_escape }}</description>
       </item>
       {% endif %}
-      {% assign addedPosts = addedPosts + 1 %}
     {% endfor %}
   </channel>
 </rss>
