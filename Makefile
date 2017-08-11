@@ -3,7 +3,7 @@ all: serve
 
 # Build production files
 .PHONY: build
-build:
+build: _install-ruby-deps
 	# Crush all uncrushed PNGs
 	python scripts/pngcrush.py
 
@@ -34,7 +34,7 @@ build:
 
 # Watch Jekyll source directory for changes and serve at localhost:8005
 .PHONY: serve
-serve:
+serve: _install-ruby-deps
 	cd src && jekyll serve --port 8005
 
 # Submit sitemap to Google and Bing (lol?)
@@ -49,3 +49,7 @@ sitemap:
 .PHONY: sync
 sync:
 	rsync -azP build/ art@${host}:/home/art/site
+
+.PHONY: _install-ruby-deps
+_install-ruby-deps:
+	bundle install
