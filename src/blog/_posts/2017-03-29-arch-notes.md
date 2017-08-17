@@ -2,7 +2,7 @@
 h1: Arch Linux Notes
 layout: post
 pagetitle: Arch Linux Notes
-tags: []
+tags: ["linux"]
 comments: true
 ---
 This page is a living document intended to save time for my future self in case the same issues ever crop up again.
