@@ -5,7 +5,7 @@ pagetitle: Arch Linux Notes
 tags: ["linux"]
 comments: true
 ---
-This page is a living document intended to save time for my future self in case the same issues ever crop up again.
+This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a Raspberry Pi 2 Model B, a Lenovo Flex 4, a ThinkPad P50, and a ThinkPad P51.
 
 Arch is surprisingly stable if you remember the single most important post-install step: subscribe to the official [news feed](https://www.archlinux.org/feeds/news/) for breaking changes!
 
@@ -212,11 +212,22 @@ Using the default `nouveau` graphics driver results in `xrandr` freezing with an
 1. Uninstall `xf86-video-nouveau` if installed
 1. Reboot computer. In BIOS, switch from "Hybrid Graphics" to "Discrete Graphics"
 
-Fonts might look huge in i3 after switching to `nvidia`; restarting i3 with `$mod + Shift + R` fixes it.
+However, fonts might look huge in some apps after switching to `nvidia`...
+
+## Huge fonts with NVIDIA driver
+
+The proprietary `nvidia` driver misdetects my laptop screen's DPI for some reason. This can be fixed by running the following and then restarting any affected apps.
+
+```shell
+# Replace `DP-2` with whatever `xrandr` says your laptop screen is called
+xrandr --output DP-2 --dpi 96
+```
+
+A possibly related issue is that X fails to identify the laptop screen as the primary screen (even when no external monitors are connected), causing i3status to hide its notification area. This can be fixed by running the above command with `--primary` appended and then reloading i3 with `$mod+Shift+R`.
 
 ## Adding Thai font support
 
-Install `fonts-tlwg` (AUR). It looks perfectly fine and just works. I first tried `ttf-ms-win10` but gave up on getting all of my Windows fonts to the same versions expected by the PKGBUILD.
+Install `fonts-tlwg` from the AUR. It looks perfectly fine and just works. I first tried `ttf-ms-win10` but gave up on getting all of my Windows fonts to the same versions expected by the PKGBUILD.
 
 ## My setup
 
