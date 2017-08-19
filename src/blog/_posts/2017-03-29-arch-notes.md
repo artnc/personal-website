@@ -216,14 +216,14 @@ However, fonts might look huge in some apps after switching to `nvidia`...
 
 ## Huge fonts with NVIDIA driver
 
-The proprietary `nvidia` driver misdetects my laptop screen's DPI for some reason. This can be fixed by running the following and then restarting any affected apps.
+The proprietary `nvidia` driver misdetects my laptop screen's DPI for some reason. This can be fixed by adding the command below to `~/.xinitrc` and then rebooting.
 
 ```shell
 # Replace `DP-2` with whatever `xrandr` says your laptop screen is called
 xrandr --output DP-2 --dpi 96
 ```
 
-A possibly related issue is that X fails to identify the laptop screen as the primary screen (even when no external monitors are connected), causing i3status to hide its notification area. This can be fixed by running the above command with `--primary` appended and then reloading i3 with `$mod+Shift+R`.
+A possibly related issue is that X fails to identify the laptop screen as the primary screen (even when no external monitors are connected), causing i3status to hide its notification area. This can be fixed by appending `--primary` to the command above.
 
 ## Adding Thai font support
 
