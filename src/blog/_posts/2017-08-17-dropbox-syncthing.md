@@ -22,7 +22,7 @@ Here's how I made the switch:
 
 1. **Set up a home server**
 
-    In other words, acquire a computer that you can keep running 24/7. It doesn't need to be especially powerful: I use a Raspberry Pi attached to a portable 2 TB HDD. Plugging your server into a [UPS](https://en.wikipedia.org/wiki/Uninterruptible_power_supply) is a nice touch.
+    In other words, obtain a computer that you can keep running 24/7. It doesn't need to be especially powerful: I use a Raspberry Pi attached to a portable 2 TB HDD. Plugging your server into a [UPS](https://en.wikipedia.org/wiki/Uninterruptible_power_supply) is a nice touch.
 
     It's important to have at least one peer always online so that *someone* can provide a complete copy of your files at any given time. No syncing can ever actually take place if your devices never have the opportunity to sync with each other!
 
@@ -51,6 +51,8 @@ Here's how I made the switch:
 1. **Optional: Access your home server from the public internet**
 
     Maybe you want to check out your home server's [Syncthing dashboard](https://docs.syncthing.net/intro/getting-started.html#configuring), or maybe you want to remotely restore some deleted files from your home server's `.stversions`. How do you connect to your server when you're not at home?
+
+    ![Home server](/img/home-server.jpg)
 
     You'll first need to go home and open ports on your router, whose admin panel is typically accessible at [192.168.0.1](http://192.168.0.1/) or [192.168.1.1](http://192.168.0.1/). Look for the [port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) settings and map the router's port 8384 to your home server's port 8384. The Syncthing dashboard runs on port 8384; you can also open other ports like 22 for SSH. This wiring step is necessary because all devices on your home network share the same public IP address (e.g. `123.45.67.89`), and so your router needs to know which one of them should handle incoming address-port combinations like `123.45.67.89:8384`.
 
