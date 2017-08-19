@@ -91,6 +91,10 @@ p {
   line-height: 1.8;
 }
 
+ul {
+  list-style-type: circle;
+}
+
 code, pre {
   background: $gray;
   font-family: 'DejaVu Sans Mono', Consolas, Monaco, 'Lucida Console', monospace;

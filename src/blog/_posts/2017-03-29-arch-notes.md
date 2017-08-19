@@ -9,6 +9,36 @@ This page is a living document intended to save time for my future self in case 
 
 Arch is surprisingly stable if you remember the single most important post-install step: subscribe to the official [news feed](https://www.archlinux.org/feeds/news/) for breaking changes!
 
+![Arch screenshot](/img/arch.png)
+
+### OS
+
+- [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
+- [Using an external hard drive](#using-an-external-hard-drive)
+- [Booting UEFI with an existing EFI partition](#booting-uefi-with-an-existing-efi-partition)
+- [Ditching GRUB (only for UEFI systems)](#ditching-grub-only-for-uefi-systems)
+- [Suspending after inactivity](#suspending-after-inactivity)
+
+### Network
+
+- [Manually connecting to a WPA network](#manually-connecting-to-a-wp)
+- [Connecting to an L2TP/IPsec VPN](#connecting-to-an-l2tp-ipsec-vpn)
+- [Getting Intel Wireless 8260 card to work](#getting-intel-wireless-8260-card-to-work)
+
+### Display
+
+- [Fixing the default LaTeX font](#fixing-the-default-latex-font)
+- [Supporting true color in xfce4-terminal](#supporting-true-color-in-xfce4-terminal)
+- [Multi-monitor on ThinkPad P51](#multi-monitor-on-thinkpad-p51)
+- [Huge fonts with NVIDIA driver](#huge-fonts-with-nvidia-driver)
+- [Adding Thai font support](#adding-thai-font-support)
+
+### Miscellaneous
+
+- [Fixing audio mute](#fixing-audio-mute)
+- [Making Android Studio / React Native work](#making-android-studio-react-native-work)
+- [My setup](#my-setup)
+
 ## Recovering from a bad upgrade
 
 I once ran a `pacman -Syu` that spat out a bunch of errors, probably due to an unfortunate interaction between package versions available at the time. After lazily crossing my fingers and restarting the computer, I got a boot error (of course):
@@ -54,25 +84,6 @@ Some weeks later I crossed my fingers and ran the upgrade command again, which f
 
 1. As the computer reboots, go back into BIOS and move GRUB back to highest boot priority. Boot into your hopefully working system and remove the USB drive.
 
-<!-- Note to self: this issue may have arisen just because I installed Clipman and enabled synced selections at some point... -->
-<!--
-## Unifying the two clipboards
-
-In addition to the regular clipboard that Windows and Mac users are familiar with, Linux also has a selection clipboard that automatically copies text whenever you highlight it. It's extremely annoying to `Ctrl+C` a URL, click on your browser's location bar, and press `Ctrl+V` only to end up re-pasting the existing URL because your browser had highlighted it when you clicked on the location bar.
-
-I installed Clipman, went into its settings, and disabled "Sync selections".
- -->
-
-## Connecting to an L2TP/IPsec VPN
-
-Just to be safe, uninstall all of the following packages: openswan, strongswan, networkmanager-openswan, networkmanager-strongswan, and networkmanager-libreswan. I couldn't get any of these to work. Openswan seems capable but there's no way I'm going to run through [this gauntlet](https://wiki.archlinux.org/index.php/Openswan_L2TP/IPsec_VPN_client_setup) for a single VPN connection if I can avoid it.
-
-Install [networkmanager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/), [libreswan](https://aur.archlinux.org/packages/libreswan/), and [networkmanager-l2tp](https://aur.archlinux.org/packages/networkmanager-l2tp/). (It's important to install networkmanager-l2tp last!) Then add the VPN entry as usual by right-clicking the NetworkManager applet or running `nm-connection-editor`.
-
-When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec tunnel to L2TP host". You may also need to uncheck "Perfect Forward Secrecy".
-
-> Update 2017-07-08: Due to a Linux kernel [regression](https://bbs.archlinux.org/viewtopic.php?pid=1713763#p1713763), you supposedly now must also install `linux-lts` and then run `sudo grub-mkconfig`. I still haven't gotten it working, though.
-
 ## Using an external hard drive
 
 External HDDs not marketed specifically for Mac are typically formatted as NTFS, the file system used by Windows. It's best to keep NTFS if you ever plan to access your HDD from Windows, in which case you'll need to do a little extra setup for Linux:
@@ -103,20 +114,6 @@ sudo umount /mnt/seagate
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
 
-## Fixing audio mute
-
-First of all, make sure you have the `alsa-utils` package installed. It provides two useful programs to keep open while debugging sound issues: `speaker-test -t wav -c 2` plays a looping audio sample, and `alsamixer` shows the current volume and mute status of all audio channels.
-
-Most people online suggest muting via the command `amixer set Master toggle`. This works but has an unfortunate quirk on some systems: running it a second time doesn't actually unmute!
-
-Muting Master mutes all channels, but unmuting Master unmutes only the Master channel. That's a problem if you have other audio channels that depend on Master, e.g. Speaker and Headphone. The `pulseaudio` package provides `pactl`, an alternative to `amixer` that doesn't suffer from the same bug. Run `pactl set-sink-mute 0 toggle` to toggle the mute status of all channels in unison.
-
-In my i3 config, I have that command bound to my keyboard's mute button like so:
-
-```shell
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
-```
-
 ## Booting UEFI with an existing EFI partition
 
 GRUB was presenting me with its own slow-ass [shell](https://www.linux.com/learn/how-rescue-non-booting-grub-2-linux) instead of an OS selection menu. The [problem](https://bbs.archlinux.org/viewtopic.php?pid=1348012#p1348012) was that the live USB had installed some rather important files into the root filesystem's `/boot` folder instead of the EFI partition.
@@ -127,24 +124,40 @@ I had mistakenly been under the impression that mounting the existing EFI partit
 
 GRUB is the kitchen sink bootloader. Systemd comes with its own UEFI bootloader that's much simpler and works perfectly fine if all you need is an OS selection menu. As explained in the [guide](https://wiki.archlinux.org/index.php/systemd-boot), just enable `systemd-boot` and create the two files `arch.conf` and `loader.conf`.
 
-## Fixing the default LaTeX font
+## Suspending after inactivity
 
-Rendering a LaTeX file to PDF works fine after installing `texlive-core`, but what's up with the fugly text? Zooming in reveals that the bitmap version of Computer Modern is being used. We need to specify an infinitely scalable vector font instead.
+In `xfce4-power-manager-settings` I specified that my laptop should go to sleep after an hour of inactivity, but that setting never seemed to work. The fix is to just edit one line in one file, as described [here](https://askubuntu.com/a/674720).
 
-The first step of the [fix](https://bbs.archlinux.org/viewtopic.php?pid=523453#p523453) is to enable Latin Modern, the widely accepted successor to Computer Modern:
+<!-- Note to self: this issue may have arisen just because I installed Clipman and enabled synced selections at some point... -->
+<!--
+## Unifying the two clipboards
 
+In addition to the regular clipboard that Windows and Mac users are familiar with, Linux also has a selection clipboard that automatically copies text whenever you highlight it. It's extremely annoying to `Ctrl+C` a URL, click on your browser's location bar, and press `Ctrl+V` only to end up re-pasting the existing URL because your browser had highlighted it when you clicked on the location bar.
+
+I installed Clipman, went into its settings, and disabled "Sync selections".
+ -->
+
+## Manually connecting to a WPA network
+
+TLDR of the Arch [guide](https://wiki.archlinux.org/index.php/Wireless_network_configuration) (run as root):
 
 ```shell
-updmap --enable Map=lm.map
+ip link set wlp4s0 up
+wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "ssid" "password")
+# (Switch to another TTY at this point)
+dhchpd
+ping 8.8.8.8
 ```
 
-Then add this to the preamble of your LaTeX document:
+## Connecting to an L2TP/IPsec VPN
 
-```latex
-\usepackage{lmodern}
-```
+Just to be safe, uninstall all of the following packages: openswan, strongswan, networkmanager-openswan, networkmanager-strongswan, and networkmanager-libreswan. I couldn't get any of these to work. Openswan seems capable but there's no way I'm going to run through [this gauntlet](https://wiki.archlinux.org/index.php/Openswan_L2TP/IPsec_VPN_client_setup) for a single VPN connection if I can avoid it.
 
-Generate the PDF again, and font rendering should be fixed.
+Install [networkmanager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/), [libreswan](https://aur.archlinux.org/packages/libreswan/), and [networkmanager-l2tp](https://aur.archlinux.org/packages/networkmanager-l2tp/). (It's important to install networkmanager-l2tp last!) Then add the VPN entry as usual by right-clicking the NetworkManager applet or running `nm-connection-editor`.
+
+When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec tunnel to L2TP host". You may also need to uncheck "Perfect Forward Secrecy".
+
+> Update 2017-07-08: Due to a Linux kernel [regression](https://bbs.archlinux.org/viewtopic.php?pid=1713763#p1713763), you supposedly now must also install `linux-lts` and then run `sudo grub-mkconfig`. I still haven't gotten it working, though.
 
 ## Getting Intel Wireless 8260 card to work
 
@@ -168,43 +181,30 @@ modprobe iwlmvm
 
 Since I was setting up Arch at my office without the luxury of ethernet, I actually ended up having to go through this process twice: once on the live USB and again on my laptop's instance of Arch.
 
-## Manually connecting to a WPA network
+## Fixing the default LaTeX font
 
-TLDR of the Arch [guide](https://wiki.archlinux.org/index.php/Wireless_network_configuration) (run as root):
+Rendering a LaTeX file to PDF works fine after installing `texlive-core`, but what's up with the fugly text? Zooming in reveals that the bitmap version of Computer Modern is being used. We need to specify an infinitely scalable vector font instead.
+
+The first step of the [fix](https://bbs.archlinux.org/viewtopic.php?pid=523453#p523453) is to enable Latin Modern, the widely accepted successor to Computer Modern:
+
 
 ```shell
-ip link set wlp4s0 up
-wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "ssid" "password")
-# (Switch to another TTY at this point)
-dhchpd
-ping 8.8.8.8
+updmap --enable Map=lm.map
 ```
+
+Then add this to the preamble of your LaTeX document:
+
+```latex
+\usepackage{lmodern}
+```
+
+Generate the PDF again, and font rendering should be fixed.
 
 ## Supporting true color in xfce4-terminal
 
 Set `TERM=xterm-256color` in your `.zshrc` / `.bashrc`.
 
-## Making Android Studio / React Native work
-
-I was trying to set up React Native, which involves setting up Android Studio. Everything went well up until `react-native run-android`:
-
-```
-java.io.IOException: Cannot run program "/home/art/Android/Sdk/build-tools/23.0.1/aapt": error=2, No such file or directory
-```
-
-The solution is to enable the [multilib repository](https://wiki.archlinux.org/index.php/multilib) and then install [some packages](https://medium.com/@bpdp/undocumented-manual-of-react-native-for-64-bit-linux-5a7992ae3008):
-
-```shell
-pacman -S lib32-gcc-libs lib32-glibc lib32-libstdc++5 lib32-ncurses lib32-zlib
-```
-
-If your `JAVA_HOME` environment variable is unset, you may also need to set it to the grandparent directory of the file found by `locate tools.jar`. For example:
-
-```shell
-export JAVA_HOME=/opt/android-studio/jre
-```
-
-## Multi-monitor on Thinkpad P51
+## Multi-monitor on ThinkPad P51
 
 Using the default `nouveau` graphics driver results in `xrandr` freezing with an external monitor plugged in. I still haven't gotten the DisplayPort ports to work, but here's my solution for VGA/DVI:
 
@@ -228,6 +228,40 @@ A possibly related issue is that X fails to identify the laptop screen as the pr
 ## Adding Thai font support
 
 Install `fonts-tlwg` from the AUR. It looks perfectly fine and just works. I first tried `ttf-ms-win10` but gave up on getting all of my Windows fonts to the same versions expected by the PKGBUILD.
+
+## Fixing audio mute
+
+First of all, make sure you have the `alsa-utils` package installed. It provides two useful programs to keep open while debugging sound issues: `speaker-test -t wav -c 2` plays a looping audio sample, and `alsamixer` shows the current volume and mute status of all audio channels.
+
+Most people online suggest muting via the command `amixer set Master toggle`. This works but has an unfortunate quirk on some systems: running it a second time doesn't actually unmute!
+
+Muting Master mutes all channels, but unmuting Master unmutes only the Master channel. That's a problem if you have other audio channels that depend on Master, e.g. Speaker and Headphone. The `pulseaudio` package provides `pactl`, an alternative to `amixer` that doesn't suffer from the same bug. Run `pactl set-sink-mute 0 toggle` to toggle the mute status of all channels in unison.
+
+In my i3 config, I have that command bound to my keyboard's mute button like so:
+
+```shell
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+```
+
+## Making Android Studio / React Native work
+
+I was trying to set up React Native, which involves setting up Android Studio. Everything went well up until `react-native run-android`:
+
+```
+java.io.IOException: Cannot run program "/home/art/Android/Sdk/build-tools/23.0.1/aapt": error=2, No such file or directory
+```
+
+The solution is to enable the [multilib repository](https://wiki.archlinux.org/index.php/multilib) and then install [some packages](https://medium.com/@bpdp/undocumented-manual-of-react-native-for-64-bit-linux-5a7992ae3008):
+
+```shell
+pacman -S lib32-gcc-libs lib32-glibc lib32-libstdc++5 lib32-ncurses lib32-zlib
+```
+
+If your `JAVA_HOME` environment variable is unset, you may also need to set it to the grandparent directory of the file found by `locate tools.jar`. For example:
+
+```shell
+export JAVA_HOME=/opt/android-studio/jre
+```
 
 ## My setup
 
