@@ -26,6 +26,9 @@ Here's how I made the switch:
 
     It's important to have at least one peer always online so that *someone* can provide a complete copy of your files at any given time. No syncing can ever actually take place if your devices never have the opportunity to sync with each other!
 
+    But wait, doesn't this scheme sound more like client-server than peer-to-peer? The P2P aspect becomes more important in the event that your home server goes offline for whatever reason, e.g. your house burning down. That would be a single point of failure if not for the fact that your
+    remaining devices can continue syncing among themselves as peers. (The [ideal](https://www.hanselman.com/blog/TheComputerBackupRuleOfThree.aspx) setup is to have two "server" peers located in different cities in order to protect your data from catastrophes that could otherwise wipe out your entire network of synced devices.)
+
 1. **[Install](https://syncthing.net/#get-started) Syncthing on your devices**
 
     On Linux, I additionally use [Syncthing-GTK](https://github.com/syncthing/syncthing-gtk) for laptops and [Syncthing-inotify](https://github.com/syncthing/syncthing-inotify) for my headless home server.
@@ -56,6 +59,8 @@ Here's how I made the switch:
 
     You'll first need to go home and open ports on your router, whose admin panel is typically accessible at [192.168.0.1](http://192.168.0.1/) or [192.168.1.1](http://192.168.0.1/). Look for the [port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) settings and map the router's port 8384 to your home server's port 8384. The Syncthing dashboard runs on port 8384; you can also open other ports like 22 for SSH. This wiring step is necessary because all devices on your home network share the same public IP address (e.g. `123.45.67.89`), and so your router needs to know which one of them should handle incoming address-port combinations like `123.45.67.89:8384`.
 
-    You can now remotely view your home server's Syncthing dashboard by going to `https://123.45.67.89:8384/` in your web browser, but that IP is hard to remember and not even guaranteed to stay the same forever! The final step is to register for a free subdomain with a service like [FreeDNS](http://freedns.afraid.org/subdomain/), which will let you access your server via something more reasonable like `https://johndoe.jumpingcrab.com:8384/`. FreeDNS works by giving you a cron script for your home server that periodically sends your router's current IP address to the [FreeDNS DNS servers](https://en.wikipedia.org/wiki/RAS_syndrome), which in turn map it to a human-readable domain name.
+    You can now remotely view your home server's Syncthing dashboard by going to `https://123.45.67.89:8384/` in your web browser. Go into the dashboard settings and set a password so that nobody else will be able to view it.
+
+    One last thing: that IP address is hard to remember and not even guaranteed to stay the same forever! Registering for a free subdomain with a service like [FreeDNS](http://freedns.afraid.org/subdomain/) will let you access your server via something more reasonable like `https://johndoe.jumpingcrab.com:8384/`. FreeDNS works by giving you a cron script for your home server that periodically sends your router's current IP address to the [FreeDNS DNS servers](https://en.wikipedia.org/wiki/RAS_syndrome), which in turn map it to a human-readable domain name.
 
 In the end, this is all a bit of legwork but definitely worth the peace of mind. I've found my holy grail of a sync/backup solution that's free (in both senses), secure, fast, simple, and robust.
