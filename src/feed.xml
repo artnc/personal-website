@@ -15,7 +15,7 @@
       {% if post.layout == "post" %}
       <item>
         <title>{{ post.h1 }}</title>
-        <link>{{ site.url }}{{ post.url }}</link>
+        <link>{{ site.url }}{{ post.id }}</link>
         <pubDate>{{ post.date | date: time_format }}</pubDate>
         <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
         <description>{{ post.content | replace:'="//','="http//' | replace:'href="/','href="https://chaidarun.com/' | replace:'src="/','src="https://chaidarun.com/' | replace:'="http//','="//' | xml_escape }}</description>
