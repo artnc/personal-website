@@ -35,6 +35,8 @@ Here's how I made the switch:
 
     On Android, I use the unofficial [Anyplace Sync Browser](https://play.google.com/store/apps/details?id=it.anyplace.syncbrowser) app. It's bare-bones but much more practical than the [official app](https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid&hl=en) because it downloads files on demand instead of copying all of the files in your sync folder onto your phone. (Yes, you can have multiple top-level sync folders, but that's more complexity than I care for right now.)
 
+    > Update on 2017-11-30: To use Anyplace Sync Browser on Oreo, you'll need to go into the system settings and manually grant it the "Storage" permission.
+
 1. **Make your Dropbox folder your Syncthing folder**
 
     Before firing up Syncthing for the first time, stop Dropbox on all of your devices to prevent conflicts. Then start Syncthing on your home server. After it creates the [default files](https://docs.syncthing.net/intro/getting-started.html#syncthing), stop Syncthing. Locate the newly created sync folder, e.g. `~/Sync/default`.
