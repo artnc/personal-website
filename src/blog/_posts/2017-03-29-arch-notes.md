@@ -15,6 +15,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
 - [Using an external hard drive](#using-an-external-hard-drive)
+- [Freeing up disk space on root partition](#freeing-up-disk-space-on-root-partition)
 - [Booting UEFI with an existing EFI partition](#booting-uefi-with-an-existing-efi-partition)
 - [Ditching GRUB (only for UEFI systems)](#ditching-grub-only-for-uefi-systems)
 - [Suspending after inactivity](#suspending-after-inactivity)
@@ -113,6 +114,15 @@ sudo umount /mnt/seagate
 ```
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
+
+## Freeing up disk space on root partition
+
+Pacman doesn't delete old package versions, so you'll need to periodically [do so yourself](https://wiki.archlinux.org/index.php/Pacman#Cleaning_the_package_cache):
+
+```shell
+$ paccache -r
+==> finished: 523 packages removed (disk space saved: 1.75 GiB)
+```
 
 ## Booting UEFI with an existing EFI partition
 
