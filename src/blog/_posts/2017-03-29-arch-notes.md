@@ -117,12 +117,16 @@ Make sure to provide `async` as a mount option instead of `sync`! The latter abs
 
 ## Freeing up disk space on root partition
 
-Pacman doesn't delete old package versions, so you'll need to periodically [do so yourself](https://wiki.archlinux.org/index.php/Pacman#Cleaning_the_package_cache):
+When uninstalling packages, always use `pacman -Rs` to include would-be orphans.
+
+Pacman doesn't delete old package versions, so you'll need to [do so yourself](https://wiki.archlinux.org/index.php/Pacman#Cleaning_the_package_cache) after package upgrades:
 
 ```shell
 $ paccache -r
 ==> finished: 523 packages removed (disk space saved: 1.75 GiB)
 ```
+
+I had Docker for a while and later decided to uninstall it. Deleting `/var/lib/docker` freed up 8.1 GB.
 
 ## Booting UEFI with an existing EFI partition
 
