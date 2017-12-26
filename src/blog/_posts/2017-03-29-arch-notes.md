@@ -277,6 +277,12 @@ If your `JAVA_HOME` environment variable is unset, you may also need to set it t
 export JAVA_HOME=/opt/android-studio/jre
 ```
 
+If you get errors like the one below when running Android Studio 3's emulator, [this](https://bbs.archlinux.org/viewtopic.php?pid=1747748#p1747748) should fix it.
+
+```shell
+Emulator: libGL error: unable to load driver: i965_dri.so
+```
+
 ## My setup
 
 - App launcher: dmenu
