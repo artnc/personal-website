@@ -16,6 +16,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
 - [Using an external hard drive](#using-an-external-hard-drive)
 - [Freeing up disk space on root partition](#freeing-up-disk-space-on-root-partition)
+- [Increasing the file watch limit](#increasing-the-file-watch-limit)
 - [Booting UEFI with an existing EFI partition](#booting-uefi-with-an-existing-efi-partition)
 - [Ditching GRUB (only for UEFI systems)](#ditching-grub-only-for-uefi-systems)
 - [Suspending after inactivity](#suspending-after-inactivity)
@@ -127,6 +128,12 @@ $ paccache -r
 ```
 
 I had Docker for a while and later decided to uninstall it. Deleting `/var/lib/docker` freed up 8.1 GB.
+
+## Increasing the file watch limit
+
+Many applications that watch your filesystem for changes can hit the OS's (usually rather small) default limit on the number of files that can be simultaneously watched. I've personally run into this issue with Android Studio, Webpack, Watchman, and Syncthing.
+
+Consider this the missing step in the Arch setup guide: drastically [bumping up](https://unix.stackexchange.com/a/13757) the inotify watch limit.
 
 ## Booting UEFI with an existing EFI partition
 
