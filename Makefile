@@ -35,7 +35,7 @@ build: _install-ruby-deps
 # Watch Jekyll source directory for changes and serve at localhost:8005
 .PHONY: serve
 serve: _install-ruby-deps
-	cd src && jekyll serve --port 8005
+	cd src && jekyll serve --livereload --port 8005
 
 # Submit sitemap to Google and Bing (lol?)
 .PHONY: sitemap
