@@ -5,7 +5,7 @@ pagetitle: Arch Linux Notes
 tags: ["linux"]
 comments: true
 ---
-This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a Raspberry Pi 2 Model B, a Lenovo Flex 4, a ThinkPad P50, and a ThinkPad P51.
+This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a [Raspberry Pi 2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2), a Lenovo Flex 4, a ThinkPad P50, and a ThinkPad P51.
 
 Arch is surprisingly stable if you remember the single most important post-install step: subscribe to the official [news feed](https://www.archlinux.org/feeds/news/) for breaking changes!
 
@@ -292,16 +292,14 @@ Emulator: libGL error: unable to load driver: i965_dri.so
 
 ## My setup
 
-- App launcher: dmenu
-- AUR helper: pacaur
-- Clipboard manager: xfce4-clipman
-- Editor: subl3/nano
-- File manager: thunar
-- Image viewer: ristretto
-- Password manager: keepassx2
-- Shell: zsh
-- Status bar: i3blocks
-- Terminal multiplexer: tmux
-- Terminal: xfce4-terminal
-- Wallpaper: feh
-- Window manager: i3
+On all Arch installations:
+
+```shell
+pacman -S bc fd-rs fzf git htop ntfs-3g ripgrep sudo syncthing tmux zsh zsh-syntax-highlighting
+```
+
+On graphical Arch installations:
+
+```shell
+pacman -S dmenu easystroke evince feh firefox gimp i3-wm i3blocks i3lock i3status imagemagick jq keepassx2 network-manager-applet numlockx pacgraph rsync scrot shellcheck sublime-text-dev thunar syncthing-gtk words xfce4-goodies xfce4-terminal
+```
