@@ -15,7 +15,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
 - [Using an external hard drive](#using-an-external-hard-drive)
-- [Freeing up disk space on root partition](#freeing-up-disk-space-on-root-partition)
+- [Freeing up disk space](#freeing-up-disk-space)
 - [Increasing the file watch limit](#increasing-the-file-watch-limit)
 - [Booting UEFI with an existing EFI partition](#booting-uefi-with-an-existing-efi-partition)
 - [Ditching GRUB (only for UEFI systems)](#ditching-grub-only-for-uefi-systems)
@@ -116,7 +116,7 @@ sudo umount /mnt/seagate
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
 
-## Freeing up disk space on root partition
+## Freeing up disk space
 
 When uninstalling packages, always use `pacman -Rs` to include would-be orphans.
 
@@ -126,6 +126,8 @@ Pacman doesn't delete old package versions, so you'll need to [do so yourself](h
 $ paccache -r
 ==> finished: 523 packages removed (disk space saved: 1.75 GiB)
 ```
+
+[Pacgraph](http://kmkeen.com/pacgraph/) shows your largest installed packages, which you can then remove if no longer needed.
 
 The systemd journal can grow up to 4 GiB. If you don't need all those logs, you can [cap it to a lower value](https://wiki.archlinux.org/index.php/Systemd#Journal_size_limit).
 
