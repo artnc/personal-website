@@ -127,6 +127,8 @@ $ paccache -r
 ==> finished: 523 packages removed (disk space saved: 1.75 GiB)
 ```
 
+The systemd journal can grow up to 4 GiB. If you don't need all those logs, you can [cap it to a lower value](https://wiki.archlinux.org/index.php/Systemd#Journal_size_limit).
+
 I had Docker for a while and later decided to uninstall it. Deleting `/var/lib/docker` freed up 8.1 GB.
 
 ## Increasing the file watch limit
