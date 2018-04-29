@@ -33,6 +33,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Supporting true color in xfce4-terminal](#supporting-true-color-in-xfce4-terminal)
 - [Multi-monitor on ThinkPad P51](#multi-monitor-on-thinkpad-p51)
 - [Huge fonts with NVIDIA driver](#huge-fonts-with-nvidia-driver)
+- [Ignoring GTK theme in Firefox](#ignoring-gtk-theme-in-firefox)
 - [Adding Thai font support](#adding-thai-font-support)
 
 ### Miscellaneous
@@ -249,6 +250,19 @@ xrandr --output DP-2 --dpi 96
 ```
 
 A possibly related issue is that X fails to identify the laptop screen as the primary screen (even when no external monitors are connected), causing i3status to hide its notification area. This can be fixed by appending `--primary` to the command above.
+
+## Ignoring GTK theme in Firefox
+
+In `xfce4-appearance-settings` I've selected the Adwaita-dark GTK theme. It looks decent everywhere except in Firefox, which will render dark scrollbars and form controls on otherwise light pages.
+
+To force Firefox to use the default (light) Adwaita theme, I've created an executable `/usr/bin/local/firefox` script with these contents:
+
+```shell
+#!/usr/bin/env bash
+GTK_THEME=Adwaita /usr/bin/firefox
+```
+
+Make sure `/usr/bin/local` appears before `/usr/bin` in your PATH.
 
 ## Adding Thai font support
 
