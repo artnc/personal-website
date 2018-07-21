@@ -46,7 +46,6 @@ make serve
 publishing
 
 ```shell
-make build
 make sync host=******
 make sitemap token=******
 ```

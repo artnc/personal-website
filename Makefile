@@ -47,7 +47,7 @@ sitemap:
 
 # Upload to DigitalOcean via rsync
 .PHONY: sync
-sync:
+sync: build
 	rsync -azP build/ art@${host}:/home/art/site
 
 .PHONY: _install-ruby-deps
