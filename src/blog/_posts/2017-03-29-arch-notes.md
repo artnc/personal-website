@@ -39,7 +39,8 @@ Arch is surprisingly stable if you remember the single most important post-insta
 ### Miscellaneous
 
 - [Fixing audio mute](#fixing-audio-mute)
-- [Making Android Studio / React Native work](#making-android-studio-react-native-work)
+- [Pacman color option unrecognized](#pacman-color-option-unrecognized)
+- [Fixing Android Studio](#fixing-android-studio)
 - [My setup](#my-setup)
 
 ## Recovering from a bad upgrade
@@ -282,7 +283,17 @@ In my i3 config, I have that command bound to my keyboard's mute button like so:
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 ```
 
-## Making Android Studio / React Native work
+## Pacman color option unrecognized
+
+A [pacman bug](https://lists.archlinux.org/pipermail/pacman-dev/2018-June/022561.html) causes this error when installing AUR packages with pacaur:
+
+```shell
+/usr/bin/pacman: unrecognized option '--color never'
+```
+
+To [fix](https://www.reddit.com/r/archlinux/comments/8o5ol0/error_using_pacman_usrbinpacman_unrecognized/e0dlfaf), uncomment `Color` in `/etc/pacman.conf`.
+
+## Fixing Android Studio
 
 I was trying to set up React Native, which involves setting up Android Studio. Everything went well up until `react-native run-android`:
 
@@ -302,7 +313,7 @@ If your `JAVA_HOME` environment variable is unset, you may also need to set it t
 export JAVA_HOME=/opt/android-studio/jre
 ```
 
-If you get errors like the one below when running Android Studio 3's emulator, [this](https://bbs.archlinux.org/viewtopic.php?pid=1747748#p1747748) should fix it.
+If you get errors like the one below when running Android Studio 3's emulator, [this](https://bbs.archlinux.org/viewtopic.php?pid=1747748#p1747748) and/or [this](https://stackoverflow.com/a/42686791) should fix it.
 
 ```shell
 Emulator: libGL error: unable to load driver: i965_dri.so
