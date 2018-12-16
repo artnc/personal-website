@@ -509,6 +509,9 @@ img.right {
     display: none;
   }
 
+  $width-thumbnail: 100px;
+  $margin-thumbnail: 6px;
+
   .project-cell {
     display: table-cell;
     vertical-align: top;
@@ -519,16 +522,12 @@ img.right {
     }
 
     &:last-child {
-      $width-thumbnail: 103px;
+      $width-total: $width-thumbnail + $margin-thumbnail;
 
-      min-width: $width-thumbnail;
+      min-width: $width-total;
 
       @media(min-width: 450px) {
-        min-width: 2 * $width-thumbnail;
-      }
-
-      @media($media-desktop) {
-        min-width: 3 * $width-thumbnail;
+        min-width: 2 * $width-total;
       }
     }
   }
@@ -537,17 +536,21 @@ img.right {
     color: $gray-light;
   }
 
-  .thumbnail {
+  .thumbnails img {
     border-radius: $border-radius;
     box-shadow: none;
     cursor: pointer;
     display: block;
     display: inline-block;
-    margin: 0 3px 3px 0;
-    max-width: 100px;
+    margin: 0 ($margin-thumbnail) ($margin-thumbnail) 0;
+    max-width: $width-thumbnail;
     opacity: 0.2;
     transition: opacity 0.15s;
     vertical-align: top;
+
+    &.tiny {
+      max-width: ($width-thumbnail - $margin-thumbnail) / 2;
+    }
 
     &.dark {
       filter: brightness(4);
