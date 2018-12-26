@@ -186,6 +186,8 @@ When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec 
 
 > Update 2017-07-08: Due to a Linux kernel [regression](https://bbs.archlinux.org/viewtopic.php?pid=1713763#p1713763), you supposedly now must also install `linux-lts` and then run `sudo grub-mkconfig`. I still haven't gotten it working, though.
 
+> Update 2018-12-26: I've given up on libreswan and networkmanager. Here's a [guide](/l2tp-ipsec) for openswan.
+
 ## Getting Intel Wireless 8260 card to work
 
 Trying to [activate](https://wiki.archlinux.org/index.php/Wireless_network_configuration) my WiFi card with `ip link set wlp4s0 up` failed with a vague `RTNETLINK answers: Input/output error` message. Turns out that version 22 of the Linux kernel's firmware for my particular WiFi card was [problematic](https://bbs.archlinux.org/viewtopic.php?pid=1590387#p1590387). You can see what firmware version you're on by running `dmesg | grep 'iwlwifi.*loaded'`.
