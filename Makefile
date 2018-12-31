@@ -51,4 +51,4 @@ sitemap:
 # Upload to DigitalOcean via rsync
 .PHONY: sync
 sync: build
-	./dockerize rsync -azP build/ art@${host}:/home/art/site
+	./dockerize rsync -azP --delete build/ art@${host}:/home/art/site
