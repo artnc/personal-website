@@ -3,6 +3,7 @@ h1: Forwarding Emails to Slack
 layout: post
 pagetitle: Forwarding Emails to Slack
 tags: ["web"]
+pagemap: true
 ---
 <img src="/img/slack-emails.jpg" style="max-width:100%">
 

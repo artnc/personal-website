@@ -3,6 +3,7 @@ h1: Simple Intro to Node.js, npm, and webpack
 layout: post
 pagetitle: Simple Intro to Node.js, npm, and webpack
 tags: ["web"]
+pagemap: true
 ---
 > This was originally written for fellow [Duolingo](https://www.duolingo.com/) employees and therefore assumes that the reader is familiar with Python.
 

@@ -704,6 +704,32 @@ img.right {
   }
 }
 
+/******************************************************************* PAGEMAP */
+
+#pagemap {
+  display: none;
+  height: 100%;
+  opacity: 0.5;
+  position: fixed;
+  right: 20px;
+  transition: 0.2s;
+  top: 20px;
+  width: 120px;
+  z-index: 100;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &.loading {
+    opacity: 0 !important;
+  }
+
+  @media(min-width: 1350px) {
+    display: block;
+  }
+}
+
 /********************************************************************* TIPSY */
 
 .tipsy {

@@ -3,6 +3,7 @@ h1: Replacing Dropbox with Syncthing
 layout: post
 pagetitle: Replacing Dropbox with Syncthing
 tags: ["linux"]
+pagemap: true
 ---
 Dropbox is convenient, but there are several reasons why you might want to drop it:
 
