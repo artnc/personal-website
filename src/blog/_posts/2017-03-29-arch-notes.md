@@ -3,7 +3,6 @@ h1: Arch Linux Notes
 layout: post
 pagetitle: Arch Linux Notes
 tags: ["linux"]
-comments: true
 ---
 This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a [Raspberry Pi 2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2), a Lenovo Flex 4, a ThinkPad P50, and a ThinkPad P51.
 

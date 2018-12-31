@@ -3,7 +3,6 @@ layout: default
 ---
 {{ content }}
 <div class="post-info"><!-- {% if page.tags != empty %}{{ page.tags | join: ', ' }} | {% endif %} -->{{ page.date | date: "%Y.%m.%d" }}</div>
-{% if page.comments %}
 <script
     data-isso="https://chaidarun.com/isso/"
     data-isso-avatar-bg="#313640"
@@ -11,4 +10,3 @@ layout: default
     src="https://chaidarun.com/isso/js/embed.min.js"
 ></script>
 <section id="isso-thread"></section>
-{% endif %}

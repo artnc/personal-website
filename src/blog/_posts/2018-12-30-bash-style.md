@@ -3,7 +3,6 @@ h1: Bash Style Guide for Mac and Linux
 layout: post
 pagetitle: Bash Style Guide for Mac and Linux
 tags: ["linux"]
-comments: true
 ---
 Yesterday I had the deranged pleasure of writing 1000+ lines of cross-platform Bash, which got me thinking that I could probably save myself some unnecessary googling and/or decision-making in future projects by documenting my stylistic choices and the reasons behind them. I don't expect that these guidelines will ever be completely finished, but for now:
 

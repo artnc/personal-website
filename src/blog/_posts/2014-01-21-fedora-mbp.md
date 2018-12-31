@@ -3,7 +3,6 @@ h1: Fedora Linux on the MacBook Pro
 layout: post
 pagetitle: Fedora Linux on the MacBook Pro
 tags: ["linux"]
-comments: true
 ---
 I recently came into ownership of a late-2013 MacBook Pro with Retina display. About an hour every morning of my first week with this laptop was spent extinguishing Linux fires that had somehow sprung up overnight. This post is a summary of the progress I've made on those issues in roughly decreasing order of importance. It was originally written for Fedora 20 but should still mostly work.
 

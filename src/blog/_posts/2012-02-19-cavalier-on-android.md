@@ -4,7 +4,6 @@ h1: Connecting Android to UVa's Cavalier Network
 layout: post
 pagetitle: Connecting Android to UVa's Cavalier Network
 tags: ["linux"]
-comments: true
 ---
 This method takes about five minutes and has been confirmed by several people to work, despite the lack of official Android support from [ITS](http://its.virginia.edu/mobile/android.html#wireless).
 

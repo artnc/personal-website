@@ -308,11 +308,11 @@ img {
 #footer {
   color: $gray-light;
   font-size: $font-size-small;
-  margin: 40px 0 30px;
+  margin: 40px 0 40px;
   user-select: none;
 
   @media($media-desktop) {
-    margin: 70px 0 40px;
+    margin: 70px 0 70px;
   }
 
   p {

@@ -3,7 +3,6 @@ h1: Elixir for Node.js Developers
 layout: post
 pagetitle: Elixir for Node.js Developers
 tags: []
-comments: true
 ---
 Bilingual dictionaries are some of the most valuable tools for learning natural languages like French. The idea also applies perfectly well to programming languages, and so here's the guide I wished I had before embarking on my trip to Elixir land. Corrections from those more fluent in Elixir are welcome!
 

@@ -3,7 +3,6 @@ h1: Tiny Tiny RSS on Heroku
 layout: post
 pagetitle: Tiny Tiny RSS on Heroku
 tags: ["web"]
-comments: true
 ---
 This takes 5-10 minutes from start to finish :) The only prerequisite tools are [git](https://git-scm.com/) and the [Heroku CLI](https://toolbelt.heroku.com/).
 

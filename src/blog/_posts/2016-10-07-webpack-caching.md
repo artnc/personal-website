@@ -3,7 +3,6 @@ h1: How to Make Webpack Caching Actually Work
 layout: post
 pagetitle: How to Make Webpack Caching Actually Work
 tags: ["web"]
-comments: true
 ---
 Although [Webpack](https://webpack.github.io/) is a popular tool that's generally pretty decent at gluing together the mess of "modern" web development, fixing its browser caching mechanism has become a rite of passage fraught with uncertainty and frustration. This post combines insights from the infamous 100+ comment [GitHub issue](https://github.com/webpack/webpack/issues/1315) with my own experience of taming Webpack at [Duolingo](https://www.duolingo.com/).
 
