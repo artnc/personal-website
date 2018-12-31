@@ -1,11 +1,11 @@
 destination: ../build
 future: true
 highlighter: pygments
+host: 0.0.0.0
 markdown: redcarpet # kramdown doesn't support ``` for code blocks
 markdown_ext: "md"
 name: "Art Chaidarun"
 permalink: /:title.html
-port: 8005
 redcarpet:
   extensions: ["smart", "strikethrough", "tables", "with_toc_data"]
 url: https://chaidarun.com
