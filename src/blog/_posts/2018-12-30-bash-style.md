@@ -114,7 +114,13 @@ Yesterday I had the deranged pleasure of writing 1000+ lines of cross-platform B
 
 - **Prefer `pushd`/`popd` to `cd`.** Combined with the previous tip, this makes code much easier to follow.
 
-- **Always use `command -v` instead of `which`.** The former is POSIX compliant and more consistent between Linux and Mac.
+- **Always use `command -v` instead of `which`.** The former is POSIX compliant and more consistent between GNU (i.e. Linux) and Mac.
+
+- **Trim whitespace from `wc` output.** The Mac version of `wc` prepends whitespace to its output. You can remove it with `awk`:
+
+    ```bash
+    find . -type f -name '*.pyc' | wc -l | awk '{print $1}'
+    ```
 
 - **Prefer single quotes to double quotes when interpolating into an `eval`.** This is pretty niche, but basically it's much [simpler](https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash#comment71498177_20053121) to programmatically escape characters inside single-quoted strings than inside double-quoted strings. Single-quoted strings only need to escape `'`, while double-quoted strings need to escape each of ``"$`\``.
 
