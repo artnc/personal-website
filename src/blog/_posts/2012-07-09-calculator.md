@@ -15,7 +15,7 @@ Blackjack features a text UI, betting over multiple rounds, player high score, b
   <img src="/img/calculator-simon.gif">
 </p>
 
-Programming on a graphing calculator is funny business. It's like writing and optimizing assembly by hand in a language that has nowhere near the performance of real assembly. Some fun facts about TI-BASIC:
+Coding on a calculator is funny business. It's like writing and optimizing assembly by hand in a language that has nowhere near the performance of real assembly. Some fun facts about TI-BASIC:
 
 - Source code is very non-ASCII and has no indentation or braces. All keywords and standard library functions are single tokens that must be selected from menus. The screen size is 8x16 characters, so get used to scrolling.
 
@@ -27,14 +27,14 @@ Programming on a graphing calculator is funny business. It's like writing and op
 
 - Procedural only. The closest thing to a subroutine involves setting a flag variable and having the program call itself.
 
-- Sleep/wait is achieved with an empty `For` loop. Want to sleep for about a second? Iterate somewhere between 60 and 300 times depending on calculator model. Note that this trick isn't used during Simon's loading screen; the GIF above portrays the maximum drawing speed.
+- Sleep/wait is achieved with an empty `For` loop. Want to sleep for about a second? Iterate somewhere between 60 and 300 times depending on calculator model. Note that this trick isn't used during Simon's loading screen; the GIF above shows the maximum drawing speed.
 
 - `Goto`.
 
 
 On the upside, math support is excellent :)
 
-Below is the source for Simon's input loop. The full source, binaries, and installation instructions for both programs are available on [GitHub](https://github.com/artnc/ti-basic).
+Below is the source code for Simon's input loop. The full source, binaries, and installation instructions for both programs are available on [GitHub](https://github.com/artnc/ti-basic).
 
 ```text
 For(I,1,L

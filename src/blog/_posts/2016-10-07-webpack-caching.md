@@ -20,7 +20,7 @@ In order to preserve module scope when combining modules (i.e. source files) int
 
 The Webpack docs recommend [OccurrenceOrderPlugin](https://webpack.github.io/docs/list-of-plugins.html#occurrenceorderplugin), an official plugin that promises deterministic module IDs by sorting modules in descending order of usage frequency before assigning sequential IDs. A nice side effect of this is that commonly imported modules like Underscore get short IDs, reducing output bundle size.
 
-To test this out, we try compiling our JS a few times in a row. The output bundle hashes are the same every time. Next we try modifying an app module. Only the app bundle's hash changes; the vendor bundle's hash remains unchanged. We seem to have fixed caching now, but it's a trap!
+To test this out, we try compiling our JS a few times in a row. The output bundle hashes are the same every time. Next we try modifying an app module. Only the app bundle's hash changes; the vendor bundle's hash remains unchanged. We seem to have fixed caching now, but not so fast!
 
 The problem is that adding a new vendor import inside our app source will often change the vendor modules' relative frequencies of appearance, leading to shuffled module IDs inside the vendor bundle and more accidental cache invalidation.
 
