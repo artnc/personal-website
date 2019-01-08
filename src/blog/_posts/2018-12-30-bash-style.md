@@ -17,6 +17,7 @@ Yesterday I had the deranged pleasure of writing 1000+ lines of cross-platform B
     ```bash
     readonly response="$(curl -s 'https://example.com')"
     python - << EOF
+    # -*- coding: utf-8 -*-
     import json
     for repo, result in sorted(json.loads(r'''${response}''')['Results'].items()):
       for f in result['Matches']:
