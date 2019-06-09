@@ -49,7 +49,7 @@ These are usually written as slurs. Since slurs are visually similar to ties, yo
 
 ### Slides
 
-I use a straight glissando for slower slides and an appoggiatura for faster slides. Both marks are available in the "Palettes" pane.
+I use a straight glissando for slower slides and an appoggiatura for faster slides. Both marks are available in the "Palettes" pane. Dragging a glissando to the tab staff (as opposed to the standard staff) will produce a clean line without the unnecessary "gliss." text.
 
 ### Slaps
 
