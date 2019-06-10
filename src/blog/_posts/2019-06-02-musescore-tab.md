@@ -34,6 +34,19 @@ I find MuseScore's default tab style pretty noisy and hard to read. Keeping note
 1. Uncheck "Show back-tied fret marks"
 1. In the "Note Values" tab, select "Shown as: None"
 
+## Note entry
+
+A natural way to write your score might be to fully complete each measure before moving on to the next one, but unfortunately this is probably the slowest and most annoying way.
+
+A much faster method is to write your score one layer at a time:
+
+1. Fill the first measure with eighth rests
+1. Create several dozen new measures and copy the first measure's rests into them
+1. Starting back at the first measure, use your computer's numpad and arrow keys to enter all of the song's note pitches into the tab staff as eighth notes
+1. Repeat step 3 for voices (and then for note values, then for articulations, etc.)
+
+Note that by the end of step 3, your tab staff is already 99% done! You can just consider your score finished at that point if you don't care about the standard staff.
+
 ## Performance techniques
 
 Since MuseScore is intended as a general-purpose score editor for all instruments, expressing guitar-specific performance techniques sometimes takes a little creativity.
