@@ -331,7 +331,7 @@ pacman -S bc fd-rs fzf git htop ntfs-3g ripgrep sudo syncthing tmux zsh zsh-synt
 On graphical Arch installations:
 
 ```shell
-pacman -S alacritty-git dmenu easystroke evince feh firefox gimp i3-wm i3blocks i3lock i3status imagemagick jq keepassx2 network-manager-applet numlockx pacgraph rsync scrot shellcheck sublime-text-dev thunar syncthing-gtk words xfce4-goodies
+pacman -S alacritty-git dmenu easystroke evince feh firefox gimp i3-wm i3blocks i3blocks-contrib i3lock i3status imagemagick jq keepassx2 network-manager-applet numlockx pacgraph rsync scrot shellcheck sublime-text-dev thunar syncthing-gtk words xfce4-goodies
 ```
 
 [My .zshrc and other dotfiles](https://github.com/artnc/dotfiles)
