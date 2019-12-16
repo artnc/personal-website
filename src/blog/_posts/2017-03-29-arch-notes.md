@@ -23,6 +23,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 ### Network
 
 - [Manually connecting to a WPA network](#manually-connecting-to-a-wp)
+- [Fixing iptables unknown options](#fixing-iptables-unknown-options)
 - [Connecting to an L2TP/IPsec VPN](#connecting-to-an-l2tp-ipsec-vpn)
 - [Getting Intel Wireless 8260 card to work](#getting-intel-wireless-8260-card-to-work)
 
@@ -174,6 +175,17 @@ wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "ssid" "password")
 dhchpd
 ping 8.8.8.8
 ```
+
+## Fixing iptables unknown options
+
+The default version of `iptables` drops support for a command-line option that Docker uses:
+
+```
+docker: Error response from daemon: driver failed programming external connectivity on endpoint tender_volhard (954d664336eb5ea7b2c7f808889b3033977b45f53f99ba38bbc66bfcf14a61ef):  (iptables failed: iptables --wait -t nat -A DOCKER -p tcp -d 0/0 --dport 80 -j DNAT --to-destination 172.17.0.2:80 ! -i docker0: iptables v1.8.2 (legacy): unknown option "--dport"
+Try `iptables -h' or 'iptables --help' for more information.
+```
+
+[Switching](https://github.com/moby/moby/issues/38759#issuecomment-473909447) to `iptables-nft` restores the legacy `--dport` option. Note that whenever you update the Linux kernel, the option may become unavailable again until the next reboot.
 
 ## Connecting to an L2TP/IPsec VPN
 
