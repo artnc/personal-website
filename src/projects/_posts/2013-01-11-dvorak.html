@@ -43,5 +43,10 @@ pagetitle: Real-Time QWERTY to Dvorak Converter
       }
       document.getElementById("qwerty").value = output;
     });
+
+    // https://stackoverflow.com/a/9236351
+    $("#dvorak").on("scroll", function() {
+      $('#qwerty').scrollTop($(this).scrollTop() + 5);
+    });
   });
 </script>

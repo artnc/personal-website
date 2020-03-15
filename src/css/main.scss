@@ -28,7 +28,7 @@ $green-bright: #6fe358;
 $green-dark: #00583c;
 $green-light: #70ad64;
 $green-select: #c5ffba;
-$white-off: #c0c0c0;
+$white-off: #c8c8c8;
 
 /******************************************************************** GLOBAL */
 
@@ -36,6 +36,10 @@ $white-off: #c0c0c0;
 
 * {
   box-sizing: border-box;
+}
+
+*, *::before, *::after, input, button, button:focus, textarea {
+  font-family: 'Open Sans', 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
   outline: none !important;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   -webkit-touch-callout: none;
@@ -50,7 +54,6 @@ html {
 body {
   background: $gray-dark;
   color: $white-off;
-  font-family: 'Open Sans', 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
   font-size: $font-size-body;
   min-height: 100%;
 }
@@ -273,16 +276,13 @@ img {
     vertical-align: top;
   }
 
-  button, input, select {
+  button, input, select, textarea {
     background: $white-off;
     border: 0;
     border-radius: $border-radius;
     font-family: 'Open Sans', 'Trebuchet MS', 'Helvetica Neue', Arial, sans-serif;
     color: $gray-dark;
     margin: 0 3px;
-  }
-
-  button, input {
     padding: 5px 10px;
   }
 
