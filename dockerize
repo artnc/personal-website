@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-#
-# Wraps a command to run it inside Docker.
-
-docker run --rm -it \
-  -p 8005:4000 -p 35729:35729 \
-  -v "${PWD}:/code" \
-  "$(docker build -q -t artnc/personal-website .)" \
-  "$@"
