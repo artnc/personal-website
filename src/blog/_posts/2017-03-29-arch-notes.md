@@ -40,6 +40,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 - [Fixing audio mute](#fixing-audio-mute)
 - [Pacman color option unrecognized](#pacman-color-option-unrecognized)
+- [Fixing Flatpak Steam](#fixing-flatpak-steam)
 - [Fixing Android Studio](#fixing-android-studio)
 - [My setup](#my-setup)
 
@@ -306,6 +307,48 @@ A [pacman bug](https://lists.archlinux.org/pipermail/pacman-dev/2018-June/022561
 
 To [fix](https://www.reddit.com/r/archlinux/comments/8o5ol0/error_using_pacman_usrbinpacman_unrecognized/e0dlfaf), uncomment `Color` in `/etc/pacman.conf`.
 
+## Fixing Flatpak Steam
+
+I installed Steam via Flatpak as [documented](https://wiki.archlinux.org/index.php/steam#Alternative_Flatpak_installation) in the Arch wiki, which initially worked fine. However, I got this error the second time I tried running Steam:
+
+```shell
+$ flatpak run com.valvesoftware.Steam
+**
+flatpak:ERROR:libglnx/glnx-shutil.c:155:mkdir_p_at_internal: assertion failed: (!did_recurse)
+Bail out! flatpak:ERROR:libglnx/glnx-shutil.c:155:mkdir_p_at_internal: assertion failed: (!did_recurse)
+zsh: abort (core dumped)  flatpak run com.valvesoftware.Steam
+```
+
+It looked like some symlink targets were missing...
+
+```shell
+$ ls -AGl ~/.var/app/com.valvesoftware.Steam
+total 8
+lrwxrwxrwx 1 art    6 Jul 28 02:38 cache -> .cache
+lrwxrwxrwx 1 art    7 Jul 28 02:38 config -> .config
+drwxr-xr-x 2 art 4096 Jul 28 02:38 config.old
+lrwxrwxrwx 1 art   12 Jul 28 02:38 data -> .local/share
+drwxr-xr-x 2 art 4096 Jul 28 02:38 .ld.so
+```
+
+Pointing them to their counterparts in my home directory [solved the issue](https://github.com/flatpak/flatpak/issues/1998#issuecomment-415386819):
+
+```shell
+$ ln -sf ~/.cache ~/.var/app/com.valvesoftware.Steam/cache
+
+$ ln -sf ~/.config ~/.var/app/com.valvesoftware.Steam/config
+
+$ ln -sf ~/.local/share ~/.var/app/com.valvesoftware.Steam/data
+
+$ ls -AGl ~/.var/app/com.valvesoftware.Steam
+total 8
+lrwxrwxrwx 1 art   16 Jul 29 02:02 cache -> /home/art/.cache
+lrwxrwxrwx 1 art   17 Jul 29 02:02 config -> /home/art/.config
+drwxr-xr-x 2 art 4096 Jul 28 02:38 config.old
+lrwxrwxrwx 1 art   22 Jul 29 02:02 data -> /home/art/.local/share
+drwxr-xr-x 2 art 4096 Jul 28 02:38 .ld.so
+```
+
 ## Fixing Android Studio
 
 I was trying to set up React Native, which involves setting up Android Studio. Everything went well up until `react-native run-android`:
@@ -337,7 +380,7 @@ Emulator: libGL error: unable to load driver: i965_dri.so
 On all Arch installations:
 
 ```shell
-pacman -S bc fd-rs fzf git htop ntfs-3g ripgrep sudo syncthing tmux zsh zsh-syntax-highlighting
+pacman -S bc fd-rs fzf git htop ntfs-3g rclone ripgrep sudo syncthing tmux zsh zsh-syntax-highlighting
 ```
 
 On graphical Arch installations:
