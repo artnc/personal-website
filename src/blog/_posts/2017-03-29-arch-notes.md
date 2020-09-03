@@ -24,6 +24,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 - [Manually connecting to a WPA network](#manually-connecting-to-a-wp)
 - [Fixing iptables unknown options](#fixing-iptables-unknown-options)
+- [Fixing slow pip downloads](#fixing-slow-pip-downloads)
 - [Connecting to an L2TP/IPsec VPN](#connecting-to-an-l2tp-ipsec-vpn)
 - [Getting Intel Wireless 8260 card to work](#getting-intel-wireless-8260-card-to-work)
 
@@ -187,6 +188,12 @@ Try `iptables -h' or 'iptables --help' for more information.
 ```
 
 [Switching](https://github.com/moby/moby/issues/38759#issuecomment-473909447) to `iptables-nft` restores the legacy `--dport` option. Note that whenever you update the Linux kernel, the option may become unavailable again until the next reboot.
+
+## Fixing slow pip downloads
+
+One day my `pip install` suddenly became comically slow, seemingly on the order of 10 kB/s. A `pip -vvv` revealed that it was hanging on "Starting new HTTPS connection (1) pypi.org", which led me to [this post](https://www.reddit.com/r/bashonubuntuonwindows/comments/8rplxw/python_pip_takes_forever_on_wsl/e0twr6z/?utm_source=reddit&utm_medium=web2x&context=3) that correctly identified my issue: pip tried and failed to connect using multiple IPv6 addresses until it finally gave up and fell back to IPv4.
+
+My workaround was to simply [prefer IPv4](https://stackoverflow.com/a/31520715) by editing `/etc/gai.conf` 🤷
 
 ## Connecting to an L2TP/IPsec VPN
 
