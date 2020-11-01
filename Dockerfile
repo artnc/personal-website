@@ -4,6 +4,7 @@ RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
 RUN apt-get update && apt-get -y --no-install-recommends install \
     default-jre \
     nodejs \
+    pngcrush \
     rsync \
     && rm -rf /var/lib/apt/lists/*
 
