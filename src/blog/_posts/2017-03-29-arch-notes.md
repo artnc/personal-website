@@ -193,7 +193,7 @@ Try `iptables -h' or 'iptables --help' for more information.
 
 One day my `pip install` suddenly became comically slow, seemingly on the order of 10 kB/s. A `pip -vvv` revealed that it was hanging on "Starting new HTTPS connection (1) pypi.org", which led me to [this post](https://www.reddit.com/r/bashonubuntuonwindows/comments/8rplxw/python_pip_takes_forever_on_wsl/e0twr6z/?utm_source=reddit&utm_medium=web2x&context=3) that correctly identified my issue: pip tried and failed to connect using multiple IPv6 addresses until it finally gave up and fell back to IPv4.
 
-My workaround was to simply [prefer IPv4](https://stackoverflow.com/a/31520715) by editing `/etc/gai.conf` 🤷
+My workaround was to simply [disable IPv6](https://wiki.archlinux.org/index.php/IPv6#Disable_functionality) in kernel params 🤷
 
 ## Connecting to an L2TP/IPsec VPN
 
