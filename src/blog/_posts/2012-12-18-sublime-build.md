@@ -4,6 +4,7 @@ h1: Sublime Text Build Systems
 layout: post
 pagetitle: Sublime Text Build Systems
 ---
+
 Pretty much what it says on the tin. Open [Sublime](http://www.sublimetext.com) and go to Tools > Build Systems > New Build System, paste in the code, and save under whatever name you want. You'll then be able to save and compile these special filetypes just by hitting F7. I'm using Linux, so you may need to replace a few of the Bash commands with their Batch equivalents if you're on Windows.
 
 ## LaTeX
@@ -12,7 +13,9 @@ This compiles LaTeX source, creates/updates a PDF with the same filename, and de
 
 ```json
 {
-  "cmd": ["pdflatex --file-line-error-style '$file_name'; rm -f '$file_base_name.log' '$file_base_name.aux' '$file_base_name.out'"],
+  "cmd": [
+    "pdflatex --file-line-error-style '$file_name'; rm -f '$file_base_name.log' '$file_base_name.aux' '$file_base_name.out'"
+  ],
   "selector": "text.tex.latex",
   "shell": true
 }
@@ -31,6 +34,7 @@ Requires Sass and the [Sass plugin](https://github.com/nathos/sass-textmate-bund
 ```
 
 ## LilyPond
+
 Requires LilyPond and the [LilyPond plugin](https://github.com/yrammos/SubLilyPond) for Sublime.
 
 ```json

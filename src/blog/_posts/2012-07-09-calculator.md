@@ -5,6 +5,7 @@ layout: post
 pagetitle: Calculator Blackjack and Simon
 tags: ["personal"]
 ---
+
 Here are the first two programs I ever wrote. Before discovering "real" computer programming, I used to be pretty big into the graphing calculator scene.
 
 Blackjack features a text UI, betting over multiple rounds, player high score, basic input validation, automatic ace lowering, and three turn options. Simon is a clone of the classic memory game with programmatically drawn graphics and gradually increasing tempo.
@@ -30,7 +31,6 @@ Coding on a calculator is funny business. It's like writing and optimizing assem
 - Sleep/wait is achieved with an empty `For` loop. Want to sleep for about a second? Iterate somewhere between 60 and 300 times depending on calculator model. Note that this trick isn't used during Simon's loading screen; the GIF above shows the maximum drawing speed.
 
 - `Goto`.
-
 
 On the upside, math support is excellent :)
 

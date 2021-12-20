@@ -4,6 +4,7 @@ layout: post
 pagetitle: Elixir for Node.js Developers
 tags: []
 ---
+
 Bilingual dictionaries are some of the most valuable tools for learning natural languages like French. The idea also applies perfectly well to programming languages, and so here's the guide I wished I had before embarking on my trip to Elixir land. Corrections from those more fluent in Elixir are welcome!
 
 ## The Elixir ecosystem
@@ -68,50 +69,54 @@ The official guide introduces the capture operator `&` in [chapter 8](http://eli
 
 1. `&` obtains references to named functions, allowing them to be passed around as variables and called as anonymous functions (a.k.a. lambdas). In JavaScript, you can simply refer to a named function like `Math.floor` by its name:
 
-    ```js
-    [1.62, 2.72].map(Math.floor); // [1.0, 2.0]
-    var myLambda = Math.floor;
-    myLambda(3.14); // 3.0
-    ```
+   ```js
+   [1.62, 2.72].map(Math.floor); // [1.0, 2.0]
+   var myLambda = Math.floor;
+   myLambda(3.14); // 3.0
+   ```
 
-    In Elixir, you also need `&` and the function's [arity](https://en.wikipedia.org/wiki/Arity):
+   In Elixir, you also need `&` and the function's [arity](https://en.wikipedia.org/wiki/Arity):
 
-    ```elixir
-    Enum.map([1.62, 2.72], &Float.floor/1) # [1.0, 2.0]
-    my_lambda = &Float.floor/1
-    # Lambdas must be called with a "."
-    my_lambda.(3.14) # 3.0
-    ```
+   ```elixir
+   Enum.map([1.62, 2.72], &Float.floor/1) # [1.0, 2.0]
+   my_lambda = &Float.floor/1
+   # Lambdas must be called with a "."
+   my_lambda.(3.14) # 3.0
+   ```
 
-    Why the additional syntax? Elixir functions can be defined multiple times for different arities, so you need to specify which version you want. Since parentheses are optional in Elixir when empty, you also need `&` to prevent the compiler from interpreting `Float.floor/1` as "the result of `Float.floor()` divided by 1".
+   Why the additional syntax? Elixir functions can be defined multiple times for different arities, so you need to specify which version you want. Since parentheses are optional in Elixir when empty, you also need `&` to prevent the compiler from interpreting `Float.floor/1` as "the result of `Float.floor()` divided by 1".
 
 2. `&` is shorthand notation for declaring simple lambdas that take at least one argument. These are all equivalent:
 
-    ```js
-    // ES5
-    var sum = function(a, b) { return a + b; };
+   ```js
+   // ES5
+   var sum = function (a, b) {
+     return a + b;
+   };
 
-    // ES6
-    const sum = (a, b) => a + b;
-    ```
+   // ES6
+   const sum = (a, b) => a + b;
+   ```
 
-    ```elixir
-    # Elixir
-    sum = fn(a, b) -> a + b end
-    sum = &(&1 + &2)
-    ```
+   ```elixir
+   # Elixir
+   sum = fn(a, b) -> a + b end
+   sum = &(&1 + &2)
+   ```
 
-    The outer `&` behaves like the `fn` keyword. The two inner `&`'s bring us to #3...
+   The outer `&` behaves like the `fn` keyword. The two inner `&`'s bring us to #3...
 
 3. `&` denotes arguments to shorthand lambdas. `&1` represents the first argument, `&2` the second, and so on. Here are some direct translations of `sum = &(&1 + &2)` into JavaScript:
 
-    ```js
-    // ES5
-    var sum = function() { return arguments[0] + arguments[1]; };
+   ```js
+   // ES5
+   var sum = function () {
+     return arguments[0] + arguments[1];
+   };
 
-    // ES6
-    const sum = (...args) => args[0] + args[1];
-    ```
+   // ES6
+   const sum = (...args) => args[0] + args[1];
+   ```
 
 At this point you might be wondering how the compiler (or anyone else reading your code, for that matter) will manage to keep all of these `&`'s straight if you try nesting them. Easy answer: you'll get a `CompileError` saying "nested captures via & are not allowed".
 
@@ -128,8 +133,8 @@ const lyrics = [
 ];
 
 const histogram = _.chain(lyrics)
-  .pluck('words')
-  .map(words => words.split(' '))
+  .pluck("words")
+  .map(words => words.split(" "))
   .flatten(true)
   .reduce((acc, word) => {
     acc[word] = (acc[word] || 0) + 1;

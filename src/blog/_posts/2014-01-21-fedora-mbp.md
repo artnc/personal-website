@@ -4,6 +4,7 @@ layout: post
 pagetitle: Fedora Linux on the MacBook Pro
 tags: ["linux"]
 ---
+
 I recently came into ownership of a late-2013 MacBook Pro with Retina display. About an hour every morning of my first week with this laptop was spent extinguishing Linux fires that had somehow sprung up overnight. This post is a summary of the progress I've made on those issues in roughly decreasing order of importance. It was originally written for Fedora 20 but should still mostly work.
 
 ## WiFi doesn't work
@@ -41,7 +42,7 @@ ADP1      S3    *disabled
 LID0      S3    *enabled
 ```
 
-Running `su -c "echo XHC1 > /proc/acpi/wakeup"` for XHC1 and similar for LID0 toggles their states to "disabled". Note that you *cannot* just open `/proc/acpi/wakeup` in a text editor, edit the statuses, and save.
+Running `su -c "echo XHC1 > /proc/acpi/wakeup"` for XHC1 and similar for LID0 toggles their states to "disabled". Note that you _cannot_ just open `/proc/acpi/wakeup` in a text editor, edit the statuses, and save.
 
 ## Stuck at Fedora logo after resume
 
@@ -91,7 +92,7 @@ Some people have had luck with `amixer set IEC958 off`. I haven't. The red light
 > "Try this to disale the red lighht in headphone jack:
 
 > ```
-amixer -c 0 sset "IEC958",16 off
-```
+> amixer -c 0 sset "IEC958",16 off
+> ```
 
-> Use ```amixer -c 0``` to list your devices. My notebook (MacbootPro9,2) has 3 IEC952 entries, and this is the one that disabled the light."
+> Use `amixer -c 0` to list your devices. My notebook (MacbootPro9,2) has 3 IEC952 entries, and this is the one that disabled the light."

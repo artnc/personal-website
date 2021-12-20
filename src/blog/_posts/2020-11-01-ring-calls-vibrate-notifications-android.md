@@ -4,6 +4,7 @@ layout: post
 pagetitle: Ring Calls and Vibrate Notifications on Android
 tags: []
 ---
+
 I want calls to ring audibly, and I want notifications to vibrate silently.
 
 Is that too much to ask for? Recent Android versions make this exceedingly reasonable configuration nearly impossible to implement. I'll cut to the chase:
@@ -17,7 +18,7 @@ Android's native [Do Not Disturb](https://support.google.com/android/answer/9069
 1. Install [Tasker](https://play.google.com/store/apps/details?id=net.dinglisch.android.taskerm)
 1. Create a new "Do Disturb" profile that overrides the notification behavior of your permanent DND by triggering a 200ms vibration whenever a new notification arrives (optionally with your waking hours as a second constraint if you're an extremely light sleeper like me):
 
-    ![](/img/do-disturb.png)
+   ![](/img/do-disturb.png)
 
 I've been using this setup for six months now. The only downside is that I can no longer identify apps by their custom vibration patterns, but that's a relatively small price to pay.
 

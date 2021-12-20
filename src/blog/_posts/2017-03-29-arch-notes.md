@@ -4,6 +4,7 @@ layout: post
 pagetitle: Arch Linux Notes
 tags: ["linux"]
 ---
+
 This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a [Raspberry Pi 2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2), a Lenovo Flex 4, a ThinkPad P50, and a ThinkPad P51.
 
 Arch is surprisingly stable if you remember the single most important post-install step: subscribe to the official [news feed](https://www.archlinux.org/feeds/news/) for breaking changes!
@@ -66,28 +67,28 @@ Some weeks later I crossed my fingers and ran the upgrade command again, which f
 
 1. Now you have a command prompt. This is where you'll be using `arch-chroot`. Pleeease don't blindly run this snippet as a script!
 
-    ```shell
-    # First, list all partitions and take note of the one that seems like your computer's root filesystem, e.g. /dev/sda8
-    fdisk -l
+   ```shell
+   # First, list all partitions and take note of the one that seems like your computer's root filesystem, e.g. /dev/sda8
+   fdisk -l
 
-    # Mount that drive
-    mount /dev/sda8 /mnt
+   # Mount that drive
+   mount /dev/sda8 /mnt
 
-    # Enter your computer's root filesystem as root
-    arch-chroot /mnt
+   # Enter your computer's root filesystem as root
+   arch-chroot /mnt
 
-    # Do whatever's necessary to fix the original problem (in my case, another upgrade attempt)
-    pacman -Syu
+   # Do whatever's necessary to fix the original problem (in my case, another upgrade attempt)
+   pacman -Syu
 
-    # Leave the chroot environment
-    exit
+   # Leave the chroot environment
+   exit
 
-    # Unmount the filesystem
-    umount /mnt
+   # Unmount the filesystem
+   umount /mnt
 
-    # Done!
-    reboot
-    ```
+   # Done!
+   reboot
+   ```
 
 1. As the computer reboots, go back into BIOS and move GRUB back to highest boot priority. Boot into your hopefully working system and remove the USB drive.
 
@@ -236,7 +237,6 @@ Rendering a LaTeX file to PDF works fine after installing `texlive-core`, but wh
 
 The first step of the [fix](https://bbs.archlinux.org/viewtopic.php?pid=523453#p523453) is to enable Latin Modern, the widely accepted successor to Computer Modern:
 
-
 ```shell
 updmap --enable Map=lm.map
 ```
@@ -301,7 +301,7 @@ modprobe btusb
 systemctl enable bluetooth.service
 pulseaudio -k
 blueman-applet
-````
+```
 
 ## Fixing audio mute
 

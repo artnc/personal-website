@@ -4,6 +4,7 @@ layout: post
 pagetitle: Get a Guitalele Already
 tags: ["music"]
 ---
+
 The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar built like a ukulele, and it should be your next -- or even first -- musical instrument.
 
 <div class="text-centered">
@@ -12,20 +13,20 @@ The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar b
 
 For comparison with any instruments you might already play, here are my flamebaity ratings of several instruments' qualities:
 
-|                   | Fun   | Versatility  | Portability | Affordability | Learnability |
-| ---               | ---   | ---          | ---         | ---           | ---          |
-| Acoustic guitar   | ★★★★  | ★★★★★        | ★★★         | ★★★           | ★★★          |
-| Bass guitar       | ★★    | ★            | ★★★         | ★★★           | ★★★★         |
-| Clarinet          | ★★    | ★★           | ★★★★        | ★★            | ★★★          |
-| Electric guitar   | ★★★★  | ★★★          | ★★★         | ★★★           | ★★★          |
-| Guitalele         | ★★★★★ | ★★★★         | ★★★★        | ★★★★          | ★★★          |
-| Harmonica         | ★★    | ★★           | ★★★★★       | ★★★★★         | ★★★★★        |
-| Keyboard          | ★★★   | ★★★★★        | ★★          | ★★★           | ★★★          |
-| Piano             | ★★★   | ★★★★★        | ★           | ★★            | ★★★          |
-| Recorder          | ★     | ★★           | ★★★★★       | ★★★★★         | ★★★★★        |
-| Saxophone         | ★★★★  | ★★★          | ★★★         | ★★            | ★★★★         |
-| Sousaphone        | ★★★★★ | ★            | ★★          | ★             | ★★★★         |
-| Tuba              | ★★★   | ★            | ★★          | ★             | ★★★★         |
+|                 | Fun   | Versatility | Portability | Affordability | Learnability |
+| --------------- | ----- | ----------- | ----------- | ------------- | ------------ |
+| Acoustic guitar | ★★★★  | ★★★★★       | ★★★         | ★★★           | ★★★          |
+| Bass guitar     | ★★    | ★           | ★★★         | ★★★           | ★★★★         |
+| Clarinet        | ★★    | ★★          | ★★★★        | ★★            | ★★★          |
+| Electric guitar | ★★★★  | ★★★         | ★★★         | ★★★           | ★★★          |
+| Guitalele       | ★★★★★ | ★★★★        | ★★★★        | ★★★★          | ★★★          |
+| Harmonica       | ★★    | ★★          | ★★★★★       | ★★★★★         | ★★★★★        |
+| Keyboard        | ★★★   | ★★★★★       | ★★          | ★★★           | ★★★          |
+| Piano           | ★★★   | ★★★★★       | ★           | ★★            | ★★★          |
+| Recorder        | ★     | ★★          | ★★★★★       | ★★★★★         | ★★★★★        |
+| Saxophone       | ★★★★  | ★★★         | ★★★         | ★★            | ★★★★         |
+| Sousaphone      | ★★★★★ | ★           | ★★          | ★             | ★★★★         |
+| Tuba            | ★★★   | ★           | ★★          | ★             | ★★★★         |
 
 The guitalele does earn the most stars here, but that's a pretty crude metric. To elaborate, you should get a guitalele already...
 

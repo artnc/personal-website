@@ -4,6 +4,7 @@ layout: post
 pagetitle: Forwarding Emails to Slack
 tags: ["web"]
 ---
+
 <img src="/img/slack-emails.jpg" style="max-width:100%">
 
 You receive notification emails often and would rather send them to Slack instead of having them clutter your inbox. Here's a DIY solution that takes around 10 minutes to set up. Things you'll need:
