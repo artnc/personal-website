@@ -39,6 +39,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 ### Miscellaneous
 
+- [Pairing Bluetooth headphones](#pairing-bluetooth-headphones)
 - [Fixing audio mute](#fixing-audio-mute)
 - [Pacman color option unrecognized](#pacman-color-option-unrecognized)
 - [Fixing Flatpak Steam](#fixing-flatpak-steam)
@@ -289,6 +290,18 @@ Make sure `/usr/bin/local` appears before `/usr/bin` in your PATH.
 ## Adding Thai font support
 
 Install `fonts-tlwg` from the AUR. It looks perfectly fine and just works. I first tried `ttf-ms-win10` but gave up on getting all of my Windows fonts to the same versions expected by the PKGBUILD.
+
+## Pairing Bluetooth headphones
+
+Steps distilled from the [Arch wiki](https://wiki.archlinux.org/title/Bluetooth) and [this answer](https://askubuntu.com/a/1120106):
+
+```shell
+pacman -S bluez bluez-utils blueman pulseaudio-bluetooth
+modprobe btusb
+systemctl enable bluetooth.service
+pulseaudio -k
+blueman-applet
+````
 
 ## Fixing audio mute
 
