@@ -1,15 +1,20 @@
-FROM ruby:2.6
+FROM alpine:3.15.0
 
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash -
-RUN apt-get update && apt-get -y --no-install-recommends install \
-    default-jre \
-    nodejs \
+RUN apk add --no-cache \
+    curl \
+    g++ \
+    make \
+    musl-dev \
+    openjdk11-jre-headless \
+    openssh \
     pngcrush \
+    python3 \
     rsync \
-    && rm -rf /var/lib/apt/lists/*
+    ruby-dev \
+  && gem install bundler
 
 WORKDIR /code
-COPY . /code
+COPY . .
 RUN bundle install
 
 ENV LANG C.UTF-8

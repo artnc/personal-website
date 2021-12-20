@@ -3,7 +3,7 @@ MAKEFLAGS += --silent
 SHELL = /usr/bin/env bash
 
 _DOCKER_RUN = docker run --rm -it \
-	-p 8005:4000 -p 35729:35729 \
+	-p 4000:4000 -p 35729:35729 \
 	-v "$${PWD}:/code" \
 	"$$(docker build -q -t artnc/personal-website .)"
 
@@ -11,10 +11,10 @@ _DOCKER_RUN = docker run --rm -it \
 .PHONY: build
 build:
 	# Crush all uncrushed PNGs
-	$(_DOCKER_RUN) python scripts/pngcrush.py
+	$(_DOCKER_RUN) python3 scripts/pngcrush.py
 
 	# Build Jekyll
-	$(_DOCKER_RUN) bash -c 'cd src && jekyll build --config "_config.yml,_config.prod.yml"'
+	$(_DOCKER_RUN) sh -c 'cd src && jekyll build --config "_config.yml,_config.prod.yml"'
 
 	# Compress HTML and inline CSS/JS
 	$(_DOCKER_RUN) java -jar scripts/htmlcompressor-1.5.3.jar \
@@ -39,10 +39,10 @@ build:
 		--type xml \
 		./build/
 
-# Watch Jekyll source directory for changes and serve at localhost:8005
+# Watch Jekyll source directory for changes and serve at localhost:4000
 .PHONY: serve
 serve:
-	$(_DOCKER_RUN) bash -c 'cd src && jekyll serve --livereload'
+	$(_DOCKER_RUN) sh -c 'cd src && jekyll serve --livereload'
 
 # Submit sitemap to Google and Bing (lol?)
 .PHONY: sitemap
@@ -54,6 +54,10 @@ sitemap:
 		'http://www.bing.com/ping?sitemap=https%3A%2F%2Fchaidarun.com%2Fsitemap.xml'
 
 # Upload to DigitalOcean via rsync
+# https://stackoverflow.com/a/11829094
 .PHONY: sync
 sync: build
-	$(_DOCKER_RUN) rsync -azP --delete build/ art@${host}:/home/art/site
+	$(_DOCKER_RUN) rsync -azP \
+		--delete build/ \
+		-e "ssh -o StrictHostKeyChecking=no" \
+		art@${host}:/home/art/site
