@@ -659,21 +659,28 @@ img.right {
   }
 }
 
-.cavalier-on-android-html .content {
-  a img {
-    max-width: 240px;
+#lightbox {
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  img {
+    left: 50%;
+    max-height: 95%;
+    max-width: 95%;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 
 .guitalele-html .content {
   td:first-child {
     white-space: nowrap;
-  }
-}
-
-.linuxsampler-html .content {
-  a img {
-    max-width: 300px;
   }
 }
 

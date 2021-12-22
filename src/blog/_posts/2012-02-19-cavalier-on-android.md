@@ -8,7 +8,7 @@ tags: ["linux"]
 
 This method takes about five minutes and has been confirmed by several people to work, despite the lack of official Android support from [ITS](http://its.virginia.edu/mobile/android.html#wireless).
 
-<a href="/img/android-on-cavalier-connected.jpg" class="nounderline" title="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"><img src="/img/android-on-cavalier-connected.jpg" class="right" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier"></a>
+<img src="/img/android-on-cavalier-connected.jpg" class="right" alt="HTC myTouch 4G (CyanogenMod 7) connected to cavalier" style="max-width: 240px">
 
 1. Go to _Settings > Wireless & networks > Wi-Fi settings_ and make sure your Android device can detect the cavalier network.
 

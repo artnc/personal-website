@@ -10,3 +10,22 @@ layout: default
     src="https://chaidarun.com/isso/js/embed.min.js"
 ></script>
 <section id="isso-thread"></section>
+
+<div id="lightbox">
+  <img />
+</div>
+<script type="text/javascript">
+  const $lightboxDimmer = document.querySelector("#lightbox");
+  const $lightboxImg = document.querySelector("#lightbox img");
+  $lightboxDimmer.addEventListener("click", () => {
+    $lightboxDimmer.style.display = "none";
+  });
+  for (const $el of document.querySelectorAll(".content img")) {
+    $el.title = "Click to enlarge";
+    $el.style.cursor = "pointer";
+    $el.addEventListener("click", () => {
+      $lightboxImg.src = $el.src;
+      $lightboxDimmer.style.display = "initial";
+    });
+  }
+</script>
