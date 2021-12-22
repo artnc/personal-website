@@ -659,6 +659,31 @@ img.right {
   }
 }
 
+.content {
+  h2 a {
+    margin-left: 15px;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  h2:hover a {
+    border: 0 !important;
+    opacity: 0.3;
+    visibility: initial;
+  }
+
+  h2 img {
+    height: 18px;
+    width: 18px;
+  }
+
+  .footnotes {
+    border-top: 1px solid $gray;
+    font-size: 0.85em;
+    margin-top: 50px;
+  }
+}
+
 #lightbox {
   background: rgba(0, 0, 0, 0.8);
   display: none;

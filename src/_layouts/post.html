@@ -15,17 +15,31 @@ layout: default
   <img />
 </div>
 <script type="text/javascript">
+  // Heading links
+  for (const $heading of document.querySelectorAll(".content h2")) {
+    const { id } = $heading;
+    if (id) {
+      $heading.insertAdjacentHTML(
+        'beforeend',
+        `<a href="#${id}" title="Link to this heading"><img src="/img/link.svg"></a>`
+      );
+    }
+  }
+
+  // Lightbox
   const $lightboxDimmer = document.querySelector("#lightbox");
   const $lightboxImg = document.querySelector("#lightbox img");
   $lightboxDimmer.addEventListener("click", () => {
     $lightboxDimmer.style.display = "none";
   });
   for (const $el of document.querySelectorAll(".content img")) {
-    $el.title = "Click to enlarge";
-    $el.style.cursor = "pointer";
-    $el.addEventListener("click", () => {
-      $lightboxImg.src = $el.src;
-      $lightboxDimmer.style.display = "initial";
-    });
+    if ($el.parentNode.nodeName.toLowerCase() !== "a") {
+      $el.title = "Click to enlarge";
+      $el.style.cursor = "pointer";
+      $el.addEventListener("click", () => {
+        $lightboxImg.src = $el.src;
+        $lightboxDimmer.style.display = "initial";
+      });
+    }
   }
 </script>
