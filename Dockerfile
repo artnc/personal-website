@@ -7,7 +7,6 @@ RUN apk add --no-cache \
     musl-dev \
     nodejs \
     npm \
-    openjdk11-jre-headless \
     openssh \
     pngcrush \
     python3 \

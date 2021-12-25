@@ -37,14 +37,6 @@ build:
 		&& echo "Hash: $${md5}" \
 		&& mv build/css/main.css "build/css/$${md5}.css" \
 		&& find build -type f -name '*.html' | xargs sed -i "s@css/main\.css@css/$${md5}\.css@g"'
-	echo 'Compressing XML...'
-	$(_DOCKER_RUN) java -jar scripts/htmlcompressor-1.5.3.jar \
-		--mask \*.xml \
-		--output ./build/ \
-		--recursive \
-		--remove-intertag-spaces \
-		--type xml \
-		./build/
 
 # Watch Jekyll source directory for changes and serve at localhost:4000
 .PHONY: serve
