@@ -5,6 +5,8 @@ RUN apk add --no-cache \
     g++ \
     make \
     musl-dev \
+    nodejs \
+    npm \
     openjdk11-jre-headless \
     openssh \
     pngcrush \
@@ -14,7 +16,10 @@ RUN apk add --no-cache \
   && gem install bundler
 
 WORKDIR /code
+
 COPY . .
-RUN bundle install
+RUN bundle install \
+  && npm install \
+    html-minifier-terser@7.0.0-alpha.1
 
 ENV LANG C.UTF-8

@@ -5,32 +5,32 @@ SHELL = /usr/bin/env bash
 _DOCKER_RUN = docker run --rm -it \
 	-p 4000:4000 -p 35729:35729 \
 	-v "$${PWD}:/code" \
+	-v "/code/node_modules" \
 	"$$(docker build -q -t artnc/personal-website .)"
 
 # Build production files
 .PHONY: build
 build:
-	# Crush all uncrushed PNGs
+	echo 'Crushing all uncrushed PNGs...'
 	$(_DOCKER_RUN) python3 scripts/pngcrush.py
-
-	# Build Jekyll
+	echo 'Building Jekyll...'
 	$(_DOCKER_RUN) sh -c 'cd src && jekyll build --config "_config.yml,_config.prod.yml"'
-
-	# Compress HTML and inline CSS/JS
-	$(_DOCKER_RUN) java -jar scripts/htmlcompressor-1.5.3.jar \
-		--closure-opt-level whitespace \
-		--compress-css \
-		--compress-js \
-		--js-compressor closure \
-		--mask \*.html \
-		--output ./build/ \
-		--recursive \
-		--remove-intertag-spaces \
-		--remove-quotes \
-		--type html \
-		./build/
-
-	# Compress XML
+	echo 'Compressing HTML and inline CSS/JS...'
+	$(_DOCKER_RUN) node_modules/.bin/html-minifier-terser \
+		--collapse-whitespace \
+		--decode-entities \
+		--file-ext html \
+		--input-dir build \
+		--minify-css \
+		--minify-js \
+		--output-dir build \
+		--remove-comments \
+		--remove-script-type-attributes \
+		--remove-style-link-type-attributes \
+		--sort-attributes \
+		--sort-class-name \
+		--use-short-doctype
+	echo 'Compressing XML...'
 	$(_DOCKER_RUN) java -jar scripts/htmlcompressor-1.5.3.jar \
 		--mask \*.xml \
 		--output ./build/ \
