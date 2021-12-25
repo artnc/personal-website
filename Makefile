@@ -11,6 +11,8 @@ _DOCKER_RUN = docker run --rm -it \
 # Build production files
 .PHONY: build
 build:
+	echo 'Deleting build folder...'
+	$(_DOCKER_RUN) rm -rf build
 	echo 'Crushing all uncrushed PNGs...'
 	$(_DOCKER_RUN) python3 scripts/pngcrush.py
 	echo 'Building Jekyll...'
@@ -30,6 +32,11 @@ build:
 		--sort-attributes \
 		--sort-class-name \
 		--use-short-doctype
+	echo 'Adding hash to CSS file name...'
+	$(_DOCKER_RUN) sh -c 'md5="$$(md5sum build/css/main.css | cut -c-8)" \
+		&& echo "Hash: $${md5}" \
+		&& mv build/css/main.css "build/css/$${md5}.css" \
+		&& find build -type f -name '*.html' | xargs sed -i "s@css/main\.css@css/$${md5}\.css@g"'
 	echo 'Compressing XML...'
 	$(_DOCKER_RUN) java -jar scripts/htmlcompressor-1.5.3.jar \
 		--mask \*.xml \

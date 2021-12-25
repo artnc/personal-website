@@ -1,2 +1,3 @@
 sass:
+  sourcemap: never
   style: compressed
