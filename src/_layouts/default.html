@@ -8,11 +8,11 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <meta name="theme-color" content="#202227">
-  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" href="/css/main.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600" rel="stylesheet">
   {% if page.headcss != null %}{{ page.headcss }}{% endif %}
-  {% if page.jquery == true %}<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>{% endif %}
+  {% if page.jquery == true %}<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>{% endif %}
   {% if page.headjs != null %}{{ page.headjs }}{% endif %}
 </head>
 <body id="top" class="{{ page.title | downcase | remove: ".html" | replace:' ','-' }}-html">
@@ -34,7 +34,7 @@
   </div>
 </div>
 {% include ga.html %}
-<script type="text/javascript">
+<script>
   // Populate contact info
   setTimeout(function() {
     var AT = String.fromCharCode(64);

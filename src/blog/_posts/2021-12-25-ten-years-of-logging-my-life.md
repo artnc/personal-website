@@ -110,7 +110,7 @@ I spend much less time on single-player games and idle internet stuff like Reddi
 Speaking more generally&mdash;although it may sound like Chronofile has taken over my life, it's really no more stressful or controlling than my car's speedometer. They're both tools that do nothing more than show me the results of my _own_ decisions, and it's now equally hard to imagine flying blind without them.
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
-<script type="text/javascript">
+<script>
 document.fonts.ready.then(() => {
   // Set global defaults
   const mergeObjects = (src, dst) => Object.entries(src).forEach(([k, v]) => {

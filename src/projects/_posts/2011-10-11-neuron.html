@@ -1,7 +1,7 @@
 ---
 description: WebGL visualization of the SWC file format for neuron models.
-headcss: <link rel="stylesheet" type="text/css" href="/css/neuron.css">
-headjs: <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script><script type="text/javascript" src="/js/TrackballControls.js"></script><script type="text/javascript" src="/js/csg.js"></script><script type="text/javascript" src="/js/ThreeCSG.js"></script>
+headcss: <link rel="stylesheet" href="/css/neuron.css">
+headjs: <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.min.js"></script><script src="/js/TrackballControls.js"></script><script src="/js/csg.js"></script><script src="/js/ThreeCSG.js"></script>
 layout: minimal
 pagetitle: Neuron Modeler
 ---
@@ -26,7 +26,7 @@ pagetitle: Neuron Modeler
   </ul>
 </div>
 
-<script type="text/javascript">
+<script>
 var width = $('body').width();
 var height = $('body').height() - 4;
 var data = new Array(); // 3D array: [neuron][line][element]
