@@ -360,35 +360,29 @@ layout: default
 <circle class="g4" r="7" cx="270.80" cy="252.13"><desc>Epic Systems</desc></circle>
 </svg>
 <script>
-(function() {
-  var curString = "";
-
+(() => {
   $("circle").tipsy({
-    trigger: 'manual',
-    gravity: 's',
     fade: false,
+    gravity: 's',
     html: true,
     offset: -6,
     opacity: 1,
     title: function() {
       return this.firstChild.textContent;
-    }
+    },
+    trigger: 'manual',
   }).hover(function() {
-    var thisString = this.firstChild.textContent;
-    if (curString !== thisString) {
+    if (this.firstChild.textContent === "Hello!") {
+      this.setAttribute("style", "fill:url(#hello)");
+    } else {
       $(this).tipsy("show");
-      if (thisString === "Hello!") {
-        this.setAttribute("style", "fill:url(#hello)");
-      }
     }
   }, function() {
-    if (curString !== this.firstChild.textContent) {
+    if (this.firstChild.textContent === "Hello!") {
+      this.setAttribute("style", "");
+    } else {
       $(this).tipsy("hide");
-      if (this.firstChild.textContent === "Hello!") {
-        this.setAttribute("style", "");
-      }
     }
   });
-
 })();
 </script>

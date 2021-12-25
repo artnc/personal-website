@@ -36,12 +36,10 @@
 {% include ga.html %}
 <script>
   // Populate contact info
-  setTimeout(function() {
-    var AT = String.fromCharCode(64);
-    var decode = function(string) {
-      return string.split('').reverse().join('');
-    };
-    var foobar = document.getElementsByClassName('foobar')[0];
+  setTimeout(() => {
+    const AT = String.fromCharCode(64);
+    const decode = string => string.split('').reverse().join('');
+    const foobar = document.querySelector('.foobar');
     foobar.href = decode('moc.liamg' + AT + 'nuradiahctra:otliam')
     foobar.title = decode('liame');
   }, 500);

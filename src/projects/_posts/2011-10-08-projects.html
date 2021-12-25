@@ -179,32 +179,31 @@ pagetitle: Projects
 
 
 <script>
-(function() {
-  var $thumbnails = $('.thumbnails img');
-  var $blurbs = $('.project-desc');
+(() => {
+  const $thumbnails = $('.thumbnails img');
+  const $blurbs = $('.project-desc');
 
   // Project switching
-  var showProject = function(project) {
-    var $blurb = $blurbs.hide().filter('[data-hash=' + project + ']').show();
-    var tech = ($blurb.attr('data-tech') || '').split(',');
+  const showProject = project => {
+    const $blurb = $blurbs.hide().filter(`[data-hash=${project}]`).show();
+    const tech = ($blurb.attr('data-tech') || '').split(',');
     $('.tag')
       .removeClass('activetag')
       .filter(function() {
         return tech.indexOf(this.textContent) !== -1;
       })
       .addClass('activetag');
-    $thumbnails.removeClass('current').filter('[data-project=' + project + ']').addClass('current');
-    window.history.replaceState(
-      {}, '', window.location.pathname + '#' + $blurb.attr('data-hash'));
+    $thumbnails.removeClass('current').filter(`[data-project=${project}]`).addClass('current');
+    window.history.replaceState({}, '', `${window.location.pathname}#${$blurb.attr('data-hash')}`);
   };
 
   // Determine initially shown project
-  showProject((function() {
-    var project = $blurbs.eq(0).attr('data-hash');
-    var hash = window.location.hash.substr(1);
+  showProject((() => {
+    let project = $blurbs.eq(0).attr('data-hash');
+    const hash = window.location.hash.substr(1);
     if (hash) {
       $blurbs.each(function(i) {
-        var projectName = $(this).attr('data-hash');
+        const projectName = $(this).attr('data-hash');
         if (projectName === hash) {
           project = projectName;
           return false;
@@ -221,15 +220,13 @@ pagetitle: Projects
 
   // Tag hover
   $('.tag').hover(function() {
-    var tech = this.textContent;
+    const tech = this.textContent;
     $thumbnails.each(function(i) {
-      var project = $(this).attr('data-project');
-      var $blurb = $blurbs.filter('[data-hash=' + $(this).attr('data-project') + ']');
-      var tagged = (',' + $blurb.attr('data-tech') + ',').indexOf(',' + tech + ',') !== -1;
+      const project = $(this).attr('data-project');
+      const $blurb = $blurbs.filter('[data-hash=' + $(this).attr('data-project') + ']');
+      const tagged = (`,${$blurb.attr('data-tech')},`).indexOf(`,${tech},`) !== -1;
       $(this).addClass(tagged ? 'tagged' : 'untagged');
     });
-  }, function() {
-    $thumbnails.removeClass('tagged untagged');
-  });
+  }, () => $thumbnails.removeClass('tagged untagged'));
 })();
 </script>
