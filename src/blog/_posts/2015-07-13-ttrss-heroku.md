@@ -5,6 +5,8 @@ pagetitle: Tiny Tiny RSS on Heroku
 tags: ["web"]
 ---
 
+> Update 2021-12-24: Looks like someone else has [further iterated](https://github.com/serl/ttrss-heroku) on the process outlined in this post? I haven't had a chance to try&mdash;nowadays I use Inoreader.
+
 This takes 5-10 minutes from start to finish :) The only prerequisite tools are [git](https://git-scm.com/) and the [Heroku CLI](https://toolbelt.heroku.com/).
 
 1. Download a local copy of TTRSS.

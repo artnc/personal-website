@@ -18,13 +18,13 @@ Blackjack features a text UI, betting over multiple rounds, player high score, b
 
 Coding on a calculator is funny business. It's like writing and optimizing assembly by hand in a language that has nowhere near the performance of real assembly. Some fun facts about TI-BASIC:
 
-- Source code is very non-ASCII and has no indentation or braces. All keywords and standard library functions are single tokens that must be selected from menus. The screen size is 8x16 characters, so get used to scrolling.
+- Source code is very non-ASCII and has no indentation or braces. All keywords and standard library functions are single tokens that must be selected from menus. The screen size is 16x8 characters, so get used to scrolling.
 
 - Numeric variable names can be any English letter or &theta;. Who needs more than 27 anyway? Additionally, ten string variables are available.
 
 - All variables are globally scoped. Or rather, "universally" scoped---they're shared among all TI-BASIC programs on the calculator.
 
-- Closing quotes, parentheses, and brackets are optional.
+- Closing quotes, parentheses, and brackets are optional and idiomatically omitted to save disk space.
 
 - Procedural only. The closest thing to a subroutine involves setting a flag variable and having the program call itself.
 
@@ -34,7 +34,7 @@ Coding on a calculator is funny business. It's like writing and optimizing assem
 
 On the upside, math support is excellent :)
 
-Below is the source code for Simon's input loop. The full source, binaries, and installation instructions for both programs are available on [GitHub](https://github.com/artnc/ti-basic).
+Below is the source code for Simon's input loop. The full source, binaries, and installation instructions for both programs are [available on GitHub](https://github.com/artnc/ti-basic).
 
 ```text
 For(I,1,L
