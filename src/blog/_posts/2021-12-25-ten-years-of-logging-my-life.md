@@ -1,6 +1,7 @@
 ---
 h1: Ten Years of Logging My Life
 layout: post
+ogimage: /img/uva-xls.png
 pagetitle: Ten Years of Logging My Life
 tags: []
 ---

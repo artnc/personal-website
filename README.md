@@ -13,6 +13,7 @@ custom page variables
 - headjs = extra js for head
 - jquery = whether jquery should be included
 - h1 = what should go inside h1 tags
+- ogimage = og:image url
 - pagetitle = what should go inside title tags
 - secret = true iff page should be published but not sitemapped
 
