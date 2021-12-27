@@ -10,7 +10,7 @@ I've been continuously recording my daily activities by hand since I was 17, amo
 
 ## Why?!
 
-Self-awareness. Am I getting enough sleep and exercise? Often I become engrossed in whatever I'm doing and forget about biological obligations like eating. My job is cool, but have I been making enough time for other people and hobbies I care about? Balance requires constant attention.
+Self-awareness. Am I getting enough sleep and exercise? Often I become engrossed in whatever I'm doing and forget about biological obligations like eating. My [job](/projects#duolingo) is cool, but have I been making enough time for other people and hobbies I care about? Balance requires constant attention.
 
 [The data](#observations) is also just endlessly fascinating to sift through. These pixels may not mean much to anyone else, but they tell an intensely personal story of my life's ups and downs over the past four years:
 

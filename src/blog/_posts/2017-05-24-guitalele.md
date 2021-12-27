@@ -54,7 +54,9 @@ My one small gripe about guitaleles is that they're only slightly louder than uk
 
 $100 is way down on the low end as far as musical instruments go, making it a responsible investment for musical newcomers. Only toy instruments like recorders and diatonic harmonicas are much cheaper.
 
-My guitalele has far and away the lowest cost per playing hour of any instrument I've owned, and yet it's still in great condition after three years.
+My guitalele has far and away the [lowest cost per playing hour](/ten-years-of-logging-my-life#observations) of any instrument I've owned, and yet it's still in great condition after three years.
+
+> Update 2021-12-27: Eight years now!
 
 ## Because it's easy
 
