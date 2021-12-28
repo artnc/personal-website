@@ -64,7 +64,7 @@ The remaining charts cover only the past four years since it's too cumbersome to
 
 <canvas alt="(Chart of transportation methods)" id="transportation-chart"></canvas>
 
-Lockdown sticks out like a sore thumb in this one too. It's a small miracle that my legs still work. There were some months when I didn't take a single step outside! Most of my pandemic travel has been on long road trips.
+Lockdown sticks out like a sore thumb in this one too. It's a small miracle that my legs still work&mdash;there were some months when I didn't take a single step outside! Most of my pandemic travel has been on long road trips.
 
 <canvas alt="(Chart of daily media consumption)" id="media-chart"></canvas>
 
@@ -236,11 +236,10 @@ document.fonts.ready.then(() => {
   ];
   const correlationPositives = [];
   const correlationNegatives = [];
-  const correlationIdentities = [];
   for (let i = 0; i < correlationData.length; ++i) {
     for (let j = 0; j < correlationData.length; ++j) {
       const v = correlationData[i][j] ? correlationData[i][j] : correlationData[j][i];
-      (v === 1 ? correlationIdentities : v > 0 ? correlationPositives : correlationNegatives).push({x:i,y:j,r:24*Math.sqrt(Math.abs(v))});
+      (v > 0 ? correlationPositives : correlationNegatives).push({x:i,y:j,r:24*Math.sqrt(Math.abs(v))});
     }
   }
   const correlationScale = {
@@ -254,10 +253,6 @@ document.fonts.ready.then(() => {
     {
       data: {
         datasets: [
-          {
-            backgroundColor: "#4e79a7",
-            data: correlationIdentities,
-          },
           {
             backgroundColor: "#59a14f",
             data: correlationPositives,
