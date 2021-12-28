@@ -36,7 +36,7 @@ The solution: developing my own Android app.
 
 I named it Chronofile, which I later learned was also the name of a [similar undertaking](https://en.wikipedia.org/wiki/Dymaxion_Chronofile) by Buckminster Fuller. Its code[^1] is open source and [available on GitHub](https://github.com/artnc/chronofile/).
 
-[^1]: Chronofile uses [RxJava](https://github.com/ReactiveX/RxJava) to reimplement [Redux](https://redux.js.org/) (itself inspired by the [Elm architucture](https://guide.elm-lang.org/architecture/)) with type safety in [9 lines of code](https://github.com/artnc/chronofile/blob/e1b3a8f9405a5fcad079f625f5eae37e8ffabc94/app/src/main/java/com/chaidarun/chronofile/Store.kt#L102-L113), some of the most satisfying that I've ever written!
+[^1]: Chronofile uses [RxJava](https://github.com/ReactiveX/RxJava) to reimplement [Redux](https://redux.js.org/) (itself inspired by the [Elm architecture](https://guide.elm-lang.org/architecture/)) with type safety in [9 lines of code](https://github.com/artnc/chronofile/blob/e1b3a8f9405a5fcad079f625f5eae37e8ffabc94/app/src/main/java/com/chaidarun/chronofile/Store.kt#L102-L113), some of the most satisfying that I've ever written!
 
 > Update 2021-12-27: Hello [Hacker News](https://news.ycombinator.com/item?id=29692087)! As requested, here's a [release APK](https://github.com/artnc/chronofile/releases) that you can try installing for yourself on Android 10+. Please open a GitHub issue if you run into any problems with the app.
 
@@ -62,6 +62,10 @@ Yes I did the quarantine hair thing. Still kinda regret finally cutting it :S
 
 The remaining charts cover only the past four years since it's too cumbersome to extract this data from the pre-Chronofile spreadsheet era.
 
+<canvas alt="(Chart of transportation methods)" id="transportation-chart"></canvas>
+
+Lockdown sticks out like a sore thumb in this one too. It's a small miracle that my legs still work. There were some months when I didn't take a single step outside! Most of my pandemic travel has been on long road trips.
+
 <canvas alt="(Chart of daily media consumption)" id="media-chart"></canvas>
 
 Hidden in the chart above are a handful of games, 24 books, 39 shows, 102 movies, and thousands of news articles. I had never really been much into TV, but to stay somewhat social during lockdown I joined a viewing party that ended up covering all the corona classics: _Tiger King_, _Love Is Blind_, _Avatar_, kdrama after kdrama after kdrama...
@@ -86,11 +90,17 @@ Monday always feels like the busiest day of my week, which the chart confirms by
 
 <canvas alt="(Chart of work hours)" id="work-chart"></canvas>
 
-Some might find this chart more concerning. Is nothing sacred, apart from Sunday 7am?! A less alarming interpretation: I have enough freedom in my work life and personal life that I can attend to both whenever it's most convenient.
+Some might find this chart more concerning. Is nothing sacred, other than Sunday 7am?! A less alarming interpretation: I have enough freedom in my work life and personal life that I can attend to both whenever it's most convenient.
 
 For a few months during lockdown, I settled into a pattern where I would handle the more interpersonal aspects of my job in the afternoon, take a long nap in the evening, and do "real work" (i.e. coding) after midnight while free from any distractions. That stands in contrast to most of 2014, when I would head to the gym at 1am, go to bed at 2:30am, wake up at 10:30am&mdash;usually right on the minute without an alarm&mdash;and sit down in my office chair at 11am.
 
 Which of those two schedules is better? I've found that at least for me, [biphasic sleep](https://en.wikipedia.org/wiki/Biphasic_and_polyphasic_sleep) didn't actually have much of a noticeable effect on my mood or productivity. Just getting 7-8 hours of sleep a day matters much more than how those hours are distributed.
+
+<canvas alt="(Chart of monthly activity correlation)" id="correlation-chart"></canvas>
+
+What surprises me most here is the extremely weak correlation between work and sleep, which I suppose is a good thing? Sleep and travel are negatively correlated because I categorize sleep while traveling as travel.
+
+Apart from sleep, work is negatively correlated with _everything_! That makes sense&mdash;I do barely any business travel, for example. Burnout is definitely something to keep in mind here.
 
 <canvas alt="(Chart of number of log entries per day)" id="switching-chart"></canvas>
 
@@ -98,7 +108,7 @@ This chart may be the hardest of all to interpret. Chronofile's interface has ba
 
 Does lower activity churn equate to better focus, longer attention span? Or should I instead aim for _more_ variety each day? This chart's shape over time doesn't match any personal metric that comes to mind: happiness, stress level, body weight, credit score...
 
-A few major life events such as relocations and changes in my _\*ahem\*_ romantic situation do seem to show up in the chart, but they account for only a small fraction of its peaks and valleys. Is this chart mostly just noise? Maybe any underlying causes here will become more obvious as time goes on.
+A few major life events such as relocations and changes in my _\*ahem\*_ romantic situation do seem to show up in the chart, but they account for only a small fraction of its peaks and valleys. Is this chart mostly just noise? Maybe any underlying causes here will become more apparent as time goes on.
 
 ## Conclusions
 
@@ -189,6 +199,85 @@ document.fonts.ready.then(() => {
     23,
     42
   ];
+  const bubbleOptions = {
+    clip: 40,
+    events: [],
+    scales: {
+      x: {
+        min: 0,
+        max: 23,
+        ticks: {
+          callback: value => value % 3 ? "" : value === 0 ? "12am" : value === 12 ? "12pm" : value < 12 ? `${value}am` : `${value - 12}pm`,
+          padding: 15,
+          stepSize: 3,
+        }
+      },
+      y: {
+        reverse: true,
+        ticks: {
+          callback: value => ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][value],
+          padding: 15,
+        },
+      },
+    },
+  };
+  const correlationData = [
+    [1,0,0,0,0,0,0,0,0,0],
+    [0.008176371527,1,0,0,0,0,0,0,0,0,0],
+    [0.005383377635,-0.3963415937,1,0,0,0,0,0,0,0,0],
+    [-0.1664989388,-0.0693359137,-0.07860970823,1,0,0,0,0,0,0,0],
+    [0.04085778615,-0.3352397547,-0.04903616957,-0.1278800239,1,0,0,0,0,0,0],
+    [0.2082741975,-0.001373978466,-0.4178344017,0.03162809882,0.1541555084,1,0,0,0,0,0],
+    [0.1214638688,-0.1767920413,-0.3414280152,0.3720877076,0.1593224842,0.3143167272,1,0,0,0,0],
+    [-0.4521179127,-0.3207140753,0.283728704,0.08403995982,0.1189739165,-0.2121134805,-0.3173369063,1,0,0,0],
+    [0.2078986006,-0.183195081,-0.4046147748,-0.3052183756,0.1090788851,0.1998981457,0.06021061275,-0.3081830436,1,0,0],
+    [-0.1700525107,-0.4120136877,0.4008586175,0.2766714432,0.05736317522,-0.009161975885,0.03032305445,0.3999532407,-0.3678647283,1,0],
+    [-0.2609036101,-0.197422513,-0.319693051,-0.01406227662,0.05112123312,-0.2214213993,0.08507022619,-0.1340874535,0.1797060268,-0.2312480792,1],
+  ];
+  const correlationPositives = [];
+  const correlationNegatives = [];
+  const correlationIdentities = [];
+  for (let i = 0; i < correlationData.length; ++i) {
+    for (let j = 0; j < correlationData.length; ++j) {
+      const v = correlationData[i][j] ? correlationData[i][j] : correlationData[j][i];
+      (v === 1 ? correlationIdentities : v > 0 ? correlationPositives : correlationNegatives).push({x:i,y:j,r:24*Math.sqrt(Math.abs(v))});
+    }
+  }
+  const correlationScale = {
+    ticks: {
+      callback: value => ["Sleep","Work","People","Food","Chores","Read","Music","Travel","Projects","Exercise","Other"][value],
+      padding: 30,
+    },
+  };
+  new Chart(
+    document.getElementById("correlation-chart"),
+    {
+      data: {
+        datasets: [
+          {
+            backgroundColor: "#4e79a7",
+            data: correlationIdentities,
+          },
+          {
+            backgroundColor: "#59a14f",
+            data: correlationPositives,
+          },
+          {
+            backgroundColor: "#e15759",
+            data: correlationNegatives,
+          },
+        ],
+        labels: [...new Array(168)].map(_ => ""),
+      },
+      options: {
+        ...bubbleOptions,
+        aspectRatio: 1.04,
+        plugins: { title: { padding: 30, text: "Monthly activity correlation, 2018-2021" } },
+        scales: { x: correlationScale, y: {...correlationScale } },
+      },
+      type: "bubble",
+    }
+  );
   new Chart(
     document.getElementById("haircut-chart"),
     {
@@ -350,28 +439,6 @@ document.fonts.ready.then(() => {
       type: "bar",
     }
   );
-  const bubbleOptions = {
-    clip: 40,
-    events: [],
-    scales: {
-      x: {
-        min: 0,
-        max: 23,
-        ticks: {
-          callback: value => value % 3 ? "" : value === 0 ? "12am" : value === 12 ? "12pm" : value < 12 ? `${value}am` : `${value - 12}pm`,
-          padding: 15,
-          stepSize: 3,
-        }
-      },
-      y: {
-        reverse: true,
-        ticks: {
-          callback: value => ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"][value],
-          padding: 15,
-        },
-      },
-    },
-  };
   new Chart(
     document.getElementById("sleep-chart"),
     {
@@ -389,6 +456,52 @@ document.fonts.ready.then(() => {
         plugins: { title: { padding: 25, text: "Sleep, 2018-2021" } },
       },
       type: "bubble",
+    }
+  );
+  new Chart(
+    document.getElementById("transportation-chart"),
+    {
+      data: {
+        datasets: [
+          {
+            backgroundColor: "#4e79a7",
+            data: [0, 0, 0, 1, 2, 0, 0, 13, 20, 17, 17, 9, 13, 12, 16, 15, 23, 15, 21, 18, 26, 25, 27, 18, 15, 18, 11, 0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 12, 2, 44, 19, 18, 34, 19, 9],
+            label: "Walk",
+          },
+          {
+            backgroundColor: "#f28e2c",
+            data: [36, 31, 44, 42, 45, 41, 37, 77, 22, 6, 61, 12, 15, 15, 7, 14, 18, 15, 28, 31, 31, 26, 53, 58, 27, 18, 29, 0, 0, 0, 2, 38, 20, 6, 1, 2, 1, 2, 0, 2, 69, 19, 133, 27, 52, 76, 84, 28],
+            label: "Car",
+          },
+          {
+            backgroundColor: "#e15759",
+            data: [0, 34, 0, 32, 28, 0, 0, 8, 0, 0, 130, 9, 10, 42, 0, 13, 22, 0, 0, 0, 0, 0, 7, 92, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 0, 38, 16, 6, 5],
+            label: "Airplane",
+          },
+          {
+            backgroundColor: "#76b7b2",
+            data: [0, 9, 0, 0, 0, 0, 0, 7, 0, 0, 16, 7, 5, 6, 0, 12, 1, 0, 0, 0, 0, 0, 8, 8, 7, 4, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 6, 5],
+            label: "Bus",
+          },
+          {
+            backgroundColor: "#59a14f",
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+            label: "Train",
+          },
+        ],
+        labels: monthLabels,
+      },
+      options: {
+        plugins: {
+          legend: { display: true, position: "bottom" },
+          title: { text: "Average daily minutes of travel" },
+        },
+        scales: {
+          x: { stacked: true },
+          y: { stacked: true },
+        },
+      },
+      type: "bar",
     }
   );
   new Chart(
