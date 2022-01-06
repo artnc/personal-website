@@ -165,17 +165,11 @@ img {
 
 // Placeholder
 
-::-webkit-input-placeholder {
-  color: $gray-light;
-}
-::-moz-placeholder {
-  color: $gray-light;
-}
-:-ms-input-placeholder {
-  color: $gray-light;
-}
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
 :-moz-placeholder {
-  color: $gray-light;
+  color: $gray-darker;
 }
 
 // IDs
@@ -315,7 +309,11 @@ img {
   }
 
   button {
+    background-color: $green-light;
+    border-radius: 999px;
     font-weight: 700;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   select {
@@ -607,13 +605,13 @@ img.right {
 }
 
 .integral-html .content {
-  table {
-    margin: 40px;
-  }
-
   td {
     padding: 0;
     vertical-align: middle;
+
+    &:last-child {
+      padding-left: 15px;
+    }
   }
 
   .int {
@@ -630,10 +628,6 @@ img.right {
   #integrand,
   #integrand input {
     width: 100%;
-  }
-
-  #differentials {
-    padding-left: 15px;
   }
 }
 
