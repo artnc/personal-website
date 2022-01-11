@@ -7,9 +7,7 @@ tags: ["music"]
 
 The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar built like a ukulele, and it should be your next -- or even first -- musical instrument.
 
-<div class="text-centered">
-  <img alt="Guitalele" src="/img/guitalele.jpg" style="max-width:100%;">
-</div>
+<iframe src="https://www.youtube.com/embed/SsBU2m9WSM4"></iframe>
 
 For comparison with any instruments you might already play, here are my flamebaity ratings of several instruments' qualities:
 
