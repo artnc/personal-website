@@ -41,10 +41,10 @@ build:
 # Run Isso. ISSO_ADMIN_PASSWORD can be set to anything - just remember it for use at /admin
 .PHONY: comments
 comments:
-	[[ -n '$${ISSO_ADMIN_PASSWORD}' ]]
+	[[ -n "$${ISSO_ADMIN_PASSWORD}" ]]
 	mkdir -p /tmp/isso
 	cp isso.cfg /tmp/isso/isso.cfg
-	sed -i 's/__ISSO_ADMIN_PASSWORD__/$${ISSO_ADMIN_PASSWORD}/g' /tmp/isso/isso.cfg
+	sed -i "s/__ISSO_ADMIN_PASSWORD__/$${ISSO_ADMIN_PASSWORD}/g" /tmp/isso/isso.cfg
 	# https://isso-comments.de/docs/reference/installation/#using-docker
 	docker run --rm \
 		-p 127.0.0.1:8080:8080 \
