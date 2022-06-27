@@ -1,3 +1,4 @@
 *.sublime-workspace
 /build/
+/comments.db
 /src/.jekyll-cache/

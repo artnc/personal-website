@@ -3,9 +3,10 @@ MAKEFLAGS += --silent
 SHELL = /usr/bin/env bash
 
 _DOCKER_RUN = docker run --rm -it \
-	-p 4000:4000 -p 35729:35729 \
+	-p 4000:4000 \
+	-p 8080:8080 \
+	-p 35729:35729 \
 	-v "$${PWD}:/code" \
-	-v "/code/node_modules" \
 	"$$(docker build -q -t artnc/personal-website .)"
 
 # Build production files
@@ -18,7 +19,7 @@ build:
 	echo 'Building Jekyll...'
 	$(_DOCKER_RUN) sh -c 'cd src && jekyll build --config "_config.yml,_config.prod.yml"'
 	echo 'Compressing HTML and inline CSS/JS...'
-	$(_DOCKER_RUN) node_modules/.bin/html-minifier-terser \
+	$(_DOCKER_RUN) html-minifier-terser \
 		--collapse-whitespace \
 		--decode-entities \
 		--file-ext html \
@@ -37,6 +38,10 @@ build:
 		&& echo "Hash: $${md5}" \
 		&& mv build/css/main.css "build/css/$${md5}.css" \
 		&& find build -type f -name '*.html' | xargs sed -i "s@css/main\.css@css/$${md5}\.css@g"'
+
+.PHONY: comments
+comments:
+	$(_DOCKER_RUN) isso -c isso.cfg run
 
 # Watch Jekyll source directory for changes and serve at localhost:4000
 .PHONY: serve
@@ -59,4 +64,4 @@ sync: build
 	$(_DOCKER_RUN) rsync -azP \
 		--delete build/ \
 		-e "ssh -o StrictHostKeyChecking=no" \
-		art@${host}:/home/art/site
+		root@${host}:/var/www/html
