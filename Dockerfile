@@ -5,23 +5,16 @@ ENV LANG C.UTF-8
 RUN apk add --no-cache \
     build-base \
     curl \
-    libffi-dev \
     nodejs \
     npm \
     openssh \
     pngcrush \
-    py3-pip \
-    python3-dev \
+    python3 \
     rsync \
     ruby-dev \
-    sqlite \
   && gem install bundler \
   && npm install -g \
-    html-minifier-terser@7.0.0-alpha.1 \
-  && pip3 install --upgrade pip \
-  && pip3 install wheel \
-  && pip3 install \
-    isso==0.13.0
+    html-minifier-terser@7.0.0-alpha.1
 
 WORKDIR /code
 

@@ -4,7 +4,6 @@ SHELL = /usr/bin/env bash
 
 _DOCKER_RUN = docker run --rm -it \
 	-p 4000:4000 \
-	-p 8080:8080 \
 	-p 35729:35729 \
 	-v "$${PWD}:/code" \
 	"$$(docker build -q -t artnc/personal-website .)"
@@ -41,7 +40,11 @@ build:
 
 .PHONY: comments
 comments:
-	$(_DOCKER_RUN) isso -c isso.cfg run
+	# https://isso-comments.de/docs/reference/installation/#using-docker
+	docker run --rm \
+		-p 127.0.0.1:8080:8080 \
+		-v "$${PWD}:/config" \
+		ghcr.io/isso-comments/isso:latest
 
 # Watch Jekyll source directory for changes and serve at localhost:4000
 .PHONY: serve
