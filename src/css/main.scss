@@ -724,48 +724,61 @@ img.right {
 /********************************************************************** ISSO */
 
 #isso-thread {
-  // Hide email and website
-  .input-wrapper:nth-child(2),
-  .input-wrapper:nth-child(3) {
+  // Comment count
+  h4 {
     display: none;
   }
 
+  // Inputs
+  input[name="edit"],
+  input[name="preview"],
+  input[name="website"] {
+    display: none;
+  }
+  input[name="email"] {
+    margin-left: 5px;
+  }
   input[type="submit"] {
     font-weight: 700;
     padding: 5px 10px;
   }
-
   input,
-  .textarea {
+  .isso-textarea {
     background: $gray;
     box-shadow: none !important;
-    border-color: transparent !important;
+    border: 0 solid transparent !important;
     color: $gray-light !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin: 0 0 5px;
   }
 
-  h4,
-  .author {
-    color: $gray-light !important;
-  }
-
+  // Comment
   .isso-comment:not(:first-of-type),
   .isso-follow-up .isso-comment {
     border-top: 1px solid $gray !important;
   }
 
-  .isso-comment > div.text-wrapper > .isso-comment-footer > a + a {
+  // Comment author
+  .isso-author {
+    color: $gray-light !important;
+  }
+
+  // "Reply" link
+  .isso-comment > div.isso-text-wrapper > .isso-comment-footer > a + a {
     margin-left: 1em !important;
     padding-left: 0 !important;
   }
 
-  .isso-comment > div.text-wrapper > .isso-comment-footer a:hover {
+  // Footer link on hover
+  .isso-comment > div.isso-text-wrapper > .isso-comment-footer a:hover {
     color: $green-light !important;
     text-shadow: none !important;
   }
 
-  .isso-comment > div.text-wrapper > .isso-comment-header a.permalink {
+  // Timestamp
+  .isso-comment
+    > div.isso-text-wrapper
+    > .isso-comment-header
+    a.isso-permalink {
     color: $gray-light !important;
 
     &:hover {

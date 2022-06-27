@@ -73,4 +73,5 @@ sync: build
 	$(_DOCKER_RUN) rsync -azP \
 		--delete build/ \
 		-e "ssh -o StrictHostKeyChecking=no" \
+		--quiet \
 		root@${host}:/var/www/html
