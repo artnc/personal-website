@@ -38,13 +38,19 @@ build:
 		&& mv build/css/main.css "build/css/$${md5}.css" \
 		&& find build -type f -name '*.html' | xargs sed -i "s@css/main\.css@css/$${md5}\.css@g"'
 
+# Run Isso. ISSO_ADMIN_PASSWORD can be set to anything - just remember it for use at /admin
 .PHONY: comments
 comments:
+	[[ -n '$${ISSO_ADMIN_PASSWORD}' ]]
+	mkdir -p /tmp/isso
+	cp isso.cfg /tmp/isso/isso.cfg
+	sed -i 's/__ISSO_ADMIN_PASSWORD__/$${ISSO_ADMIN_PASSWORD}/g' /tmp/isso/isso.cfg
 	# https://isso-comments.de/docs/reference/installation/#using-docker
 	docker run --rm \
 		-p 127.0.0.1:8080:8080 \
-		-v "$${PWD}:/config" \
-		ghcr.io/isso-comments/isso:latest
+		-v '/tmp/isso:/config' \
+		-v "$${PWD}:/db" \
+		ghcr.io/isso-comments/isso:0.13.0
 
 # Watch Jekyll source directory for changes and serve at localhost:4000
 .PHONY: serve
