@@ -732,7 +732,8 @@ img.right {
   // Inputs
   input[name="edit"],
   input[name="preview"],
-  input[name="website"] {
+  input[name="website"],
+  label {
     display: none;
   }
   input[name="email"] {
@@ -749,6 +750,9 @@ img.right {
     border: 0 solid transparent !important;
     color: $gray-light !important;
     margin: 0 0 5px;
+  }
+  p {
+    margin: 0;
   }
 
   // Comment
