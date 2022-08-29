@@ -176,7 +176,7 @@ TLDR of the Arch [guide](https://wiki.archlinux.org/index.php/Wireless_network_c
 ip link set wlp4s0 up
 wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "ssid" "password")
 # (Switch to another TTY at this point)
-dhchpd
+dhcpcd
 ping 8.8.8.8
 ```
 
@@ -400,13 +400,13 @@ Emulator: libGL error: unable to load driver: i965_dri.so
 On all Arch installations:
 
 ```shell
-pacman -S bc fd-rs fzf git htop ncdu ntfs-3g rclone ripgrep sudo syncthing tmux zsh zsh-syntax-highlighting
+pacman -S bc fd-rs fzf git htop ncdu ntfs-3g rclone ripgrep rsync sudo syncthing tmux words zsh zsh-syntax-highlighting
 ```
 
 On graphical Arch installations:
 
 ```shell
-pacman -S alacritty-git dmenu easystroke evince feh firefox gimp i3-wm i3blocks i3blocks-contrib-git i3lock i3status imagemagick jq keepassx2 network-manager-applet numlockx pacgraph rsync scrot shellcheck sublime-text-dev thunar syncthing-gtk words xfce4-goodies
+pacman -S alacritty dmenu easystroke evince feh firefox gimp i3-wm i3blocks i3blocks-contrib-git i3lock i3status imagemagick jq keepassxc network-manager-applet numlockx pacgraph scrot shellcheck sublime-text-dev thunar syncthing-gtk-python3 xfce4-goodies
 ```
 
 [My .zshrc and other dotfiles](https://github.com/artnc/dotfiles)
