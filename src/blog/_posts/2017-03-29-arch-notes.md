@@ -400,7 +400,7 @@ Emulator: libGL error: unable to load driver: i965_dri.so
 On all Arch installations:
 
 ```shell
-pacman -S bc fd-rs fzf git htop ncdu ntfs-3g rclone ripgrep rsync sudo syncthing tmux words zsh zsh-syntax-highlighting
+pacman -S bc fd-rs fzf git htop ncdu ntfs-3g python-pre-commit rclone ripgrep rsync sudo syncthing tmux words zsh zsh-syntax-highlighting
 ```
 
 On graphical Arch installations:
