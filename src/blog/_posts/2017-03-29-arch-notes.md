@@ -14,6 +14,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 ### OS
 
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
+- [Installing from PKGBUILD](#installing-from-pkgbuild)
 - [Using an external hard drive](#using-an-external-hard-drive)
 - [Freeing up disk space](#freeing-up-disk-space)
 - [Increasing the file watch limit](#increasing-the-file-watch-limit)
@@ -91,6 +92,12 @@ Some weeks later I crossed my fingers and ran the upgrade command again, which f
    ```
 
 1. As the computer reboots, go back into BIOS and move GRUB back to highest boot priority. Boot into your hopefully working system and remove the USB drive.
+
+## Installing from PKGBUILD
+
+Problem: A `libreswan` update broke compatibility with `networkmanager-l2tp`. Downgrading `libreswan` (AUR) via `downgrade` wasn't an option since I aggressively clear my pacman cache, and after a week I got tired of waiting for the `networkmanager-l2tp` [fix](https://github.com/nm-l2tp/NetworkManager-l2tp/commit/3c6ccfe331e65c7af8be4df78cac67c030e96958) to land in Arch's official repo.
+
+Solution: Clone the `libreswan` repo to `/tmp`, `cd` into it, `git reset --hard` to the last compatible version, and run `makepkg -si` to build and install.
 
 ## Using an external hard drive
 
