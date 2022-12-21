@@ -30,6 +30,10 @@ $green-light: #70ad64;
 $green-select: #c5ffba;
 $white-off: #c8c8c8;
 
+// Speeds
+
+$transition-fast: 0.15s;
+
 /******************************************************************** GLOBAL */
 
 // Elements
@@ -216,7 +220,7 @@ img {
     display: inline-block;
     padding-bottom: 1px;
     text-transform: uppercase;
-    transition: border-color 0.25s;
+    transition: border-color $transition-fast;
 
     &:hover {
       border-color: $gray;
@@ -244,7 +248,7 @@ img {
 
   #logo:hover img {
     transform: rotate(360deg);
-    transition: transform 0.4s;
+    transition: transform 0.5s;
   }
 
   span {
@@ -262,7 +266,7 @@ img {
     border-bottom: 1px solid transparent;
     color: $green-light;
     padding-bottom: 1px;
-    transition: border-color 0.25s;
+    transition: border-color $transition-fast;
 
     &:hover {
       border-color: $green-light;
@@ -377,7 +381,7 @@ img {
   svg {
     fill: $gray-light;
     height: 100%;
-    transition: fill 0.4s;
+    transition: fill $transition-fast;
     width: 100%;
   }
 }
@@ -656,7 +660,7 @@ img.right {
   h2 a {
     margin-left: 15px;
     opacity: 0;
-    transition: opacity 0.25s;
+    transition: opacity $transition-fast;
   }
 
   h2:hover a {
