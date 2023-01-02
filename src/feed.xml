@@ -17,8 +17,18 @@
         <title>{{ post.h1 }}</title>
         <link>{{ site.url }}{{ post.id }}</link>
         <pubDate>{{ post.date | date: time_format }}</pubDate>
-        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-        <description>{{ post.content | replace:'="//','="http//' | replace:'href="/','href="https://chaidarun.com/' | replace:'src="/','src="https://chaidarun.com/' | replace:'="http//','="//' | xml_escape }}</description>
+        <guid isPermaLink="true">{{ site.url }}{{ post.id }}</guid>
+        <description>{{
+          post.content
+            | replace: '="//', '="http//'
+            | replace: 'href="#', 'href="__SITE_URL____POST_ID__#'
+            | replace: 'href="/', 'href="__SITE_URL__/'
+            | replace: 'src="/', 'src="__SITE_URL__/'
+            | replace: '__SITE_URL__',site.url
+            | replace: '__POST_ID__',post.id
+            | replace: '="http//', '="//'
+            | xml_escape
+        }}</description>
       </item>
       {% endif %}
     {% endfor %}
