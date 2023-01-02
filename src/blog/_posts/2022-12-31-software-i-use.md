@@ -1,0 +1,338 @@
+---
+h1: Software I Use
+layout: post
+pagetitle: Software I Use
+tags: ["linux"]
+---
+
+Here's a gratuitously detailed rundown of some of my software choices. Be warned that it's not a particularly sexy collection since I tend to prioritize efficiency and flexibility over aesthetics and ease of use out of the box.
+
+<!-- duo toc src/blog/_posts/2022-12-20-software-i-use.md | xc -->
+
+- General: [Android](#android), [Chronofile](#chronofile), [clipman](#clipman), [Duolingo](#duolingo), [Firefox](#firefox), [FitNotes](#fitnotes), [Google Fi](#google-fi), [Google Keep](#google-keep), [Google Tasks](#google-tasks), [Inoreader](#inoreader), [KeePassXC](#keepassxc), [Linux](#linux), [Meteogram](#meteogram), [Mint](#mint), [MobileSheets](#mobilesheets), [mpv](#mpv), [Mullvad](#mullvad), [MuseScore](#musescore), [Overleaf](#overleaf), [rclone](#rclone), [Reaper](#reaper), [Signal](#signal), [Syncthing](#syncthing)
+
+- Coding: [Alacritty](#alacritty), [DejaVu Sans Mono](#dejavu-sans-mono), [DigitalOcean](#digitalocean), [fzf](#fzf), [Isso](#isso), [Jekyll](#jekyll), [nano](#nano), [ripgrep](#ripgrep), [Sublime Text](#sublime-text), [tmux](#tmux), [zsh](#zsh)
+
+- Linux: [Arch Linux](#arch-linux), [Easystroke](#easystroke), [i3](#i3), [pacaur](#pacaur), [xbindkeys](#xbindkeys), [XFCE4 goodies](#xfce4-goodies)
+
+<style>.content h2 + p { margin-top: -20px }</style>
+
+---
+
+## Android
+
+_Mobile OS. Alternatives I've tried: iOS, Windows Phone, CyanogenMod_
+
+I prefer more control over my phone than iOS offers: I can freely customize Android's home screen, sideload apps, pick and choose hardware specs, charge with any old USB-C cable instead of Apple's not-even-included Lightning cable, easily develop and share my [own](https://github.com/artnc/chronofile) [apps](https://github.com/artnc/kasa-widget-android), automate nearly anything with Tasker, and so on. I don't mind appearing as a green texter in a chat app that I don't use :)
+
+## Chronofile
+
+_Personal analytics, a.k.a. [lifelogging](https://en.wikipedia.org/wiki/Lifelog), a.k.a. [quantified self](https://en.wikipedia.org/wiki/Quantified_self). Alternatives I've tried: spreadsheets_
+
+I’ve been continuously recording my daily activities by hand since I was 17, amounting to ~100,000 activities over the past 11 years. Most of it has taken place in an [app](https://github.com/artnc/chronofile) that I built for myself. I described the process and data in a [blog post](/ten-years-of-logging-my-life) that generated a lively [discussion](https://news.ycombinator.com/item?id=29692087) on Hacker News and got [picked up](https://buzzorange.com/techorange/2021/12/29/track-data-software-engineer/) by Taiwanese media (lol?)
+
+![](/img/chronofile-screens.png)
+
+## clipman
+
+_Clipboard history._
+
+`Ctrl + V` pastes the last thing you copied, while a clipboard manager can remember and provide easy access to hundreds of things you've recently copied. Life-changing.
+
+Xfce's [clipman](https://docs.xfce.org/panel-plugins/xfce4-clipman-plugin/start) introduced me to the concept. I won't recommend specific programs for Windows or Mac since I haven't tried any, but a [cursory search](https://www.google.com/search?q=mac+clipboard+manager) shows tons of choices.
+
+## Duolingo
+
+_Language learning. Alternatives I've tried: Anki, Memrise, LingoDeer, Drops, Tandem, HelloTalk, Cake, ELSA Speak, textbooks_
+
+Full disclosure: I work at [Duolingo](https://www.duolingo.com/). But that's because I was already a [power user](/duolingo), not the other way around.
+
+As a casual language learner, Duolingo's gamification features had me hooked immediately. By now I've made significant progress through around a dozen courses, completing seven of them. Although language proficiency does fade quickly without ongoing practice, I was fairly decent at the time of finishing each course: not fully conversational and definitely not fluent, but equivalent after only a few dozen hours on Duolingo to having taken two or three years of high school instruction. The vocab that I do still remember comes in handy surprisingly often when I recognize the meanings of infrequent musical directives like _pesante_, brand names like _Fjällräven_, Spanish chatter at pickup volleyball, and even [alien dialogue](https://esperanto.stackexchange.com/questions/3264/what-motivated-the-choice-of-esperanto-in-the-saga-comic) in science fiction.
+
+To reach fluency, there's no substitute for talking with humans. [Tandem](https://www.tandem.net/) worked pretty well for me as a way to find someone with whom to practice conversational Thai offline, but within the app itself I'd say the best feature is its specialized UI for gracefully correcting any mistakes in your partner's chat messages. Nowadays I mostly stick to Duolingo and use my phone keyboard's voice typing feature to practice speaking. Google's unforgivingly (and unintentionally?) strict speech recognizer serves as my pronunciation guide.
+
+![](/img/duolingo-yir.png)
+
+## Firefox
+
+_Web browser. Alternatives I've tried: Chrome, Chromium, Edge, Opera_
+
+After falling behind Chrome in performance and features for many years, Firefox finally [caught up](https://www.nytimes.com/2018/06/20/technology/personaltech/firefox-chrome-browser-privacy.html). It continues to support privacy and ad blocking features in a way that no browser created by an online advertising company will ever match. I still use Google products that blow away the competition, but this is one place where it's easy to avoid putting more eggs than necessary in the Google basket.
+
+## FitNotes
+
+_Workout tracker. Alternatives I've tried: Fitocracy, Strong, MyFitnessPal, spreadsheets_
+
+Way back in 2013 when [PhoneGap](https://en.wikipedia.org/wiki/Apache_Cordova) reached peak hype, I went about learning it by developing my own workout tracking app... until I found [FitNotes](https://www.fitnotesapp.com/), which was the exact app I planned to build. No frills, streamlined UI, and full ownership of the data.
+
+I find it comforting that FitNotes is also developed independently by just a guy like me, which is about the scope that feels appropriate for something as simple as a workout tracker. No worries that big fitness will aggressively try to monetize and engage me.
+
+## Google Fi
+
+_Wireless carrier. Alternatives I've tried: T-Mobile, Verizon_
+
+My Fi family plan gets me unlimited calls, texts, and data for $24/mo after taxes and fees. I don't travel enough internationally that it makes sense anymore, but previously I used their flexible plan for $20/mo plus $10/GB for mobile data that works practically anywhere in the world.
+
+Although Fi was initially available by invitation only for a handful of phone models, they now [support](https://fi.google.com/compatibility) iPhones and many Android devices. If you decide to make the switch, you can save us both $20 by using this [referral link](https://g.co/fi/r/A2D70F) or code: `A2D70F`
+
+## Google Keep
+
+_Notes. Alternatives I've tried: Evernote, OneNote, Notion, text files_
+
+As with FitNotes and Google Tasks, it's a relief that [Google Keep](https://play.google.com/store/apps/details?id=com.google.android.keep)'s product decisions don't suffer from the business pressure of being an entire company's sole source of income. It's just a dead simple note-taking app that syncs between my laptop and phone, which is all I want or need.
+
+## Google Tasks
+
+_Todo list. Alternatives I've tried: Remember the Milk, text files, physical planner_
+
+After languishing for years in a state of limbo and dubious recommendability, [Google Tasks](https://play.google.com/store/apps/details?id=com.google.android.apps.tasks) finally implemented the last feature on my wishlist: an Android widget to show upcoming tasks. Or maybe I should say _second_ feature because the only other feature that I want out of a todo app is seamless integration with Google Calendar. The use cases for todo lists and calendars are so intertwined that I can't imagine managing them nearly as effectively in two separate places.
+
+![](/img/tasks.png)
+
+## Inoreader
+
+_RSS reader. Alternatives I've tried: Google Reader, Feedly, Tiny Tiny RSS, NewsBlur_
+
+Like many people, I migrated to Feedly upon Google Reader's untimely demise. Feedly's extravagant use of screen space and lack of customizability bothered me, so I then [ran my own TTRSS server](/ttrss-heroku) for several years until I got tired of having to regularly upgrade and troubleshoot it myself.
+
+[Inoreader](https://www.inoreader.com/) feels closest to the spirit of Google Reader. After trying their free version with an ad blocker for a while, I happily upgraded to their $20/yr ad free plan.
+
+![](/img/inoreader.png)
+
+## KeePassXC
+
+_Password manager. Alternatives I've tried: LastPass, 1Password, KeePass, KeePassX_
+
+A security incident with some cloud-based password manager or another seems to [make the news](https://www.theverge.com/2022/12/28/23529547/lastpass-vault-breach-disclosure-encryption-cybersecurity-rebuttal) every other month. The most popular totally offline, totally <abbr title="free and open-source software">FOSS</abbr> option is KeePass and its forks. [KeePassXC](https://keepassxc.org/) is a modern fork [recommended](https://ssd.eff.org/module/creating-strong-passwords) by the EFF. All passwords live in a single file that I sync across my devices via [Syncthing](#syncthing).
+
+## Linux
+
+_Desktop OS. Alternatives I've tried: Windows 95 - Windows 10, macOS Mavericks - Catalina_
+
+Compared to Windows and/or Mac, [Linux](https://en.wikipedia.org/wiki/Linux)'s strengths include hassle-free package management, the ability to customize or switch out any part of the OS (e.g. to avoid shenanigans like [start menu ads](https://www.ghacks.net/2022/11/21/microsoft-is-turning-windows-11s-start-menu-into-an-advertisement-delivery-system/)), being a smaller target for consumer malware, generally better performance and reliability on the same hardware, native support for industry standard programming tools like Docker, no data harvesting, and of course the $0 price tag. After years of troubleshooting my mom's Windows machines, I set up [Linux Mint](https://linuxmint.com/) for her and have gotten zero complaints in the decade since.
+
+Linux's weaknesses include the typical need to install it yourself and less support for proprietary software such as AAA games and professional creative tools. Depending on which Linux distro (variant) you choose, support for peripherals such as printers and cameras may also take some legwork.
+
+![](/img/software-update.jpg)
+
+## Meteogram
+
+_Weather app. Alternatives I've tried: Aix Weather Widget, Google Weather_
+
+In a vast ocean of Android weather apps, [Aix Weather Widget](https://www.wirefresh.com/aix-weather-widget-our-new-favourite-android-widget/) was the perfect one for me until Android 11 finally [broke](https://github.com/pveierland/aix-weather-widget/issues/18) it in 2020. Some time later, I asked my friend about the staggeringly detailed weather widget that I couldn't help but notice taking up half their home screen. I was pleasantly surprised to discover that not only does [Meteogram](https://play.google.com/store/apps/details?id=com.cloud3squared.meteogram) give you full control over every last aspect of its display, but it even comes with a minimalist "Aix lookalike" preset!
+
+![](/img/meteogram.png)
+
+## Mint
+
+_Personal finance tracking. Alternatives I've tried: spreadsheets_
+
+Every RPG out there has some kind of dashboard for checking your character's stats. [Mint](https://mint.intuit.com/) provides a similar overview of your financial life. Its Android widgets let me easily monitor all of my accounts' current balances and recent transactions. I'd prefer an equally convenient alternative that isn't now owned by Intuit though, so maybe I'll give [Personal Capital](https://www.personalcapital.com/) a spin sometime.
+
+## MobileSheets
+
+_Sheet music display. Alternatives I've tried: PDF viewers, paper_
+
+PDF viewers work okay for sheet music but come with a bunch of annoyances, chief among them the problem of page turning. I once hacked up my own solution using [face recognition](/page-turner) via my Linux laptop's webcam, but that's hardly a normal setting for musical performance.
+
+![](/img/page-turner.jpg)
+
+Dedicated apps like [MobileSheets](https://www.zubersoft.com/mobilesheets/) provide helpful features like half-page turns, Bluetooth integration with page turning devices, custom setlists, and automatic whitespace cropping. MobileSheets is available for both Android and iOS, although [forScore](https://forscore.co/) seems more popular on iOS.
+
+## mpv
+
+_Media player. Alternatives I've tried: VLC, RealPlayer_
+
+[VLC](https://en.wikipedia.org/wiki/VLC_media_player) is the best-known media player that can handle any audio or video file you throw at it. [mpv](<https://en.wikipedia.org/wiki/Mpv_(media_player)>) is a similar (both are based on [FFmpeg](https://en.wikipedia.org/wiki/FFmpeg)) <abbr title="command-line interface">CLI</abbr> program that supposedly offers slightly better defaults, performance, and file support. If I hadn't already been looking for a CLI media player, I'd probably just stick to VLC.
+
+## Mullvad
+
+_VPN_
+
+I'm not really the most privacy-conscious person in the world, and I [don't](https://www.vice.com/en/article/xgxnwk/you-probably-dont-need-a-vpn) go around evangelizing VPNs. I just happen to spend more time than most people on public WiFi networks that mess with traffic, e.g. [breaking my RSS reader](https://www.reddit.com/r/InoReader/comments/o6lv7g/why_doesnt_inoreader_work_on_this_one_particular/?utm_source=share&utm_medium=web2x&context=3) for some reason. [Mullvad](https://mullvad.net/en/) doesn't spend as much on marketing as NordVPN or ExpressVPN, but it's the only commercial option that I've personally heard security engineers recommend. Mozilla's own VPN offering is basically just [rebranded](https://arstechnica.com/gadgets/2020/07/we-test-mozillas-new-wireguard-based-5-mo-vpn-service/) Mullvad.
+
+## MuseScore
+
+_Music notation. Alternatives I've tried: Sibelius, Frescobaldi, LilyPond, TuxGuitar, Guitar Pro_
+
+I wrote a few scores in Sibelius as a teenager and it blew MuseScore out of the water back then. Now that the original Sibelius development team has moved to Steinberg, I'd guess that [Dorico SE](https://www.steinberg.net/dorico/se/) is an excellent free option for getting started today.
+
+That said, [MuseScore](https://musescore.org/en) has improved a ton and I've seen some of my music teachers using it. It's more than sufficient for [my guitar tabbing](/musescore-tab) and occasional piano scoring purposes. I've only ever tried my hand at a multi-instrument score once, but well... that's one more time than trialware like Dorico SE would allow.
+
+![](/img/musescore.png)
+
+## Overleaf
+
+_Typesetting. Alternatives I've tried: TeX Live, Microsoft Word_
+
+I learned [LaTeX](https://en.wikipedia.org/wiki/LaTeX) to make my high school resume prettier, wrote all of my college assignments in LaTeX for fun, and recently chose to use [dockerized LaTeX](https://hub.docker.com/r/blang/latex) for a project at my day job. Clearly I don't hate LaTeX, but just getting it to run has always been a pain. Installations take up gigabytes of disk space, the tooling ecosystem is extremely fragmented, and good luck with basic tasks like changing the font. For the occasional resume tweak or formula render, an online editor like [Overleaf](https://www.overleaf.com/) will spit out a PDF with minimal hassle.
+
+## rclone
+
+_File backup. Alternatives I've tried: Carbonite, SugarSync, external HDD, crossed fingers_
+
+I use [Syncthing](#syncthing) to sync files across my devices and a [public GitHub repo](https://github.com/artnc/dotfiles) to house my program settings. By "backup", I'm referring to the act of shipping my old photos and documents off to some remote datacenter where they'll survive any disaster that may befall my laptop.
+
+[Rclone](https://rclone.org/) lets you easily sync your local files to pretty much any cloud storage provider. As easily as [rsync](https://en.wikipedia.org/wiki/Rsync), that is - both are CLIs after all. Rclone's [encryption](https://rclone.org/crypt/) at rest means that I don't have to worry about the cloud provider snooping on my files or losing them in a data breach.
+
+## Reaper
+
+_Digital audio workstation (DAW)_
+
+Yes, this one is mostly about the money. [Reaper](https://www.reaper.fm/) is effectively donationware for which I happily shelled out $60 after a few mixing projects. Logic Pro and every other <abbr title="digital audio workstation">DAW</abbr> worth mentioning all cost hundreds of dollars, which is more than I'd like to spend on a chore that's only tangentially related to my actual hobby of playing music. Reaper's [blenderesque](<https://en.wikipedia.org/wiki/Blender_(software)>) UI takes some getting used to but ends up feeling reasonably efficient once you're comfortable with it.
+
+![](/img/reaper.png)
+
+## Signal
+
+_Instant messaging. Alternatives I've tried: Messenger, WhatsApp, LINE, etc. etc. etc._
+
+I'm not enough of an ideologue to forgo Messenger, WhatsApp, or whatever else my friends and family already use, but if we both happen to have [Signal](https://signal.org/en/) then that's the chat app of choice. Signal's security measures [survive subpoenas](https://signal.org/bigbrother/santaclara/) while other apps get in PR trouble for unexpectedly [sharing your data](https://www.wired.com/story/whatsapp-facebook-data-share-notification/). As a bonus of being open source, Signal is also the only popular chat app that would ever let me dive into its code and [fix a bug](https://github.com/signalapp/Signal-Android/commit/49a1a4a123e82d86ee3963b5d577cf9d33bd10e8) myself!
+
+## Syncthing
+
+_File sync across devices. Alternatives I've tried: Dropbox, SugarSync, OneDrive_
+
+[Syncthing](https://syncthing.net/) is self-hosted Dropbox. Five years after my [blog post](/dropbox-syncthing) about why and how I made the switch, Syncthing still works well for me and gets recommended often in Hacker News comments.
+
+---
+
+<span id="coding"></span>
+
+## Alacritty
+
+_Terminal emulator. Alternatives I've tried: xterm, xfce4-terminal, urxvt, Tilda, Terminal, iTerm2_
+
+[Alacritty](https://alacritty.org/) made a splashy entrance a few years ago with bold claims of trouncing every other terminal's performance now and forever. I haven't used any alternatives recently enough to remember how much slower their rendering felt, but I appreciate Alacritty's philosophy at least as much as its results. I already use [tmux](#tmux) for features like panels and scrolling, which leaves text rendering as the [one thing](https://en.wikipedia.org/wiki/Unix_philosophy#Do_One_Thing_and_Do_It_Well) for my terminal to do well.
+
+## DejaVu Sans Mono
+
+_Programming font. Alternatives I've tried: Consolas, Inconsolata, Source Code Pro_
+
+I want my editor and terminal font to be monospaced, unambiguous when it comes to similar characters like `1` / `l` / `I`, legible at small sizes, available everywhere, and as plain or "normal" looking as possible - in that order. [DejaVu Sans Mono](https://www.fontsquirrel.com/fonts/dejavu-sans-mono) does a pretty good job ticking those boxes. For many years, it was the default monospaced font on both MacOS and Fedora Linux.
+
+Maybe I just haven't spent enough time with them to reach enlightment, but I find ligature-heavy fonts like Fira Code impractically cute. Whenever I see something like `≉` in my editor, I'd rather not need to also remember that `!~` is the "source code" for the source code itself.
+
+## DigitalOcean
+
+_Web host. Alternatives I've tried: AWS, Heroku, GitHub Pages, x10hosting, Raspberry Pi_
+
+I have no complaints about [DigitalOcean](https://www.digitalocean.com/) and find their documentation in particular to be excellent, but my preference here is less about DigitalOcean specifically and more about <abbr title="virtual private server">VPS</abbr> vs. cloud vs. <abbr title="platform as a service">PaaS</abbr> vs. static HTML vs. shared hosting vs. home server. For me, the VPS route strikes the best balance between flexibility and maintainability. I can roll my own features like [self-hosted blog comments](#isso) and custom URL redirects without spending too much time on the ops side.
+
+## fzf
+
+_CLI autocomplete for common programs_
+
+[fzf](https://github.com/junegunn/fzf) ("fuzzy finder") is a general-purpose CLI tool that automatically converts long lists into searchable menus, similar to how a web browser suggests URLs as you type into its location bar. It takes over your shell's `Ctrl + R` to present your command history in that browser-style UI, as opposed to [readline](https://en.wikipedia.org/wiki/GNU_Readline)'s functional but tedious behavior of paging chronologically through one entry at a time. Hitting `Ctrl + T` shows similar UI for recursively searching the current directory for any given file name.
+
+My third main use case for fzf is typing `kill **<TAB>` to get a searchable menu of killable processes without needing to worry at all about PIDs, which handily beats the old `ps aux` + `grep` + `kill` ritual:
+
+![](/img/fzf.png)
+
+## Isso
+
+_Blog comments. Alternatives I've tried: Disqus_
+
+I previously ran Disqus on this blog but eventually got tired of the ads and slowness. [Isso](https://isso-comments.de/) is a self-hosted commenting system and admin panel that, like [FitNotes](#fitnotes), does exactly what I want in a simple way that closely matches what I'd otherwise just build from scratch for myself.
+
+## Jekyll
+
+_Blog CMS. Alternatives I've tried: Pelican, WordPress, Ghost, Drupal, Joomla, MODX_
+
+[Jekyll](https://jekyllrb.com/) popularized the idea of generating static HTML from Markdown files. I'm comfortable rsyncing the HTML to my VPS, so I don't want or need anything more "engineered" than Jekyll. Despite [murmurs](https://www.theregister.com/2021/09/14/future_of_jekyll_project_engine/) of its deprecation, Jekyll seems unlikely to go away or even lose its status as the most popular <abbr title="static site generator">SSG</abbr> as long as it remains GitHub's default method for publishing to GitHub Pages.
+
+My Jekyll [workflow](https://github.com/artnc/personal-website#workflow): start the local development server, open a [Firefox](#firefox) window next to a [Sublime Text](#sublime-text) window, see the output refresh itself whenever I save in Sublime Text, and publish by rsyncing the entire build folder to [DigitalOcean](#digitalocean).
+
+## nano
+
+_CLI text editor. Alternatives I've tried: vi/vim/neovim, emacs_
+
+If you're not all in on terminal editors like vim, [nano](https://en.wikipedia.org/wiki/Nano) comes preinstalled in most Linux distros and provides a much more user-friendly <abbr title="terminal user interface">TUI</abbr> for stuff like amending Git commits. Just [set](https://github.com/artnc/dotfiles/blob/9daf0a602ddde8189bed28e1962109cfbe7f310c/zsh/.zshrc#L266) it as your `$EDITOR` and you'll never need to worry again about forgetting rarely used keyboard shortcuts.
+
+![](/img/nano.png)
+
+MacOS once came with nano but now preinstalls [pico](<https://en.wikipedia.org/wiki/Pico_(text_editor)>) instead, which I can only assume was due to a [licensing situation](https://discussions.apple.com/thread/250722978) similar to Bash vs. Zsh.
+
+## ripgrep
+
+_Local code search. Alternatives I've tried: grep, ag_
+
+[Ripgrep](https://github.com/BurntSushi/ripgrep) is a faster drop-in replacement for [grep](https://en.wikipedia.org/wiki/Grep). Like other grep alternatives, it respects `.gitignore` by default. Microsoft now [uses](https://github.com/microsoft/vscode-ripgrep) ripgrep to power VS Code's search feature.
+
+## Sublime Text
+
+_GUI code editor. Alternatives I've tried: Visual Studio Code, Notepad++, various JetBrains IDEs, Eclipse, Visual Studio, etc. etc._
+
+I use Android Studio for Android development because Google more or less forces you to. Whenever I have more of a choice, I avoid IDEs since they're so slow and complex, crammed with tons of features that are unreliable and/or unnecessary for me. Even VS Code is too bloated out of the box for my taste despite my championing of GitHub Codespaces [at my job](https://blog.duolingo.com/developer-onboarding-with-github-codespaces/).
+
+I've spent at least 100 hours using each of the alternatives listed above, and [Sublime Text](https://www.sublimetext.com/) remains my favorite for its speed and simplicity. The only action that causes any perceivable lag is opening a file that weighs several megabytes or even gigabytes, a task that other editors handle worse (if at all). Instead of trying to pare beefier IDEs down to just what I want, I install a few Sublime [plugins](https://github.com/artnc/dotfiles/blob/9daf0a602ddde8189bed28e1962109cfbe7f310c/sublime/Package%20Control.sublime-settings#L8-L17) that add helpful IDE features like symbol renaming and type inference hints.
+
+## tmux
+
+_Terminal multiplexer (tab and pane manager). Alternatives I've tried: screen, GUI tabs_
+
+Most people who want to open multiple terminal windows use their terminal's GUI tab feature, a familiar approach that matches web browsers' UI. Some terminal apps get even fancier and let you split tabs horizontally or vertically into multiple panes. This all works fine until you land in an environment that doesn't support your favored GUI terminal: a remote server you're SSHed into, a headless local machine, or your IDE's built-in terminal panel.
+
+[tmux](https://en.wikipedia.org/wiki/Tmux) uses Unicode art to implement those windowing features all inside a single terminal itself, removing the need for GUI tabs. Other than portability, tmux's main draw is persistence across SSH sessions. I can log into a remote server, kick off some jobs inside tmux there, log out without killing those jobs, and come back later to view those jobs running inside the same tmux session exactly as I had left it.
+
+## Zsh
+
+_Interactive Unix shell. Alternatives I've tried: Bash_
+
+For all its hype, Zsh is actually almost identical to Bash (and just one year younger!). While Zsh does offer a few advantages like spellcheck and automatic `cd`, it owes much of its relatively recent popularity to a plugin manager called [Oh My Zsh](https://ohmyz.sh/).
+
+I don't use Oh My Zsh anymore. Bundling the kitchen sink might be the fastest way to get a decent setup, but eventually I wanted better performance and control. Now I just declare my own [Git aliases](https://github.com/artnc/dotfiles/blob/9daf0a602ddde8189bed28e1962109cfbe7f310c/zsh/.zshrc#L215-L255) and install [Zsh syntax highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) directly.
+
+To be clear, I only use Zsh as an interactive shell. Unless you're specifically writing a Zsh plugin, Bash and Bourne shell remain the only sane choices for non-interactive scripting due to their ubiquity.
+
+There's also [Fish](https://fishshell.com/), the only other Unix shell today with any voluntary adoption to speak of. While Zsh is essentially just Bash with a few extra features, the whole Fish shtick (sorry) is its [thorough departure](<https://en.wikipedia.org/wiki/Fish_(Unix_shell)#Bash/fish_translation_table>) from POSIX standards. Some of Fish's interactive features do sound tempting, but to me they don't feel worth the mental burden of always having to remember what shell features are safe to use inside Bash scripts.
+
+---
+
+## Arch Linux
+
+_Desktop Linux distro. Alternatives I've tried: Fedora, Ubuntu, Mint, ChromeOS_
+
+Everything I said [above](#linux) about Linux is even truer of the minimalist [Arch Linux](https://en.wikipedia.org/wiki/Arch_Linux) than of other common distros. I began with [Fedora](https://en.wikipedia.org/wiki/Fedora_Linux) in college and stuck with it through my first few years of full-time work. Eventually I became comfortable enough with Linux to try out Arch, whose [principles](https://wiki.archlinux.org/title/Arch_Linux) align more with what I want out of software: simplicity, modernity, pragmatism, user centrality, and versatility.
+
+Simple doesn't necessarily mean easy - it's much easier to churn out a long and rambling blog post _\*cough\*_ than a clear and concise one. In contrast to Arch, distros like [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu) are easy but complex. Here are [my notes](/arch-notes) on how I've arrived at my current Arch setup.
+
+## Easystroke
+
+_GUI navigation via mouse gestures_
+
+[Easystroke](https://aur.archlinux.org/packages/easystroke) translates mouse gestures into keyboard shortcuts, which programs then translate into commands like undo, refresh, next tab, etc. For example, I can draw an L-shape while holding down my mouse's right button to send a `Ctrl + W` command that closes the active tab in programs like Firefox and Sublime Text. The only time I ever think about mouse gestures anymore is whenever I use someone else's computer and realize how much I miss them!
+
+![](/img/easystroke.png)
+
+## i3
+
+_Window manager. Alternatives I've tried: GNOME, KDE Plasma, Xfce, Unity, Cinnamon_
+
+[i3](https://i3wm.org/) is like [tmux](#tmux) for desktop apps. If you hate wasting screen space and love keyboard shortcuts, i3 will let you manage your app windows as efficiently as possible.
+
+Here's a screenshot from my [Arch](#arch-linux) laptop that shows [Sublime Text](#sublime-text) and [Alacritty](#alacritty) equally sharing the third of six desktops, which I can jump to via `CapsLock + 3`. I can open a new app by hitting `CapsLock + E` and typing part of its name.
+
+![](/img/arch.png)
+
+The half-screen window snapping features introduced in Windows Vista and MacOS Catalina don't hold a candle to i3. [Yabai](https://github.com/koekeishiya/yabai) for Mac appears to get some of the way there.
+
+## pacaur
+
+_AUR helper. Alternatives I've tried: yaourt, trizen_
+
+[Yay](https://github.com/Jguer/yay) is the AUR helper _du jour_ and [pacaur](https://aur.archlinux.org/packages/pacaur) has been something of a zombie since its original author left in 2018, but the latter still works fine for me. I'm sure yay is slightly nicer and it's what I'd recommend to new Arch users - it just doesn't seem worth switching over my existing machines and scripts.
+
+## xbindkeys
+
+_GUI automation. Alternatives I've tried: AutoHotkey_
+
+On Linux I use [xbindkeys](https://wiki.archlinux.org/title/Xbindkeys) to create system-wide [keyboard shortcuts](https://github.com/artnc/dotfiles/blob/9daf0a602ddde8189bed28e1962109cfbe7f310c/x/.xbindkeysrc#L4-L9) for common actions like typing out my email address.
+
+That comes in handy several times a day but pales in comparison to the absurdly powerful [AutoHotkey](https://en.wikipedia.org/wiki/AutoHotkey), a programming language whose name barely scratches the surface of what it makes trivially easy even for non-programmers: keyboard automation, mouse automation, GUI automation, GUI creation, audio playback, etc. Before getting into more mainstream programming languages like Python, I first learned TI-BASIC to develop [calculator games](/calculator) and AutoHotkey to create my own productivity tools and RuneScape bots. Tragically, AutoHotkey is only available for Windows.
+
+## Xfce4 goodies
+
+_GUI-based OS utilities. Alternatives I've tried: Nautilus, Ranger, Flameshot, etc. etc._
+
+Although I haven't run [Xfce](https://en.wikipedia.org/wiki/Xfce) itself in many years, I still use several of its [components](https://archlinux.org/groups/x86_64/xfce4-goodies/) alongside [i3](#i3) since they consistently follow Xfce's philosophy of speed and simplicity: clipboard manager `clipman`, image viewer `ristretto`, file manager `thunar` with `thunar-archive-plugin`, system tray applets `xfce4-battery-plugin` and `xfce4-clipman-plugin`, and `xfce4-screenshooter`.

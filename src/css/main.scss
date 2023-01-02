@@ -135,6 +135,10 @@ strong {
   font-weight: $font-weight-bold;
 }
 
+abbr {
+  text-decoration: none;
+}
+
 iframe {
   // YouTube
   border: 0;
