@@ -173,7 +173,7 @@ _File backup. Alternatives I've tried: Carbonite, SugarSync, external HDD, cross
 
 I use [Syncthing](#syncthing) to sync files across my devices and a [public GitHub repo](https://github.com/artnc/dotfiles) to house my program settings. By "backup", I'm referring to the act of shipping my old photos and documents off to some remote datacenter where they'll survive any disaster that may befall my laptop.
 
-[Rclone](https://rclone.org/) lets you easily sync your local files to pretty much any cloud storage provider. As easily as [rsync](https://en.wikipedia.org/wiki/Rsync), that is - both are CLIs after all. Rclone's [encryption](https://rclone.org/crypt/) at rest means that I don't have to worry about the cloud provider snooping on my files or losing them in a data breach.
+[Rclone](https://rclone.org/) lets you easily sync your local files to pretty much any cloud storage provider. As easily as [rsync](https://en.wikipedia.org/wiki/Rsync), that is&mdash;both are CLIs after all. Rclone's [encryption](https://rclone.org/crypt/) at rest means that I don't have to worry about the cloud provider snooping on my files or losing them in a data breach.
 
 ## Reaper
 
@@ -209,7 +209,7 @@ _Terminal emulator. Alternatives I've tried: xterm, xfce4-terminal, urxvt, Tilda
 
 _Programming font. Alternatives I've tried: Consolas, Inconsolata, Source Code Pro_
 
-I want my editor and terminal font to be monospaced, unambiguous when it comes to similar characters like `1` / `l` / `I`, legible at small sizes, available everywhere, and as plain or "normal" looking as possible - in that order. [DejaVu Sans Mono](https://www.fontsquirrel.com/fonts/dejavu-sans-mono) does a pretty good job ticking those boxes. For many years, it was the default monospaced font on both MacOS and Fedora Linux.
+I want my editor and terminal font to be monospaced, unambiguous when it comes to similar characters like `1` / `l` / `I`, legible at small sizes, available everywhere, and as plain or "normal" looking as possible&mdash;in that order. [DejaVu Sans Mono](https://www.fontsquirrel.com/fonts/dejavu-sans-mono) does a pretty good job ticking those boxes. For many years, it was the default monospaced font on both MacOS and Fedora Linux.
 
 Maybe I just haven't spent enough time with them to reach enlightment, but I find ligature-heavy fonts like Fira Code impractically cute. Whenever I see something like `≉` in my editor, I'd rather not need to also remember that `!~` is the "source code" for the source code itself.
 
@@ -295,7 +295,7 @@ _Desktop Linux distro. Alternatives I've tried: Fedora, Ubuntu, Mint, ChromeOS_
 
 Everything I said [above](#linux) about Linux is even truer of the minimalist [Arch Linux](https://en.wikipedia.org/wiki/Arch_Linux) than of other common distros. I began with [Fedora](https://en.wikipedia.org/wiki/Fedora_Linux) in college and stuck with it through my first few years of full-time work. Eventually I became comfortable enough with Linux to try out Arch, whose [principles](https://wiki.archlinux.org/title/Arch_Linux) align more with what I want out of software: simplicity, modernity, pragmatism, user centrality, and versatility.
 
-Simple doesn't necessarily mean easy - it's much easier to churn out a long and rambling blog post _\*cough\*_ than a clear and concise one. In contrast to Arch, distros like [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu) are easy but complex. Here are [my notes](/arch-notes) on how I've arrived at my current Arch setup.
+Simple doesn't necessarily mean easy&mdash;it's much easier to churn out a long and rambling blog post _\*cough\*_ than a clear and concise one. In contrast to Arch, distros like [Ubuntu](https://en.wikipedia.org/wiki/Ubuntu) are easy but complex. Here are [my notes](/arch-notes) on how I've arrived at my current Arch setup.
 
 ## Easystroke
 
@@ -321,7 +321,7 @@ The half-screen window snapping features introduced in Windows Vista and MacOS C
 
 _AUR helper. Alternatives I've tried: yaourt, trizen_
 
-[Yay](https://github.com/Jguer/yay) is the AUR helper _du jour_ and [pacaur](https://aur.archlinux.org/packages/pacaur) has been something of a zombie since its original author left in 2018, but the latter still works fine for me. I'm sure yay is slightly nicer and it's what I'd recommend to new Arch users - it just doesn't seem worth switching over my existing machines and scripts.
+[Yay](https://github.com/Jguer/yay) is the AUR helper _du jour_ and [pacaur](https://aur.archlinux.org/packages/pacaur) has been something of a zombie since its original author left in 2018, but the latter still works fine for me. I'm sure yay is slightly nicer and it's what I'd recommend to new Arch users&mdash;it just doesn't seem worth switching over my existing machines and scripts.
 
 ## xbindkeys
 

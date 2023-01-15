@@ -13,7 +13,7 @@ Yesterday I had the deranged pleasure of writing 1000+ lines of cross-platform B
 
 - **If you must drop into another language, use version-independent Python.** Some simple tasks like percent-encoding and JSON parsing require a more fully featured language than Bash. Macs and all major Linux distros ship with Python included (and Perl too, although Python is rather more hip these days).
 
-  [Heredoc](https://en.wikipedia.org/wiki/Here_document) syntax lets you declare foreign code snippets inline inside a Bash script. Your code should support both Python 2 and 3 since you'll likely have end users on both versions. PyPI packages are out of the question - at that point you might as well give up on Bash and switch to either Docker or a statically compiled language.
+  [Heredoc](https://en.wikipedia.org/wiki/Here_document) syntax lets you declare foreign code snippets inline inside a Bash script. Your code should support both Python 2 and 3 since you'll likely have end users on both versions. PyPI packages are out of the question&mdash;at that point you might as well give up on Bash and switch to either Docker or a statically compiled language.
 
   ```bash
   readonly response="$(curl -s 'https://example.com')"
@@ -66,7 +66,7 @@ Yesterday I had the deranged pleasure of writing 1000+ lines of cross-platform B
 
 - **Prefer `shift` to `$2`.** Calling `shift` immediately after reading each command-line argument lets you always refer to them as `$1`, which removes the need for a reader of your code to mentally keep track of argument indices and reduces the chance of making mistakes when adding or removing arguments.
 
-- **Never read the same value from `$1` twice.** If you're going to use a command-line argument multiple times, it's a good defensive practice to immediately store it into a named variable - especially when your program accepts multiple arguments.
+- **Never read the same value from `$1` twice.** If you're going to use a command-line argument multiple times, it's a good defensive practice to immediately store it into a named variable&mdash;especially when your program accepts multiple arguments.
 
 - **Print logging messages to stderr in color.** This avoids tainting stdout and makes your logs easier to read and debug.
 
