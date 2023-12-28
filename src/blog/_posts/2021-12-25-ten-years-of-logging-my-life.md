@@ -6,6 +6,8 @@ pagetitle: Ten Years of Logging My Life
 tags: []
 ---
 
+> Update 2021-12-27: See [Hacker News](https://news.ycombinator.com/item?id=29692087) for 100+ more comments on this post.
+
 I've been continuously recording my daily activities by hand since I was 17, amounting to 85,000+ activities over the span of a decade.
 
 ## Why?!

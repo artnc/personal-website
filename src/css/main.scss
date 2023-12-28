@@ -114,7 +114,7 @@ pre {
   background: $gray;
   font-family: "DejaVu Sans Mono", Consolas, Monaco, "Lucida Console", monospace;
   font-style: normal;
-  font-size: 0.875em;
+  font-size: $font-size-small;
 }
 
 code:not(pre > code) {
@@ -148,6 +148,7 @@ iframe {
 }
 
 blockquote {
+  color: $gray-light;
   font-style: italic;
 }
 
@@ -657,6 +658,13 @@ img.right {
   .date {
     color: $gray-light;
     white-space: nowrap;
+  }
+
+  .count {
+    color: $gray-light;
+    font-size: $font-size-small;
+    font-style: italic;
+    margin-left: 15px;
   }
 }
 
