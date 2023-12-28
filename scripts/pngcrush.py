@@ -10,7 +10,7 @@ CRUSHED_LIST_FILE = os.path.join("scripts", "pngcrushed.json")
 
 def main():
     # Read crushed file list
-    with open(CRUSHED_LIST_FILE, "r") as f:
+    with open(CRUSHED_LIST_FILE) as f:
         crushed = set(json.load(f))
 
     # Search for PNGs

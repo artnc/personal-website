@@ -124,7 +124,7 @@ Yesterday I had the deranged pleasure of writing 1000+ lines of cross-platform B
   find . -type f -name '*.pyc' | wc -l | awk '{print $1}'
   ```
 
-- **Prefer single quotes to double quotes when interpolating into an `eval`.** This is pretty niche, but basically it's much [simpler](https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash#comment71498177_20053121) to programmatically escape characters inside single-quoted strings than inside double-quoted strings. Single-quoted strings only need to escape `'`, while double-quoted strings need to escape each of `` "$`\ ``.
+- **Prefer single quotes to double quotes when interpolating into an `eval`.** This is pretty niche, but basically it's much [simpler](https://stackoverflow.com/questions/15783701/which-characters-need-to-be-escaped-when-using-bash#comment71498177_20053121) to programmatically escape characters inside single-quoted strings than inside double-quoted strings. Single-quoted strings only need to escape `'`, while double-quoted strings need to escape each of ``"$`\``.
 
   ```bash
   readonly json="$(< 'request_body.json')"
