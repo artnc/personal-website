@@ -9,7 +9,7 @@ While noodling around on guitar as the year wraps up, I thought of the song [_Au
 
 It wasn't always so simple! I've never been interested in music theory for its own sake, I'm _far_ from naturally gifted, and I completely relied on sheet music for many years... until eventually I got tired of hunting down and memorizing the tabs for every single song I wanted to play.
 
-This post outlines some basic tips and tricks for producing attractive (if not exactly virtuosic) song arrangements by ear, as demonstrated in my [tab](http://localhost:4000/musescore-tab) of Journey's _Don't Stop Believin'_ and my cover of Final Fantasy X's main theme:
+This post outlines some basic tips and tricks for producing attractive (if not exactly virtuosic) song arrangements by ear, as demonstrated in my [tab](/musescore-tab) of Journey's _Don't Stop Believin'_ and my cover of Final Fantasy X's main theme:
 
 <iframe src="//www.youtube.com/embed/SsBU2m9WSM4" allowfullscreen></iframe>
 
