@@ -5,6 +5,8 @@ pagetitle: Forwarding Emails to Slack
 tags: ["web"]
 ---
 
+> Update 2024-05-05: Slack now has a built-in [email forwarding](https://slack.com/help/articles/206819278-Send-emails-to-Slack) feature!
+
 ![](/img/slack-emails.jpg)
 
 You receive notification emails often and would rather send them to Slack instead of having them clutter your inbox. Here's a DIY solution that takes around 10 minutes to set up. Things you'll need:
