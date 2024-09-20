@@ -16,7 +16,6 @@ All rights reserved, except where otherwise noted.
 - Includes
   - ga: google analytics js
 - Layouts
-  - blank: nothing but {{ content }}
   - default: page without timestamp/tags
   - minimal: complete head, empty body
   - post: page with timestamp/tags
