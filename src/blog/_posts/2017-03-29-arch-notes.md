@@ -13,6 +13,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 ### OS
 
+- [Refreshing the mirror list](#refreshing-the-mirror-list)
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
 - [Installing from PKGBUILD](#installing-from-pkgbuild)
 - [Using an external hard drive](#using-an-external-hard-drive)
@@ -47,6 +48,14 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Fixing Flatpak Steam](#fixing-flatpak-steam)
 - [Fixing Android Studio](#fixing-android-studio)
 - [My setup](#my-setup)
+
+## Refreshing the mirror list
+
+By default, your Arch installation will never update its own list of mirrors (software package download sources). This is bad because these volunteer-run mirrors come and go over the years, and the fastest one today will not remain so forever. [Reflector](https://wiki.archlinux.org/title/Reflector) helps you periodically generate a fresh list of mirrors sorted by speed:
+
+```shell
+sudo reflector --country 'United States,Canada,' --latest 10 --protocol https --save /etc/pacman.d/mirrorlist --sort rate
+```
 
 ## Recovering from a bad upgrade
 
@@ -407,7 +416,7 @@ Emulator: libGL error: unable to load driver: i965_dri.so
 On all Arch installations:
 
 ```shell
-pacman -S bc fd-rs fzf git htop ncdu ntfs-3g python-pre-commit rclone ripgrep rsync sudo syncthing tmux words zsh zsh-syntax-highlighting
+pacman -S bc fd-rs fzf git htop ncdu ntfs-3g python-pre-commit rclone reflector ripgrep rsync sudo syncthing tmux words zsh zsh-syntax-highlighting
 ```
 
 On graphical Arch installations:
