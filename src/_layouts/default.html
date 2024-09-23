@@ -54,8 +54,14 @@
   // Lightbox
   const $lightboxDimmer = document.querySelector("#lightbox");
   const $lightboxImg = document.querySelector("#lightbox img");
-  $lightboxDimmer.addEventListener("click", () => {
+  const hideLightbox = () => {
     $lightboxDimmer.style.display = "none";
+  };
+  $lightboxDimmer.addEventListener("click", hideLightbox);
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" || e.key === "Esc") {
+      hideLightbox();
+    }
   });
   for (const $el of document.querySelectorAll(".content img")) {
     if ($el.parentNode.nodeName.toLowerCase() !== "a") {
