@@ -22,6 +22,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Booting UEFI with an existing EFI partition](#booting-uefi-with-an-existing-efi-partition)
 - [Ditching GRUB (only for UEFI systems)](#ditching-grub-only-for-uefi-systems)
 - [Suspending after inactivity](#suspending-after-inactivity)
+- [Switching to Linux LTS](#switching-to-linux-lts)
 
 ### Network
 
@@ -174,6 +175,12 @@ GRUB is the kitchen sink bootloader. Systemd comes with its own UEFI bootloader 
 ## Suspending after inactivity
 
 In `xfce4-power-manager-settings` I specified that my laptop should go to sleep after an hour of inactivity, but that setting never seemed to work. The fix is to just edit one line in one file, as described [here](https://askubuntu.com/a/674720).
+
+## Switching to Linux LTS
+
+This is normally unnecessary but did fix a problem I had on my Thinkpad P51: after upgrading my system in September 2024 for the first time in several months, resume from suspend would reliably greet me with a screen full of [errors](https://en.mihaly4.ru/arch-linux-nvidia-suspend-hibernation) like "Fixing recursive fault but reboot is needed" and "BUG: scheduling while atomic: irq/148-nvidia..."
+
+I switched to the more stable LTS version of Linux by backing up `/boot/initramfs-linux-fallback.img` `/boot/initramfs-linux.img` `/boot/vmlinuz-linux` to somewhere in my home directory, deleting those files to make space in `/boot`, installing `linux-lts` and `nvidia-lts` via pacman, editing `/boot/loader/entries/arch.conf` (see [above](#ditching-grub-only-for-uefi-systems)) to reference the newly created `-lts` files inside `/boot`, and restarting the computer.
 
 <!-- Note to self: this issue may have arisen just because I installed Clipman and enabled synced selections at some point... -->
 <!--
