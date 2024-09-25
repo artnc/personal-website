@@ -11,32 +11,34 @@ Here's exactly what I did to set up my own `firstname@lastname.com` email addres
 
 This process takes an hour or two and costs around $10/year.
 
-1. Create a personal [Gmail](https://www.google.com/gmail/about/) account if you don't already have one
+1. Create a personal [Gmail](https://www.google.com/gmail/about/) account if you don't already have one.
    - Optional: go to gear icon > Settings > Images and disable automatic image loading. You know how some chat apps have read receipts? Well it turns out that nosy email senders (e.g. spammers) often use inline images in a similar way to [determine](https://www.wired.com/2013/12/turn-gmail-auto-image-loading-off/) whether the recipient has opened their message.<br><br>![](/img/gmail-images.png)
-1. Buy a domain name at [Namecheap](https://www.namecheap.com/), e.g. `chaidarun.com`
-   - Try to get a `.com` for the credibility and familiarity. You _could_ get a `.org` or `.net` if your preferred `.com` isn't available, but then you run the risk of people forgetting and trying to email you at `.com` anyway.
+1. Buy a domain name at [Namecheap](https://www.namecheap.com/), e.g. `chaidarun.com`.
+   - Try to get a `.com` for the credibility and familiarity. You _could_ get a `.org` or `.net` if your preferred `.com` isn't available, but then you run the risk of people forgetting and trying to email you at `.com` anyway[^fawm].
    - This is the only step that costs money!<br><br>![](/img/namecheap-domain.png)
-1. Go to your Namecheap account > Profile > [Settings](https://ap.www.namecheap.com/settings/security) and enable 2FA
+1. Go to your Namecheap account > Profile > [Settings](https://ap.www.namecheap.com/settings/security) and enable 2FA.
    - By default, Namecheap sends a verification code to your `@gmail.com` address whenever you try to log in. Enabling 2FA via either TOTP or Yubikey will replace that step, removing the dependency on your old address&mdash;more on this [later](#why-you-need-a-custom-email-domain).
 1. Create a free [Cloudflare](https://www.cloudflare.com/) account and "Add a Site" for your new domain
    - Like me, you might already be using their free CDN on your personal website. You should just reuse your existing site entry if your desired custom email address will be on the same domain.
-1. Go to your Cloudflare site's dashboard > DNS and take note of your nameservers<br><br>![](/img/cloudflare-nameservers.png)
-1. Go back to your Namecheap account > [Domain List](https://ap.www.namecheap.com/domains/list/) > Manage > Nameservers > Custom DNS and enter in those nameserver values
+1. Go to your Cloudflare site's dashboard > DNS and take note of your nameservers.<br><br>![](/img/cloudflare-nameservers.png)
+1. Go back to your Namecheap account > [Domain List](https://ap.www.namecheap.com/domains/list/) > Manage > Nameservers > Custom DNS and enter in those nameserver values.
    - [DNS](https://en.wikipedia.org/wiki/Domain_Name_System) is like the internet's phonebook system. DNS _records_ are pieces of metadata associated with a given domain name, similar to how a phonebook associates your phone number and home address with your full name. By pointing your domain to Cloudflare's nameservers, you tell the entire internet to consult Cloudflare as the keeper of your domain's metadata.<br><br>![](/img/namecheap-nameservers.png)
-1. Go back to your Cloudflare site dashboard > Email and enable email routing
+1. Go back to your Cloudflare site dashboard > Email and enable email routing.
    - This is the point at which you actually choose your new custom address, e.g. `firstname@lastname.com`<br><br>![](/img/cloudflare-routing.png)
    - Routing solves the easy half of the email equation: _receiving_ email at your new address. The rest of this guide tackles _sending_ email from your new address.
-1. Create a free [SMTP2GO](https://www.smtp2go.com/) account
+1. Create a free [SMTP2GO](https://www.smtp2go.com/) account.
    - This is [SMTP](https://en.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol) as a service, similar to SendGrid and Mailgun and Mailjet and Amazon SES and many many more. Businesses normally use these services to blast out _transactional_ (i.e. marketing) emails, but they also handle personal email perfectly fine. It makes little difference which SMTP service you choose&mdash;I went with SMTP2GO as [recommended](https://www.reddit.com/r/selfhosted/comments/wt88z6/what_is_the_best_free_smtp_solution_to_use_with/) on Hacker News and Reddit.
    - You don't really need to know anything about SMTP servers beyond the fact that you need one in order to send email.
-1. At SMTP2GO > Settings > Verified Senders, add your domain as a sender domain
-1. Go to your Cloudflare site dashboard > DNS<br><br>![](/img/smtp.png)
-1. Go to SMTP2GO > Settings > SMTP Users and "Add SMTP user" with default settings<br><br>![](/img/smtp2go-users.png)
-1. Go to Gmail > gear icon > Settings > Accounts and Import > Send mail as > Add another email address, uncheck "Treat as an alias", and enter the connection details from the previous step
+1. At SMTP2GO > Settings > Verified Senders, add your domain as a sender domain. Take note of its CNAME records.<br><br>![](/img/smtp2go-senders.png)
+1. Go to your Cloudflare site dashboard > DNS and add those CNAME records.<br><br>![](/img/smtp.png)
+1. Go to SMTP2GO > Settings > SMTP Users and "Add SMTP user" with default settings. Take note of the connection details.<br><br>![](/img/smtp2go-users.png)
+1. Go to Gmail > gear icon > Settings > Accounts and Import > Send mail as > Add another email address, uncheck "Treat as an alias", and enter the connection details from the previous step.
    - Some other guides online will tell you to use Gmail's own `smtp.gmail.com` here, which mostly works and is slightly easier than setting up SMTP2GO. The problem there is that Gmail's SMTP server won't sign outgoing mail from your new address with [DKIM](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail), increasing the likelihood that your messages will get marked as spam. Services like SMTP2GO do handle DKIM, [SPF](https://en.wikipedia.org/wiki/Sender_Policy_Framework), etc.<br><br>![](/img/gmail-smtp.png)
-1. Add your new email address to your Google account as an [alternate email](https://myaccount.google.com/email)
+1. Add your new email address to your Google account as an [alternate email](https://myaccount.google.com/email).
    - Profile pictures are a Gmail thing, not an email thing. Gmail users will find it sketchy if you send them a faceless email from your new address, so how do you tell Google what picture to show them? Setting your new address as an alternate email in your Google account will cause Gmail recipients to see your Google photo even when you email them from your non-Gmail address.<br><br>![](/img/google-alternate-email.png)
 1. Verify reliable deliverability with tools like [Mail Tester](https://www.mail-tester.com/) and [Learn DMARC](https://www.learndmarc.com/).<br><br>![](/img/mail-tester.png)<br>![](/img/learndmarc.png)
+
+[^fawm]: I have a friend who snagged `fawm.org` for [his website](https://fiftyninety.fawm.org/), only to then spend several years battling a domain squatter for control of `fawm.com`. In the meantime, the latter domain housed a hardcore porn website.
 
 Congrats, you did it! Now to explain some decisions above in more detail...
 
