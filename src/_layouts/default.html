@@ -55,7 +55,7 @@
   const $lightboxDimmer = document.querySelector("#lightbox");
   const $lightboxImg = document.querySelector("#lightbox img");
   const hideLightbox = () => {
-    $lightboxDimmer.style.display = "none";
+    $lightboxDimmer.classList.remove("shown");
   };
   $lightboxDimmer.addEventListener("click", hideLightbox);
   document.addEventListener("keydown", e => {
@@ -72,7 +72,7 @@
           $el.style.cursor = "pointer";
           $el.addEventListener("click", () => {
             $lightboxImg.src = $el.src;
-            $lightboxDimmer.style.display = "initial";
+            $lightboxDimmer.classList.add("shown");
           });
         }
       };
@@ -84,7 +84,7 @@
     if (origin === location.origin && /\.(gif|jpe?g|png)$/i.test(pathname)) {
       $el.addEventListener("click", e => {
         $lightboxImg.src = href;
-        $lightboxDimmer.style.display = "initial";
+        $lightboxDimmer.classList.add("shown");
         e.preventDefault();
       });
     }

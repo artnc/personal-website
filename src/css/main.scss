@@ -707,13 +707,20 @@ img.right {
 #lightbox {
   background: rgba(0, 0, 0, 0.8);
   cursor: pointer;
-  display: none;
   height: 100vh;
   left: 0;
+  pointer-events: none;
+  opacity: 0;
   position: fixed;
   top: 0;
+  transition: opacity $transition-fast;
   width: 100vw;
   z-index: 2;
+
+  &.shown {
+    opacity: 1;
+    pointer-events: initial;
+  }
 
   img {
     cursor: default;
