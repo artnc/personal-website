@@ -90,7 +90,7 @@ Apart from obvious markers like language and currency, many subtler aspects of S
 - Restaurant beef is almost always veal, even in burgers. The most familiar beef that I ever encountered was during a post-Camino layover in Barcelona, where I had to try a Spanish McDonald's exclusive: the McExtreme with gouda and pulled pork.
 - After wheat, sunflowers are the most common crop along the Camino. Sunflowers with the misfortune of having grown near the trail would often have individual seeds plucked out by pilgrims to form smiley faces (which I found rather tasteless).
 - Most hostels and hotels give you a single long, thin pillow that spans the width of the entire bed. It's more or less impossible to stuff one of these anacondas into the flimsy disposable pillowcase that hostels provide; you need to grab one end of the tubular pillowcase and pull the pillow through it instead.
-- Fanta contains real fruit juice and tastes so much better than in the US&mdash;and this is coming from someone who really doesn't understand all the fuss over Mexican Coke. Fanta Naranja actually tastes like orange juice, not liquified hard candy. Fanta Limón opened my eyes to how good soda could be.
+- Fanta contains real fruit juice and tastes so much better than in the US&mdash;and this is coming from someone who really doesn't understand all the fuss over Mexican Coke. Fanta Naranja tastes like actual orange juice, not liquified hard candy. Fanta Limón opened my eyes to how good soda could be.
 - The so-called _siesta_ is real, although the more neutral term for small businesses' midday break is _descanso_ (rest). Many Spanish restaurants will open for only two hours at lunch and again at dinner. Show up ASAP to ensure that you get a table.
 - The tap water in the _meseta_ tastes like ass. No wonder restaurants won't give it to you. Galicia and the Basque Country have much softer water.
 
@@ -100,7 +100,7 @@ Apart from obvious markers like language and currency, many subtler aspects of S
 
 I met the [mildly famous](https://www.imdb.com/title/tt13959734/) painter [Joan Bueno](https://www.arterealizzata.com/interviews/joan-bueno) by chance in a tiny village of 115 people. As soon as I sat down for lunch at the table next to his, he silently started sketching me unprompted. Once he finished I wondered whether he'd try to sell me the drawing, but no&mdash;he simply told me to take a photo and then flipped through the notebook, revealing dozens more sketches of people and places from his daily life.
 
-I asked him if he was a pilgrim, and he said that he was just visiting town for his art exhibition tomorrow but that he had walked 26 times before! After two low-tech weeks of speaking mostly Spanish, it felt surreal to find this 91-year-old Barcelonan in the middle of nowhere who vigorously spoke perfect English and recited his social media URLs from memory.
+I asked him if he was a pilgrim. He said that he was just visiting town for his art exhibition tomorrow but that he had walked 26 times before! After two low-tech weeks of speaking mostly Spanish, it felt surreal to find this 91-year-old Barcelonan in the middle of nowhere who vigorously spoke perfect English and recited his social media URLs from memory.
 
 ![](/img/camino-joan.jpg)
 
@@ -110,7 +110,7 @@ Unfortunately the problem was much more serious: two of the poor guitar's six tu
 
 Hours later as the other pilgrims filed off to bed, I thanked the _hospitalera_ for waiting so long in the room with us. She replied that she wasn't waiting for us and had just enjoyed hearing me play, saying that it reminded her of someone she knew many years ago.
 
-When I asked her which song she had liked best, she answered that [_Recuerdos de la Alhambra_](https://www.youtube.com/watch?v=R-5weyHVC2U) gave her chills. Finally, I thought, I found a Spaniard in Spain who could be moved by the nostalgia of this Spanish guitar piece, arguably the most famous one in the classical repertoire, a piece I had practiced hundreds of times before... but it turned out that she had actually recognized it from the [Korean drama](https://en.wikipedia.org/wiki/Memories_of_the_Alhambra) of the same name.
+When I asked her which song she had liked best, she answered that [_Recuerdos de la Alhambra_](https://www.youtube.com/watch?v=R-5weyHVC2U) gave her chills. Finally, I thought, I found a Spaniard in Spain who could be moved by the nostalgia of this Spanish guitar piece, arguably the most famous one in the classical repertoire, a piece I had practiced hundreds of times before... but it turned out that she had actually recognized it from the 2018 [Korean drama](https://en.wikipedia.org/wiki/Memories_of_the_Alhambra) of the same name.
 
 ![](/img/camino-guitar.jpeg)
 
@@ -140,7 +140,7 @@ One was Camino snobbery: the patently absurd phrase "Jesus didn't start in Sarri
 
 The other occasional unpleasantness was anti-Camino graffiti, e.g. "FUCK MASS TOURISM FUCK THE CAMINO" painted in huge letters on the sidewalk across the final bridge into Santiago. I'm not above calling myself a tourist, I think it's silly to obsess over what makes a pilgrim or tourist or "traveler", and I'm annoyed by entitlement and inconsiderateness like anyone else. But surely these urban activists must realize that dozens of towns along the Camino, including Santiago itself, exist _because_ of the Camino? It and its commercialization were there first by a long shot.
 
-All that said, you can't let a handful of people reflect badly on or ruin the experience of millions. I remember the young local boy who haltingly wished me "Good walk" (a very literal English translation of _buen camino_), the _hospitalera_ who invited me to home-cooked dinner with her daughter and mother since I was her only guest that day, the middle-aged Irish pilgrim who told me how his children in Vietnam were his entire world and that I looked just like one of them, and the former _hospitalera_ who seemed to think I was lost and turned around to walk with me until we reached the edge of town.
+All that said, you can't let a handful of people reflect badly on or ruin the experience of millions. I remember the young local boy who haltingly wished me "Good walk" (a very literal English translation of _buen camino_), the _hospitalera_ who invited me to home-cooked dinner with her daughter and mother since I was her only guest that day, all the highway drivers who honked and waved as they flew by, the middle-aged Irish pilgrim who told me how his children in Vietnam were his entire world and that I looked just like one of them, and the former _hospitalera_ who seemed to think I was lost and turned around to walk with me until we reached the edge of town.
 
 ![](/img/camino-molinaseca.jpg)
 
