@@ -24,5 +24,14 @@ layout: default
       );
     }
   }
+
+  // Footnote transitions
+  for (const $a of document.querySelectorAll("a.footnote, a.reversefootnote")) {
+    $a.addEventListener("click", e => {
+      e.preventDefault();
+      const target = document.getElementById($a.hash.slice(1));
+      target?.scrollIntoView({ behavior: "smooth" });
+    });
+  }
 })();
 </script>
