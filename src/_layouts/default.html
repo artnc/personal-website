@@ -71,16 +71,26 @@
     if ($el.parentNode.nodeName.toLowerCase() === "a") {
       continue;
     }
+    // Skip if image is thumbnail
+    if ($el.parentNode.hasClass("thumbnails")) {
+      continue;
+    }
     const measurer = new Image();
     measurer.onload = function () {
-      if (this.naturalWidth > $el.width) {
-        $el.title = "Click to enlarge";
-        $el.style.cursor = "pointer";
-        $el.addEventListener("click", () => {
-          $lightboxImg.src = $el.src;
-          $lightboxDimmer.classList.add("shown");
-        });
+      // Skip if image is already full size
+      if (this.naturalWidth <= $el.width) {
+        return;
       }
+      // Skip if image is suspiciously small
+      if (this.naturalWidth < 200) {
+        return;
+      }
+      $el.title = "Click to enlarge";
+      $el.style.cursor = "pointer";
+      $el.addEventListener("click", () => {
+        $lightboxImg.src = $el.src;
+        $lightboxDimmer.classList.add("shown");
+      });
     };
     measurer.src = $el.src;
   }
