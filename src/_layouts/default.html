@@ -63,20 +63,26 @@
     }
   });
   for (const $el of document.querySelectorAll(".content img")) {
-    if ($el.parentNode.nodeName.toLowerCase() !== "a") {
-      const measurer = new Image();
-      measurer.onload = function () {
-        if (this.naturalWidth > 660) {
-          $el.title = "Click to enlarge";
-          $el.style.cursor = "pointer";
-          $el.addEventListener("click", () => {
-            $lightboxImg.src = $el.src;
-            $lightboxDimmer.classList.add("shown");
-          });
-        }
-      };
-      measurer.src = $el.src;
+    // Skip if image is already nearly fullscreen
+    if ($el.width > window.innerWidth * 0.8) {
+      continue;
     }
+    // Skip if image is hyperlinked
+    if ($el.parentNode.nodeName.toLowerCase() === "a") {
+      continue;
+    }
+    const measurer = new Image();
+    measurer.onload = function () {
+      if (this.naturalWidth > $el.width) {
+        $el.title = "Click to enlarge";
+        $el.style.cursor = "pointer";
+        $el.addEventListener("click", () => {
+          $lightboxImg.src = $el.src;
+          $lightboxDimmer.classList.add("shown");
+        });
+      }
+    };
+    measurer.src = $el.src;
   }
   for (const $el of document.querySelectorAll("a")) {
     const { href, origin, pathname } = new URL($el.href);
