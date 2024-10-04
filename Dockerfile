@@ -5,6 +5,7 @@ ENV LANG C.UTF-8
 RUN apk add --no-cache \
     build-base \
     curl \
+    libffi-dev \
     nodejs \
     npm \
     openssh \

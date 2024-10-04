@@ -490,7 +490,7 @@ img.right {
     margin: -40px 0 -40px 50%;
     overflow: hidden;
     padding: 0px;
-    transform: translateX(-$width-svg / 2);
+    transform: translateX(-$width-svg * 0.5);
     width: $width-svg;
 
     svg {
@@ -599,7 +599,7 @@ img.right {
     vertical-align: top;
 
     &.tiny {
-      max-width: ($width-thumbnail - $margin-thumbnail) / 2;
+      max-width: ($width-thumbnail - $margin-thumbnail) * 0.5;
     }
 
     &.dark {
