@@ -44,7 +44,7 @@ The standard instructions for how to do the Camino are to just follow the painte
 
 **Know mass etiquette.** Non-Catholics and even non-Christians are still welcome to attend church services. The pilgrim mass in Santiago is especially popular. Just bring €10 or so for donation, don't go in shirtless or barefooted, follow what everyone else is doing, and most importantly: _do not_ accept communion (bread and wine) from the priest. You can either stay seated or cross your arms in an X over your chest to receive a blessing from the priest instead[^communion].
 
-[^communion]: Source: I attended hundreds of masses across several countries as a Catholic school kid; never once did I take communion.
+[^communion]: Source: I attended hundreds of masses across several countries as a Catholic school kid and never once took communion.
 
 ![](/img/camino-dawn.jpg)
 
@@ -55,7 +55,7 @@ Mobile apps I used:
 - [Google Translate](https://play.google.com/store/search?q=translate) for quickly translating restaurant menus and communicating with pilgrims who spoke neither English nor Spanish.
 - [WhatsApp](https://play.google.com/store/apps/details?id=com.whatsapp) and [Booking.com](https://play.google.com/store/apps/details?id=com.booking) for reserving hostel beds. I'd typically write something simple like "Hola, quiero hacer una reserva para el 12 de agosto".
 - [Gronze](https://www.gronze.com/) for hostel prices and reviews.
-- [Camino Pilgrim](https://play.google.com/store/apps/details?id=de.moemke.android.mycamino) for stage planning. Since I had already bought a return flight that afforded me 34 days of walking, I took Gronze's 33 stages and added a new one to the mountainous stretch between Astorga and Sarria. Camino Pilgrim contains the locations and amenities of over 200 towns on the Camino, which allowed me to easily plan stages with good stopping points and roughly equal lengths.
+- [Camino Pilgrim](https://play.google.com/store/apps/details?id=de.moemke.android.mycamino) for stage planning. Since I had already bought a return flight that afforded me 34 days of walking, I took Gronze's 33 stages and added a new one to the mountainous stretch between Astorga and Sarria. Camino Pilgrim contains the locations and amenities of over 200 towns on the Camino, which allowed me to easily plan stages with convenient stopping points and roughly equal lengths.
 - [Airalo](https://play.google.com/store/apps/details?id=com.mobillium.airalo) for mobile data. I paid $18 for a 10 GB eSIM that lasted 30 days. Hostels usually have free WiFi.
 - [Chronofile](https://github.com/artnc/chronofile), an app that I created myself, for [tracking my daily activities](/ten-years-of-logging-my-life). I slept for 7.93 hours and walked for 5.67 hours each day on average.
 - [Google Keep](https://play.google.com/store/apps/details?id=com.google.android.keep) for journaling. I found it helpful to write down the names of every pilgrim I met since I would so often run into them again sooner or later.
@@ -77,7 +77,7 @@ Common words and phrases on the Camino:
 - _meseta_ = the flat, dry plateau that covers central Spain from Burgos to Astorga.
 - _aseo_ = "restroom". This relatively formal word appears mostly on signage, while in spoken conversation people tend to say _baño_ (bathroom).
 - _menú del día_ = "menu of the day". Most restaurants offer lunch as a set menu that includes bread, water or wine, an appetizer, a main dish, and dessert. That's what _menú_ normally refers to, so you'll need to ask for _carta_ if you want to see what Americans would typically call the menu.
-- _Buen provecho_ = "Enjoy (your meal)", similar to _bon appétit_.
+- _Buen provecho_ = "Enjoy your meal", similar to _bon appétit_.
 - _Dime_ = "What can I get you?" Literally "tell me".
 - _vaso de agua_ = "glass of (tap) water". All tap water in Spain is safe to drink and free at restaurants by law, but they'll never give it to you unless you ask for it specifically.
 - _¿Coreano?_ = "Are you Korean?" Most of the East Asians I met on the Camino were Korean, thanks to a famous Korean author's 2006 memoir. Once I even saw a Korean-run hostel that served _ramyeon_ for pilgrim dinner.
@@ -91,7 +91,7 @@ Apart from obvious markers like language and currency, many subtler aspects of S
 - Restaurant beef is almost always veal, even in burgers. The most familiar beef that I ever encountered was during a post-Camino layover in Barcelona, where I had to try a Spanish McDonald's exclusive: the McExtreme with gouda and pulled pork.
 - After wheat, sunflowers are the most common crop along the Camino. Sunflowers with the misfortune of having grown near the trail would often have individual seeds plucked out by pilgrims to form smiley faces (which I found rather tasteless).
 - Most hostels and hotels give you a single long, thin pillow that spans the width of the entire bed. It's more or less impossible to stuff one of these anacondas into the flimsy disposable pillowcase that hostels provide; you need to grab one end of the tubular pillowcase and pull the pillow through it instead.
-- Fanta contains real fruit juice and tastes so much better than in the US&mdash;and this is coming from someone who really doesn't understand all the fuss over Mexican Coke. Fanta Naranja tastes like actual orange juice, not liquified hard candy. Fanta Limón opened my eyes to how good soda could be.
+- Fanta contains real fruit juice and tastes so much better than in the US&mdash;and this is coming from someone who really doesn't understand all the fuss over Mexican Coke. Fanta Naranja tastes like actual orange juice, not liquified candy. Fanta Limón opened my eyes to how good soda could be.
 - The so-called _siesta_ is real, although the more neutral term for small businesses' midday break is _descanso_ (rest). Many Spanish restaurants will open for only two hours at lunch and again at dinner. Show up ASAP to ensure that you get a table.
 - The tap water in the _meseta_ tastes like ass. No wonder restaurants won't give it to you. Galicia and the Basque Country have much softer water.
 
@@ -137,11 +137,11 @@ Vibes along the Camino were overwhelmingly positive, but I did encounter two not
 
 One was Camino snobbery: the patently absurd phrase "Jesus didn't start in Sarria" spray-painted on so many walls[^jesus], the 71-year-old Brit who crowed about walking double-length stages last year while calling [Fisterra](https://en.wikipedia.org/wiki/Fisterra) an idiotic scam and people who shuttled their luggage cheaters, and the Czech bro who argued at length with a patient _hospitalera_ about the ridiculousness of seeing an Asian pilgrim walk in the sun with an umbrella and hardly any exposed skin. Clearly he didn't realize that the pilgrim in question had a photosensitive skin condition and was now sitting right next to him!
 
-[^jesus]: Pilgrims who walk at least 100 km may receive the _compostela_, a completion certificate awarded since medieval times. The vast majority of pilgrims therefore start their trip in Sarria, a town on the French Way located just over 100 km from Santiago. While it's true that Jesus didn't start in Sarria, he didn't start in St. Jean or Jerusalem or anywhere else either...
+[^jesus]: Pilgrims who walk at least 100 km may receive the _compostela_, a completion certificate awarded since medieval times. The vast majority of modern pilgrims therefore start their trip in Sarria, a town on the French Way located just over 100 km from Santiago. While it's true that Jesus didn't start in Sarria, he didn't start in St. Jean or Jerusalem or anywhere else either...
 
-The other occasional unpleasantness was anti-Camino graffiti, e.g. "FUCK MASS TOURISM FUCK THE CAMINO" painted in huge letters on the sidewalk across the final bridge into Santiago. I'm not above calling myself a tourist, I think it's silly to obsess over what makes a pilgrim or tourist or "traveler", and I'm annoyed by entitlement and inconsiderateness like anyone else. But surely these urban activists must realize that dozens of towns along the Camino, including Santiago itself, exist _because_ of the Camino? It and its commercialization were there first by a long shot.
+The other occasional unpleasantness was anti-Camino graffiti, e.g. "FUCK MASS TOURISM FUCK THE CAMINO" painted in huge letters across the sidewalk on the final bridge into Santiago. I'm not above calling myself a tourist, I think it's silly to obsess over what makes a pilgrim or tourist or "traveler", and I'm annoyed by entitlement and inconsiderateness like anyone else. But surely these urban activists must realize that dozens of towns along the Camino, including Santiago itself, exist _because_ of the Camino? It and its commercialization were there first by a long shot.
 
-All that said, you can't let a handful of people reflect badly on or ruin the experience of millions. I remember the young local boy who haltingly wished me "Good walk" (a very literal English translation of _buen camino_), the _hospitalera_ who invited me to home-cooked dinner with her daughter and mother since I was her only guest that day, all the highway drivers who honked and waved as they flew by, the middle-aged Irish pilgrim who told me how his children in Vietnam were his entire world and that I looked just like one of them, and the former _hospitalera_ who seemed to think I was lost and turned around to walk with me until we reached the edge of town.
+All that said, you can't let a handful of people reflect badly on or ruin the experience of millions. I remember the young local boy who haltingly wished me "Good walk" (a very literal English translation of _buen camino_), the _hospitalera_ who invited me to home-cooked dinner with her daughter and mother since I was her only guest that day, all the highway drivers who waved and cheered as they flew by, the middle-aged Irish pilgrim who told me how his children in Vietnam were his entire world and that I looked just like one of them, and the former _hospitalera_ who seemed to think I was lost and turned around to walk with me until we reached the edge of town.
 
 ![](/img/camino-molinaseca.jpg)
 
