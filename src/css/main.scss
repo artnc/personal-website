@@ -762,34 +762,43 @@ img.right {
 
   // Inputs
   input[name="edit"],
+  input[name="email"],
   input[name="preview"],
   input[name="website"],
   label {
     display: none;
   }
-  input[name="email"] {
-    margin-left: 5px;
-  }
   input[type="submit"] {
     font-weight: 700;
-    padding: 5px 10px;
+    padding: 5px 15px;
   }
   input,
   .isso-textarea {
     background: $gray;
     box-shadow: none !important;
     border: 0 solid transparent !important;
-    color: $gray-light !important;
+    color: $white-off !important;
     margin: 0 0 5px;
   }
   p {
     margin: 0;
   }
 
+  // Comment section
+  #isso-root {
+    margin: -0.95em;
+  }
+
   // Comment
   .isso-comment:not(:first-of-type),
   .isso-follow-up .isso-comment {
     border-top: 1px solid $gray !important;
+  }
+
+  // Comment avatar
+  .isso-avatar {
+    float: right;
+    margin: 1.2em 0 1.2em 1.2em;
   }
 
   // Comment author
@@ -820,6 +829,11 @@ img.right {
       border-color: $gray-light !important;
       color: $gray-light !important;
     }
+  }
+
+  // Nested comments
+  .isso-follow-up {
+    padding-left: 40px;
   }
 
   svg {

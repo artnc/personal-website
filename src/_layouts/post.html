@@ -4,11 +4,12 @@ layout: default
 {{ content }}
 <div class="post-info"><!-- {% if page.tags != empty %}{{ page.tags | join: ', ' }} | {% endif %} -->{{ page.date | date: "%Y.%m.%d" }}</div>
 <script
-    data-isso="https://chaidarun.com/isso/"
-    data-isso-avatar="false"
-    data-isso-gravatar="true"
-    data-isso-require-author="true"
-    src="https://chaidarun.com/isso/js/embed.min.js"
+  data-isso="https://chaidarun.com/isso/"
+  data-isso-max-comments-nested="inf"
+  data-isso-max-comments-top="inf"
+  data-isso-postbox-text-text-en="Type a comment..."
+  data-isso-postbox-author-placeholder-text-en="Your name"
+  src="https://chaidarun.com/isso/js/embed.min.js"
 ></script>
 <section id="isso-thread"></section>
 
