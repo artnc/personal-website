@@ -22,7 +22,6 @@ All rights reserved, except where otherwise noted.
 - Sass partials
   - normalize: normalize.css reset
   - twilight: for pygments
-  - tipsy: for tipsy plugin
 
 ## Workflow
 

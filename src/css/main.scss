@@ -194,7 +194,7 @@ img {
   user-select: none;
 
   @media ($media-desktop) {
-    margin: 50px 0 70px;
+    margin: 50px 0;
   }
 
   ul {
@@ -346,7 +346,7 @@ img {
   user-select: none;
 
   @media ($media-desktop) {
-    margin: 70px 0 70px;
+    margin: 50px 0;
   }
 
   p {
@@ -482,51 +482,13 @@ img.right {
 /********************************************************************* PAGES */
 
 .index-html {
-  .content {
-    $height-svg: 600px;
-    $width-svg: 720px;
+  .avatar {
+    margin-top: 10px;
+    width: 40%;
 
-    height: $height-svg - 30px;
-    margin: -40px 0 -40px 50%;
-    overflow: hidden;
-    padding: 0px;
-    transform: translateX(-$width-svg * 0.5);
-    width: $width-svg;
-
-    svg {
-      font-family: Arial;
-      font-weight: 700;
-      margin-top: -30px;
+    @media ($media-desktop) {
+      width: 200px;
     }
-
-    line {
-      stroke: #6c7486;
-      stroke-opacity: 0.6;
-      stroke-width: 1px;
-    }
-
-    circle {
-      stroke: $gray-dark;
-      stroke-width: 3px;
-      user-select: none;
-    }
-
-    .g0 {
-      fill: $green-bright;
-    }
-    .g1,
-    .g4 {
-      fill: $green-dark;
-    }
-    .g2,
-    .g3,
-    .g5 {
-      fill: $green-light;
-    }
-  }
-
-  #footer {
-    text-align: center;
   }
 }
 
@@ -740,19 +702,6 @@ img.right {
   }
 }
 
-// About
-
-.about-html .content {
-  .avatar {
-    margin-top: 10px;
-    width: 40%;
-
-    @media ($media-desktop) {
-      width: 200px;
-    }
-  }
-}
-
 /********************************************************************** ISSO */
 
 #isso-thread {
@@ -841,48 +790,4 @@ img.right {
     border: none !important;
     box-shadow: none !important;
   }
-}
-
-/********************************************************************* TIPSY */
-
-.tipsy {
-  font-size: $font-size-small;
-  padding: 5px;
-  pointer-events: none;
-  position: absolute;
-  z-index: 2;
-}
-
-.tipsy-inner {
-  background-color: $gray-darker;
-  color: $white-off;
-  max-width: 200px;
-  padding: 10px 15px 9px;
-  text-align: center;
-}
-
-.tipsy-inner {
-  border-radius: $border-radius;
-}
-
-.tipsy-arrow {
-  border: 5px dashed #000;
-  height: 0;
-  line-height: 0;
-  position: absolute;
-  width: 0;
-}
-
-.tipsy-arrow-s {
-  border-top-color: #000;
-}
-
-.tipsy-s .tipsy-arrow {
-  border-bottom: none;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  border-top-style: solid;
-  bottom: 0;
-  left: 50%;
-  margin-left: -5px;
 }
