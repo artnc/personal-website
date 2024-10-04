@@ -221,19 +221,19 @@ img {
 
   li a,
   span {
-    border-bottom: 2px solid transparent;
     color: $white-off;
     display: inline-block;
     padding-bottom: 1px;
     text-transform: uppercase;
-    transition: border-color $transition-fast;
+  }
 
+  li a {
     &:hover {
-      border-color: $gray;
+      border-bottom: 2px solid $gray;
     }
 
     &.active {
-      border-color: $green-bright;
+      border-bottom: 2px solid $green-bright;
     }
   }
 
@@ -273,13 +273,11 @@ img {
   }
 
   a {
-    border-bottom: 1px solid transparent;
     color: $green-light;
     padding-bottom: 1px;
-    transition: border-color $transition-fast;
 
     &:hover {
-      border-color: $green-light;
+      border-bottom: 1px solid $green-light;
     }
   }
 
@@ -391,7 +389,6 @@ img {
   svg {
     fill: $gray-light;
     height: 100%;
-    transition: fill $transition-fast;
     width: 100%;
   }
 }
@@ -434,7 +431,6 @@ img {
   cursor: default;
   margin: 0 6px 6px 0;
   padding: 5px 10px;
-  transition: color 0.2s;
   user-select: none;
 }
 
