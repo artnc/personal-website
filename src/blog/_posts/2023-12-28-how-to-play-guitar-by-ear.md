@@ -1,6 +1,7 @@
 ---
 h1: How to Play Guitar by Ear
 layout: post
+ogimage: /img/how-to-play-guitar-by-ear-slap.png
 pagetitle: How to Play Guitar by Ear
 tags: ["music"]
 ---

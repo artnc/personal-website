@@ -1,6 +1,7 @@
 ---
 h1: Turning Pages with Face Recognition
 layout: post
+ogimage: /img/page-turner.jpg
 pagetitle: Turning Pages with Face Recognition
 tags: ["linux", "music"]
 ---

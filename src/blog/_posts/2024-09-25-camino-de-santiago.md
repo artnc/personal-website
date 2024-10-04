@@ -1,6 +1,7 @@
 ---
 h1: The Camino de Santiago in a Million Easy Steps
 layout: post
+ogimage: /img/camino-village.jpg
 pagetitle: The Camino de Santiago in a Million Easy Steps
 tags: []
 ---

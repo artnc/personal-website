@@ -1,6 +1,7 @@
 ---
 h1: Replacing Dropbox with Syncthing
 layout: post
+ogimage: /img/home-server.jpg
 pagetitle: Replacing Dropbox with Syncthing
 tags: ["linux"]
 ---

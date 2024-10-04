@@ -1,6 +1,7 @@
 ---
 h1: Arch Linux Notes
 layout: post
+ogimage: /img/arch.png
 pagetitle: Arch Linux Notes
 tags: ["linux"]
 ---

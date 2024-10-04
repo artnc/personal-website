@@ -1,6 +1,7 @@
 ---
 h1: How to Use a Custom Email Domain with Gmail
 layout: post
+ogimage: /img/gmail-from.png
 pagetitle: How to Use a Custom Email Domain with Gmail
 tags: []
 ---
