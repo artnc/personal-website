@@ -72,13 +72,13 @@
       continue;
     }
     // Skip if image is thumbnail
-    if ($el.parentNode.hasClass("thumbnails")) {
+    if ($el.parentNode.classList.contains("thumbnails")) {
       continue;
     }
     const measurer = new Image();
     measurer.onload = function () {
-      // Skip if image is already full size
-      if (this.naturalWidth <= $el.width) {
+      // Skip if image is already at or near full size
+      if (this.naturalWidth * 0.8 < $el.width) {
         return;
       }
       // Skip if image is suspiciously small
