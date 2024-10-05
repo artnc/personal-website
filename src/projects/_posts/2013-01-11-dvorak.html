@@ -5,48 +5,67 @@ jquery: true
 layout: default
 pagetitle: Real-Time QWERTY to Dvorak Converter
 ---
-<p>Dvorak user stuck on a QWERTY keyboard? This online JavaScript tool translates QWERTY to Dvorak as you type and auto-highlights the output for easy copying.</p>
+
+<p>
+  Dvorak user stuck on a QWERTY keyboard? This online JavaScript tool translates
+  QWERTY to Dvorak as you type and auto-highlights the output for easy copying.
+</p>
 <label for="dvorak"><h3>QWERTY input:</h3></label>
-<textarea id="dvorak" rows="6" cols="50" style="width:100%" placeholder="Start typing!" autofocus></textarea><br>
+<textarea
+  id="dvorak"
+  rows="6"
+  cols="50"
+  style="width: 100%"
+  placeholder="Start typing!"
+  autofocus
+></textarea
+><br />
 <label for="qwerty"><h3>Dvorak output:</h3></label>
-<textarea id="qwerty" rows="6" cols="50" style="width:100%" onclick="this.focus();this.select()" readonly="readonly"></textarea>
+<textarea
+  id="qwerty"
+  rows="6"
+  cols="50"
+  style="width: 100%"
+  onclick="this.focus();this.select()"
+  readonly="readonly"
+></textarea>
 <script>
   /*! http://mths.be/oninput v0.1.0 by @mathias */
-  jQuery.fn.input = function(fn) {
+  jQuery.fn.input = function (fn) {
     var $this = this;
     return fn
-      ?
-        $this.bind({
-          'input.input': function(event) {
-            $this.unbind('keydown.input');
+      ? $this.bind({
+          "input.input": function (event) {
+            $this.unbind("keydown.input");
             fn.call(this, event);
           },
-          'keydown.input': function(event) {
+          "keydown.input": function (event) {
             fn.call(this, event);
-          }
+          },
         })
-      :
-        $this.trigger('keydown.input');
+      : $this.trigger("keydown.input");
   };
 
-  $(document).ready(function()
-  {
-    var i, c, input, output
-    var alphabet = [" ", "!", "_", "#", "$", "%", "&", "-", "(", ")", "*", "}", "w", "[", "v", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "S", "s", "W", "]", "V", "Z", "@", "A", "X", "J", "E", ">", "U", "I", "D", "C", "H", "T", "N", "M", "B", "R", "L", "\"", "P", "O", "Y", "G", "K", "<", "Q", "F", ":", "/", "\\", "=", "^", "{", "`", "a", "x", "j", "e", ".", "u", "i", "d", "c", "h", "t", "n", "m", "b", "r", "l", "\'", "p", "o", "y", "g", "k", ",", "q", "f", ";", "?", "|", "+", "~"];
+  $(document).ready(function () {
+    var i, c, input, output;
+    var alphabet =
+      " !_#$%&-()*}w[vz0123456789SsW]VZ@AXJE>UIDCHTNMBRL\"POYGK<QF:/\\=^{`axje.uidchtnmbrl'poygk,qf;?|+~".split(
+        "",
+      );
 
-    $("#dvorak").input(function() {
+    $("#dvorak").input(function () {
       input = $(this).val();
       output = "";
-      for (i = 0; i < input.length; ++i)
-      {
-        output += ((c = input.charCodeAt(i)) > 31) ? alphabet[c - 32] : input.charAt(i);
+      for (i = 0; i < input.length; ++i) {
+        output +=
+          (c = input.charCodeAt(i)) > 31 ? alphabet[c - 32] : input.charAt(i);
       }
       document.getElementById("qwerty").value = output;
     });
 
     // https://stackoverflow.com/a/9236351
-    $("#dvorak").on("scroll", function() {
-      $('#qwerty').scrollTop($(this).scrollTop() + 5);
+    $("#dvorak").on("scroll", function () {
+      $("#qwerty").scrollTop($(this).scrollTop() + 5);
     });
   });
 </script>

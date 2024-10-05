@@ -3,7 +3,8 @@
   padding: 0px;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
 }
@@ -17,7 +18,8 @@ a {
   text-decoration: none;
 }
 
-#menu, #menu li li {
+#menu,
+#menu li li {
   color: #ddd;
   background: #000;
 }
@@ -29,7 +31,7 @@ a {
   font-size: 80%;
   height: 30px;
   left: 0px;
-  opacity: .8;
+  opacity: 0.8;
   position: absolute;
   top: 0px;
   z-index: 2;

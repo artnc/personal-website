@@ -3,4 +3,4 @@ repos:
     rev: 1.7.1
     hooks:
       - id: duolingo
-        exclude: '/_sass/|\.(css|html|js|txt|xml)$'
+        exclude: "/_sass/|src/(_includes/|feed|files/|js/|_layouts/default|sitemap)"
