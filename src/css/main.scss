@@ -463,7 +463,7 @@ img.left {
 }
 
 img.right {
-  margin: 0 0 20px 50px;
+  margin: 0 0 20px 40px;
   width: 100%;
 
   @media ($media-desktop) {
@@ -619,6 +619,10 @@ img.right {
 // Blog
 
 .blog-html .content {
+  a {
+    margin-right: 5px;
+  }
+
   .date {
     color: $gray-light;
     white-space: nowrap;
@@ -628,7 +632,7 @@ img.right {
     color: $gray-light;
     font-size: $font-size-small;
     font-style: italic;
-    margin-left: 5px;
+    white-space: nowrap;
   }
 }
 
@@ -684,8 +688,8 @@ img.right {
   img {
     cursor: default;
     left: 50%;
-    max-height: 95%;
-    max-width: 95%;
+    max-height: 90%;
+    max-width: 90%;
     position: relative;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -732,7 +736,10 @@ img.right {
 
   // Comment section
   #isso-root {
-    margin: -0.95em;
+    // Provide enough margin-top to prevent mobile "Submit" button from
+    // colliding with floating avatar and enough negative margin-left to align
+    // comment text with main content text
+    margin: 2.5em 0 0 -0.95em;
   }
 
   // Comment
