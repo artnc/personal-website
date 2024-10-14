@@ -15,11 +15,11 @@ pagetitle: Multiple Integral Calculator
       <option value="4">quadruple</option>
     </select>
     integral in
-    <select id="coords">
-      <option value="1">Cartesian</option>
-      <option value="2">polar</option>
-      <option value="3">cylindrical</option>
-      <option value="4">spherical</option>
+    <select id="coordSystem">
+      <option data-orders="1234" value="cartesian">Cartesian</option>
+      <option data-orders="2" value="polar">polar</option>
+      <option data-orders="3" value="cylindrical">cylindrical</option>
+      <option data-orders="3" value="spherical">spherical</option>
     </select>
     coordinates.
   </p>
@@ -51,135 +51,67 @@ pagetitle: Multiple Integral Calculator
 
 <script>
   (() => {
-    let order = 0; // Number of integration symbols
-    let example = ""; // Example function
-    let coords = 0; // Current coordinate system
-    const COORDS = {
-      // Coordinate system enum
-      CARTESIAN: 1,
-      POLAR: 2,
-      CYLINDRICAL: 3,
-      SPHERICAL: 4,
-    };
-
     const $ = selector => document.querySelector(selector);
     const $$ = selector => [...document.querySelectorAll(selector)];
 
-    const settings = function () {
-      let tmp = parseInt($("#order").value, 10);
-      if (order !== tmp) {
-        // Update to new integral order
-        order = tmp;
-        switch (order) {
-          case 2:
-            $('#coords option[value="2"]').classList.remove("hidden");
-            $$('#coords option[value="3"], #coords option[value="4"]').map(
-              $el => $el.classList.add("hidden"),
-            );
-            break;
-          case 3:
-            $$('#coords option[value="3"], #coords option[value="4"]').map(
-              $el => $el.classList.remove("hidden"),
-            );
-            $('#coords option[value="2"]').classList.add("hidden");
-            break;
-          default:
-            $('#coords option:not([value="1"])').classList.add("hidden");
-            break;
-        }
-        $("#coords").value = COORDS.CARTESIAN + "";
-        coords = 0;
-        $$(".removable").map($el => $el.remove());
-        for (let i = 0; i < order; ++i) {
-          $("#calc .upper").insertAdjacentHTML(
-            "afterbegin",
-            '<td class="removable limit"><input type="text" style="width:3em"></td>',
-          );
-          $("#calc .center").insertAdjacentHTML(
-            "afterbegin",
-            '<td class="removable int">&int;</td>',
-          );
-          $("#calc .lower").insertAdjacentHTML(
-            "afterbegin",
-            '<td class="removable limit"><input type="text" style="width:3em"></td>',
-          );
-        }
+    const render = () => {
+      // Customize coordinate system dropdown
+      const order = parseInt($("#order").value, 10);
+      $$("#coordSystem option").map($el =>
+        $el.classList.toggle("hidden", !$el.dataset.orders.includes(order)),
+      );
+      if ($(`#coordSystem option.hidden:checked`)) {
+        $("#coordSystem").value = "cartesian";
       }
+      const coordSystem = $("#coordSystem").value;
 
-      tmp = 1 * $("#coords").value;
-      // Update to new coordinate system
+      // Render integral symbols
+      $$("td.int, td.limit").map($el => $el.remove());
+      const prepend = ($el, html) =>
+        $el.insertAdjacentHTML("afterbegin", html.repeat(order));
+      prepend($("#calc .upper"), '<td class="limit"><input type="text"></td>');
+      prepend($("#calc .center"), '<td class="int">&int;</td>');
+      prepend($("#calc .lower"), '<td class="limit"><input type="text"></td>');
+
+      // Populate differentials
       $("#calc table input[type=text]").value = "";
-      coords = tmp;
-      example = "";
-      switch (coords) {
-        case COORDS.CARTESIAN:
-          $("#differentials input").value = "dx dy dz dt".slice(
-            0,
-            3 * order - 1,
-          );
-          switch (order) {
-            case 2:
-              example = "x*y^2 + sqrt(pi)^0";
-              break;
-            case 3:
-              example = "x + 3*y*z + z^2 + sqrt(pi)^0";
-              break;
-            case 4:
-              example = "2*x*y + t^3 + sqrt(pi)^0";
-              break;
-            default:
-              example = "7*x + 3 + sqrt(pi)^0";
-              break;
-          }
-          break;
-        case COORDS.POLAR:
-          $("#differentials input").value = "dr dt";
-          example = "(r + 2*t)*r";
-          break;
-        case COORDS.CYLINDRICAL:
-          $("#differentials input").value = "dz dr dt";
-          example = "r*sin(t)*r";
-          break;
-        case COORDS.SPHERICAL:
-          $("#differentials input").value = "dr dt df";
-          example = "16*r*cos(f)*(r^2)*sin(f)";
-          break;
-        default:
-          console.log("Invalid coordinate system: " + coords);
-          $("#differentials input").value = "";
-          break;
-      }
-      $("#integrand input").placeholder = example;
-    };
+      $("#differentials input").value = {
+        cartesian: "dx dy dz dt".slice(0, 3 * order - 1),
+        polar: "dr dt",
+        cylindrical: "dz dr dt",
+        spherical: "dr dt df",
+      }[coordSystem];
 
-    const countSubstrings = (haystack, needle) =>
-      haystack.match(needle)?.length ?? 0;
+      // Populate placeholder
+      $("#integrand input").placeholder = {
+        cartesian: `${
+          ["x*y^2", "x + 3*y*z + z^2", "2*x*y + t^3"][order - 2] ?? "7*x + 3"
+        } + sqrt(pi)^0`,
+        polar: "(r + 2*t)*r",
+        cylindrical: "r*sin(t)*r",
+        spherical: "16*r*cos(f)*(r^2)*sin(f)",
+      }[coordSystem];
+    };
 
     // Open SymPy tab
     const submit = () => {
-      const integrand = $("#integrand input").value.trim();
-      const differentials = $("#differentials input")
-        .value.trim()
-        .replace(/ |d/g, "");
-
       // Validate inputs
+      const integrand = $("#integrand input").value.trim();
       if (!integrand) {
         window.alert("You didn't enter a function to integrate!");
         return;
       }
+      const differentials = $("#differentials input").value.replace(/ |d/g, "");
       if (!differentials) {
         window.alert("You didn't enter any differentials!");
         return;
       }
-      if (
-        countSubstrings(integrand, /\(/g) !== countSubstrings(integrand, /\)/g)
-      ) {
+      const countBrackets = needle => [...integrand.matchAll(needle)].length;
+      if (countBrackets(/\(/g) !== countBrackets(/\)/g)) {
         window.alert("Your parentheses aren't matched!");
         return;
       }
-      if (
-        countSubstrings(integrand, /\[/g) !== countSubstrings(integrand, /\]/g)
-      ) {
+      if (countBrackets(/\[/g) !== countBrackets(/\]/g)) {
         window.alert("Your brackets aren't matched!");
         return;
       }
@@ -188,14 +120,10 @@ pagetitle: Multiple Integral Calculator
       let query = integrand;
       for (let i = 0; i < differentials.length; ++i) {
         // Add bounds
-        variable = differentials[i];
-        const limitIndex = differentials.length - i;
-        const upper = $(
-          "#calc .upper td:nth-child(" + limitIndex + ") input",
-        ).value.trim();
-        const lower = $(
-          "#calc .lower td:nth-child(" + limitIndex + ") input",
-        ).value.trim();
+        const variable = differentials[i];
+        const n = differentials.length - i;
+        const upper = $(`#calc .upper td:nth-child(${n}) input`).value.trim();
+        const lower = $(`#calc .lower td:nth-child(${n}) input`).value.trim();
         if (!upper.length !== !lower.length) {
           window.alert(
             "Limits of integration for each integral must be either both empty or both filled!",
@@ -203,26 +131,25 @@ pagetitle: Multiple Integral Calculator
           return;
         }
         const secondArg =
-          upper && lower
-            ? "(" + variable + "," + lower + "," + upper + ")"
-            : variable;
-        query = "integrate(" + query + "," + secondArg + ")";
+          upper && lower ? `(${variable},${lower},${upper})` : variable;
+        query = `integrate(${query},${secondArg})`;
       }
+      const vars = "abcdfghjklmnopqrstuvwxyz".split("");
       query = [
-        "from mpmath import *", // Constants
-        "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z=symbols('a b c d e f g h i j k l m n o p q r s t u v w x y z')", // Variables
+        "from mpmath import e, phi, pi", // Constants
+        `${vars.join(",")}=symbols('${vars.join(" ")}}')`, // Variables
         query.replace(/\^/g, "**"), // Exponentiation
       ].join("\n");
-      query = "http://live.sympy.org/?evaluate=" + encodeURIComponent(query);
+      query = `http://live.sympy.org/?evaluate=${encodeURIComponent(query)}`;
       window.open(query, "_blank");
     };
 
     // Initialization
-    settings();
+    render();
     $("#integrand input").focus();
 
     // Event bindings
-    $$("#calc select").map($el => $el.addEventListener("change", settings));
+    $$("#calc select").map($el => $el.addEventListener("change", render));
     $("#integrate").addEventListener("click", submit);
   })();
 </script>
