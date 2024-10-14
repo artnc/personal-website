@@ -30,14 +30,16 @@ layout: default
       }
     }
 
-    // Footnote transitions
+    // Anchor transitions
     for (const $a of document.querySelectorAll(
-      "a.footnote, a.reversefootnote",
+      'a[href^="#"]:not([class*="isso-"])',
     )) {
       $a.addEventListener("click", e => {
-        e.preventDefault();
         const target = document.getElementById($a.hash.slice(1));
-        target?.scrollIntoView({ behavior: "smooth" });
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: "smooth" });
+        }
       });
     }
   })();
