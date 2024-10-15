@@ -1,5 +1,6 @@
 ---
 description: Free online calculator for definite and indefinite multiple integrals (double, triple, or quadruple) using Cartesian, polar, cylindrical, or spherical coordinates.
+headjs: <script src="/js/algebrite-1.4.0.js"></script>
 h1: Multiple Integral Calculator
 layout: default
 pagetitle: Multiple Integral Calculator
@@ -130,18 +131,12 @@ pagetitle: Multiple Integral Calculator
           );
           return;
         }
-        const secondArg =
-          upper && lower ? `(${variable},${lower},${upper})` : variable;
-        query = `integrate(${query},${secondArg})`;
+        query =
+          upper && lower
+            ? `defint(${query},${variable},${lower},${upper})`
+            : `integral(${query},${variable})`;
       }
-      const vars = "abcdfghjklmnopqrstuvwxyz".split("");
-      query = [
-        "from mpmath import e, phi, pi", // Constants
-        `${vars.join(",")}=symbols('${vars.join(" ")}}')`, // Variables
-        query.replace(/\^/g, "**"), // Exponentiation
-      ].join("\n");
-      query = `http://live.sympy.org/?evaluate=${encodeURIComponent(query)}`;
-      window.open(query, "_blank");
+      window.alert(Algebrite.eval(query).toString());
     };
 
     // Initialization
