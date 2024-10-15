@@ -1,6 +1,6 @@
 ---
 description: Free online calculator for definite and indefinite multiple integrals (double, triple, or quadruple) using Cartesian, polar, cylindrical, or spherical coordinates.
-headjs: <script defer src="/js/algebrite-1.4.0.js"></script><script>window.MathJax={loader:{load:['input/asciimath',"output/svg"]},startup:{typeset:false},svg:{scale:1.5}}</script><script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"></script>
+headjs: <script defer src="/js/algebrite-1.4.0.js"></script><script>window.MathJax={loader:{load:['input/tex',"output/svg"]},startup:{typeset:false},svg:{scale:1.5}}</script><script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"></script>
 h1: Multiple Integral Calculator
 layout: default
 pagetitle: Multiple Integral Calculator
@@ -147,9 +147,9 @@ pagetitle: Multiple Integral Calculator
         // (Incidentally, locking up the browser conveniently means that we
         // don't need to temporarily disable the submit button ourselves...)
         await new Promise(resolve => window.setTimeout(resolve, 0));
-        const result = Algebrite.eval(query).toString().replace(/\*/g, "");
+        const result = Algebrite.eval(query).toLatexString();
         $("#result").innerHTML = "";
-        $("#result").appendChild(MathJax.asciimath2svg(`= ${result}`));
+        $("#result").appendChild(MathJax.tex2svg(`= ${result}`));
       } catch (ex) {
         $("#result").innerHTML = `Error: ${ex.message}`;
       }
