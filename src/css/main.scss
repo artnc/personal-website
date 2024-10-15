@@ -320,7 +320,8 @@ img {
     padding: 5px 10px;
   }
 
-  button {
+  button,
+  input[type="submit"] {
     background-color: $green-light;
     border-radius: 999px;
     font-weight: 700;
