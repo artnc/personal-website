@@ -88,7 +88,7 @@ pagetitle: Multiple Integral Calculator
       $("#integrand input").placeholder = {
         cartesian: `${
           ["x*y^2", "x + 3*y*z + z^2", "2*x*y + t^3"][order - 2] ?? "7*x + 3"
-        } + sqrt(pi)^0`,
+        } + sqrt(pi) + cos(0)`,
         polar: "(r + 2*t)*r",
         cylindrical: "r*sin(t)*r",
         spherical: "16*r*cos(f)*(r^2)*sin(f)",
@@ -140,6 +140,15 @@ pagetitle: Multiple Integral Calculator
             : `integral(${query},${variable})`;
       }
 
+      // Insert explicit `*` between common variable names to reduce ambiguity
+      query = query
+        .replace(
+          /\b([0-9fp-z]+)((?:arc)?cosh?|e|exp|log|pi|(?:arc)?sinh?|sqrt|(?:arc)?tanh?)\b/g,
+          "$1*$2",
+        )
+        .replace(/\b(\d*[fp-z])([fp-z])([fp-z])\b/g, "$1*$2*$3")
+        .replace(/\b(\d*[fp-z])([fp-z])\b/g, "$1*$2");
+
       // Calculate and show result
       try {
         // Wait a tick to "flush the print buffer" before we lock up the browser
@@ -147,7 +156,9 @@ pagetitle: Multiple Integral Calculator
         // (Incidentally, locking up the browser conveniently means that we
         // don't need to temporarily disable the submit button ourselves...)
         await new Promise(resolve => window.setTimeout(resolve, 0));
-        const result = Algebrite.eval(query).toLatexString();
+        const start = Date.now();
+        const result = Algebrite.eval(`simplify(${query})`).toLatexString();
+        console.log("Computed", query, "in", Date.now() - start, "ms");
         $("#result").innerHTML = "";
         $("#result").appendChild(MathJax.tex2svg(`= ${result}`));
       } catch (ex) {
