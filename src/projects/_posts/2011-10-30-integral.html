@@ -1,6 +1,6 @@
 ---
 description: Free online calculator for definite and indefinite multiple integrals (double, triple, or quadruple) using Cartesian, polar, cylindrical, or spherical coordinates.
-headjs: <script defer src="/js/algebrite-1.4.0.js"></script><script>window.MathJax={loader:{load:['input/tex',"output/svg"]},startup:{typeset:false},svg:{scale:1.5}}</script><script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"></script>
+headjs: <script defer src="/js/algebrite-1.4.0.js"></script><script>window.MathJax={loader:{load:['input/tex',"output/svg"]},startup:{typeset:false},svg:{scale:2}}</script><script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"></script>
 h1: Multiple Integral Calculator
 layout: default
 pagetitle: Multiple Integral Calculator
@@ -22,7 +22,7 @@ pagetitle: Multiple Integral Calculator
       <option data-orders="3" value="cylindrical">cylindrical</option>
       <option data-orders="3" value="spherical">spherical</option>
     </select>
-    coordinates.
+    coordinates:
   </p>
   <table class="borderless">
     <tr class="upper">
@@ -36,7 +36,7 @@ pagetitle: Multiple Integral Calculator
       <td id="differentials">
         Differentials<br /><input
           type="text"
-          style="width: 110px"
+          style="width: 100px"
           value="dz dy dx"
         />
       </td>
@@ -84,40 +84,44 @@ pagetitle: Multiple Integral Calculator
         spherical: "dr dt df",
       }[coordSystem];
 
-      // Populate placeholder
-      $("#integrand input").placeholder = {
-        cartesian: `${
-          ["x*y^2", "x + 3*y*z + z^2", "2*x*y + t^3"][order - 2] ?? "7*x + 3"
-        } + sqrt(pi) + cos(0)`,
+      // Populate example
+      $("#integrand input").value = {
+        cartesian: [
+          "7*x + 3",
+          "x*pi^y + sqrt(3)*sin(0)",
+          "x + 3*y*z",
+          "2*x*y + t^3",
+        ][order - 1],
         polar: "(r + 2*t)*r",
         cylindrical: "r*sin(t)*r",
         spherical: "16*r*cos(f)*(r^2)*sin(f)",
       }[coordSystem];
     };
 
-    // Open SymPy tab
+    // Handle form submission
+    const $result = $("#result");
     const submit = async () => {
       // Show loading message
-      $("#result").innerHTML = "Thinking...";
+      $result.innerText = "Thinking...";
 
       // Validate inputs
       const integrand = $("#integrand input").value.trim();
       if (!integrand) {
-        $("#result").innerHTML = "You didn't enter a function to integrate!";
+        $result.innerText = "You didn't enter a function to integrate!";
         return;
       }
       const differentials = $("#differentials input").value.replace(/ |d/g, "");
       if (!differentials) {
-        $("#result").innerHTML = "You didn't enter any differentials!";
+        $result.innerText = "You didn't enter any differentials!";
         return;
       }
       const countBrackets = needle => [...integrand.matchAll(needle)].length;
       if (countBrackets(/\(/g) !== countBrackets(/\)/g)) {
-        $("#result").innerHTML = "Your parentheses aren't matched!";
+        $result.innerText = "Your parentheses aren't matched!";
         return;
       }
       if (countBrackets(/\[/g) !== countBrackets(/\]/g)) {
-        $("#result").innerHTML = "Your brackets aren't matched!";
+        $result.innerText = "Your brackets aren't matched!";
         return;
       }
 
@@ -130,7 +134,7 @@ pagetitle: Multiple Integral Calculator
         const upper = $(`#calc .upper td:nth-child(${n}) input`).value.trim();
         const lower = $(`#calc .lower td:nth-child(${n}) input`).value.trim();
         if (!upper.length !== !lower.length) {
-          $("#result").innerHTML =
+          $result.innerText =
             "Limits of integration for each integral must be either both empty or both filled!";
           return;
         }
@@ -142,8 +146,9 @@ pagetitle: Multiple Integral Calculator
 
       // Insert explicit `*` between common variable names to reduce ambiguity
       query = query
+        .replace(/ln\b/g, "log")
         .replace(
-          /\b([0-9fp-z]+)((?:arc)?cosh?|e|exp|log|pi|(?:arc)?sinh?|sqrt|(?:arc)?tanh?)\b/g,
+          /\b([0-9fp-z]+)((?:arc)?(?:sin|cos|tan)h?|e|exp|log|pi|sqrt)\b/g,
           "$1*$2",
         )
         .replace(/\b(\d*[fp-z])([fp-z])([fp-z])\b/g, "$1*$2*$3")
@@ -157,12 +162,16 @@ pagetitle: Multiple Integral Calculator
         // don't need to temporarily disable the submit button ourselves...)
         await new Promise(resolve => window.setTimeout(resolve, 0));
         const start = Date.now();
-        const result = Algebrite.eval(`simplify(${query})`).toLatexString();
-        console.log("Computed", query, "in", Date.now() - start, "ms");
-        $("#result").innerHTML = "";
-        $("#result").appendChild(MathJax.tex2svg(`= ${result}`));
+        const result = Algebrite.eval(query)
+          .toLatexString()
+          .replace(/\\?log\b/g, "\\ln")
+          .replace(/\\pi(?=\w)/g, "\\pi "); // Prevent garbage like `\pixy`
+        const elapsed = Date.now() - start;
+        console.log("Computed", query, "=", result, "in", elapsed, "ms");
+        $result.innerText = "";
+        $result.appendChild(MathJax.tex2svg(`= ${result}`));
       } catch (ex) {
-        $("#result").innerHTML = `Error: ${ex.message}`;
+        $result.innerText = `Error: ${ex.message}`;
       }
     };
 
