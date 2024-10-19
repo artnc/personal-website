@@ -9,14 +9,17 @@ _DOCKER_OPTIONS = --rm -it \
 # Build production files
 .PHONY: build
 build:
+	docker run $(_DOCKER_OPTIONS) make _build
+.PHONY: _build
+_build:
 	echo 'Deleting build folder...'
-	docker run $(_DOCKER_OPTIONS) rm -rf build
+	rm -rf build
 	echo 'Crushing all uncrushed PNGs...'
-	docker run $(_DOCKER_OPTIONS) python3 scripts/pngcrush.py
+	python3 scripts/pngcrush.py
 	echo 'Building Jekyll...'
-	docker run $(_DOCKER_OPTIONS) sh -c 'cd src && jekyll build --config "_config.yml,_config.prod.yml"'
+	cd src && jekyll build --config '_config.yml,_config.prod.yml'
 	echo 'Compressing HTML and inline CSS/JS...'
-	docker run $(_DOCKER_OPTIONS) html-minifier-terser \
+	html-minifier-terser \
 		--collapse-whitespace \
 		--decode-entities \
 		--file-ext html \
@@ -31,12 +34,11 @@ build:
 		--sort-class-name \
 		--use-short-doctype
 	echo 'Adding hash to CSS file name...'
-	docker run $(_DOCKER_OPTIONS) \
-		sh -c 'md5="$$(md5sum build/css/main.css | cut -c-8)" \
+	md5="$$(md5sum build/css/main.css | cut -c-8)" \
 		&& echo "Hash: $${md5}" \
 		&& mv build/css/main.css "build/css/$${md5}.css" \
 		&& find build -type f -name '*.html' \
-		| xargs sed -i "s@css/main\.css@css/$${md5}\.css@g"'
+		| xargs sed -i "s@css/main\.css@css/$${md5}\.css@g"
 
 # Run Isso. ISSO_ADMIN_PASSWORD can be set to anything - just remember it for
 # use at /admin

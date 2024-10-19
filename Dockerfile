@@ -3,6 +3,7 @@ FROM alpine:3.16.0
 ENV LANG C.UTF-8
 
 RUN apk add --no-cache \
+    bash \
     build-base \
     curl \
     libffi-dev \
