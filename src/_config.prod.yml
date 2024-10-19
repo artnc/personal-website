@@ -1,3 +1,4 @@
+destination: ../build
 sass:
   sourcemap: never
   style: compressed

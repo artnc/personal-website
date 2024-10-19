@@ -1,4 +1,4 @@
-destination: ../build
+destination: /build
 future: true
 host: 0.0.0.0
 markdown_ext: "md"
