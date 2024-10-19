@@ -665,6 +665,15 @@ img.right {
     width: 660px;
   }
 
+  // Increase hitbox size for easier clickability
+  .footnote,
+  .reversefootnote {
+    border: none !important;
+    margin: -7px -12px;
+    padding: 7px 12px !important;
+    position: relative;
+  }
+
   .footnotes {
     border-top: 1px solid $gray;
     font-size: 0.85em;
