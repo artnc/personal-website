@@ -26,7 +26,7 @@ All rights reserved, except where otherwise noted.
 ## Workflow
 
 - Developing: `make serve` to http://localhost:4000
-- Publishing: `make sync host=***` where `host` is droplet IP
+- Publishing: `make deploy host=***` where `host` is droplet IP
 - Serving comments: `ISSO_ADMIN_PASSWORD=*** make comments`
 - Managing comments: `/isso/admin` on live site
 

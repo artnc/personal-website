@@ -52,6 +52,16 @@ comments:
 		-v "$${PWD}:/db" \
 		ghcr.io/isso-comments/isso:0.13.0
 
+# Upload to DigitalOcean via rsync
+# https://stackoverflow.com/a/11829094
+.PHONY: deploy
+deploy: build
+	$(_DOCKER_RUN) rsync -azP \
+		--delete build/ \
+		-e "ssh -o StrictHostKeyChecking=no" \
+		--quiet \
+		root@${host}:/var/www/html
+
 # Watch Jekyll source directory for changes and serve at localhost:4000
 .PHONY: serve
 serve:
@@ -65,13 +75,3 @@ sitemap:
 		"https://content.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fchaidarun.com%2F/sitemaps/https%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
 	$(_DOCKER_RUN) curl -Ii \
 		'http://www.bing.com/ping?sitemap=https%3A%2F%2Fchaidarun.com%2Fsitemap.xml'
-
-# Upload to DigitalOcean via rsync
-# https://stackoverflow.com/a/11829094
-.PHONY: sync
-sync: build
-	$(_DOCKER_RUN) rsync -azP \
-		--delete build/ \
-		-e "ssh -o StrictHostKeyChecking=no" \
-		--quiet \
-		root@${host}:/var/www/html
