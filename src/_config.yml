@@ -1,7 +1,8 @@
+# This config setup assumes that we're running Jekyll inside Docker
+
 destination: /build
 future: true
 host: 0.0.0.0
-markdown_ext: "md"
 name: "Art Chaidarun"
 permalink: /:title.html
 url: https://chaidarun.com

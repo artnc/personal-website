@@ -17,7 +17,7 @@ _build:
 	echo 'Crushing all uncrushed PNGs...'
 	python3 scripts/pngcrush.py
 	echo 'Building Jekyll...'
-	cd src && jekyll build --config '_config.yml,_config.prod.yml'
+	cd src && jekyll build --config '_config.yml,_config.prod.yml' 2> /dev/null
 	echo 'Compressing HTML and inline CSS/JS...'
 	html-minifier-terser \
 		--collapse-whitespace \
