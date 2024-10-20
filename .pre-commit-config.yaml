@@ -4,3 +4,9 @@ repos:
     hooks:
       - id: duolingo
         exclude: "/_sass/|src/(_includes/|feed|files/|js/|_layouts/default|sitemap)"
+  - repo: https://github.com/duolingo/splinter.git
+    rev: 1.3.1
+    hooks:
+      - id: splinter
+        args:
+          - scripts/splinter-rules.txt

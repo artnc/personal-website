@@ -1,0 +1,3 @@
+# https://www.wearefine.com/news/search-and-social/should-you-rewrite-your-title-tags/
+Keep <title> under 55 chars
+^pagetitle: .{55,}
