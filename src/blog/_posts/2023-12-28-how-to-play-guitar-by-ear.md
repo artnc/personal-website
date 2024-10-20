@@ -1,9 +1,8 @@
 ---
-h1: How to Play Guitar by Ear
 layout: post
 ogimage: /img/how-to-play-guitar-by-ear-slap.png
-pagetitle: How to Play Guitar by Ear
 tags: ["music"]
+title: How to Play Guitar by Ear
 ---
 
 While noodling around on guitar as the year wraps up, I thought of the song [_Auld Lang Syne_](https://www.youtube.com/watch?v=Aop6YF1Xqqg) and&mdash;to my pleasant surprise&mdash;banged out a fully formed fingerstyle arrangement in one go.

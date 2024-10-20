@@ -1,9 +1,7 @@
 ---
-h1: How to Disable Contactless Payment on a Credit Card
 layout: post
 ogimage: /img/contactless-chip.jpg
-pagetitle: How to Disable Contactless Payment on a Credit Card
-tags: []
+title: How to Disable Contactless Payment on a Credit Card
 ---
 
 An exercise in hyperoptimizing my daily life.
@@ -14,7 +12,7 @@ An exercise in hyperoptimizing my daily life.
 
 Nothing, in general. It's convenient and secure. But here's my situation:
 
-- I want to pay for most things by tapping my phone, not my credit card. [Apple Pay](https://en.wikipedia.org/wiki/Apple_Pay) / [Google Pay](https://en.wikipedia.org/wiki/Google_Pay_(payment_method)) removes the need to carry all my physical credit cards everywhere.
+- I want to pay for most things by tapping my phone, not my credit card. [Apple Pay](https://en.wikipedia.org/wiki/Apple_Pay) / [Google Pay](<https://en.wikipedia.org/wiki/Google_Pay_(payment_method)>) removes the need to carry all my physical credit cards everywhere.
 - I want to carry exactly one physical credit card as a backup for vendors whom I can't easily pay by tapping my phone, e.g. most sit-down restaurants in the US.
 - I want to minimize my everyday carry by storing that backup card inside my phone case's sleeve. I haven't bothered using a standalone wallet in years.
 

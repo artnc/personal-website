@@ -1,9 +1,8 @@
 ---
-h1: Replacing Dropbox with Syncthing
 layout: post
 ogimage: /img/home-server.jpg
-pagetitle: Replacing Dropbox with Syncthing
 tags: ["linux"]
+title: Replacing Dropbox with Syncthing
 ---
 
 Dropbox is convenient, but there are several reasons why you might want to drop it:

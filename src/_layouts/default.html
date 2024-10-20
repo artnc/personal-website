@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   {% if page.description != null %}<meta name="description" content="{{ page.description }}">{% endif %}
   <meta name="author" content="Art Chaidarun">
-  <title>{% if page.pagetitle != null %}{{ page.pagetitle }} - {% endif %}Art Chaidarun</title>
+  <title>{% if page.title != "Index" %}{{ page.title }} - {% endif %}Art Chaidarun</title>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <meta name="theme-color" content="#202227">
@@ -29,7 +29,7 @@
     </ul>
   </div>
   <div class="content">
-    {% if page.h1 != null %}<h1>{{ page.h1 }}</h1>{% endif %}
+    {% if page.omit_h1 != true %}<h1>{{ page.title }}</h1>{% endif %}
     {{ content }}
     <div id="lightbox">
       <img />

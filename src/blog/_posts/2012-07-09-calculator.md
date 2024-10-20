@@ -1,9 +1,8 @@
 ---
 description: My first non-trivial programs.
-h1: Calculator Blackjack and Simon
 layout: post
-pagetitle: Calculator Blackjack and Simon
 tags: ["personal"]
+title: Calculator Blackjack and Simon
 ---
 
 Here are the first two programs I ever wrote. Before discovering "real" computer programming, I used to be pretty big into the graphing calculator scene.

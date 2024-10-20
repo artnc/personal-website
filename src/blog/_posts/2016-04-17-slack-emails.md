@@ -1,8 +1,7 @@
 ---
-h1: Forwarding Emails to Slack
 layout: post
-pagetitle: Forwarding Emails to Slack
 tags: ["web"]
+title: Forwarding Emails to Slack
 ---
 
 > Update 2024-05-05: Slack now has a built-in [email forwarding](https://slack.com/help/articles/206819278-Send-emails-to-Slack) feature!

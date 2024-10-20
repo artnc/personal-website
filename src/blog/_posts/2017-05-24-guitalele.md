@@ -1,8 +1,7 @@
 ---
-h1: Get a Guitalele Already
 layout: post
-pagetitle: Get a Guitalele Already
 tags: ["music"]
+title: Get a Guitalele Already
 ---
 
 The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar built like a ukulele, and it should be your next -- or even first -- musical instrument.

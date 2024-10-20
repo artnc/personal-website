@@ -1,9 +1,8 @@
 ---
-h1: Turning Pages with Face Recognition
 layout: post
 ogimage: /img/page-turner.jpg
-pagetitle: Turning Pages with Face Recognition
 tags: ["linux", "music"]
+title: Turning Pages with Face Recognition
 ---
 
 Nearly all of my sheet music is in PDF. I'm usually too ~~lazy~~&nbsp;~~cheap~~ environmentally friendly to print it out, and sadly there are only so many notes that can fit on a screen. My playing has typically been littered with impromptu rest measures caused by my reaching for the mouse to scroll down.

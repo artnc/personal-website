@@ -1,9 +1,7 @@
 ---
-h1: How to Use a Custom Email Domain with Gmail
 layout: post
 ogimage: /img/gmail-from.png
-pagetitle: How to Use a Custom Email Domain with Gmail
-tags: []
+title: How to Use a Custom Email Domain with Gmail
 ---
 
 Here's exactly what I did to set up my own `firstname@lastname.com` email address in Gmail, allowing me to seamlessly use that new address with my existing Gmail account:

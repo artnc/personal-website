@@ -1,8 +1,7 @@
 ---
 description: Custom build systems for LaTeX and Sass.
-h1: Sublime Text Build Systems
 layout: post
-pagetitle: Sublime Text Build Systems
+title: Sublime Text Build Systems
 ---
 
 Pretty much what it says on the tin. Open [Sublime](http://www.sublimetext.com) and go to Tools > Build Systems > New Build System, paste in the code, and save under whatever name you want. You'll then be able to save and compile these special filetypes just by hitting F7. I'm using Linux, so you may need to replace a few of the Bash commands with their Batch equivalents if you're on Windows.

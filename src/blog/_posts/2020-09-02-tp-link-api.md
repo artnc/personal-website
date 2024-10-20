@@ -1,8 +1,7 @@
 ---
-h1: TP-Link API Reference
 layout: post
-pagetitle: TP-Link API Reference
 tags: ["linux"]
+title: TP-Link API Reference
 ---
 
 My [Kasa HS103](https://www.kasasmart.com/us/products/smart-plugs/kasa-smart-wifi-plug-lite-hs103p2) smart plugs arrived today, and I felt an uncontrollable urge to control them via API. This post is a distillation of [these guides](https://itnerd.space/2017/01/22/how-to-control-your-tp-link-hs100-smartplug-from-internet/) for my own reference. It should work for at least the HS1xx product line.

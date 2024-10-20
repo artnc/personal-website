@@ -14,7 +14,7 @@
     {% for post in site.posts limit:20 %}
       {% if post.layout == "post" %}
       <item>
-        <title>{{ post.h1 }}</title>
+        <title>{{ post.title }}</title>
         <link>{{ site.url }}{{ post.id }}</link>
         <pubDate>{{ post.date | date: time_format }}</pubDate>
         <guid isPermaLink="true">{{ site.url }}{{ post.id }}</guid>

@@ -8,11 +8,11 @@ All rights reserved, except where otherwise noted.
   - description: content for meta description
   - headcss: extra css for head
   - headjs: extra js for head
+  - omit_h1: true iff h1 should be omitted
   - jquery: whether jquery should be included
-  - h1: what should go inside h1 tags
   - ogimage: og:image url
-  - pagetitle: what should go inside title tags
   - secret: true iff page should be published but not sitemapped
+  - title: what should go inside h1 and title tags
 - Includes
   - ga: google analytics js
 - Layouts

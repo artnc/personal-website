@@ -1,9 +1,7 @@
 ---
-h1: The Camino de Santiago in a Million Easy Steps
 layout: post
 ogimage: /img/camino-village.jpg
-pagetitle: The Camino de Santiago in a Million Easy Steps
-tags: []
+title: The Camino de Santiago in a Million Easy Steps
 ---
 
 I just spent 34 days walking the [Camino de Santiago](https://en.wikipedia.org/wiki/Camino_de_Santiago), a medieval pilgrimage route that starts in France and runs 800 km across Spain to the tomb of St. James the Apostle in Santiago de Compostela. This UNESCO-recognized tradition began in the 9th century and is now undertaken, at least in part, by around half a million people every year.

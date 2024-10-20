@@ -1,9 +1,7 @@
 ---
-h1: Ten Years of Logging My Life
 layout: post
 ogimage: /img/uva-xls.png
-pagetitle: Ten Years of Logging My Life
-tags: []
+title: Ten Years of Logging My Life
 ---
 
 > Update 2021-12-27: See [Hacker News](https://news.ycombinator.com/item?id=29692087) for 100+ more comments on this post.

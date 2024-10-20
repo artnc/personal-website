@@ -1,8 +1,7 @@
 ---
-h1: Tiny Tiny RSS on Heroku
 layout: post
-pagetitle: Tiny Tiny RSS on Heroku
 tags: ["web"]
+title: Tiny Tiny RSS on Heroku
 ---
 
 > Update 2021-12-24: Looks like someone else has [further iterated](https://github.com/serl/ttrss-heroku) on the process outlined in this post? I haven't had a chance to try&mdash;nowadays I use Inoreader.
