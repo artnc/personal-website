@@ -13,7 +13,7 @@ $font-size-body: 16px;
 $font-size-h1: 40px;
 $font-size-h2: 30px;
 $font-size-h3: 20px;
-$font-size-small: 14px;
+$font-size-small: 0.875em; // Originally 14px, now using em to work inside h2
 $font-weight-bold: 600;
 $media-desktop: "min-width: 600px";
 $width-page: 720px;
