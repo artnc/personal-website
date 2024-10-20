@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: ["linux", "music"]
-title: Connecting a MIDI Keyboard to LinuxSampler
+title: How to Connect a MIDI Keyboard to LinuxSampler
 ---
 
 A couple years ago I went shopping for a MIDI keyboard based on price and key weighting, with no consideration given to audio quality. I figured that'd be lousy anyway, and on Windows I had used an acoustic modeling program called Pianoteq that did a decent enough job of replacing the stock samples.

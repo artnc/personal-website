@@ -2,7 +2,7 @@
 layout: post
 ogimage: /img/home-server.jpg
 tags: ["linux"]
-title: Replacing Dropbox with Syncthing
+title: How to Replace Dropbox with Syncthing
 ---
 
 Dropbox is convenient, but there are several reasons why you might want to drop it:

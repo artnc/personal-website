@@ -1,7 +1,7 @@
 ---
 layout: post
 tags: ["linux", "music"]
-title: Writing Guitar Tabs in MuseScore
+title: How to Write Guitar Tabs in MuseScore
 ---
 
 After brief forays into LilyPond and TuxGuitar (and a failed attempt at running Guitar Pro in Wine), I've settled on [MuseScore](https://musescore.org/en) for my guitar tabbing needs. Here are some notes on how I produce tab files like <a href="/files/tab/Journey - Don't Stop Believin'.pdf">this one</a>:

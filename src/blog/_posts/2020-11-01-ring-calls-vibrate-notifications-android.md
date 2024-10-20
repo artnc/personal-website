@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Ring Calls and Vibrate Notifications on Android
+title: How to Ring Calls and Vibrate Notifications on Android
 ---
 
 I want calls to ring audibly, and I want notifications to vibrate silently.
