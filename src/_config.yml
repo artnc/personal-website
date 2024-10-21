@@ -1,8 +1,20 @@
 # This config setup assumes that we're running Jekyll inside Docker
 
+defaults:
+  # https://github.com/jekyll/jekyll-sitemap?tab=readme-ov-file#exclusions
+  - scope:
+      path: "files/**/*"
+    values:
+      sitemap: false
+  - scope:
+      path: "google*.html"
+    values:
+      sitemap: false
 destination: /build
 future: true
 host: 0.0.0.0
 name: "Art Chaidarun"
 permalink: /:slug # `:title` is apparently just an alias for `:slug`
+plugins:
+  - jekyll-sitemap
 url: https://chaidarun.com

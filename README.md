@@ -11,7 +11,7 @@ All rights reserved, except where otherwise noted.
   - omit_h1: true iff h1 should be omitted
   - jquery: whether jquery should be included
   - ogimage: og:image url
-  - secret: true iff page should be published but not sitemapped
+  - sitemap: false iff page should be published but not sitemapped
   - title: what should go inside h1 and title tags
 - Includes
   - ga: google analytics js
