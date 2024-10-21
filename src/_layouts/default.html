@@ -19,7 +19,7 @@
   {% if page.jquery == true %}<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>{% endif %}
   {% if page.headjs != null %}{{ page.headjs }}{% endif %}
 </head>
-<body id="top" class="{{ page.slug }}-html">
+<body id="top" class="{{ page.url | replace:'/','' }}-html">
 <div id="wrap" class="centered">
   <div id="header">
     <a id="logo" href="/"><img src="/css/icogreen.png" alt="Home"><span>Art Chaidarun</span></a>
