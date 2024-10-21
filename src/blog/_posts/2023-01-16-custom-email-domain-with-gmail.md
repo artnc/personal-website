@@ -1,5 +1,4 @@
 ---
-layout: post
 ogimage: /img/gmail-from.png
 title: How to Use a Custom Email Domain with Gmail
 ---

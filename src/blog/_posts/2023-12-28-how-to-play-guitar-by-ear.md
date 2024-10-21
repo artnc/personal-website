@@ -1,5 +1,4 @@
 ---
-layout: post
 ogimage: /img/how-to-play-guitar-by-ear-slap.png
 tags: ["music"]
 title: How to Play Guitar by Ear

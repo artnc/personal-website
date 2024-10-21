@@ -1,5 +1,4 @@
 ---
-layout: post
 title: Elixir for Node.js Developers
 ---
 

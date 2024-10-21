@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["web"]
 title: Simple Intro to Node.js, npm, and webpack
 ---

@@ -1,6 +1,5 @@
 ---
 description: Professional software engineer and (very) amateur musician in Pittsburgh, PA.
-layout: default
 omit_h1: true
 slug: ""
 ---

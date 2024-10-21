@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["web"]
 title: Tiny Tiny RSS on Heroku
 ---

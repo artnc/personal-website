@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["linux"]
 title: Bash Style Guide for Mac and Linux
 ---

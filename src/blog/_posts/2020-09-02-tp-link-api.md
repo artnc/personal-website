@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["linux"]
 title: TP-Link API Reference
 ---

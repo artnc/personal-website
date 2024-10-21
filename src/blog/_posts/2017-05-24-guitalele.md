@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["music"]
 title: Get a Guitalele Already
 ---

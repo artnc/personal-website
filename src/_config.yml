@@ -1,9 +1,26 @@
 # This config setup assumes that we're running Jekyll inside Docker
 
 defaults:
+  # Set default layouts
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: default
+  - scope:
+      path: "blog"
+    values:
+      layout: post
+
+  # Exclude files from sitemap
   # https://github.com/jekyll/jekyll-sitemap?tab=readme-ov-file#exclusions
   - scope:
-      path: "files/**/*"
+      path: "files"
     values:
       sitemap: false
   - scope:

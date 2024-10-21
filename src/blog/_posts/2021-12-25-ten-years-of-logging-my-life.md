@@ -1,5 +1,4 @@
 ---
-layout: post
 ogimage: /img/uva-xls.png
 title: Ten Years of Logging My Life
 ---

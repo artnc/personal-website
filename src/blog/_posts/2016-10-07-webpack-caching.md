@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["web"]
 title: How to Make Webpack Caching Actually Work
 ---

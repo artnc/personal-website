@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["linux"]
 title: Fedora Linux on the MacBook Pro
 ---

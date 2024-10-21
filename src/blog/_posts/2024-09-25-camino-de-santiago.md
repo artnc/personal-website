@@ -1,5 +1,4 @@
 ---
-layout: post
 ogimage: /img/camino-village.jpg
 title: The Camino de Santiago in a Million Easy Steps
 ---

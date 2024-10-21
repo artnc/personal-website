@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["linux", "music"]
 title: How to Connect a MIDI Keyboard to LinuxSampler
 ---

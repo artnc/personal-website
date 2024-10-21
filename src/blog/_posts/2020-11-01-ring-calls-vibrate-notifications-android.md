@@ -1,5 +1,4 @@
 ---
-layout: post
 title: How to Ring Calls and Vibrate Notifications on Android
 ---
 

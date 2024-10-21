@@ -1,5 +1,4 @@
 ---
-layout: post
 ogimage: /img/arch.png
 tags: ["linux"]
 title: Arch Linux Notes

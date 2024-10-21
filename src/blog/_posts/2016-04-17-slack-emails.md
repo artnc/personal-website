@@ -1,5 +1,4 @@
 ---
-layout: post
 tags: ["web"]
 title: How to Forward Emails to Slack
 ---

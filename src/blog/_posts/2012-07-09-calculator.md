@@ -1,6 +1,5 @@
 ---
 description: My first non-trivial programs.
-layout: post
 tags: ["personal"]
 title: Calculator Blackjack and Simon
 ---
