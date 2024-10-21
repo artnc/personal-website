@@ -4,5 +4,5 @@ destination: /build
 future: true
 host: 0.0.0.0
 name: "Art Chaidarun"
-permalink: /:title.html
+permalink: /:slug # `:title` is apparently just an alias for `:slug`
 url: https://chaidarun.com

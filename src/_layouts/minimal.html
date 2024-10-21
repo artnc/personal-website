@@ -13,7 +13,7 @@
     {% if page.headcss != null %}{{ page.headcss }}{% endif %} {% if page.headjs
     != null %}{{ page.headjs }}{% endif %}
   </head>
-  <body id="top" class="{{ page.title | downcase | remove: '.html' }}-html">
+  <body id="top" class="{{ page.slug }}-html">
     {{ content }} {% include ga.html %}
   </body>
 </html>
