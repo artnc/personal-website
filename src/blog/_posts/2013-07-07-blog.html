@@ -7,10 +7,9 @@ title: Blog
 
 {% assign blog_posts = site.posts | where: "layout", "post" %}
 <p>
-  Filter by topic:
-  <select>
+  <select style="margin-left: 0">
     <option value="all" selected="selected">
-      all ({{ blog_posts | size }})
+      All posts ({{ blog_posts | size }})
     </option>
     {% for tag in site.tags | sort %}
     <option value="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1] | size }})</option>

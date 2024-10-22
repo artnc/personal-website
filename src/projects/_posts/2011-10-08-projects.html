@@ -399,11 +399,11 @@ title: Projects
       const $blurb = $blurbs.hide().filter(`[data-hash=${project}]`).show();
       const tech = ($blurb.attr("data-tech") || "").split(",");
       $(".tag")
-        .removeClass("activetag")
+        .removeClass("inactive")
         .filter(function () {
-          return tech.indexOf(this.textContent) !== -1;
+          return tech.indexOf(this.textContent) === -1;
         })
-        .addClass("activetag");
+        .addClass("inactive");
       $thumbnails
         .removeClass("current")
         .filter(`[data-project=${project}]`)
