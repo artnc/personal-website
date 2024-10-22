@@ -70,12 +70,3 @@ deploy: build
 serve:
 	docker run -p 4000:4000 -p 35729:35729 $(_DOCKER_OPTIONS) \
 		sh -c 'cd src && jekyll serve --livereload'
-
-# Submit sitemap to Google and Bing (lol?)
-.PHONY: sitemap
-sitemap:
-	docker run $(_DOCKER_OPTIONS) curl -i -X PUT \
-		-H "Authorization: Bearer ${token}" \
-		"https://content.googleapis.com/webmasters/v3/sites/https%3A%2F%2Fchaidarun.com%2F/sitemaps/https%3A%2F%2Fchaidarun.com%2Fsitemap.xml"
-	docker run $(_DOCKER_OPTIONS) curl -Ii \
-		'http://www.bing.com/ping?sitemap=https%3A%2F%2Fchaidarun.com%2Fsitemap.xml'
