@@ -1,6 +1,6 @@
 ---
 ogimage: /img/how-to-play-guitar-by-ear-slap.png
-tags: ["music"]
+tags: howto music
 title: How to Play Guitar by Ear
 ---
 

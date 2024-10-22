@@ -1,6 +1,6 @@
 ---
 description: A detailed guide for connecting an Android device to the University of Virginia's secure wireless network, cavalier.
-tags: ["linux"]
+tags: howto linux
 title: How to Connect Android to UVa's Cavalier Network
 ---
 

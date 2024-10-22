@@ -1,6 +1,6 @@
 ---
 ogimage: /img/arch.png
-tags: ["linux"]
+tags: linux
 title: Arch Linux Notes
 ---
 

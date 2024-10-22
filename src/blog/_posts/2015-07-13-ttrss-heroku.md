@@ -1,5 +1,5 @@
 ---
-tags: ["web"]
+tags: howto
 title: Tiny Tiny RSS on Heroku
 ---
 

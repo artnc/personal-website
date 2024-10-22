@@ -1,5 +1,6 @@
 ---
 ogimage: /img/contactless-chip.jpg
+tags: howto
 title: How to Disable Contactless Payment on a Credit Card
 ---
 

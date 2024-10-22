@@ -1,5 +1,6 @@
 ---
 description: Custom build systems for LaTeX and Sass.
+tags: code
 title: Sublime Text Build Systems
 ---
 

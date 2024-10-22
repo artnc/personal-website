@@ -1,6 +1,6 @@
 ---
 ogimage: /img/home-server.jpg
-tags: ["linux"]
+tags: howto
 title: How to Replace Dropbox with Syncthing
 ---
 

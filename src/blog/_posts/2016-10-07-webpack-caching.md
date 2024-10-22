@@ -1,5 +1,5 @@
 ---
-tags: ["web"]
+tags: code howto
 title: How to Make Webpack Caching Actually Work
 ---
 

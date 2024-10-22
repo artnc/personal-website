@@ -1,4 +1,5 @@
 ---
+tags: howto linux
 title: How to Ring Calls and Vibrate Notifications on Android
 ---
 

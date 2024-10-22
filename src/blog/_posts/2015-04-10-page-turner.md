@@ -1,6 +1,6 @@
 ---
 ogimage: /img/page-turner.jpg
-tags: ["linux", "music"]
+tags: music
 title: Turning Pages with Face Recognition
 ---
 

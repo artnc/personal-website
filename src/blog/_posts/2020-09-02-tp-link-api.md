@@ -1,5 +1,5 @@
 ---
-tags: ["linux"]
+tags: code howto
 title: TP-Link API Reference
 ---
 

@@ -1,5 +1,5 @@
 ---
-tags: ["linux"]
+tags: code linux
 title: Bash Style Guide for Mac and Linux
 ---
 

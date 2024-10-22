@@ -1,0 +1,70 @@
+---
+description: Linux, code, and music.
+layout: default
+omit_h1: true
+title: Blog
+---
+
+{% assign blog_posts = site.posts | where: "layout", "post" %}
+<p>
+  Filter by topic:
+  <select>
+    <option value="all" selected="selected">
+      all ({{ blog_posts | size }})
+    </option>
+    {% for tag in site.tags | sort %}
+    <option value="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1] | size }})</option>
+    {% endfor %}
+  </select>
+</p>
+
+<table>
+  <tbody>
+    {% for post in blog_posts %}
+    <tr data-tags="{{ post.tags | join: ' ' }}">
+      <td class="date">{{ post.date | date: "%Y-%m-%d" }}</td>
+      <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<script>
+  (async () => {
+    // Implement topic selector
+    const $select = document.querySelector("select");
+    const $rows = document.querySelectorAll(".content tr");
+    $select.addEventListener("change", () => {
+      const tag = $select.value;
+      for (const $tr of $rows) {
+        $tr.hidden = !(
+          tag === "all" || $tr.dataset.tags.split(" ").includes(tag)
+        );
+      }
+    });
+
+    // Show comment counts
+    const HN_COMMENT_COUNTS = { "/ten-years-of-logging-my-life": 156 };
+    const rows = [...document.querySelectorAll(".content tr")];
+    const paths = rows.map($tr => $tr.querySelector("a").pathname);
+    const counts = await (
+      await fetch("https://chaidarun.com/isso/count", {
+        body: JSON.stringify(paths),
+        method: "POST",
+      })
+    ).json();
+    for (const [i, $tr] of rows.entries()) {
+      const count = counts[i] + (HN_COMMENT_COUNTS[paths[i]] ?? 0);
+      if (count) {
+        $tr
+          .querySelector("a")
+          .insertAdjacentHTML(
+            "afterend",
+            ` <span class="count">${count} comment${
+              count === 1 ? "" : "s"
+            }</span>`,
+          );
+      }
+    }
+  })();
+</script>

@@ -1,5 +1,5 @@
 ---
-tags: ["web"]
+tags: code
 title: Simple Intro to Node.js, npm, and webpack
 ---
 
