@@ -639,18 +639,18 @@ img.right {
   h2 a {
     margin-left: 15px;
     opacity: 0;
-    transition: opacity $transition-fast;
   }
 
   h2:hover a {
     border: 0 !important;
     opacity: 0.3;
-    visibility: initial;
   }
 
   h2 img {
-    height: 18px;
-    width: 18px;
+    height: 24px;
+    position: relative;
+    top: 2px;
+    width: 24px;
   }
 
   canvas {
