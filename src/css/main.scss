@@ -184,22 +184,7 @@ img {
   max-width: 100%;
 }
 
-// Selection
-
-::-moz-selection,
-::selection {
-  color: $bg;
-  background: $color-link;
-}
-
-// IDs
-
-#wrap {
-  max-width: $width-page;
-  padding: 0 30px;
-}
-
-#header {
+header {
   margin: 20px 0 60px;
   user-select: none;
 
@@ -275,7 +260,7 @@ img {
   }
 }
 
-#content {
+main {
   li {
     line-height: 1.8;
   }
@@ -361,40 +346,7 @@ img {
   }
 }
 
-#lightbox {
-  background: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  height: 100vh;
-  left: 0;
-  pointer-events: none;
-  opacity: 0;
-  position: fixed;
-  top: 0;
-  transition: opacity $transition-fast;
-  width: 100vw;
-  z-index: 2;
-
-  &.shown {
-    opacity: 1;
-    pointer-events: initial;
-  }
-
-  img {
-    cursor: default;
-    left: 50%;
-    max-height: 95%;
-    max-width: 95%;
-    position: relative;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-}
-
-#disqus_thread {
-  margin-top: 70px;
-}
-
-#footer {
+footer {
   color: $color-subtext;
   font-size: $font-size-small;
   margin: 40px 0 40px;
@@ -448,6 +400,54 @@ img {
     height: 100%;
     width: 100%;
   }
+}
+
+// Selection
+
+::-moz-selection,
+::selection {
+  color: $bg;
+  background: $color-link;
+}
+
+// IDs
+
+#wrap {
+  max-width: $width-page;
+  padding: 0 30px;
+}
+
+#lightbox {
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  height: 100vh;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity $transition-fast;
+  width: 100vw;
+  z-index: 2;
+
+  &.shown {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  img {
+    cursor: default;
+    left: 50%;
+    max-height: 95%;
+    max-width: 95%;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+#disqus_thread {
+  margin-top: 70px;
 }
 
 // Classes
@@ -550,13 +550,13 @@ img.right {
 // works but isn't worth having yet another way to do styling:
 // https://stackoverflow.com/a/16844668
 
-body[data-slug="apps-i-use"] #content {
+body[data-slug="apps-i-use"] main {
   h2 + p {
     margin-top: -20px;
   }
 }
 
-body[data-slug="blog"] #content {
+body[data-slug="blog"] main {
   a {
     margin-right: 5px;
   }
@@ -574,19 +574,19 @@ body[data-slug="blog"] #content {
   }
 }
 
-body[data-slug="graphics"] #content {
+body[data-slug="graphics"] main {
   a img {
     height: 190px;
   }
 }
 
-body[data-slug="guitalele"] #content {
+body[data-slug="guitalele"] main {
   td:first-child {
     white-space: nowrap;
   }
 }
 
-body[data-slug="integral"] #content {
+body[data-slug="integral"] main {
   td {
     padding: 0;
     vertical-align: middle;
@@ -634,7 +634,7 @@ body[data-slug="integral"] #content {
   }
 }
 
-body[data-slug="projects"] #content {
+body[data-slug="projects"] main {
   h2 {
     margin: 0 0 0.25em;
   }

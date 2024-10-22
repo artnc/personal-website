@@ -34,7 +34,7 @@ title: Blog
   (async () => {
     // Implement topic selector
     const $select = document.querySelector("select");
-    const $rows = document.querySelectorAll("#content tr");
+    const $rows = document.querySelectorAll("main tr");
     $select.addEventListener("change", () => {
       const tag = $select.value;
       for (const $tr of $rows) {
@@ -46,7 +46,7 @@ title: Blog
 
     // Show comment counts
     const HN_COMMENT_COUNTS = { "/ten-years-of-logging-my-life": 156 };
-    const rows = [...document.querySelectorAll("#content tr")];
+    const rows = [...document.querySelectorAll("main tr")];
     const paths = rows.map($tr => $tr.querySelector("a").pathname);
     const counts = await (
       await fetch("https://chaidarun.com/isso/count", {
