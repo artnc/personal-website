@@ -58,9 +58,9 @@ Here's how I made the switch:
 
    ![Home server](/img/home-server.jpg)
 
-   You'll first need to go home and open ports on your router, whose admin panel is typically accessible at [192.168.0.1](http://192.168.0.1/) or [192.168.1.1](http://192.168.0.1/). Look for the [port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) settings and map the router's port 8384 to your home server's port 8384. The Syncthing dashboard runs on port 8384; you can also open ports for other programs like SSH\*. This wiring step is necessary because all devices on your home network share the same public IP address (e.g. `123.45.67.89`), and so your router needs to know which one of them should handle incoming address-port combinations like `123.45.67.89:8384`.
+   You'll first need to go home and open ports on your router, whose admin panel is typically accessible at [192.168.0.1](http://192.168.0.1/) or [192.168.1.1](http://192.168.0.1/). Look for the [port forwarding](https://en.wikipedia.org/wiki/Port_forwarding) settings and map the router's port 8384 to your home server's port 8384. The Syncthing dashboard runs on port 8384; you can also open ports for other programs like SSH[^ssh]. This wiring step is necessary because all devices on your home network share the same public IP address (e.g. `123.45.67.89`), and so your router needs to know which one of them should handle incoming address-port combinations like `123.45.67.89:8384`.
 
-   _\*If you do decide to expose SSH, either map your server's port 22 to a different port number on your router or edit your server's SSH config to use a port other than 22. This simple security-through-obscurity measure defeats the 99% of login bots that target the default SSH port._
+   [^ssh]: If you do decide to expose SSH, either map your server's port 22 to a different port number on your router or edit your server's SSH config to use a port other than 22. This simple security-through-obscurity measure defeats the 99% of login bots that target the default SSH port.
 
    You can now remotely view your home server's Syncthing dashboard by going to `https://123.45.67.89:8384/` in your web browser. Go into the dashboard settings and set a password so that nobody else will be able to view it.
 

@@ -17,6 +17,7 @@ $font-size-small: 0.875em; // Originally 14px, now using em to work in h2
 $font-weight-bold: 600;
 $media-desktop: "min-width: 600px";
 $width-page: 720px;
+$width-indent: 30px;
 
 // Colors
 @function lighten($color, $lightness) {
@@ -303,9 +304,13 @@ img {
     }
   }
 
+  blockquote {
+    margin-left: $width-indent;
+  }
+
   ol,
   ul {
-    padding-left: 35px;
+    padding-left: $width-indent;
   }
 
   li {
@@ -448,21 +453,13 @@ img {
   float: right;
 }
 
-img.left {
-  margin: 0 20px 20px 20px;
-  width: 100%;
-
-  @media ($media-desktop) {
-    width: initial;
-  }
-}
-
 img.right {
-  margin: 0 0 20px 40px;
-  width: 100%;
+  margin: 0 0 20px 20px;
+  max-width: 40%;
 
   @media ($media-desktop) {
-    width: initial;
+    margin: 0 0 30px 30px;
+    max-width: 300px;
   }
 }
 
@@ -470,16 +467,27 @@ img.right {
   display: none;
 }
 
+// Black magic to get full-width YouTube embeds
+// https://stackoverflow.com/a/38270745
+.youtube-wrap {
+  height: 0;
+  padding-bottom: 56.25%; // 16:9 aspect ratio
+  position: relative;
+
+  iframe {
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    position: absolute;
+  }
+}
+
 /********************************************************************* PAGES */
 
 .-html {
   .avatar {
-    margin-top: 10px;
-    width: 40%;
-
-    @media ($media-desktop) {
-      width: 200px;
-    }
+    margin-top: 8px;
   }
 }
 
@@ -520,8 +528,12 @@ img.right {
     vertical-align: top;
 
     &:first-child {
-      padding-right: 40px;
+      padding-right: 30px;
       width: 100%;
+
+      @media (min-width: 450px) {
+        padding-right: 40px;
+      }
     }
 
     &:last-child {
@@ -583,18 +595,35 @@ img.right {
   }
 
   .limit input {
-    width: 2.5em;
+    width: 2em;
+
+    @media ($media-desktop) {
+      width: 2.5em;
+    }
   }
 
   .int {
     border: 0px;
     font-family: Impact, Georgia, "Times New Roman";
-    font-size: 8em;
+    font-size: 7em;
+
+    @media ($media-desktop) {
+      font-size: 8em;
+    }
   }
 
   .paren {
+    display: none;
     font-family: "Times New Roman";
     font-size: 6em;
+
+    @media ($media-desktop) {
+      display: table-cell;
+    }
+  }
+
+  tr.center input {
+    margin: 3px 0 0;
   }
 
   #integrand,
@@ -786,7 +815,7 @@ img.right {
 
   // Nested comments
   .isso-follow-up {
-    padding-left: 40px;
+    padding-left: $width-indent;
   }
 
   svg {

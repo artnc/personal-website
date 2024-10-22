@@ -10,7 +10,9 @@ It wasn't always so simple! I've never been interested in music theory for its o
 
 This post outlines some basic tips and tricks for producing attractive (if not exactly virtuosic) song arrangements by ear, as demonstrated in my [tab](/musescore-tab) of Journey's _Don't Stop Believin'_ and my cover of Final Fantasy X's main theme:
 
-<iframe src="//www.youtube.com/embed/SsBU2m9WSM4" allowfullscreen></iframe>
+<div class="youtube-wrap">
+  <iframe src="//www.youtube.com/embed/SsBU2m9WSM4" allowfullscreen></iframe>
+</div>
 
 Here we'll apply these methods to a familiar pop tune, Leonard Cohen's [_Hallelujah_](https://www.youtube.com/watch?v=YrLk4vdY28Q). No prior music theory knowledge required!
 

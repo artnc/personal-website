@@ -5,7 +5,9 @@ title: Get a Guitalele Already
 
 The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar built like a ukulele, and it should be your next -- or even first -- musical instrument.
 
-<iframe src="https://www.youtube.com/embed/SsBU2m9WSM4"></iframe>
+<div class="youtube-wrap">
+  <iframe src="https://www.youtube.com/embed/SsBU2m9WSM4"></iframe>
+</div>
 
 For comparison with any instruments you might already play, here are my flamebaity ratings of several instruments' qualities:
 
