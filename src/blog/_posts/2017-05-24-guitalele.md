@@ -1,5 +1,5 @@
 ---
-tags: music
+tags: Music
 title: Get a Guitalele Already
 ---
 

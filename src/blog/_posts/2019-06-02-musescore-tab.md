@@ -1,5 +1,5 @@
 ---
-tags: howto music
+tags: How-to Music
 title: How to Write Guitar Tabs in MuseScore
 ---
 

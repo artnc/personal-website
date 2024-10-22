@@ -1,5 +1,5 @@
 ---
-tags: code howto
+tags: Code How-to
 title: How to Make Webpack Caching Actually Work
 ---
 

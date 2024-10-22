@@ -1,6 +1,6 @@
 ---
 description: My first non-trivial programs.
-tags: code
+tags: Code
 title: Calculator Blackjack and Simon
 ---
 

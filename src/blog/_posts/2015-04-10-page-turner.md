@@ -1,6 +1,6 @@
 ---
 ogimage: /img/page-turner.jpg
-tags: music
+tags: Music
 title: Turning Pages with Face Recognition
 ---
 

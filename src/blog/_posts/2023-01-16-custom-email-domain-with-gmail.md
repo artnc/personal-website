@@ -1,6 +1,6 @@
 ---
 ogimage: /img/gmail-from.png
-tags: howto
+tags: How-to
 title: How to Use a Custom Email Domain with Gmail
 ---
 

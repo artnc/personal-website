@@ -1,5 +1,5 @@
 ---
-tags: linux
+tags: Linux
 title: Fedora Linux on the MacBook Pro
 ---
 

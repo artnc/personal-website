@@ -1,5 +1,5 @@
 ---
-tags: howto linux
+tags: How-to Linux
 title: How to Ring Calls and Vibrate Notifications on Android
 ---
 

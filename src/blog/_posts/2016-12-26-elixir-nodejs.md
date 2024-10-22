@@ -1,5 +1,5 @@
 ---
-tags: code
+tags: Code
 title: Elixir for Node.js Developers
 ---
 

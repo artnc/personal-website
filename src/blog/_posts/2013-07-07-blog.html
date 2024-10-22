@@ -11,8 +11,10 @@ title: Blog
     <option value="all" selected="selected">
       All posts ({{ blog_posts | size }})
     </option>
-    {% for tag in site.tags | sort %}
-    <option value="{{ tag[0] }}">{{ tag[0] }} ({{ tag[1] | size }})</option>
+    {% for tag in site.tags %}
+    <option value="{{ tag[0] }}">
+      {{ tag[0] }} posts ({{ tag[1] | size }})
+    </option>
     {% endfor %}
   </select>
 </p>

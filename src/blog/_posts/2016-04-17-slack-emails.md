@@ -1,5 +1,5 @@
 ---
-tags: howto
+tags: How-to
 title: How to Forward Emails to Slack
 ---
 
