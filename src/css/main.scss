@@ -5,7 +5,7 @@
 @use "normalize";
 @use "twilight";
 
-/****************************************************************** VARIABLES*/
+/***************************************************************** VARIABLES */
 
 // Sizes
 $border-radius: 4px;
@@ -36,13 +36,10 @@ $transition-fast: 0.15s;
 
 // Elements
 
-* {
-  box-sizing: border-box;
-}
-
 *,
 *::before,
 *::after {
+  box-sizing: border-box;
   font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
   outline: none !important;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
@@ -118,7 +115,7 @@ button,
 input[type="submit"] {
   background: $color-link !important;
   color: $bg !important;
-  font-weight: 700;
+  font-weight: $font-weight-bold;
   padding: 5px 15px !important;
 
   &:hover {
@@ -132,7 +129,7 @@ textarea {
   background: $bg-panel !important;
   color: $color-text !important;
 
-  &:hover {
+  &:hover:not([readonly="readonly"]) {
     background: lighten($bg-panel, 3%) !important;
   }
 }
@@ -175,14 +172,6 @@ strong {
 
 abbr {
   text-decoration: none;
-}
-
-iframe {
-  // YouTube
-  border: 0;
-  display: block;
-  height: 315px;
-  width: 560px;
 }
 
 blockquote {
@@ -286,7 +275,7 @@ img {
   }
 }
 
-.content {
+#content {
   li {
     line-height: 1.8;
   }
@@ -331,6 +320,73 @@ img {
   td {
     padding: 5px 25px 5px 0;
     vertical-align: top;
+  }
+
+  h2 a {
+    margin-left: 15px;
+    opacity: 0;
+  }
+
+  h2:hover a {
+    border: 0 !important;
+    opacity: 0.3;
+  }
+
+  h2 img {
+    height: 24px;
+    position: relative;
+    top: 2px;
+    width: 24px;
+  }
+
+  canvas {
+    margin-right: 20px;
+    padding-right: 20px;
+    width: 660px;
+  }
+
+  // Increase hitbox size for easier clickability
+  .footnote,
+  .reversefootnote {
+    border: none !important;
+    margin: -7px -12px;
+    padding: 7px 12px !important;
+    position: relative;
+  }
+
+  .footnotes {
+    border-top: 1px solid $bg-panel;
+    font-size: 0.85em;
+    margin-top: 50px;
+  }
+}
+
+#lightbox {
+  background: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+  height: 100vh;
+  left: 0;
+  pointer-events: none;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity $transition-fast;
+  width: 100vw;
+  z-index: 2;
+
+  &.shown {
+    opacity: 1;
+    pointer-events: initial;
+  }
+
+  img {
+    cursor: default;
+    left: 50%;
+    max-height: 95%;
+    max-width: 95%;
+    position: relative;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
   }
 }
 
@@ -475,6 +531,7 @@ img.right {
   position: relative;
 
   iframe {
+    border: 0;
     height: 100%;
     left: 0;
     top: 0;
@@ -485,15 +542,99 @@ img.right {
 
 /********************************************************************* PAGES */
 
-.-html {
-  .avatar {
-    margin-top: 8px;
+// By default, we should prefer to simply inline any one-off page-specific
+// styles directly into HTML `style` attributes. Declaring a page-specific
+// style here is better than inlining it when the style applies to more than
+// one element OR uses Sass variables OR benefits from Sass's nesting feature
+// OR can't be inlined (e.g. :hover, @media). Using <style> inside <body> kinda
+// works but isn't worth having yet another way to do styling:
+// https://stackoverflow.com/a/16844668
+
+body[data-slug="apps-i-use"] #content {
+  h2 + p {
+    margin-top: -20px;
   }
 }
 
-// Projects
+body[data-slug="blog"] #content {
+  a {
+    margin-right: 5px;
+  }
 
-.projects-html .content {
+  .date {
+    color: $color-subtext;
+    white-space: nowrap;
+  }
+
+  .count {
+    color: $color-subtext;
+    font-size: $font-size-small;
+    font-style: italic;
+    white-space: nowrap;
+  }
+}
+
+body[data-slug="graphics"] #content {
+  a img {
+    height: 190px;
+  }
+}
+
+body[data-slug="guitalele"] #content {
+  td:first-child {
+    white-space: nowrap;
+  }
+}
+
+body[data-slug="integral"] #content {
+  td {
+    padding: 0;
+    vertical-align: middle;
+
+    &:last-child {
+      padding-left: 15px;
+    }
+  }
+
+  .limit input {
+    width: 2em;
+
+    @media ($media-desktop) {
+      width: 2.5em;
+    }
+  }
+
+  .int {
+    border: 0px;
+    font-family: Impact, Georgia, "Times New Roman";
+    font-size: 7em;
+
+    @media ($media-desktop) {
+      font-size: 8em;
+    }
+  }
+
+  .paren {
+    display: none;
+    font-family: "Times New Roman";
+    font-size: 6em;
+
+    @media ($media-desktop) {
+      display: table-cell;
+    }
+  }
+
+  tr.center input {
+    margin: 3px 0 0;
+  }
+
+  #integrand,
+  #integrand input {
+    width: 100%;
+  }
+}
+
+body[data-slug="projects"] #content {
   h2 {
     margin: 0 0 0.25em;
   }
@@ -504,11 +645,6 @@ img.right {
 
   p {
     margin: 1.25em 0 0 0;
-  }
-
-  iframe {
-    height: 170px;
-    width: 100%;
   }
 
   .project-table {
@@ -584,162 +720,11 @@ img.right {
   }
 }
 
-.integral-html .content {
-  td {
-    padding: 0;
-    vertical-align: middle;
-
-    &:last-child {
-      padding-left: 15px;
-    }
-  }
-
-  .limit input {
-    width: 2em;
-
-    @media ($media-desktop) {
-      width: 2.5em;
-    }
-  }
-
-  .int {
-    border: 0px;
-    font-family: Impact, Georgia, "Times New Roman";
-    font-size: 7em;
-
-    @media ($media-desktop) {
-      font-size: 8em;
-    }
-  }
-
-  .paren {
-    display: none;
-    font-family: "Times New Roman";
-    font-size: 6em;
-
-    @media ($media-desktop) {
-      display: table-cell;
-    }
-  }
-
-  tr.center input {
-    margin: 3px 0 0;
-  }
-
-  #integrand,
-  #integrand input {
-    width: 100%;
-  }
-}
-
-.graphics-html .content {
-  a img {
-    height: 190px;
-  }
-}
-
-.fizzbuzz-html .content {
-  textarea {
-    font-family: Consolas, monospace;
-  }
-}
-
-// Blog
-
-.blog-html .content {
-  a {
-    margin-right: 5px;
-  }
-
-  .date {
-    color: $color-subtext;
-    white-space: nowrap;
-  }
-
-  .count {
-    color: $color-subtext;
-    font-size: $font-size-small;
-    font-style: italic;
-    white-space: nowrap;
-  }
-}
-
-.content {
-  h2 a {
-    margin-left: 15px;
-    opacity: 0;
-  }
-
-  h2:hover a {
-    border: 0 !important;
-    opacity: 0.3;
-  }
-
-  h2 img {
-    height: 24px;
-    position: relative;
-    top: 2px;
-    width: 24px;
-  }
-
-  canvas {
-    margin-right: 20px;
-    padding-right: 20px;
-    width: 660px;
-  }
-
-  // Increase hitbox size for easier clickability
-  .footnote,
-  .reversefootnote {
-    border: none !important;
-    margin: -7px -12px;
-    padding: 7px 12px !important;
-    position: relative;
-  }
-
-  .footnotes {
-    border-top: 1px solid $bg-panel;
-    font-size: 0.85em;
-    margin-top: 50px;
-  }
-}
-
-#lightbox {
-  background: rgba(0, 0, 0, 0.8);
-  cursor: pointer;
-  height: 100vh;
-  left: 0;
-  pointer-events: none;
-  opacity: 0;
-  position: fixed;
-  top: 0;
-  transition: opacity $transition-fast;
-  width: 100vw;
-  z-index: 2;
-
-  &.shown {
-    opacity: 1;
-    pointer-events: initial;
-  }
-
-  img {
-    cursor: default;
-    left: 50%;
-    max-height: 90%;
-    max-width: 90%;
-    position: relative;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-  }
-}
-
-.guitalele-html .content {
-  td:first-child {
-    white-space: nowrap;
-  }
-}
-
 /********************************************************************** ISSO */
+
+// We *could* paste Isso's CSS file here and tell Isso's JS client to skip
+// loading it, but instead we just override those styles here in order to
+// simplify version control and Isso upgrades
 
 #isso-thread {
   // Comment count

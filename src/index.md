@@ -4,7 +4,7 @@ omit_h1: true
 slug: ""
 ---
 
-<img src="/img/tuba-rect-200.jpg" class="avatar right">
+<img src="/img/tuba-rect-200.jpg" class="right" style="margin-top: 8px">
 
 Hello! I'm a software engineer and early employee at [Duolingo](https://en.wikipedia.org/wiki/Duolingo), where I've led development of the Android app, the website, and [a lot more](/projects#duolingo). I also worked at [OpenAI](https://en.wikipedia.org/wiki/OpenAI) and graduated from [UVA](https://en.wikipedia.org/wiki/University_of_Virginia) at 19 with majors in CS and math. See [résumé](/resume).
 

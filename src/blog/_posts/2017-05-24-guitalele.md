@@ -3,7 +3,7 @@ tags: Music
 title: Get a Guitalele Already
 ---
 
-The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar built like a ukulele, and it should be your next -- or even first -- musical instrument.
+The [guitalele](https://en.wikipedia.org/wiki/Guitalele) is a miniature guitar built like a ukulele, and it should be your next&mdash;or even first&mdash;musical instrument.
 
 <div class="youtube-wrap">
   <iframe src="https://www.youtube.com/embed/SsBU2m9WSM4"></iframe>
@@ -38,7 +38,7 @@ For newcomers to stringed instruments, the guitalele has another easily overlook
 
 ## It's versatile
 
-One big reason why guitar and piano are so popular is that they can produce [multiple notes](https://en.wikipedia.org/wiki/Polyphony) at the same time. Unlike wind instruments, they also allow you to sing along and -- in the case of guitar -- use percussive techniques like tapping and slapping. This all adds up to the ability to play virtually any song on a guitalele without the need for accompaniment.
+One big reason why guitar and piano are so popular is that they can produce [multiple notes](https://en.wikipedia.org/wiki/Polyphony) at the same time. Unlike wind instruments, they also allow you to sing along and&mdash;in the case of guitar&mdash;use percussive techniques like tapping and slapping. This all adds up to the ability to play virtually any song on a guitalele without the need for accompaniment.
 
 ## It's portable
 
