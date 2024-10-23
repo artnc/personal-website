@@ -26,8 +26,9 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 ### Network
 
-- [Manually connecting to a WPA network](#manually-connecting-to-a-wp)
+- [Manually connecting to a WPA network](#manually-connecting-to-a-wpa-network)
 - [`ping` works but `curl` doesn't](#ping-works-but-curl-doesnt)
+- [NTP active but not syncing](#ntp-active-but-not-syncing)
 - [Fixing iptables unknown options](#fixing-iptables-unknown-options)
 - [Fixing slow pip downloads](#fixing-slow-pip-downloads)
 - [Connecting to an L2TP/IPsec VPN](#connecting-to-an-l2tp-ipsec-vpn)
@@ -201,11 +202,17 @@ I installed Clipman, went into its settings, and disabled "Sync selections".
 TLDR of the Arch [guide](https://wiki.archlinux.org/index.php/Wireless_network_configuration) (run as root):
 
 ```shell
-ip link set wlp4s0 up
-wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "ssid" "password")
+ip link set wlp4s0 up # WiFi interface name `wlp4s0` obtained from `ip a`
+wpa_supplicant -D nl80211,wext -i wlp4s0 -c <(wpa_passphrase "My WiFi SSID" "p4ssw0rd")
 # (Switch to another TTY at this point)
 dhcpcd
 ping 8.8.8.8
+```
+
+My home WiFi and/or my Raspberry Pi's WiFi setup are pretty flaky, so I run cron as root to force a reconnect every day:
+
+```
+0 9 * * * killall dhcpcd wpa_supplicant; sleep 5; wpa_supplicant -D nl80211,wext -i wlan0 -c <(wpa_passphrase "My WiFi SSID" "p4ssw0rd") & sleep 20; dhcpcd &
 ```
 
 ## `ping` works but `curl` doesn't
@@ -236,6 +243,23 @@ nameserver 127.0.0.53
 options edns0 trust-ad
 search [REDACTED].ts.net
 ```
+
+## NTP active but not syncing
+
+My [UPS](https://en.wikipedia.org/wiki/Uninterruptible_power_supply) battery died and I finally had to shut down my Raspberry Pi after several years of continuous uptime. When I turned it back on, I noticed that the time as shown by `date` was several years off. I manually corrected it:
+
+```
+sudo timedatectl set-time '2024-10-23 04:41:10'
+```
+
+Why was the time wrong in the first place, though? `timedatectl` showed that [NTP](https://en.wikipedia.org/wiki/Network_Time_Protocol) syncing was active but not affecting my system clock:
+
+```
+System clock synchronized: no
+              NTP service: active
+```
+
+My `/etc/systemd/network` contained a file called `eth0.network` but no file for WiFi. [Adding one](https://bbs.archlinux.org/viewtopic.php?pid=2057633#p2057633) fixed the problem.
 
 ## Fixing iptables unknown options
 
