@@ -24,7 +24,7 @@ $width-indent: 30px;
   @return color.adjust($color, $lightness: $lightness);
 }
 $bg: #202227; // Site background
-$bg-panel: lighten($bg, 8%); // Input/code background, borders
+$bg-panel: lighten($bg, 5%); // Input/code background, borders
 $color-text: #c8c8c8; // Text
 $color-subtext: lighten($color-text, -30%); // De-emphasized text
 $color-link: #77b86a; // Hyperlink
