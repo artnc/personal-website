@@ -229,7 +229,7 @@ nameserver 4.2.2.2
 
 Adding those entries back to `/etc/resolv.conf` fixed my DNS... temporarily. Within a few seconds, the file reverted to its previous state.
 
-The permanent fix is to uninstall `resolvconf` (which I had apparently installed as a dependency of `netctl`), [start and enable](https://wiki.archlinux.org/title/Systemd-resolved#Configuration) `systemd-resolved` (which was even installed already but disabled?), [symlink](https://wiki.archlinux.org/title/Systemd-resolved#DNS) `/etc/resolv.conf`, and [restart everything](https://tailscale.com/kb/1188/linux-dns). Now DNS works and my `/etc/resolv.conf` looks like this:
+The permanent fix is to uninstall `resolvconf` (which I had apparently installed as a dependency of `netctl`), [start and enable](https://wiki.archlinux.org/title/Systemd-resolved#Configuration) `systemd-resolved` (which was even installed already but disabled?), [symlink](https://wiki.archlinux.org/title/Systemd-resolved#DNS) `/etc/resolv.conf`, and [restart everything](https://tailscale.com/kb/1188/linux-dns). When this happened on my Raspberry Pi, I also had to restart `systemd-networkd`. Now DNS works and my `/etc/resolv.conf` looks like this:
 
 ```
 nameserver 127.0.0.53
