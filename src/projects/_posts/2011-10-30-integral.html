@@ -1,10 +1,10 @@
 ---
 description: Free online calculator for definite and indefinite multiple integrals (double, triple, or quadruple) using Cartesian, polar, cylindrical, or spherical coordinates.
-headjs: <script defer src="/js/algebrite-1.4.0.js"></script><script>window.MathJax={loader:{load:['input/tex',"output/svg"]},startup:{typeset:false},svg:{scale:2}}</script><script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"></script>
+headjs: <script defer src="/js/algebrite-1.4.0.js"></script><script>window.MathJax={loader:{load:['input/tex',"output/svg"]},startup:{typeset:false},svg:{scale:1.3}}</script><script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/startup.js"></script>
 title: Multiple Integral Calculator
 ---
 
-<form id="calc" onsubmit="return false">
+<form onsubmit="return false">
   <p>
     I want to calculate a
     <select id="order">
@@ -46,7 +46,7 @@ title: Multiple Integral Calculator
       </td>
     </tr>
   </table>
-  <p id="result" style="text-align: center"></p>
+  <div id="result" class="text-centered" style="margin: 40px 0"></div>
 </form>
 
 <script>
@@ -69,12 +69,12 @@ title: Multiple Integral Calculator
       $$("td.int, td.limit").map($el => $el.remove());
       const prepend = ($el, html) =>
         $el.insertAdjacentHTML("afterbegin", html.repeat(order));
-      prepend($("#calc .upper"), '<td class="limit"><input type="text"></td>');
-      prepend($("#calc .center"), '<td class="int">&int;</td>');
-      prepend($("#calc .lower"), '<td class="limit"><input type="text"></td>');
+      prepend($("main .upper"), '<td class="limit"><input type="text"></td>');
+      prepend($("main .center"), '<td class="int">&int;</td>');
+      prepend($("main .lower"), '<td class="limit"><input type="text"></td>');
 
       // Populate differentials
-      $("#calc table input[type=text]").value = "";
+      $("main table input[type=text]").value = "";
       $("#differentials input").value = {
         cartesian: "dx dy dz dt".slice(0, 3 * order - 1),
         polar: "dr dt",
@@ -108,9 +108,13 @@ title: Multiple Integral Calculator
         $result.innerText = "You didn't enter a function to integrate!";
         return;
       }
-      const differentials = $("#differentials input").value.replace(/ |d/g, "");
-      if (!differentials) {
-        $result.innerText = "You didn't enter any differentials!";
+      const differentials = $("#differentials input")
+        .value.replace(/ |d/g, "")
+        .split("");
+      const upperBounds = $$(`main .upper input`).map($el => $el.value.trim());
+      const lowerBounds = $$(`main .lower input`).map($el => $el.value.trim());
+      if (upperBounds.length !== differentials.length) {
+        $result.innerText = `Wrong number of differentials! We expected ${upperBounds.lower}, but you entered ${differentials.lower}.`;
         return;
       }
       const countBrackets = needle => [...integrand.matchAll(needle)].length;
@@ -125,12 +129,10 @@ title: Multiple Integral Calculator
 
       // Build query string using integrand and differentials
       let query = integrand;
-      for (let i = 0; i < differentials.length; ++i) {
+      for (const [i, differential] of differentials.entries()) {
         // Add bounds
-        const variable = differentials[i];
-        const n = differentials.length - i;
-        const upper = $(`#calc .upper td:nth-child(${n}) input`).value.trim();
-        const lower = $(`#calc .lower td:nth-child(${n}) input`).value.trim();
+        const upper = upperBounds[differentials.length - 1 - i];
+        const lower = lowerBounds[differentials.length - 1 - i];
         if (!upper.length !== !lower.length) {
           $result.innerText =
             "Limits of integration for each integral must be either both empty or both filled!";
@@ -138,8 +140,8 @@ title: Multiple Integral Calculator
         }
         query =
           upper && lower
-            ? `defint(${query},${variable},${lower},${upper})`
-            : `integral(${query},${variable})`;
+            ? `defint(${query},${differential},${lower},${upper})`
+            : `integral(${query},${differential})`;
       }
 
       // Insert explicit `*` between common variable names to reduce ambiguity
@@ -160,14 +162,39 @@ title: Multiple Integral Calculator
         // don't need to temporarily disable the submit button ourselves...)
         await new Promise(resolve => window.setTimeout(resolve, 0));
         const start = Date.now();
-        const result = Algebrite.eval(query)
-          .toLatexString()
+        const equation = [
+          // MathJax 3+ lacks support for automatic line breaking as of
+          // 2024-10-23, so we show the parsed integrand only on wide screens.
+          // https://docs.mathjax.org/en/latest/output/linebreaks.html
+          ...(window.innerWidth >= 600
+            ? [
+                ...differentials
+                  .map((d, i) =>
+                    upperBounds[i]
+                      ? `\\int_{${lowerBounds[i]}}^{${upperBounds[i]}}`
+                      : "\\int ",
+                  )
+                  .join(""),
+                "(",
+                Algebrite.parse(integrand).toLatexString(),
+                ")",
+                ...differentials.map(d => ` \\,d${d}`),
+              ]
+            : []),
+          " = ",
+          Algebrite.eval(query).toLatexString(),
+        ]
+          .join("")
+          .replace(/\(/g, "\\left(")
+          .replace(/\)/g, "\\right)")
+          .replace(/(\\int ){4}/, "\\iiiint")
+          .replace(/(\\int ){3}/, "\\iiint")
+          .replace(/(\\int ){2}/, "\\iint")
           .replace(/\\?log\b/g, "\\ln")
           .replace(/\\pi(?=\w)/g, "\\pi "); // Prevent garbage like `\pixy`
-        const elapsed = Date.now() - start;
-        console.log("Computed", query, "=", result, "in", elapsed, "ms");
+        console.log("Computed", equation, "in", Date.now() - start, "ms");
         $result.innerText = "";
-        $result.appendChild(MathJax.tex2svg(`= ${result}`));
+        $result.appendChild(MathJax.tex2svg(equation));
       } catch (ex) {
         $result.innerText = `Error: ${ex.message}`;
       }
@@ -178,7 +205,7 @@ title: Multiple Integral Calculator
     $("#integrand input").focus();
 
     // Event bindings
-    $$("#calc select").map($el => $el.addEventListener("change", render));
+    $$("main select").map($el => $el.addEventListener("change", render));
     $("#integrate").addEventListener("click", submit);
   })();
 </script>
