@@ -1,6 +1,5 @@
 ---
 description: Dvorak user stuck on a QWERTY keyboard? Here's a solution that doesn't require heavy browser plugins like Java or Flash.
-jquery: true
 title: Real-Time QWERTY to Dvorak Converter
 ---
 
@@ -28,42 +27,25 @@ title: Real-Time QWERTY to Dvorak Converter
   readonly="readonly"
 ></textarea>
 <script>
-  /*! http://mths.be/oninput v0.1.0 by @mathias */
-  jQuery.fn.input = function (fn) {
-    var $this = this;
-    return fn
-      ? $this.bind({
-          "input.input": function (event) {
-            $this.unbind("keydown.input");
-            fn.call(this, event);
-          },
-          "keydown.input": function (event) {
-            fn.call(this, event);
-          },
-        })
-      : $this.trigger("keydown.input");
-  };
-
-  $(document).ready(function () {
-    var i, c, input, output;
-    var alphabet =
+  (() => {
+    const alphabet =
       " !_#$%&-()*}w[vz0123456789SsW]VZ@AXJE>UIDCHTNMBRL\"POYGK<QF:/\\=^{`axje.uidchtnmbrl'poygk,qf;?|+~".split(
         "",
       );
 
-    $("#dvorak").input(function () {
-      input = $(this).val();
-      output = "";
-      for (i = 0; i < input.length; ++i) {
-        output +=
-          (c = input.charCodeAt(i)) > 31 ? alphabet[c - 32] : input.charAt(i);
-      }
-      document.getElementById("qwerty").value = output;
-    });
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => [...document.querySelectorAll(selector)];
 
-    // https://stackoverflow.com/a/9236351
-    $("#dvorak").on("scroll", function () {
-      $("#qwerty").scrollTop($(this).scrollTop() + 5);
+    const $dvorak = $("#dvorak");
+    const $qwerty = $("#qwerty");
+    $dvorak.addEventListener("input", () => {
+      const input = $dvorak.value;
+      let output = "";
+      for (const char of input) {
+        const code = char.charCodeAt(0);
+        output += code > 31 ? alphabet[code - 32] : char;
+      }
+      $qwerty.value = output;
     });
-  });
+  })();
 </script>

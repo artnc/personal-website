@@ -1,6 +1,5 @@
 ---
 description: This free online calculator evaluates the Gaussian PDF and CDF as you type. Mathematical expressions and JavaScript functions accepted as input.
-jquery: true
 title: Normal Distribution Calculator
 ---
 
@@ -59,45 +58,43 @@ title: Normal Distribution Calculator
 </table>
 <p id="result"></p>
 <script>
-  $(document).ready(function () {
+  (() => {
+    const $ = selector => document.querySelector(selector);
+    const $$ = selector => [...document.querySelectorAll(selector)];
+
     /**
      * Corrects values like 4.99999999999 which are obviously supposed
      * to be integers but were prematurely rounded somewhere in their process
      * of calculating them.
      */
-    function unround(num) {
-      return Math.round(10000000000000000.0 * num) / 10000000000000000.0;
-    }
-    /**
-     * Returns floating point value of num with eight sig figs.
-     */
-    function cutoff(num) {
-      return Math.round(10000000.0 * num) / 10000000.0;
-    }
-    function update(param) {
-      if (!$(param).val()) {
-        $("#result").html("Input fields cannot be empty");
+    const unround = num =>
+      Math.round(10000000000000000 * num) / 10000000000000000;
+    /** Returns floating point value of num with eight sig figs. */
+    const cutoff = num => Math.round(10000000 * num) / 10000000;
+    const update = $param => {
+      if ($param.value === "") {
+        $("#result").innerText = "Input fields cannot be empty!";
         return;
       }
-      var x = unround(eval($("#x").val()));
-      var mu = unround(eval($("#mu").val()));
-      var sigma = unround(eval($("#sigma").val()));
-      var variance = unround(eval($("#variance").val()));
-      switch ($(param).prop("id")) {
+      const x = unround(eval($("#x").value));
+      const mu = unround(eval($("#mu").value));
+      let sigma = unround(eval($("#sigma").value));
+      let variance = unround(eval($("#variance").value));
+      switch ($param.id) {
         case "sigma":
           variance = unround(sigma * sigma);
-          $("#variance").val(variance);
+          $("#variance").value = variance;
           break;
         case "variance":
           sigma = unround(Math.sqrt(variance));
-          $("#sigma").val(sigma);
+          $("#sigma").value = sigma;
           break;
         default:
           break;
       }
-      var z = unround((x - mu) / sigma);
-      var f = cutoff(
-        1.0 / (Math.sqrt(2.0 * Math.PI * variance) * Math.exp((z * z) / 2.0)),
+      let z = unround((x - mu) / sigma);
+      const f = cutoff(
+        1 / (Math.sqrt(2 * Math.PI * variance) * Math.exp((z * z) / 2)),
       );
 
       // Abramowitz & Stegun
@@ -108,40 +105,37 @@ title: Normal Distribution Calculator
       // }
 
       // Zelen & Severo 0.0000001
-      var absz = Math.abs(z);
-      var t = 1.0 / (1.0 + 0.2316419 * absz);
-      var phi =
-        1.0 -
+      const absz = Math.abs(z);
+      const t = 1 / (1 + 0.2316419 * absz);
+      let phi =
+        1 -
         (t *
           (0.31938153 +
             t *
               (-0.356563782 +
                 t * (1.781477937 + t * (-1.821255978 + t * 1.330274429))))) /
-          (Math.sqrt(2 * Math.PI) * Math.exp((absz * absz) / 2.0));
+          (Math.sqrt(2 * Math.PI) * Math.exp((absz * absz) / 2));
       if (z < 0) {
         phi = 1 - phi;
       }
 
       z = cutoff(z);
       phi = cutoff(phi);
-      var cphi = cutoff(1 - phi);
+      const cphi = cutoff(1 - phi);
       if (isNaN(z) || isNaN(phi)) {
-        $("#result").html("Syntax error");
+        $("#result").innerText = "Syntax error!";
       } else {
-        $("#z").html("&nbsp;&nbsp;" + z);
-        $("#f").html("&nbsp;&nbsp;" + f);
-        $("#phi").html("&nbsp;&nbsp;" + phi);
-        $("#cphi").html("&nbsp;&nbsp;" + cphi);
-        $("#result").html("");
+        $("#z").innerHTML = "&nbsp;&nbsp;" + z;
+        $("#f").innerHTML = "&nbsp;&nbsp;" + f;
+        $("#phi").innerHTML = "&nbsp;&nbsp;" + phi;
+        $("#cphi").innerHTML = "&nbsp;&nbsp;" + cphi;
+        $("#result").innerText = "";
       }
-    }
+    };
     update($("#x"));
-    $("main input[type='text']")
-      .on("mouseup", function () {
-        $(this).select();
-      })
-      .on("keyup", function () {
-        update($(this));
-      });
-  });
+    for (const $input of $$("main input[type='text']")) {
+      $input.addEventListener("mouseup", () => $input.select());
+      $input.addEventListener("keyup", () => update($input));
+    }
+  })();
 </script>
