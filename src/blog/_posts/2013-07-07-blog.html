@@ -23,7 +23,7 @@ title: Blog
   <tbody>
     {% for post in blog_posts %}
     <tr data-tags="{{ post.tags | join: ' ' }}">
-      <td class="date">{{ post.date | date: "%Y-%m-%d" }}</td>
+      <td class="date">{{ post.date | date: "%Y" }}</td>
       <td><a href="{{ post.url }}">{{ post.title }}</a></td>
     </tr>
     {% endfor %}

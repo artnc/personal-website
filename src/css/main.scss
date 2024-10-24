@@ -558,17 +558,17 @@ body[data-slug="apps-i-use"] main {
 }
 
 body[data-slug="blog"] main {
+  color: $color-subtext;
+
   a {
     margin-right: 5px;
   }
 
   .date {
-    color: $color-subtext;
     white-space: nowrap;
   }
 
   .count {
-    color: $color-subtext;
     font-size: $font-size-small;
     font-style: italic;
     white-space: nowrap;
