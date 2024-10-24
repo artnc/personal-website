@@ -30,6 +30,10 @@
   </header>
   <main>
     {% if page.omit_h1 != true %}<h1>{{ page.title }}</h1>{% endif %}
+    <script>
+      const $ = selector => document.querySelector(selector); // splinter:ignore
+      const $$ = selector => [...document.querySelectorAll(selector)]; // splinter:ignore
+    </script>
     {{ content }}
   </main>
   <div id="lightbox">
@@ -45,14 +49,14 @@
   setTimeout(() => {
     const AT = String.fromCharCode(64);
     const decode = string => string.split('').reverse().join('');
-    const foobar = document.querySelector('.foobar');
+    const foobar = $('.foobar');
     foobar.href = decode('moc.nuradiahc' + AT + 'tra:otliam')
     foobar.title = decode('liame');
   }, 500);
 
   // Lightbox
-  const $lightboxDimmer = document.querySelector("#lightbox");
-  const $lightboxImg = document.querySelector("#lightbox img");
+  const $lightboxDimmer = $("#lightbox");
+  const $lightboxImg = $("#lightbox img");
   const hideLightbox = () => {
     $lightboxDimmer.classList.remove("shown");
   };
@@ -62,7 +66,7 @@
       hideLightbox();
     }
   });
-  for (const $el of document.querySelectorAll("main img")) {
+  for (const $el of $$("main img")) {
     // Skip if image is already nearly fullscreen
     if ($el.width > window.innerWidth * 0.75) {
       continue;
@@ -94,7 +98,7 @@
     };
     measurer.src = $el.src;
   }
-  for (const $el of document.querySelectorAll("a")) {
+  for (const $el of $$("a")) {
     const { href, origin, pathname } = new URL($el.href);
     if (origin === location.origin && /\.(gif|jpe?g|png)$/i.test(pathname)) {
       $el.addEventListener("click", e => {

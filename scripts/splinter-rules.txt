@@ -1,3 +1,6 @@
 # https://www.wearefine.com/news/search-and-social/should-you-rewrite-your-title-tags/
 Keep <title> under 55 chars
 ^title: .{55,}
+
+Use $ and $$ helpers
+document\.(getElementById|querySelector)

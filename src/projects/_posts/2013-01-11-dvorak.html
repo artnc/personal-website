@@ -28,14 +28,10 @@ title: Real-Time QWERTY to Dvorak Converter
 ></textarea>
 <script>
   (() => {
-    const alphabet =
+    const ALPHABET =
       " !_#$%&-()*}w[vz0123456789SsW]VZ@AXJE>UIDCHTNMBRL\"POYGK<QF:/\\=^{`axje.uidchtnmbrl'poygk,qf;?|+~".split(
         "",
       );
-
-    const $ = selector => document.querySelector(selector);
-    const $$ = selector => [...document.querySelectorAll(selector)];
-
     const $dvorak = $("#dvorak");
     const $qwerty = $("#qwerty");
     $dvorak.addEventListener("input", () => {
@@ -43,7 +39,7 @@ title: Real-Time QWERTY to Dvorak Converter
       let output = "";
       for (const char of input) {
         const code = char.charCodeAt(0);
-        output += code > 31 ? alphabet[code - 32] : char;
+        output += code > 31 ? ALPHABET[code - 32] : char;
       }
       $qwerty.value = output;
     });

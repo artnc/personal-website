@@ -17,7 +17,7 @@ layout: default
 <script>
   (() => {
     // Heading links
-    for (const $heading of document.querySelectorAll("main h2")) {
+    for (const $heading of $$("main h2")) {
       const { id } = $heading;
       if (id) {
         $heading.insertAdjacentHTML(
@@ -28,11 +28,9 @@ layout: default
     }
 
     // Anchor transitions
-    for (const $a of document.querySelectorAll(
-      'a[href^="#"]:not([class*="isso-"])',
-    )) {
+    for (const $a of $$('main a[href^="#"]:not([class*="isso-"])')) {
       $a.addEventListener("click", e => {
-        const target = document.getElementById($a.hash.slice(1));
+        const target = $($a.hash);
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: "smooth" });
