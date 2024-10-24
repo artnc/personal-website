@@ -23,7 +23,7 @@ title: Blog
   <tbody>
     {% for post in blog_posts %}
     <tr data-tags="{{ post.tags | join: ' ' }}">
-      <td class="date">{{ post.date | date: "%Y" }}</td>
+      <td class="date">{{ post.date | date: "%Y-%m-%d" }}</td>
       <td><a href="{{ post.url }}">{{ post.title }}</a></td>
     </tr>
     {% endfor %}
@@ -35,26 +35,14 @@ title: Blog
     // Implement topic selector
     const $select = $("main select");
     const $rows = $$("main tr");
-    const render = () => {
-      const seenYears = new Set();
+    $select.addEventListener("change", () => {
       const tag = $select.value;
       for (const $tr of $rows) {
-        if (tag === "all" || $tr.dataset.tags.split(" ").includes(tag)) {
-          $tr.hidden = false;
-          const year = $tr.querySelector(".date").textContent;
-          if (seenYears.has(year)) {
-            $tr.classList.remove("year");
-          } else {
-            seenYears.add(year);
-            $tr.classList.add("year");
-          }
-        } else {
-          $tr.hidden = true;
-        }
+        $tr.hidden = !(
+          tag === "all" || $tr.dataset.tags.split(" ").includes(tag)
+        );
       }
-    };
-    render();
-    $select.addEventListener("change", render);
+    });
 
     // Show comment counts
     const HN_COMMENT_COUNTS = { "/ten-years-of-logging-my-life": 156 };
