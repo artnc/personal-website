@@ -192,8 +192,32 @@ header {
     margin: 50px 0;
   }
 
+  #logo {
+    margin-left: -3px;
+  }
+
+  #logo:hover img {
+    transform: rotate(360deg);
+    transition: transform 0.5s;
+  }
+
+  $size-logo-mobile: 47px;
+  $size-logo-desktop: 30px;
+
+  img {
+    background: transparent;
+    position: absolute;
+    margin-top: 3px;
+    width: $size-logo-mobile;
+
+    @media ($media-desktop) {
+      margin-top: -1px;
+      width: $size-logo-desktop;
+    }
+  }
+
   ul {
-    margin: 0 0 0 27px;
+    margin: 0 0 0 $size-logo-mobile;
     padding: 0;
 
     @media ($media-desktop) {
@@ -218,17 +242,18 @@ header {
   span {
     color: $color-text;
     display: inline-block;
-    padding-bottom: 1px;
+    padding-bottom: 3px;
     text-transform: uppercase;
   }
 
   li a {
-    border-bottom: 2px solid transparent;
+    border-bottom: 1px solid $bg-panel;
 
-    &:hover {
-      border-color: $bg-panel;
+    @media ($media-desktop) {
+      border-width: 2px;
     }
 
+    &:hover,
     &.active {
       border-color: $color-link;
     }
@@ -238,25 +263,13 @@ header {
     padding-top: 1px;
   }
 
-  #logo {
-    margin-left: -3px;
-  }
-
-  img {
-    background: transparent;
-    position: absolute;
-    margin-top: -1px;
-    width: 30px;
-  }
-
-  #logo:hover img {
-    transform: rotate(360deg);
-    transition: transform 0.5s;
-  }
-
   span {
     font-size: $font-size-h3;
-    margin-left: 40px;
+    margin-left: ($size-logo-mobile + 13px);
+
+    @media ($media-desktop) {
+      margin-left: ($size-logo-desktop + 11px);
+    }
   }
 }
 
@@ -303,8 +316,12 @@ main {
 
   th,
   td {
-    padding: 5px 25px 5px 0;
+    padding: 5px 20px 5px 0;
     vertical-align: top;
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   h2 a {
