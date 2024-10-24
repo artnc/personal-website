@@ -368,28 +368,15 @@ main {
 footer {
   color: $color-subtext;
   font-size: $font-size-small;
-  margin: 40px 0 40px;
+  margin: 50px 0 50px -2px;
   user-select: none;
 
-  @media ($media-desktop) {
-    margin: 50px 0;
-  }
-
-  p {
-    margin: 0;
-  }
-
-  span {
-    margin-left: 25px;
-    text-align: left;
-  }
-
   a {
-    $size: 25px;
+    $size: 30px;
 
     display: inline-block;
     height: $size;
-    margin-left: 3px;
+    margin-right: 5px;
     position: relative;
     vertical-align: top;
     width: $size;
