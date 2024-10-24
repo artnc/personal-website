@@ -562,8 +562,15 @@ body[data-slug="blog"] main {
     margin-right: 5px;
   }
 
+  tr.year {
+    .date {
+      visibility: initial;
+    }
+  }
+
   .date {
     color: $color-subtext;
+    visibility: hidden;
     white-space: nowrap;
   }
 
