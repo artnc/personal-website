@@ -26,7 +26,7 @@ $width-indent: 30px;
 $bg: #202227; // Site background
 $bg-panel: lighten($bg, 5%); // Input/code background, borders
 $color-text: #c8c8c8; // Text
-$color-subtext: lighten($color-text, -30%); // De-emphasized text
+$color-subtext: lighten($color-text, -25%); // De-emphasized text
 $color-link: #77b86a; // Hyperlink
 
 // Speeds
@@ -78,13 +78,11 @@ h3 {
 
 h1 {
   font-size: $font-size-h1;
-  letter-spacing: -1px;
   margin: 1em 0;
 }
 
 h2 {
   font-size: $font-size-h2;
-  letter-spacing: -1px;
   margin-top: 1.5em;
 }
 
@@ -92,8 +90,14 @@ h3 {
   font-size: $font-size-h3;
 }
 
+blockquote,
 p {
   line-height: 1.8;
+}
+
+blockquote {
+  color: $color-subtext;
+  font-style: italic;
 }
 
 ul {
@@ -134,13 +138,16 @@ textarea {
   }
 }
 
-input[type="text"],
-textarea {
+input[type="text"] {
   padding: 5px 10px;
 }
 
 select {
   padding: 5px 7px 5px 10px;
+}
+
+textarea {
+  padding: 10px;
 }
 
 code,
@@ -172,11 +179,6 @@ strong {
 
 abbr {
   text-decoration: none;
-}
-
-blockquote {
-  color: $color-subtext;
-  font-style: italic;
 }
 
 img {
@@ -475,18 +477,6 @@ footer {
   border-bottom: 0 !important;
 }
 
-.borderless {
-  border: 0;
-
-  table,
-  tbody,
-  th,
-  tr,
-  td {
-    border: 0;
-  }
-}
-
 .centered {
   margin: 0 auto;
 }
@@ -495,7 +485,7 @@ footer {
   text-align: center;
 }
 
-.tag {
+.badge {
   background: $bg-panel;
   border-radius: $border-radius;
   display: inline-block;
@@ -509,6 +499,15 @@ footer {
   &.inactive {
     background: transparent;
     color: $color-subtext;
+  }
+
+  blockquote & {
+    font-weight: $font-weight-bold;
+    letter-spacing: 0.5px;
+    margin: 0 6px 0 -2px;
+    padding: 0px 7px;
+    text-transform: uppercase;
+    font-style: initial;
   }
 }
 

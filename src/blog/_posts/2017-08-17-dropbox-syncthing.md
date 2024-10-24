@@ -34,7 +34,7 @@ Here's how I made the switch:
 
    On Android, I use the unofficial [Anyplace Sync Browser](https://play.google.com/store/apps/details?id=it.anyplace.syncbrowser) app. It's bare-bones but much more practical than the [official app](https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid&hl=en) because it downloads files on demand instead of copying all of the files in your sync folder onto your phone. (Yes, you can have multiple top-level sync folders, but that's more complexity than I care for right now.)
 
-   > Update on 2017-11-30: To use Anyplace Sync Browser on Nougat or above, you'll need to go into the system settings and manually grant it the "Storage" permission. Now I just use the official Syncthing app, though, since my current phone has enough space to fit my entire sync folder.
+   > <span class="badge" title="2017-11-30">Update</span> To use Anyplace Sync Browser on Nougat or above, you'll need to go into the system settings and manually grant it the "Storage" permission. Now I just use the official Syncthing app, though, since my current phone has enough space to fit my entire sync folder.
 
 1. **Make your Dropbox folder your Syncthing folder**
 

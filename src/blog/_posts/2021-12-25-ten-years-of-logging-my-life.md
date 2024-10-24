@@ -1,9 +1,10 @@
 ---
+description: I've been continuously recording my daily activities by hand since I was 17, amounting to 85,000+ activities over the span of a decade.
 ogimage: /img/uva-xls.png
 title: Ten Years of Logging My Life
 ---
 
-> Update 2021-12-27: See [Hacker News](https://news.ycombinator.com/item?id=29692087) for 100+ more comments on this post.
+> <span class="badge" title="2021-12-27">Update</span> See [Hacker News](https://news.ycombinator.com/item?id=29692087) for 100+ more comments on this post.
 
 I've been continuously recording my daily activities by hand since I was 17, amounting to 85,000+ activities over the span of a decade.
 
@@ -37,7 +38,7 @@ I named it Chronofile, which I later learned was also the name of a [similar und
 
 [^1]: Chronofile uses [RxJava](https://github.com/ReactiveX/RxJava) to reimplement [Redux](https://redux.js.org/) (itself inspired by the [Elm architecture](https://guide.elm-lang.org/architecture/)) with type safety in [9 lines of code](https://github.com/artnc/chronofile/blob/e1b3a8f9405a5fcad079f625f5eae37e8ffabc94/app/src/main/java/com/chaidarun/chronofile/Store.kt#L102-L113), some of the most satisfying that I've ever written!
 
-> Update 2021-12-27: Hello [Hacker News](https://news.ycombinator.com/item?id=29692087)! As requested, here's a [release APK](https://github.com/artnc/chronofile/releases) that you can try installing for yourself on Android 8+. Please open a GitHub issue if you run into any problems with the app.
+> <span class="badge" title="2021-12-27">Update</span> Hello [Hacker News](https://news.ycombinator.com/item?id=29692087)! As requested, here's a [release APK](https://github.com/artnc/chronofile/releases) that you can try installing for yourself on Android 8+. Please open a GitHub issue if you run into any problems with the app.
 
 Internally the app saves each log entry as a [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) row containing the activity's name, descriptive note (optional), latitude, longitude, and start time in seconds since 1970:
 
@@ -248,7 +249,7 @@ document.fonts.ready.then(() => {
     },
   };
   new Chart(
-    document.getElementById("correlation-chart"),
+    $("#correlation-chart"),
     {
       data: {
         datasets: [
@@ -273,7 +274,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("haircut-chart"),
+    $("#haircut-chart"),
     {
       data: {
         datasets: [{
@@ -289,7 +290,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("media-chart"),
+    $("#media-chart"),
     {
       data: {
         datasets: [
@@ -335,7 +336,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("music-chart"),
+    $("#music-chart"),
     {
       data: {
         datasets: [{
@@ -373,7 +374,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("productivity-chart"),
+    $("#productivity-chart"),
     {
       data: {
         datasets: [
@@ -414,7 +415,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("switching-chart"),
+    $("#switching-chart"),
     {
       data: {
         datasets: [
@@ -434,7 +435,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("sleep-chart"),
+    $("#sleep-chart"),
     {
       data: {
         datasets: [
@@ -453,7 +454,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("transportation-chart"),
+    $("#transportation-chart"),
     {
       data: {
         datasets: [
@@ -499,7 +500,7 @@ document.fonts.ready.then(() => {
     }
   );
   new Chart(
-    document.getElementById("work-chart"),
+    $("#work-chart"),
     {
       data: {
         datasets: [

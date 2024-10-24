@@ -79,13 +79,13 @@ The Linux kernel version 3.0+ includes the driver for Apple's iSight camera. Unf
 
 I've scoured the interwebs fairly thoroughly and despite one dubious [report](https://bbs.archlinux.org/viewtopic.php?pid=1139257#p1139257) to the contrary, it seems that FaceTime HD camera support on Linux just doesn't exist yet. The Arch wiki [agrees](https://wiki.archlinux.org/index.php/MacBookPro11,x#Web_cam).
 
-> **Update:** The Arch wiki now links to an [experimental driver](https://github.com/patjak/bcwc_pcie/). I haven't personally tried it.
+> <span class="badge" title="2016-12-29">Update</span> The Arch wiki now links to an [experimental driver](https://github.com/patjak/bcwc_pcie/). I haven't personally tried it.
 
 ## Red light in headphone jack always on
 
 Some people have had luck with `amixer set IEC958 off`. I haven't. The red light wastes a few electrons but is otherwise harmless.
 
-> **Update:** My red light has since fixed itself, but thanks to commenter Jonny for this tip below!
+> <span class="badge" title="2016-12-29">Update</span> My red light has since fixed itself, but thanks to commenter Jonny for this tip below!
 
 > "Try this to disale the red lighht in headphone jack:
 

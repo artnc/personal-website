@@ -286,9 +286,9 @@ Install [networkmanager](https://www.archlinux.org/packages/extra/x86_64/network
 
 When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec tunnel to L2TP host". You may also need to uncheck "Perfect Forward Secrecy".
 
-> Update 2017-07-08: Due to a Linux kernel [regression](https://bbs.archlinux.org/viewtopic.php?pid=1713763#p1713763), you supposedly now must also install `linux-lts` and then run `sudo grub-mkconfig`. I still haven't gotten it working, though.
+> <span class="badge" title="2017-07-08">Update</span> Due to a Linux kernel [regression](https://bbs.archlinux.org/viewtopic.php?pid=1713763#p1713763), you supposedly now must also install `linux-lts` and then run `sudo grub-mkconfig`. I still haven't gotten it working, though.
 
-> Update 2018-12-26: I've given up on libreswan and networkmanager. Here's a [guide](/l2tp-ipsec) for openswan.
+> <span class="badge" title="2018-12-26">Update</span> I've given up on libreswan and networkmanager. Here's a [guide](/l2tp-ipsec) for openswan.
 
 ## Getting Intel Wireless 8260 card to work
 

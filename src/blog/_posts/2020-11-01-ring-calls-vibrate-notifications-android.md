@@ -7,7 +7,7 @@ I want calls to ring audibly, and I want notifications to vibrate silently.
 
 Is that too much to ask for? Recent Android versions make this exceedingly reasonable configuration nearly impossible to implement.
 
-> Update 2023-12-28: Android 14 finally [fixed](https://chromeunboxed.com/android-14-notification-ringtone-split-in-two) this problem by providing separate settings for ringtone volume and notification volume! Just set your notification volume to 0, set your ringtone volume to something above 0, and stop reading this blog post.
+> <span class="badge" title="2023-12-28">Update</span> Android 14 finally [fixed](https://chromeunboxed.com/android-14-notification-ringtone-split-in-two) this problem by providing separate settings for ringtone volume and notification volume! Just set your notification volume to 0, set your ringtone volume to something above 0, and stop reading this blog post.
 
 ## The solution
 
