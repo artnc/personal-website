@@ -9,8 +9,7 @@
     <title>{{ page.title }} - Art Chaidarun</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    {% if page.headcss != null %}{{ page.headcss }}{% endif %} {% if page.headjs
-    != null %}{{ page.headjs }}{% endif %}
+    {% if page.head != null %}{{ page.head }}{% endif %}
   </head>
   <body id="top" class="{{ page.url | replace:'/','' }}-html">
     {{ content }} {% include ga.html %}

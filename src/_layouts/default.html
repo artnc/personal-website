@@ -16,8 +16,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600" rel="stylesheet">
-  {% if page.headcss != null %}{{ page.headcss }}{% endif %}
-  {% if page.headjs != null %}{{ page.headjs }}{% endif %}
+  {% if page.head != null %}{{ page.head }}{% endif %}
 </head>
 <body id="top" data-slug="{{ page.url | replace:'/','' }}">
 <div id="wrap" class="centered">

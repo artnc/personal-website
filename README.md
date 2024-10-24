@@ -6,8 +6,7 @@ All rights reserved, except where otherwise noted.
 
 - Custom page variables
   - description: content for meta description
-  - headcss: extra css for head
-  - headjs: extra js for head
+  - head: extra HTML for head
   - omit_h1: true iff h1 should be omitted
   - ogimage: og:image url
   - sitemap: false iff page should be published but not sitemapped
