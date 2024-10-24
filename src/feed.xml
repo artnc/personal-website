@@ -1,9 +1,10 @@
 ---
+layout: null
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    {% assign time_format = '%a, %d %b %Y %H:%M:%S %z' %}
+    {% assign time_format = '%a, %d %b %Y %H:%M:%S GMT' %}
     <title>{{ site.name }}</title>
     <link>{{ site.url }}</link>
     <atom:link href="{{ site.url }}/feed.xml" rel="self" type="application/rss+xml" />
@@ -15,20 +16,22 @@
       {% if post.layout == "post" %}
       <item>
         <title>{{ post.title }}</title>
-        <link>{{ site.url }}{{ post.id }}</link>
+        <link>{{ site.url }}{{ post.url }}</link>
         <pubDate>{{ post.date | date: time_format }}</pubDate>
-        <guid isPermaLink="true">{{ site.url }}{{ post.id }}</guid>
-        <description>{{
+        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+        {% comment %}
+          Convert relative URLs to absolute, remove interactive elements
+          https://validator.w3.org/feed/check.cgi
+        {% endcomment %}
+        <description><![CDATA[{{
           post.content
-            | replace: '="//', '="http//'
-            | replace: 'href="#', 'href="__SITE_URL____POST_ID__#'
-            | replace: 'href="/', 'href="__SITE_URL__/'
-            | replace: 'src="/', 'src="__SITE_URL__/'
-            | replace: '__SITE_URL__',site.url
-            | replace: '__POST_ID__',post.id
-            | replace: '="http//', '="//'
-            | xml_escape
-        }}</description>
+            | replace: '="//', '__RELATIVE_PROTOCOL__'
+            | replace: ' href="#', ' href="__SITE_URL____POST_URL__#'
+            | regex_replace: ' (href|src)="/', ' \1="__SITE_URL__/'
+            | replace: '__SITE_URL__', site.url
+            | replace: '__POST_URL__', post.url
+            | replace: '__RELATIVE_PROTOCOL__', '="//'
+        }}]]></description>
       </item>
       {% endif %}
     {% endfor %}

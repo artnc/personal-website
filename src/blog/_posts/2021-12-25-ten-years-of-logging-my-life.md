@@ -50,23 +50,23 @@ Tapping on an old entry creates a new one for the same activity. Geolocation dat
 
 ## Observations
 
-<canvas alt="(Chart of practice per musical instrument)" id="music-chart"></canvas>
+<canvas id="music-chart">(Chart of practice per musical instrument)</canvas>
 
 Turns out I've been playing music for an average of 45 minutes a day over the past decade, which is honestly a little embarrassing given that I'm certainly better at it by now but still so far from where I'd like to be. Oh well, no need to be world-class at your hobbies I guess?
 
 I did expect [guitalele](/guitalele) to top the list but was shocked to see that I've sunk 943 hours into this tiny guitar that I picked up for less than $100! Possibly my highest-ROI purchase ever.
 
-<canvas alt="(Chart of days between haircuts)" id="haircut-chart"></canvas>
+<canvas id="haircut-chart">(Chart of days between haircuts)</canvas>
 
 Yes I did the quarantine hair thing. Still kinda regret finally cutting it :S
 
 The remaining charts cover only the past four years since it's too cumbersome to extract this data from the pre-Chronofile spreadsheet era.
 
-<canvas alt="(Chart of transportation methods)" id="transportation-chart"></canvas>
+<canvas id="transportation-chart">(Chart of transportation methods)</canvas>
 
 Lockdown sticks out like a sore thumb in this one too. It's a small miracle that my legs still work&mdash;there were some months when I didn't take a single step outside! Most of my pandemic travel has been on long road trips.
 
-<canvas alt="(Chart of daily media consumption)" id="media-chart"></canvas>
+<canvas id="media-chart">(Chart of daily media consumption)</canvas>
 
 Hidden in the chart above are a handful of games, 24 books, 39 shows, 102 movies, and thousands of news articles. I had never really been much into TV, but to stay somewhat social during lockdown I joined a viewing party that ended up covering all the corona classics: _Tiger King_, _Love Is Blind_, _Avatar_, kdrama after kdrama after kdrama...
 
@@ -76,7 +76,7 @@ I have mixed feelings about that. I do think it's important to know what's going
 
 Notably absent from the chart is social media, which I mostly gave up after high school.
 
-<canvas alt="(Chart of daily personal productivity)" id="productivity-chart"></canvas>
+<canvas id="productivity-chart">(Chart of daily personal productivity)</canvas>
 
 In contrast to the previous chart of passive media consumption, this one maps out "personal productivity" loosely defined as activities that improve myself in some measurable way or make progress toward non-work (unprofessional?) goals.
 
@@ -84,11 +84,11 @@ Occasions when things weren't all going my way were responsible for a few of the
 
 Obviously exercise is good too, but I've been less sure about the particular kind. At no point during my first (and probably last) half-marathon in May 2019 or the training for it did I ever experience anything remotely resembling runner's high, and the [pump](https://www.youtube.com/watch?v=-xZQ0YZ7ls4) has never quite done it for me like it does for Arnold. I still lift a bit but most of my exercise nowadays comes from rock climbing and volleyball. As the chart suggests, those have been much more enjoyable to sustain at an average pace above one hour a day.
 
-<canvas alt="(Chart of sleep hours)" id="sleep-chart"></canvas>
+<canvas id="sleep-chart">(Chart of sleep hours)</canvas>
 
 Monday always feels like the busiest day of my week, which the chart confirms by giving Monday the smallest bubbles of any night. Overall I'm pretty happy with how boring my sleep schedule has become in recent years, a far cry from the chaos of high school.
 
-<canvas alt="(Chart of work hours)" id="work-chart"></canvas>
+<canvas id="work-chart">(Chart of work hours)</canvas>
 
 Some might find this chart more concerning. Is nothing sacred, other than Sunday 7am?! A less alarming interpretation: I have enough freedom in my work life and personal life that I can attend to both whenever it's most convenient.
 
@@ -96,13 +96,13 @@ For a few months during lockdown, I settled into a pattern where I would handle 
 
 Which of those two schedules is better? I've found that at least for me, [biphasic sleep](https://en.wikipedia.org/wiki/Biphasic_and_polyphasic_sleep) didn't actually have much of a noticeable effect on my mood or productivity. Just getting 7-8 hours of sleep a day matters much more than how those hours are distributed.
 
-<canvas alt="(Chart of monthly activity correlation)" id="correlation-chart"></canvas>
+<canvas id="correlation-chart">(Chart of monthly activity correlation)</canvas>
 
 What surprises me most here is the extremely weak correlation between work and sleep, which I suppose is a good thing? Sleep and travel are negatively correlated because I categorize sleep while traveling as travel.
 
 Apart from sleep, work is negatively correlated with _everything_! That makes sense&mdash;I do barely any business travel, for example. Burnout is definitely something to keep in mind here.
 
-<canvas alt="(Chart of number of log entries per day)" id="switching-chart"></canvas>
+<canvas id="switching-chart">(Chart of number of log entries per day)</canvas>
 
 This chart may be the hardest of all to interpret. Chronofile's interface has barely ever changed, so that doesn't explain any variations here. Adding a new entry takes so little time anyway that I doubt it affects my behavior.
 
