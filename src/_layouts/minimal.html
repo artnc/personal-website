@@ -6,12 +6,14 @@
     <meta name="description" content="{{ page.description }}" />
     {% endif %}
     <meta name="author" content="Art Chaidarun" />
-    <title>{{ page.title }} - Art Chaidarun</title>
+    <title>
+      {% if page.slug != "" %}{{ page.title }} - {% endif %}Art Chaidarun
+    </title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    {% if page.head != null %}{{ page.head }}{% endif %}
+    {% if layout.head != null %}{{ layout.head | flatten }}{% endif %}
   </head>
-  <body id="top" class="{{ page.url | replace:'/','' }}-html">
+  <body id="top" data-slug="{{ page.url | replace:'/','' }}">
     {{ content }} {% include ga.html %}
   </body>
 </html>

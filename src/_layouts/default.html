@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  {% if page.description != null %}<meta name="description" content="{{ page.description }}">{% endif %}
-  <meta name="author" content="Art Chaidarun">
-  <title>{% if page.slug != "" %}{{ page.title }} - {% endif %}Art Chaidarun</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+---
+head: |
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <meta name="theme-color" content="#202227">
   {% if page.ogimage != null %}
@@ -17,8 +10,8 @@
   <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="/feed.xml" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600" rel="stylesheet">
   {% if page.head != null %}{{ page.head }}{% endif %}
-</head>
-<body id="top" data-slug="{{ page.url | replace:'/','' }}">
+layout: minimal
+---
 <div id="wrap" class="centered">
   <header>
     <a id="logo" href="/"><img src="/css/icogreen.png" alt="Home"><span>Art Chaidarun</span></a>
@@ -109,6 +102,3 @@
   }
 })();
 </script>
-{% include ga.html %}
-</body>
-</html>
