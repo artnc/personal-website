@@ -299,7 +299,7 @@ main {
   }
 
   blockquote {
-    margin-left: $width-indent;
+    margin-left: 0;
   }
 
   ol,
@@ -495,7 +495,7 @@ footer {
   blockquote & {
     font-weight: $font-weight-bold;
     letter-spacing: 0.5px;
-    margin: 0 6px 0 -2px;
+    margin: 0 5px 0 -2px;
     padding: 0px 7px;
     text-transform: uppercase;
     font-style: initial;

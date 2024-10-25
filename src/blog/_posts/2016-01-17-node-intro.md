@@ -3,7 +3,7 @@ tags: Code
 title: Simple Intro to Node.js, npm, and webpack
 ---
 
-> This was originally written for fellow [Duolingo](https://www.duolingo.com/) employees and therefore assumes that the reader is familiar with Python.
+> This post was originally written for fellow [Duolingo](https://www.duolingo.com/) employees and therefore assumes that the reader is familiar with Python.
 
 ## What's Node.js? Why are we using it?
 
