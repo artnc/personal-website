@@ -74,18 +74,4 @@ serve:
 # Validate HTML and RSS
 .PHONY: validate
 validate:
-	host='https%3A%2F%2Fchaidarun.com'; \
-	w3='https://validator.w3.org'; \
-	html_validator="$${w3}/nu/?out=json&doc=$${host}"; \
-	{ \
-		curl -s "$${html_validator}%2F"; \
-		curl -s "$${html_validator}%2F404"; \
-		curl -s "$${html_validator}%2Fblog"; \
-		curl -s "$${html_validator}%2Fduolingo"; \
-		curl -s "$${html_validator}%2Fintegral"; \
-		curl -s "$${html_validator}%2Fneuron"; \
-		curl -s "$${html_validator}%2Fprojects"; \
-		curl -s "$${html_validator}%2Ften-years-of-logging-my-life"; \
-	} | jq -r '"Errors for " + .url + ": " + (.messages | map(select(.message | test("element must have an “alt” attribute|“img” is missing required attribute “src”") | not)) | map("\n  " + .message + "\n    " + .extract) | join("") )'; \
-	curl -s "$${w3}/feed/check.cgi?url=$${host}%2Ffeed.xml" | grep -q Congrat \
-		|| echo 'Invalid RSS'
+	bash scripts/validate.sh

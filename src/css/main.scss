@@ -2,6 +2,7 @@
 ---
 
 @use "sass:color";
+@use "sass:math";
 @use "normalize";
 @use "twilight";
 
@@ -21,7 +22,13 @@ $width-indent: 30px;
 
 // Colors
 @function lighten($color, $lightness) {
-  @return color.adjust($color, $lightness: $lightness);
+  $adjusted-color: color.adjust($color, $lightness: $lightness);
+  // CSS spec doesn't allow non-integer RGB components
+  @return rgb(
+    math.round(color.channel($adjusted-color, "red")),
+    math.round(color.channel($adjusted-color, "green")),
+    math.round(color.channel($adjusted-color, "blue"))
+  );
 }
 $bg: #202227; // Site background
 $bg-panel: lighten($bg, 5%); // Input/code background, borders
@@ -42,8 +49,6 @@ $transition-fast: 0.15s;
   box-sizing: border-box;
   font-family: "Open Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
   outline: none !important;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-  -webkit-touch-callout: none;
 }
 
 html {
@@ -410,7 +415,6 @@ footer {
 
 // Selection
 
-::-moz-selection,
 ::selection {
   color: $bg;
   background: $color-link;
@@ -606,7 +610,7 @@ body[data-slug="integral"] main {
 
   .int {
     border: 0px;
-    font-family: Impact, Georgia, "Times New Roman";
+    font-family: Impact, Georgia, "Times New Roman", serif;
     font-size: 7em;
 
     @media ($media-desktop) {
@@ -616,7 +620,7 @@ body[data-slug="integral"] main {
 
   .paren {
     display: none;
-    font-family: "Times New Roman";
+    font-family: "Times New Roman", serif;
     font-size: 6em;
 
     @media ($media-desktop) {
@@ -705,7 +709,6 @@ body[data-slug="projects"] main {
 
     &.dark {
       filter: brightness(4);
-      -webkit-filter: brightness(4);
     }
 
     &.untagged {
