@@ -25,6 +25,7 @@ All rights reserved, except where otherwise noted.
 
 - Developing: `make serve` to http://localhost:4000
 - Publishing: `make deploy host=***` where `host` is droplet IP
+- Validating HTML/RSS: `make validate`
 - Serving comments: `ISSO_ADMIN_PASSWORD=*** make comments`
 - Managing comments: `/isso/admin` on live site
 
