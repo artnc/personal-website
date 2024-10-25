@@ -5,7 +5,7 @@ omit_h1: true
 title: Blog
 ---
 
-{% assign blog_posts = site.posts | where: "layout", "post" %}
+{% assign blog_posts = site.posts | where: 'layout', 'post' %}
 <p>
   <select style="margin-left: 0">
     <option value="all" selected="selected">
@@ -17,13 +17,24 @@ title: Blog
     </option>
     {% endfor %}
   </select>
+  <select>
+    <option value="date" selected="selected">Most recent</option>
+    <option value="comments">Most comments</option>
+    <option value="words">Most words</option>
+  </select>
 </p>
 
 <table>
   <tbody>
     {% for post in blog_posts %}
-    <tr data-tags="{{ post.tags | join: ' ' }}">
-      <td class="date">{{ post.date | date: "%Y" }}</td>
+    <tr
+      data-date="{{ post.date | date: '%Y%m%d' }}"
+      data-tags="{{ post.tags | join: ' ' }}"
+      data-words="{{ post.content | regex_replace: '<script.*?</script>', '' | number_of_words }}"
+    >
+      <td style="text-align: right; white-space: nowrap">
+        {{ post.date | date: '%Y' }}
+      </td>
       <td><a href="{{ post.url }}">{{ post.title }}</a></td>
     </tr>
     {% endfor %}
@@ -32,15 +43,39 @@ title: Blog
 
 <script>
   (async () => {
-    // Implement topic selector
-    const $select = $("main select");
+    // Implement tag dropdown
+    const $tagSelect = $("main select:nth-child(1)");
     const $rows = $$("main tr");
-    $select.addEventListener("change", () => {
-      const tag = $select.value;
+    $tagSelect.addEventListener("change", () => {
+      const tag = $tagSelect.value;
       for (const $tr of $rows) {
         $tr.hidden = !(
           tag === "all" || $tr.dataset.tags.split(" ").includes(tag)
         );
+      }
+    });
+
+    // Implement sort dropdown
+    const $tbody = $("main tbody");
+    const $sortSelect = $("main select:nth-child(2)");
+    $sortSelect.addEventListener("change", () => {
+      const sortKey = $sortSelect.value;
+      const sortedRows = $rows.sort(
+        (a, b) =>
+          parseInt(b.dataset[sortKey], 10) - parseInt(a.dataset[sortKey], 10),
+      );
+      for (const $tr of sortedRows) {
+        $tbody.removeChild($tr);
+        $tr.querySelector("td").innerText =
+          {
+            comments: $tr.dataset[sortKey],
+            date: $tr.dataset[sortKey].slice(0, 4),
+            words: $tr.dataset[sortKey],
+          }[sortKey] ?? "";
+        if ($tr.dataset.comments !== "0") {
+          $tr.querySelector(".count").hidden = sortKey === "comments";
+        }
+        $tbody.appendChild($tr);
       }
     });
 
@@ -55,6 +90,7 @@ title: Blog
     ).json();
     for (const [i, $tr] of $rows.entries()) {
       const count = counts[i] + (HN_COMMENT_COUNTS[paths[i]] ?? 0);
+      $tr.dataset.comments = count;
       if (count) {
         $tr
           .querySelector("a")
