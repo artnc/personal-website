@@ -1,6 +1,6 @@
-FROM alpine:3.16.0
+FROM alpine:3.20.3
 
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 RUN apk add --no-cache \
     bash \
