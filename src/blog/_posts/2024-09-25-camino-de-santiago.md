@@ -1,4 +1,5 @@
 ---
+description: I just spent 34 days walking the Camino de Santiago, a medieval pilgrimage route that runs 800 km across Spain.
 ogimage: /img/camino-village.jpg
 title: The Camino de Santiago in a Million Easy Steps
 ---

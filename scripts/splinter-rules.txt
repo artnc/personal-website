@@ -2,5 +2,9 @@
 Keep <title> under 55 chars
 ^title: .{55,}
 
+# https://mrs.digital/tools/meta-length-checker/
+Keep description under 150 chars
+^description: .{150,}
+
 Use $ and $$ helpers
 document\.(getElementById|querySelector)
