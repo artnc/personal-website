@@ -11,8 +11,8 @@
     </title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
-    {% if layout.head != null %}{{ layout.head | flatten }}{% endif %} {% if
-    page.head != null %}{{ page.head }}{% endif %}
+    {% if layout.head != null %}{{ layout.head | flatten }} {% elsif page.head
+    != null %}{{ page.head }}{% endif %}
   </head>
   <body id="top" data-slug="{{ page.url | replace:'/','' }}">
     {{ content }} {% include ga.html %}
