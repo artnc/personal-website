@@ -51,6 +51,7 @@ layout: minimal
   const $lightboxImg = $("#lightbox img");
   const hideLightbox = () => {
     $lightboxDimmer.classList.remove("shown");
+    $lightboxImg.removeAttribute("src"); // Clear to avoid flash on next open
   };
   $lightboxDimmer.addEventListener("click", hideLightbox);
   document.addEventListener("keydown", e => {
