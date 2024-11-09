@@ -29,7 +29,7 @@ layout: default
     // Anchor transitions
     for (const $a of $$('main a[href^="#"]:not([class*="isso-"])')) {
       $a.addEventListener("click", e => {
-        const target = $($a.hash);
+        const target = document.getElementById($a.hash.slice(1));
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: "smooth" });

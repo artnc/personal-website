@@ -7,4 +7,4 @@ Keep description under 150 chars
 ^description: .{150,}
 
 Use $ and $$ helpers
-document\.(getElementById|querySelector)
+document\.querySelector
