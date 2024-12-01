@@ -578,6 +578,17 @@ body[data-slug="blog"] main {
   }
 }
 
+body[data-slug="eat"] main {
+  ul {
+    column-gap: 10px;
+    column-width: 170px;
+  }
+
+  li:first-child {
+    margin-top: 0;
+  }
+}
+
 body[data-slug="graphics"] main {
   a img {
     height: 190px;
