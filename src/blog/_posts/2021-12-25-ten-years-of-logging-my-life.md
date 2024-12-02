@@ -1,6 +1,7 @@
 ---
 description: I've been continuously recording my daily activities by hand since I was 17, amounting to 85,000+ activities over the span of a decade.
 ogimage: /img/uva-xls.png
+tags: Featured
 title: Ten Years of Logging My Life
 ---
 
