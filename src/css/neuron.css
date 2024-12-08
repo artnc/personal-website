@@ -37,11 +37,6 @@ a {
   z-index: 2;
 }
 
-#menu img {
-  height: 16px;
-  width: 16px;
-}
-
 #menu ul {
   float: left;
   height: 30px;

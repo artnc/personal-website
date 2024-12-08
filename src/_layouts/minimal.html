@@ -9,7 +9,7 @@
     <title>
       {% if page.slug != "" %}{{ page.title }} - {% endif %}Art Chaidarun
     </title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
     <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
     {% if layout.head != null %}{{ layout.head | flatten }} {% elsif page.head
     != null %}{{ page.head }}{% endif %}
