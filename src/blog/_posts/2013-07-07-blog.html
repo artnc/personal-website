@@ -5,11 +5,21 @@ omit_h1: true
 title: Blog
 ---
 
-{% assign blog_posts = site.posts | where: 'layout', 'post' %}
+{% assign all_posts = site.posts | where: 'layout', 'post' %} {% assign
+featured_posts = site.posts | where_exp: 'x', 'x.tags contains "Featured"' %}
+
+<p class="featured">
+  {% for post in featured_posts %}
+  <a href="{{ post.url }}" style="background-image:url({{ post.ogimage }})">
+    {{ post.title }}
+  </a>
+  {% endfor %}
+</p>
+
 <p>
   <select style="margin-left: 0">
     <option value="all" selected="selected">
-      All posts ({{ blog_posts | size }})
+      All posts ({{ all_posts | size }})
     </option>
     {% for tag in site.tags %}
     <option value="{{ tag[0] }}">
@@ -26,7 +36,7 @@ title: Blog
 
 <table>
   <tbody>
-    {% for post in blog_posts %}
+    {% for post in all_posts %}
     <tr
       data-date="{{ post.date | date: '%Y%m%d' }}"
       data-tags="{{ post.tags | join: ' ' }}"

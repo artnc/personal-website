@@ -565,10 +565,38 @@ body[data-slug="apps-i-use"] main {
 }
 
 body[data-slug="blog"] main {
-  color: $color-subtext;
+  .featured {
+    $width: 206px;
 
-  a {
-    margin-right: 5px;
+    column-gap: 20px;
+    column-width: $width;
+
+    a {
+      background-color: $bg;
+      background-blend-mode: overlay;
+      background-size: cover;
+      border-radius: $border-radius;
+      color: $color-text;
+      display: inline-block;
+      height: $width * 0.5625; // 16:9
+      margin-bottom: 20px;
+      padding: 12px 20px;
+      text-shadow: 0 0 10px black;
+      width: $width;
+
+      &:hover {
+        border: 0;
+        filter: brightness(1.5);
+      }
+    }
+  }
+
+  td {
+    color: $color-subtext;
+
+    a {
+      margin-right: 5px;
+    }
   }
 
   .count {
