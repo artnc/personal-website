@@ -762,6 +762,17 @@ body[data-slug="projects"] main {
   }
 }
 
+body[data-slug="simplest-fractions-per-percentage"] main {
+  table {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  p + table {
+    margin-right: 120px;
+  }
+}
+
 /********************************************************************** ISSO */
 
 // We *could* paste Isso's CSS file here and tell Isso's JS client to skip
