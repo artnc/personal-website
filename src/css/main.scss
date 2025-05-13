@@ -373,7 +373,8 @@ main {
 footer {
   color: $color-subtext;
   font-size: $font-size-small;
-  margin: 50px 0 50px -2px;
+  margin: 50px 0 0 -2px;
+  padding-bottom: 50px;
   user-select: none;
 
   a {
