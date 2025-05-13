@@ -558,6 +558,20 @@ img.right {
 // works but isn't worth having yet another way to do styling:
 // https://stackoverflow.com/a/16844668
 
+body[data-slug=""] main {
+  img {
+    border-radius: 999px;
+    float: right;
+    margin: 8px 0 15px 20px;
+    max-width: 165px;
+
+    @media ($media-desktop) {
+      margin: 0 -5px 35px 21px;
+      max-width: 290px;
+    }
+  }
+}
+
 body[data-slug="apps-i-use"] main {
   h2 + p {
     margin-top: -20px;
