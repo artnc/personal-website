@@ -563,12 +563,14 @@ body[data-slug=""] main {
   img {
     border-radius: 999px;
     float: right;
-    margin: 8px 0 15px 20px;
+    margin: 8px 0 15px 15px;
     max-width: 165px;
+    shape-outside: circle(50%);
 
     @media ($media-desktop) {
       margin: 0 -5px 35px 21px;
       max-width: 290px;
+      shape-outside: initial;
     }
   }
 }
