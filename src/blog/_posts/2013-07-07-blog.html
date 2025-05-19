@@ -3,10 +3,33 @@ description: My thoughts and how-to guides about tech and music.
 layout: default
 omit_h1: true
 title: Blog
+
+external_posts:
+  #  - date: 2023-04-11
+  #    number_of_words: 993
+  #    tags: ["Code", "External", "Linux"]
+  #    title: Simplifying developer onboarding with a few clicks
+  #    url: https://github.com/readme/guides/github-codespaces-duolingo
+  - date: 2022-10-14
+    number_of_words: 1077
+    tags: ["Code", "External", "How-to", "Linux"]
+    title: How we made developer onboarding a breeze with GitHub Codespaces
+    url: https://blog.duolingo.com/developer-onboarding-with-github-codespaces/
+  - date: 2021-03-17
+    number_of_words: 300
+    tags: ["Code", "External"]
+    title: Open sourcing Metasearch, our one tool to search them all
+    url: https://blog.duolingo.com/open-sourcing-metasearch-our-one-tool-to-search-them-all/
+  - date: 2020-04-06
+    number_of_words: 1142
+    tags: ["Code", "External", "Linux"]
+    title: Migrating Duolingo’s Android app to 100% Kotlin
+    url: https://blog.duolingo.com/migrating-duolingos-android-app-to-100-kotlin/
 ---
 
-{% assign all_posts = site.posts | where: 'layout', 'post' %} {% assign
-featured_posts = site.posts | where_exp: 'x', 'x.tags contains "Featured"' %}
+{% assign all_posts = site.posts | where: 'layout', 'post' | concat:
+page.external_posts | sort: "date" | reverse %} {% assign featured_posts =
+site.posts | where_exp: 'x', 'x.tags contains "Featured"' %}
 
 <p class="featured">
   {% for post in featured_posts %}
@@ -26,6 +49,9 @@ featured_posts = site.posts | where_exp: 'x', 'x.tags contains "Featured"' %}
       {{ tag[0] }} posts ({{ tag[1] | size }})
     </option>
     {% endfor %}
+    <option value="External">
+      External posts ({{ page.external_posts | size }})
+    </option>
   </select>
   <select>
     <option value="date" selected="selected">Most recent</option>
@@ -40,7 +66,7 @@ featured_posts = site.posts | where_exp: 'x', 'x.tags contains "Featured"' %}
     <tr
       data-date="{{ post.date | date: '%Y%m%d' }}"
       data-tags="{{ post.tags | join: ' ' }}"
-      data-words="{{ post.content | regex_replace: '<script.*?</script>', '' | number_of_words }}"
+      data-words="{% if post.tags contains 'External' %}{{ post.number_of_words }}{% else %}{{ post.content | regex_replace: '<script.*?</script>', '' | number_of_words }}{% endif %}"
     >
       <td style="text-align: right; white-space: nowrap">
         {{ post.date | date: '%Y' }}
