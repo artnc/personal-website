@@ -27,9 +27,10 @@ external_posts:
     url: https://blog.duolingo.com/migrating-duolingos-android-app-to-100-kotlin/
 ---
 
-{% assign all_posts = site.posts | where: 'layout', 'post' | concat:
-page.external_posts | sort: "date" | reverse %} {% assign featured_posts =
-site.posts | where_exp: 'x', 'x.tags contains "Featured"' %}
+{% assign all_posts = site.posts | where: 'layout', 'post' | where_exp: 'x',
+'x.hidden != true' | concat: page.external_posts | sort: 'date' | reverse %} {%
+assign featured_posts = site.posts | where_exp: 'x', 'x.tags contains
+"Featured"' %}
 
 <p class="featured">
   {% for post in featured_posts %}
