@@ -94,6 +94,10 @@ layout: minimal
   for (const $el of $$("a")) {
     const { href, origin, pathname } = new URL($el.href);
     if (origin === location.origin && /\.(gif|jpe?g|png)$/i.test(pathname)) {
+      // Preload image
+      (new Image()).src = href;
+
+      // Override click handler
       $el.addEventListener("click", e => {
         $lightboxImg.src = href;
         $lightboxDimmer.classList.add("shown");
