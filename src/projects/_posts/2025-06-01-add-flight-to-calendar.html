@@ -1,0 +1,238 @@
+---
+description: Free online tool for adding a flight to Google Calendar.
+head: <script src="https://cdn.jsdelivr.net/npm/temporal-polyfill@0.3.0/global.min.js"></script>
+ogimage: /img/integral.jpg
+title: Add Flight to Calendar
+---
+
+<p>
+  Sometimes when you book an airplane flight, the airline's website provides a
+  nifty "Add to calendar" button. If it doesn't, use this free online tool!
+</p>
+<p>
+  First, paste the text of your flight confirmation email below. Make sure to
+  include departure / arrival times and (if present) airport codes:
+</p>
+<textarea
+  autocomplete="on"
+  autofocus="autofocus"
+  style="height: 200px; width: 100%"
+></textarea>
+<p>
+  Now enter your origin and destination airports' 3-letter codes:
+  <input
+    autocomplete="on"
+    class="dep"
+    maxlength="3"
+    style="text-transform: uppercase; width: 60px"
+    type="text"
+  />
+  to
+  <input
+    autocomplete="on"
+    class="arr"
+    maxlength="3"
+    style="text-transform: uppercase; width: 60px"
+    type="text"
+  />
+</p>
+<p class="result">
+  A calendar event link will appear here once you complete the fields above!
+</p>
+<h2>Is my data safe?</h2>
+<p>
+  Yes, your data never leaves your computer. You can disconnect your WiFi after
+  loading this page and it'll still work.
+</p>
+<h2>Where does the airport data come from?</h2>
+<p>
+  <a href="https://openflights.org/data.php">OpenFlights</a>. I'm using it
+  mainly for time zone conversions, which are easily the most tedious and
+  annoying part of creating these calendar events by hand.
+</p>
+<h2>Can't AI do this?</h2>
+<p>
+  Not as reliably as I'd like. I built this tool because Gemini failed so often
+  at this straightforward task. I'm sure AI will get there soon, but not quite
+  today.
+</p>
+<script>
+  (async () => {
+    // Fetch data
+    const dataPromise = (async () => {
+      const { airlines, airports } = await (
+        await fetch("/files/flights-2025-06-01.json")
+      ).json();
+      return {
+        airlines: Object.fromEntries(airlines.map(a => [a.iata, a])),
+        allAirports: Object.fromEntries(airports.map(a => [a.iata, a])),
+        flightRegex: new RegExp(
+          `\\b(${airlines.map(a => a.iata).join("|")}) ?\\d+\\b`,
+          "g",
+        ),
+      };
+    })();
+
+    // Parse email input
+    const state = {
+      airline: undefined,
+      arrDate: undefined,
+      arrTime: undefined,
+      depDate: undefined,
+      depTime: undefined,
+      flight: undefined,
+    };
+    const parseEmail = async () => {
+      // Normalize input
+      const input = $("main textarea")
+        .value.replace(/\s+/g, " ")
+        .replace(/\bDELTA ?(?=\d)/g, "DL ")
+        .replace(/\bNYC-KENNEDY\b/g, "JFK");
+
+      // Parse flight
+      const { airlines, flightRegex } = await dataPromise;
+      const flights = [...input.matchAll(flightRegex)];
+      state.flight = flights[0]?.[0];
+      state.airline = airlines[flights[0]?.[1]]?.name;
+
+      // Parse airports
+      const airports =
+        input.match(/\b[A-Z]{3}\b/g)?.filter(a => a !== "NYC") ?? [];
+      if (airports.length === 2) {
+        $("main .dep").value = airports[0];
+        $("main .arr").value = airports[1];
+      }
+
+      // Parse times
+      const [depTime, arrTime] = (
+        input.match(/\b\d{1,2}:\d{2}( *[ap]m\b)?/gi) ?? []
+      ).map(time => {
+        const [hourStr, minuteStr] = time.replace(/ *[ap]m$/i, "").split(":");
+        const hour = parseInt(hourStr, 10);
+        return `${
+          hour +
+          (/am/i.test(time) && hour === 12
+            ? -12
+            : /pm/i.test(time) && hour < 12
+              ? 12
+              : 0)
+        }:${minuteStr}`.padStart(5, "0");
+      });
+      state.depTime = depTime;
+      state.arrTime = arrTime;
+
+      // Parse dates
+      const currentYear = new Date().getFullYear();
+      const months = [
+        "jan",
+        "feb",
+        "mar",
+        "apr",
+        "may",
+        "jun",
+        "jul",
+        "aug",
+        "sep",
+        "oct",
+        "nov",
+        "dec",
+      ];
+      const dates = (() => {
+        for (const [selector, format] of [
+          // 2025-07-13
+          [
+            /\b(\d{4})[-/.](\d{2})[-/.](\d{2})\b/g,
+            m => `${m[1]}-${m[2]}-${m[3]}`,
+          ],
+          // 13Jul2025
+          [
+            new RegExp(
+              `\\b(\\d{1,2}) *(${months.join("|")})[a-z]{0,6} *(\\d{4})?\\b`,
+              "gi",
+            ),
+            m =>
+              `${m[3] ?? currentYear}-${`${
+                months.indexOf(m[2].toLowerCase()) + 1
+              }`.padStart(2, "0")}-${m[1].padStart(2, "0")}`,
+          ],
+        ]) {
+          const matches = [...input.matchAll(selector)];
+          if (matches.length && matches.length < 3) {
+            return [matches[0], matches[1] ?? matches[0]].map(format);
+          }
+        }
+        return ["", ""];
+      })();
+      state.depDate = dates[0];
+      state.arrDate = dates[1];
+
+      await renderLink();
+    };
+    $("main textarea").addEventListener("input", parseEmail);
+
+    // Generate event links
+    const renderLink = async () => {
+      // Read airport fields
+      const { allAirports } = await dataPromise;
+      const dep = allAirports[$("main .dep").value.trim().toUpperCase()];
+      const arr = allAirports[$("main .arr").value.trim().toUpperCase()];
+      if (
+        !(
+          dep &&
+          arr &&
+          state.depDate &&
+          state.arrDate &&
+          state.depTime &&
+          state.arrTime
+        )
+      ) {
+        return;
+      }
+
+      // Calculate flight duration
+      const instants = [
+        [dep, state.depDate, state.depTime],
+        [arr, state.arrDate, state.arrTime],
+      ].map(([airport, date, time]) => {
+        const datePieces = date.split("-");
+        const timePieces = time.split(":");
+        return Temporal.ZonedDateTime.from({
+          day: parseInt(datePieces[2]),
+          hour: parseInt(timePieces[0]),
+          minute: parseInt(timePieces[1]),
+          month: parseInt(datePieces[1]),
+          timeZone: airport.tz,
+          year: parseInt(datePieces[0]),
+        }).toInstant();
+      });
+      const duration = instants[1]
+        .since(instants[0])
+        .round({ largestUnit: "hours" });
+
+      // Generate calendar event link
+      // https://stackoverflow.com/a/23495015
+      const query = new URLSearchParams({
+        action: "TEMPLATE",
+        dates: instants.map(i => i.toString().replace(/[:-]/g, "")).join("/"),
+        details: state.flight
+          ? `<a href="https://www.google.com/search?q=${encodeURIComponent(
+              state.flight,
+            )}">${state.flight}</a> ${state.airline}`
+          : "",
+        location: dep.name,
+        text: `${dep.iata} > ${arr.iata}`,
+        trp: "true",
+      });
+      const url = `https://www.google.com/calendar/render?${query}`;
+
+      // Show result
+      $("main .result").innerHTML =
+        `Click to create an event for your <strong>${duration.hours}h ${duration.minutes}m</strong> flight from <strong>${dep.city}</strong> to <strong>${arr.city}</strong>:<br><a href="${url}" style="word-wrap:anywhere" target="_blank">${url}</a>`;
+    };
+    $("main .dep").addEventListener("input", renderLink);
+    $("main .arr").addEventListener("input", renderLink);
+
+    // Initial render
+    await parseEmail();
+  })();
+</script>
