@@ -17,6 +17,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
 - [Installing from PKGBUILD](#installing-from-pkgbuild)
 - [Using an external hard drive](#using-an-external-hard-drive)
+- [Encrypting an external hard drive](#encrypting-an-external-hard-drive)
 - [Freeing up disk space](#freeing-up-disk-space)
 - [Increasing the file watch limit](#increasing-the-file-watch-limit)
 - [Booting UEFI with an existing EFI partition](#booting-uefi-with-an-existing-efi-partition)
@@ -144,6 +145,37 @@ sudo umount /mnt/seagate
 ```
 
 Make sure to provide `async` as a mount option instead of `sync`! The latter absolutely kills write performance on NTFS; we're talking less than 100 kB/s.
+
+## Encrypting an external hard drive
+
+Or if you're sure you'll only ever want to use your HDD with Linux, you can get rid of NTFS and reformat the drive with full-disk encryption via LUKS:
+
+```shell
+# Determine your HDD's device name, e.g. sda1
+lsblk
+
+# Unmount HDD if mounted
+sudo umount /dev/sda1
+
+# Optional: zero out the HDD for peace of mind
+sudo dd if=/dev/zero of=/dev/sda1 bs=4M status=progress
+
+# Format HDD (choose a strong password and don't lose it)
+sudo cryptsetup luksFormat /dev/sda1
+
+# Open container and invent a temporary mapper name for it, e.g. seagate
+sudo cryptsetup open /dev/sda1 seagate
+
+# Create filesystem
+sudo mkfs.ext4 /dev/mapper/seagate
+
+# Mount filesystem at empty directory of your choosing
+sudo mkdir -p /mnt/seagate
+sudo mount /dev/mapper/seagate /mnt/seagate
+
+# Give yourself ownership of the filesystem (root by default)
+sudo chown -R art:art /mnt/seagate
+```
 
 ## Freeing up disk space
 
