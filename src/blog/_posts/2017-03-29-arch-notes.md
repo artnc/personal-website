@@ -4,7 +4,7 @@ tags: Linux
 title: Arch Linux Notes
 ---
 
-This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a [Raspberry Pi 2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2), a Lenovo Flex 4, a ThinkPad P50, and a ThinkPad P51.
+This page is a living document intended to save time for my future self in case the same issues ever crop up again. It's based on my experience with running Arch on a [Raspberry Pi 2](https://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2), a Lenovo Flex 4, a ThinkPad P50, a ThinkPad P51, and a GMKtec NucBox M2 Pro S.
 
 Arch is surprisingly stable if you remember the single most important post-install step: subscribe to the official [news feed](https://www.archlinux.org/feeds/news/) for breaking changes!
 
@@ -24,6 +24,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Ditching GRUB (only for UEFI systems)](#ditching-grub-only-for-uefi-systems)
 - [Suspending after inactivity](#suspending-after-inactivity)
 - [Switching to Linux LTS](#switching-to-linux-lts)
+- [Booting into USB on GMKtec NucBox](#booting-into-usb-on-gmktec-nucbox)
 
 ### Network
 
@@ -31,6 +32,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [`ping` works but `curl` doesn't](#ping-works-but-curl-doesnt)
 - [NTP active but not syncing](#ntp-active-but-not-syncing)
 - [Fixing iptables unknown options](#fixing-iptables-unknown-options)
+- [Port 53 already in use](#port-53-already-in-use)
 - [Fixing slow pip downloads](#fixing-slow-pip-downloads)
 - [Connecting to an L2TP/IPsec VPN](#connecting-to-an-l2tp-ipsec-vpn)
 - [Getting Intel Wireless 8260 card to work](#getting-intel-wireless-8260-card-to-work)
@@ -58,7 +60,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 By default, your Arch installation will never update its own list of mirrors (software package download sources). This is bad because these volunteer-run mirrors come and go over the years, and the fastest one today will not remain so forever. [Reflector](https://wiki.archlinux.org/title/Reflector) helps you periodically generate a fresh list of mirrors sorted by speed:
 
 ```shell
-sudo reflector --country 'United States,Canada,' --latest 10 --protocol https --save /etc/pacman.d/mirrorlist --sort rate
+sudo reflector --latest 10 --protocol https --save /etc/pacman.d/mirrorlist --sort rate
 ```
 
 ## Disabling `-debug` packages
@@ -164,7 +166,7 @@ sudo dd if=/dev/zero of=/dev/sda1 bs=4M status=progress
 sudo cryptsetup luksFormat /dev/sda1
 
 # Open container and invent a mapper name for it, e.g. seagate
-sudo cryptsetup open /dev/sda1 seagate
+sudo cryptsetup luksOpen /dev/sda1 seagate
 
 # Create filesystem
 sudo mkfs.ext4 /dev/mapper/seagate
@@ -204,6 +206,8 @@ Many applications that watch your filesystem for changes can hit the OS's (usual
 
 Consider this the missing step in the Arch setup guide: drastically [bumping up](https://unix.stackexchange.com/a/13757) the inotify watch limit.
 
+> <span class="badge" title="2025-11-12">Update</span> Arch now seems to set a high limit by default, 524288 on a new install.
+
 ## Booting UEFI with an existing EFI partition
 
 GRUB was presenting me with its own slow-ass [shell](https://www.linux.com/learn/how-rescue-non-booting-grub-2-linux) instead of an OS selection menu. The [problem](https://bbs.archlinux.org/viewtopic.php?pid=1348012#p1348012) was that the live USB had installed some rather important files into the root filesystem's `/boot` folder instead of the EFI partition.
@@ -223,6 +227,10 @@ In `xfce4-power-manager-settings` I specified that my laptop should go to sleep 
 This is normally unnecessary but did fix a problem I had on my Thinkpad P51: after upgrading my system in September 2024 for the first time in several months, resume from suspend would reliably greet me with a screen full of [errors](https://en.mihaly4.ru/arch-linux-nvidia-suspend-hibernation) like "Fixing recursive fault but reboot is needed" and "BUG: scheduling while atomic: irq/148-nvidia..."
 
 I switched to the more stable LTS version of Linux by backing up `/boot/initramfs-linux-fallback.img` `/boot/initramfs-linux.img` `/boot/vmlinuz-linux` to somewhere in my home directory, deleting those files to make space in `/boot`, installing `linux-lts` and `nvidia-lts` via pacman, editing `/boot/loader/entries/arch.conf` (see [above](#ditching-grub-only-for-uefi-systems)) to reference the newly created `-lts` files inside `/boot`, and restarting the computer.
+
+## Booting into USB on GMKtec NucBox
+
+I flashed Arch onto a USB drive and set it to highest boot priority in BIOS, but that setting kept getting ignored. Finally I found a [solution](https://www.reddit.com/r/techsupport/comments/12xd7nf/comment/jhjl0un/) deep in the bowels of Reddit: flash Arch onto _two_ USB drives and plug them both in. Weird AF indeed.
 
 <!-- Note to self: this issue may have arisen just because I installed Clipman and enabled synced selections at some point... -->
 <!--
@@ -307,6 +315,16 @@ Try `iptables -h' or 'iptables --help' for more information.
 ```
 
 [Switching](https://github.com/moby/moby/issues/38759#issuecomment-473909447) to `iptables-nft` restores the legacy `--dport` option. Note that whenever you update the Linux kernel, the option may become unavailable again until the next reboot.
+
+## Port 53 already in use
+
+When I tried to set up [Pi-hole](https://pi-hole.net/) in Docker, I got this error:
+
+```
+Error response from daemon: failed to set up container networking: driver failed programming external connectivity on endpoint pihole (851ce571120db7262a96ab24f4c019005a37094543b008cd1ec90baa35b392cf): failed to bind host port for 0.0.0.0:53:172.19.0.2:53/tcp: address already in use
+```
+
+The [solution](https://discourse.pi-hole.net/t/update-what-to-do-if-port-53-is-already-in-use/52033) is to set `DNSStubListener=no` in `/etc/systemd/resolved.conf` and then `sudo systemctl restart systemd-resolved`.
 
 ## Fixing slow pip downloads
 
