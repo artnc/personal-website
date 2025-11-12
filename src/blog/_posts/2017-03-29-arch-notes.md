@@ -12,6 +12,7 @@ Arch is surprisingly stable if you remember the single most important post-insta
 
 ### OS
 
+- [Installing Arch via `archinstall` wizard](#installing-arch-via-archinstall-wizard)
 - [Refreshing the mirror list](#refreshing-the-mirror-list)
 - [Disabling `-debug` packages](#disabling--debug-packages)
 - [Recovering from a bad upgrade](#recovering-from-a-bad-upgrade)
@@ -54,6 +55,18 @@ Arch is surprisingly stable if you remember the single most important post-insta
 - [Fixing Flatpak Steam](#fixing-flatpak-steam)
 - [Fixing Android Studio](#fixing-android-studio)
 - [My setup](#my-setup)
+
+## Installing Arch via `archinstall` wizard
+
+One weird trick Arch devs don't want you to know: Arch comes with an [installation wizard](https://archinstall.archlinux.page/installing/guided.html). It's barely documented (by Arch wiki standards) and never even mentioned in the official installation guide.
+
+Fair enough, you should probably have some idea of what you're doing before taking shortcuts. I've installed Arch enough times by now that I know what partitions are and exactly how I want them set up, but I'm not interested in figuring out such rarely used commands for the dozenth time.
+
+Definitely don't be _too_ lazy by blindly accepting the defaults. There are a few important non-default things to set up during `archinstall` that are more painful to try doing later:
+
+- Create a root password and non-root user
+- Create partitions encrypted via LUKS
+- Copy your USB installer's WiFi connection settings
 
 ## Refreshing the mirror list
 
