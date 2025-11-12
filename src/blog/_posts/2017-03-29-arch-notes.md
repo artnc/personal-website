@@ -163,7 +163,7 @@ sudo dd if=/dev/zero of=/dev/sda1 bs=4M status=progress
 # Format HDD (choose a strong password and don't lose it)
 sudo cryptsetup luksFormat /dev/sda1
 
-# Open container and invent a temporary mapper name for it, e.g. seagate
+# Open container and invent a mapper name for it, e.g. seagate
 sudo cryptsetup open /dev/sda1 seagate
 
 # Create filesystem
@@ -175,6 +175,10 @@ sudo mount /dev/mapper/seagate /mnt/seagate
 
 # Give yourself ownership of the filesystem (root by default)
 sudo chown -R art:art /mnt/seagate
+
+# To unmount, first unmount the mapper and then close the container
+sudo umount /dev/mapper/seagate
+sudo cryptsetup luksClose seagate
 ```
 
 ## Freeing up disk space
