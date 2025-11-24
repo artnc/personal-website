@@ -41,6 +41,8 @@ I named it Chronofile, which I later learned was also the name of a [similar und
 
 > <span class="badge" title="2021-12-27">Update</span> Hello [Hacker News](https://news.ycombinator.com/item?id=29692087)! As requested, here's a [release APK](https://github.com/artnc/chronofile/releases) that you can try installing for yourself on Android 8+. Please open a GitHub issue if you run into any problems with the app.
 
+> <span class="badge" title="2025-10-21">Update</span> Several years later, I've finally gotten around to uploading Chronofile to the [Google Play store](https://play.google.com/store/apps/details?id=com.chaidarun.chronofile)!
+
 Internally the app saves each log entry as a [TSV](https://en.wikipedia.org/wiki/Tab-separated_values) row containing the activity's name, descriptive note (optional), latitude, longitude, and start time in seconds since 1970:
 
 ```tsv

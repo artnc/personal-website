@@ -5,7 +5,7 @@ tags: Featured
 title: The Camino de Santiago in a Million Easy Steps
 ---
 
-I just spent 34 days walking the [Camino de Santiago](https://en.wikipedia.org/wiki/Camino_de_Santiago), a medieval pilgrimage route that starts in France and runs 800 km across Spain to the tomb of St. James the Apostle in Santiago de Compostela. This UNESCO-recognized tradition began in the 9th century and is now undertaken, at least in part, by around half a million people every year.
+I just spent 34 days walking the [Camino de Santiago](https://en.wikipedia.org/wiki/Camino_de_Santiago), a medieval pilgrimage route that starts in France and runs 800 km across Spain to the tomb of St. James the Apostle in Santiago de Compostela. This UNESCO-recognized tradition began 1200 years ago and is now undertaken, at least in part, by around half a million people every year.
 
 ![](/img/camino-village.jpg)
 
@@ -13,11 +13,11 @@ Jump to: [Background](#background) &middot; [Tips](#tips) &middot; [Language](#l
 
 ## Background
 
-**Fitness:** I'm in decent shape for a 30-year-old, although I normally avoid cardio whenever possible. I can count on one hand the number of "hikes" I had done in life before the Camino, each of which lasted well under an hour.
+**Fitness:** I'm in decent shape for a 30-year-old, although I normally avoid cardio whenever possible. I can count on one hand the number of hikes I had done in life before the Camino, each of which lasted well under an hour.
 
 **Language:** I studied Spanish for a couple years at an American high school and [completed](/duolingo) the Duolingo course in 2013 but never had much occasion to use Spanish in real life. A little knowledge went a long way while traveling through rural Spain, although I also met some pilgrims who seemed to get along fine speaking only English.
 
-**Route:** I took the [French Way](https://en.wikipedia.org/wiki/French_Way) (_Camino francés_), the most popular and historically important one of the many established Camino routes. After giving serious thought to the more scenic [Northern Way](https://en.wikipedia.org/wiki/Northern_Way) (_Camino del Norte_), I chose the French Way for its cultural significance&mdash;the world offers plenty of options beyond the Camino if you're mainly interested in sightseeing.
+**Route:** I took the [French Way](https://en.wikipedia.org/wiki/French_Way) (_Camino francés_), the most popular and historically important one of the many established Camino routes. After giving serious thought to the more scenic [Northern Way](https://en.wikipedia.org/wiki/Northern_Way) (_Camino del Norte_), I chose the French Way for its cultural significance&mdash;the world offers plenty of options beyond the Camino if you're mainly interested in natural beauty.
 
 **Religion:** I'm quite familiar with Catholicism but not religious myself. According to the Pilgrim's Reception Office, [over half](https://oficinadelperegrino.com/en/statistics-2/) of all pilgrims make the trip for non-religious reasons.
 

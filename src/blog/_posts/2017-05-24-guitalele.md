@@ -54,7 +54,7 @@ $100 is way down on the low end as far as musical instruments go, making it a re
 
 My guitalele has far and away the [lowest cost per playing hour](/ten-years-of-logging-my-life#observations) of any instrument I've owned, and yet it's still in great condition after three years.
 
-> <span class="badge" title="2024-02-01">Update</span> Ten years now!
+> <span class="badge" title="2025-09-25">Update</span> Eleven years now!
 
 ## It's easy
 

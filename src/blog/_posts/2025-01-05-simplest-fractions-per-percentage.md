@@ -3,7 +3,7 @@ description: Find the simplest possible ratio that corresponds to a given percen
 title: Simplest Fractions Per Percentage
 ---
 
-When you see a statistic such as "33% of reviewers liked this movie", you can't help but suspect that there were only three reviewers. Similarly if the percentage were 75%, you might suspect a sample size of four.
+When you see a statistic such as "75% of reviewers liked this movie", you can't help but wonder whether there were only four reviewers.
 
 What about other, less obvious percentages? Here are the smallest possible denominators that correspond to each integer percentage value:
 
