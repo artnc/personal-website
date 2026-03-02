@@ -3,7 +3,10 @@ layout: default
 ---
 
 {{ content }}
-<div class="post-info">{{ page.date | date: '%B %e, %Y' }}</div>
+<div class="post-info">
+  &mdash;{{ page.date | date: '%B %e, %Y' }}. No LLMs were used in the writing
+  of this post!
+</div>
 <script
   data-isso="https://chaidarun.com/isso/"
   data-isso-max-comments-nested="inf"
