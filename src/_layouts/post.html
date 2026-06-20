@@ -29,6 +29,21 @@ layout: default
       }
     }
 
+    // Footnote tooltips: show each footnote's text when hovering its
+    // inline reference number (kramdown renders refs as `a.footnote`)
+    for (const $ref of $$("main a.footnote")) {
+      const $note = document.getElementById($ref.hash.slice(1));
+      if (!$note) {
+        continue;
+      }
+      // Clone so we can drop the trailing backlink without mutating the page
+      const $clone = $note.cloneNode(true);
+      for (const $back of $clone.querySelectorAll(".reversefootnote")) {
+        $back.remove();
+      }
+      $ref.title = $clone.textContent.replace(/\s+/g, " ").trim();
+    }
+
     // Anchor transitions
     for (const $a of $$('main a[href^="#"]:not([class*="isso-"])')) {
       $a.addEventListener("click", e => {
