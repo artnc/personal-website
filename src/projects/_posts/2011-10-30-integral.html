@@ -112,7 +112,7 @@ title: Multiple Integral Calculator
       const upperBounds = $$(`main .upper input`).map($el => $el.value.trim());
       const lowerBounds = $$(`main .lower input`).map($el => $el.value.trim());
       if (upperBounds.length !== differentials.length) {
-        $result.innerText = `Wrong number of differentials! We expected ${upperBounds.lower}, but you entered ${differentials.lower}.`;
+        $result.innerText = `Wrong number of differentials! We expected ${upperBounds.length}, but you entered ${differentials.length}.`;
         return;
       }
       const countBrackets = needle => [...integrand.matchAll(needle)].length;
