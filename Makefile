@@ -2,9 +2,9 @@
 MAKEFLAGS += --silent
 SHELL = /usr/bin/env bash
 
-_DOCKER_OPTIONS = --rm -it \
-	-v "$${PWD}:/code" \
+_DOCKER_IMAGE = -v "$${PWD}:/code" \
 	"$$(docker build -q -t artnc/personal-website .)"
+_DOCKER_OPTIONS = --rm -it $(_DOCKER_IMAGE)
 
 # Build production files
 .PHONY: build
@@ -65,11 +65,16 @@ deploy: build
 		--quiet \
 		root@${host}:/var/www/html
 
-# Watch Jekyll source directory for changes and serve at localhost:4000
+# Watch Jekyll source directory for changes and serve at localhost:4000. The
+# container restarts on boot until you run `docker stop personal-website`
 .PHONY: serve
 serve:
-	docker run -p 4000:4000 -p 35729:35729 $(_DOCKER_OPTIONS) \
-		sh -c 'cd src && jekyll serve --livereload'
+	echo 'Starting Jekyll in background...'
+	docker rm -f personal-website &> /dev/null || true
+	docker run -d -t --name personal-website --restart unless-stopped \
+		-p 4000:4000 -p 35729:35729 $(_DOCKER_IMAGE) \
+		sh -c 'cd src && jekyll serve --livereload' > /dev/null
+	echo 'Run `docker logs -f personal-website` to view logs'
 
 # Validate HTML and RSS
 .PHONY: validate
