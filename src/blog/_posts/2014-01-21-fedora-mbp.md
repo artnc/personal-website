@@ -77,7 +77,7 @@ Well they supposedly do, but you need to have everything connected before bootin
 
 The Linux kernel version 3.0+ includes the driver for Apple's iSight camera. Unfortunately, newer Apple laptops have a so-called FaceTime HD camera instead, listed as "Broadcom Corporation Device 1570" by `lspci`.
 
-I've scoured the interwebs fairly thoroughly and despite one dubious [report](https://bbs.archlinux.org/viewtopic.php?pid=1139257#p1139257) to the contrary, it seems that FaceTime HD camera support on Linux just doesn't exist yet. The Arch wiki [agrees](https://wiki.archlinux.org/index.php/MacBookPro11,x#Web_cam).
+I've scoured the interwebs fairly thoroughly and despite one dubious [report](https://bbs.archlinux.org/viewtopic.php?pid=1139257#p1139257) to the contrary, it seems that FaceTime HD camera support on Linux just doesn't exist yet. The Arch wiki [agrees](https://wiki.archlinux.org/title/MacBookPro11,x#Web_cam).
 
 > <span class="badge" title="2016-12-29">Update</span> The Arch wiki now links to an [experimental driver](https://github.com/patjak/bcwc_pcie/). I haven't personally tried it.
 

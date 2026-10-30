@@ -94,7 +94,7 @@ Kernel panic - not syncing: No working init found. Try passing init= option to k
 
 Some weeks later I crossed my fingers and ran the upgrade command again, which fixed everything. How do you run commands on a system that you can't even boot into? I followed [this advice](https://bbs.archlinux.org/viewtopic.php?pid=1528537) to use `arch-chroot`. Cue painfully detailed guide to `arch-chroot`:
 
-1. Before turning on the computer, plug in a USB stick with Arch [on it](https://wiki.archlinux.org/index.php/USB_flash_installation_media). Also plug in an ethernet cable if your planned fix requires a connection.
+1. Before turning on the computer, plug in a USB stick with Arch [on it](https://wiki.archlinux.org/title/USB_flash_installation_media). Also plug in an ethernet cable if your planned fix requires a connection.
 
 1. Turn on the computer and go into BIOS by hitting some manufacturer-specific key combination after the screen turns on (e.g. `Fn+F2` on my Lenovo laptop). Find the boot priority list and reorder it so that the USB drive has the highest priority. Save, exit, and boot into USB when asked.
 
@@ -200,7 +200,7 @@ sudo cryptsetup luksClose seagate
 
 When uninstalling packages, always use `pacman -Rs` to include would-be orphans.
 
-Pacman doesn't delete old package versions, so you'll need to [do so yourself](https://wiki.archlinux.org/index.php/Pacman#Cleaning_the_package_cache) after package upgrades:
+Pacman doesn't delete old package versions, so you'll need to [do so yourself](https://wiki.archlinux.org/title/Pacman#Cleaning_the_package_cache) after package upgrades:
 
 ```shell
 $ paccache -r
@@ -209,7 +209,7 @@ $ paccache -r
 
 [Pacgraph](http://kmkeen.com/pacgraph/) shows your largest installed packages, which you can then remove if no longer needed.
 
-The systemd journal can grow up to 4 GiB. If you don't need all those logs, you can [cap it to a lower value](https://wiki.archlinux.org/index.php/Systemd#Journal_size_limit).
+The systemd journal can grow up to 4 GiB. If you don't need all those logs, you can [cap it to a lower value](https://wiki.archlinux.org/title/Systemd#Journal_size_limit).
 
 I had Docker for a while and later decided to uninstall it. Deleting `/var/lib/docker` freed up 8.1 GB.
 
@@ -229,7 +229,7 @@ I had mistakenly been under the impression that mounting the existing EFI partit
 
 ## Ditching GRUB (only for UEFI systems)
 
-GRUB is the kitchen sink bootloader. Systemd comes with its own UEFI bootloader that's much simpler and works perfectly fine if all you need is an OS selection menu. As explained in the [guide](https://wiki.archlinux.org/index.php/systemd-boot), just enable `systemd-boot` and create the two files `arch.conf` and `loader.conf`.
+GRUB is the kitchen sink bootloader. Systemd comes with its own UEFI bootloader that's much simpler and works perfectly fine if all you need is an OS selection menu. As explained in the [guide](https://wiki.archlinux.org/title/Systemd-boot), just enable `systemd-boot` and create the two files `arch.conf` and `loader.conf`.
 
 ## Suspending after inactivity
 
@@ -256,7 +256,7 @@ I installed Clipman, went into its settings, and disabled "Sync selections".
 
 ## Manually connecting to a WPA network
 
-TLDR of the Arch [guide](https://wiki.archlinux.org/index.php/Wireless_network_configuration) (run as root):
+TLDR of the Arch [guide](https://wiki.archlinux.org/title/Wireless_network_configuration) (run as root):
 
 ```shell
 ip link set wlp4s0 up # WiFi interface name `wlp4s0` obtained from `ip a`
@@ -343,11 +343,11 @@ The [solution](https://discourse.pi-hole.net/t/update-what-to-do-if-port-53-is-a
 
 One day my `pip install` suddenly became comically slow, seemingly on the order of 10 kB/s. A `pip -vvv` revealed that it was hanging on "Starting new HTTPS connection (1) pypi.org", which led me to [this post](https://www.reddit.com/r/bashonubuntuonwindows/comments/8rplxw/python_pip_takes_forever_on_wsl/e0twr6z/?utm_source=reddit&utm_medium=web2x&context=3) that correctly identified my issue: pip tried and failed to connect using multiple IPv6 addresses until it finally gave up and fell back to IPv4.
 
-My workaround was to simply [disable IPv6](https://wiki.archlinux.org/index.php/IPv6#Disable_functionality) in kernel params 🤷
+My workaround was to simply [disable IPv6](https://wiki.archlinux.org/title/IPv6#Disable_functionality) in kernel params 🤷
 
 ## Connecting to an L2TP/IPsec VPN
 
-Just to be safe, uninstall all of the following packages: openswan, strongswan, networkmanager-openswan, networkmanager-strongswan, and networkmanager-libreswan. I couldn't get any of these to work. Openswan seems capable but there's no way I'm going to run through [this gauntlet](https://wiki.archlinux.org/index.php/Openswan_L2TP/IPsec_VPN_client_setup) for a single VPN connection if I can avoid it.
+Just to be safe, uninstall all of the following packages: openswan, strongswan, networkmanager-openswan, networkmanager-strongswan, and networkmanager-libreswan. I couldn't get any of these to work. Openswan seems capable but there's no way I'm going to run through [this gauntlet](https://wiki.archlinux.org/title/Openswan_L2TP/IPsec_VPN_client_setup) for a single VPN connection if I can avoid it.
 
 Install [networkmanager](https://www.archlinux.org/packages/extra/x86_64/networkmanager/), [libreswan](https://aur.archlinux.org/packages/libreswan/), and [networkmanager-l2tp](https://aur.archlinux.org/packages/networkmanager-l2tp/). (It's important to install networkmanager-l2tp last!) Then add the VPN entry as usual by right-clicking the NetworkManager applet or running `nm-connection-editor`.
 
@@ -359,7 +359,7 @@ When setting up the VPN entry, go into "IPsec Settings" and check "Enable IPsec 
 
 ## Getting Intel Wireless 8260 card to work
 
-Trying to [activate](https://wiki.archlinux.org/index.php/Wireless_network_configuration) my WiFi card with `ip link set wlp4s0 up` failed with a vague `RTNETLINK answers: Input/output error` message. Turns out that version 22 of the Linux kernel's firmware for my particular WiFi card was [problematic](https://bbs.archlinux.org/viewtopic.php?pid=1590387#p1590387). You can see what firmware version you're on by running `dmesg | grep 'iwlwifi.*loaded'`.
+Trying to [activate](https://wiki.archlinux.org/title/Wireless_network_configuration) my WiFi card with `ip link set wlp4s0 up` failed with a vague `RTNETLINK answers: Input/output error` message. Turns out that version 22 of the Linux kernel's firmware for my particular WiFi card was [problematic](https://bbs.archlinux.org/viewtopic.php?pid=1590387#p1590387). You can see what firmware version you're on by running `dmesg | grep 'iwlwifi.*loaded'`.
 
 The solution was to force Linux to use the previous version of the firmware by [disabling](https://ubuntuforums.org/showthread.php?t=2342945&p=13568896#post13568896) the latest version. As root:
 
@@ -477,7 +477,7 @@ To [fix](https://www.reddit.com/r/archlinux/comments/8o5ol0/error_using_pacman_u
 
 ## Fixing Flatpak Steam
 
-I installed Steam via Flatpak as [documented](https://wiki.archlinux.org/index.php/steam#Alternative_Flatpak_installation) in the Arch wiki, which initially worked fine. However, I got this error the second time I tried running Steam:
+I installed Steam via Flatpak as [documented](https://wiki.archlinux.org/title/Steam#Alternative_Flatpak_installation) in the Arch wiki, which initially worked fine. However, I got this error the second time I tried running Steam:
 
 ```shell
 $ flatpak run com.valvesoftware.Steam
@@ -525,7 +525,7 @@ I was trying to set up React Native, which involves setting up Android Studio. E
 java.io.IOException: Cannot run program "/home/art/Android/Sdk/build-tools/23.0.1/aapt": error=2, No such file or directory
 ```
 
-The solution is to enable the [multilib repository](https://wiki.archlinux.org/index.php/multilib) and then install [some packages](https://medium.com/@bpdp/undocumented-manual-of-react-native-for-64-bit-linux-5a7992ae3008):
+The solution is to enable the [multilib repository](https://wiki.archlinux.org/title/Multilib) and then install [some packages](https://medium.com/@bpdp/undocumented-manual-of-react-native-for-64-bit-linux-5a7992ae3008):
 
 ```shell
 pacman -S lib32-gcc-libs lib32-glibc lib32-libstdc++5 lib32-ncurses lib32-zlib
@@ -548,13 +548,18 @@ Emulator: libGL error: unable to load driver: i965_dri.so
 On all Arch installations:
 
 ```shell
-pacman -S bc fd-rs fzf git htop ncdu ntfs-3g python-pre-commit rclone reflector ripgrep rsync sudo syncthing tmux words zsh zsh-syntax-highlighting
+pacman -S bc cronie curl fzf git htop jq keepassxc man-db micro ncdu openssh pacman-contrib rclone reflector ripgrep rsync syncthing tailscale tmux unzip wget zsh zsh-syntax-highlighting
+# Also yay: https://github.com/Jguer/yay?tab=readme-ov-file#binary
 ```
 
 On graphical Arch installations:
 
 ```shell
-pacman -S alacritty dmenu docker easystroke evince feh firefox gimp i3-wm i3blocks i3blocks-contrib-git i3lock i3status imagemagick jq keepassxc network-manager-applet numlockx pacgraph scrot shellcheck-bin sublime-text-dev thunar xfce4-goodies xfce4-power-manager
+pacman -S alacritty dex dmenu docker docker-compose ffmpeg firefox gimp i3-wm i3blocks i3blocks-contrib-git i3status imagemagick mpv network-manager-applet numlockx pacgraph pipewire pipewire-alsa pipewire-pulse visual-studio-code-bin wireplumber xarchiver xbindkeys xclip xorg-server xorg-xinit xorg-xset xpra xsecurelock xss-lock zip
+# Formerly XFCE4 / xfce4-goodies
+pacman -S ristretto thunar thunar-archive-plugin xfce4-clipman-plugin xfce4-power-manager xfce4-screenshooter
+# For GTK dark theme (also set `GTK_THEME=Adwaita-dark` in /etc/environment)
+pacman -S gnome-themes-extra gnome-themes-extra-gtk2 adwaita-qt5-git adwaita-qt6-git
 ```
 
 [My .zshrc and other dotfiles](https://github.com/artnc/dotfiles)
