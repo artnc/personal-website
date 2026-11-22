@@ -45,15 +45,18 @@ _build:
 .PHONY: comments
 comments:
 	[[ -n "$${ISSO_ADMIN_PASSWORD}" ]]
-	mkdir -p /tmp/isso
-	cp isso.cfg /tmp/isso/isso.cfg
-	sed -i "s/__ISSO_ADMIN_PASSWORD__/$${ISSO_ADMIN_PASSWORD}/g" /tmp/isso/isso.cfg
-	# https://isso-comments.de/docs/reference/installation/#using-docker
-	docker run --rm \
+	mkdir -p ~/.config/isso
+	sed "s/__ISSO_ADMIN_PASSWORD__/$${ISSO_ADMIN_PASSWORD}/g" isso.cfg > ~/.config/isso/isso.cfg
+	docker rm -f isso &> /dev/null || true
+	# https://isso-comments.de/docs/reference/installation/#using-docker. The
+	# container restarts on boot until you run `docker stop isso`. The command
+	# overrides the image's default `-w 4` to save about 90 MB of RAM
+	docker run -d --name isso --restart unless-stopped \
 		-p 127.0.0.1:8080:8080 \
-		-v '/tmp/isso:/config' \
+		-v "$${HOME}/.config/isso:/config" \
 		-v "$${PWD}:/db" \
-		ghcr.io/isso-comments/isso:0.13.0
+		ghcr.io/isso-comments/isso:0.13.0 \
+		/isso/bin/gunicorn -b 0.0.0.0:8080 -w 1 --preload isso.run --worker-tmp-dir /dev/shm > /dev/null
 
 # Upload to DigitalOcean via rsync
 # https://stackoverflow.com/a/11829094
