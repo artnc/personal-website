@@ -62,7 +62,10 @@ comments:
 # https://stackoverflow.com/a/11829094
 .PHONY: deploy
 deploy: build
-	docker run $(_DOCKER_OPTIONS) rsync -azP \
+	docker run \
+		-e SSH_AUTH_SOCK=/ssh-agent \
+		--mount "type=bind,src=$${SSH_AUTH_SOCK},dst=/ssh-agent" \
+		$(_DOCKER_OPTIONS) rsync -azP \
 		--delete build/ \
 		-e "ssh -o StrictHostKeyChecking=no" \
 		--quiet \
